@@ -1,5 +1,2 @@
-export interface Product {
-    [key: string]: string;
-}
-
+/** массив с данными продуктов */
 export const PRODUCTS: Product[] = [{}];
