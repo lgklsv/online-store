@@ -1,7 +1,10 @@
 interface Product {
     id: number;
     title: string;
-    description: string;
+    sex: string;
+    color: string[];
+    sizes: string[];
+    description: string[];
     price: number;
     discountPercentage: number;
     rating: number;
