@@ -35,4 +35,3 @@ window.addEventListener('popstate', (): void => {
         showPath(hostEl, window.location.pathname);
     }
 });
-
