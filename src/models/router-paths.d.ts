@@ -1,6 +1,10 @@
 interface Paths {
-    [key: string | number]: {
+    [key: string]: {
         template: Function;
         title: string;
     };
+}
+
+interface PathNames {
+    [key: string]: string ;
 }

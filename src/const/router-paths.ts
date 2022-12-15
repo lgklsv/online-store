@@ -3,22 +3,23 @@ import { notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { cart } from '../pages/cart';
 import { product } from '../pages/product-page';
+import { PATH_NAMES } from './path-names';
 
 /** Пути роутера(страницы) */
 export const ROUTER_PATHS: Paths = {
-    404: {
+    [PATH_NAMES.notFound]: {
         template: notFound,
         title: `404 | ${storeName}`,
     },
-    '/': {
+    [PATH_NAMES.main]: {
         template: app,
         title: `${storeName}`,
     },
-    '/cart': {
+    [PATH_NAMES.cart]: {
         template: cart,
         title: `Cart | ${storeName}`,
     },
-    '/product': {
+    [PATH_NAMES.product]: {
         template: product,
         title: `Product | ${storeName}`,
     },
