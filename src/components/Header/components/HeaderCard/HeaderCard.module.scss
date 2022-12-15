@@ -1,0 +1,39 @@
+.header__card {
+    width: 5rem;
+    position: relative;
+}
+
+.card__container {
+    width: 5rem;
+    position: relative;
+}
+
+.header_card-link {
+    display: block;
+    background-image: url('/src/assets/images/cart.svg');
+    width: 5rem;
+    height: 5rem;
+}
+
+.header_card-counter {
+    padding: 0.1rem 0.6rem;
+    // background-color: var(--background);
+    border: 2px solid red;
+    border-radius: 100px;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    z-index: 1;
+    background-color: aqua;
+    margin: 0;
+}
+
+.card-counter {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    justify-content: center;
+    height: 1.4rem;
+    min-width: 0.8rem;
+    font-size: 10px;
+}

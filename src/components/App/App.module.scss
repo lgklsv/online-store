@@ -1,10 +1,14 @@
+@font-face {
+    font-family: 'GraphikLCG-Regular';
+    src: url('/src/assets/fonts/GraphikLCG-Regular.woff2') format('woff2');
+}
+
 .body {
-    background-color: black;
-    // font-family: Montserrat;
-    font-size: 0.9375rem;
+    background-color: #f2f2f2;
+    font-family: GraphikLCG-Regular;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
-    color: #fff;
     text-align: left;
     margin: 0;
     box-sizing: border-box;
@@ -12,21 +16,6 @@
 
 .container {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    box-sizing: border-box;
-
-    // @media (min-width: $desktop) {
-    //     max-width: 720px;
-    // }
-
-    // @media (min-width: 992px) {
-    //     max-width: 960px;
-    // }
-
-    // @media (min-width: 1200px) {
-    //     max-width: 1140px;
-    // }
 }
