@@ -1,5 +1,6 @@
 import path from 'path';
 import { Configuration } from 'webpack';
+import 'webpack-dev-server';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
@@ -13,6 +14,7 @@ const config: Configuration = {
     entry: entryPath,
     output: {
         filename: '[name].bundle.js',
+        publicPath: '/',
         path: bundlePath,
         clean: true,
     },
@@ -27,6 +29,15 @@ const config: Configuration = {
         }),
         new CleanWebpackPlugin(),
     ],
+    devtool: 'source-map',
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'dist'),
+        },
+        hot: true,
+        compress: true,
+        historyApiFallback: true,
+    },
     module: {
         rules: [
             {
