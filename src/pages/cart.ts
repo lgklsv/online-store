@@ -1,1 +1,3 @@
-export const cart = '<h1>CART</h1>';
+export const cart = function (): string {
+    return `<h1>CART</h1>`;
+};

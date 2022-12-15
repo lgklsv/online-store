@@ -1,6 +1,6 @@
-export interface Paths {
+interface Paths {
     [key: string | number]: {
-        template: string;
+        template: Function;
         title: string;
     };
 }

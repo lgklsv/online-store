@@ -1,1 +1,3 @@
-export const app = '<h1>APP</h1>';
+export const app = function(): string  {
+    return `<h1>APP</h1>`;
+}
