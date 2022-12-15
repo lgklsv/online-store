@@ -48,6 +48,7 @@ const config: Configuration = {
             {
                 test: /\.s[ac]ss$/i,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
+                // options: { module: true },
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
@@ -60,7 +61,7 @@ const config: Configuration = {
         ],
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.js', '.css', '.scss'],
         alias: { assets: assetsPath },
     },
 };
