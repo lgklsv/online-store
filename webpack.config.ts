@@ -47,7 +47,18 @@ const config: Configuration = {
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[local]',
+                            },
+                        },
+                    },
+                    'sass-loader',
+                ],
                 // options: { module: true },
             },
             {
