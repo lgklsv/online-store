@@ -1,14 +1,15 @@
 import { createElem } from '../../../../utils/create-element';
 import styles from './HeaderCard.module.scss';
 
-export const renderHeaderCard = () => {
-    const containerCard = createElem('div', styles['header__card']);
+export const renderHeaderCard = (): HTMLElement => {
+    const containerCard: HTMLElement = createElem('div', styles['header__card']);
 
-    const cardWrapper = createElem('div', styles['header__card_container']);
-    const cardLink = createElem('a', styles['header_card-link']);
+    const cardWrapper: HTMLElement = createElem('div', 'header__card_container');
+    const cardLink: HTMLElement = createElem('a', styles['header_card-link']);
+    cardLink.setAttribute('href', '/cart');
 
-    const cardCounter = createElem('div', styles['header_card-counter']);
-    const counterProduct = createElem('span', styles['card-counter']);
+    const cardCounter: HTMLElement = createElem('div', styles['header_card-counter']);
+    const counterProduct: HTMLElement = createElem('span', styles['card-counter']);
     counterProduct.innerHTML = '1';
 
     cardWrapper.append(cardLink);

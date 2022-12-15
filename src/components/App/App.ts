@@ -1,8 +1,7 @@
 import { renderHeader } from '../Header/Header';
 import styles from './App.module.scss';
 
-export const renderApp = () => {
-    // накидываем стиль на body
+export const renderApp = (): void => {
     document.body.classList.add(styles['body']);
 
     // #app - точка входа в разметке html

@@ -1,4 +1,28 @@
+@import '/src/theme/colors';
+
 .header {
-    background-color: rgb(165, 174, 149); //TODO - поменять цвет!
-    width: 100%;
+    background-color: $white;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.store-name__link {
+    display: block;
+    background-image: url('/src/assets/images/Logo.svg');
+    width: 5rem;
+    height: 5rem;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header__total-summ {
+    display: flex;
+    gap: 1rem;
+    font-weight: 800;
+}
+
+.total-summ__header {
+    text-transform: uppercase;
 }

@@ -1,31 +1,52 @@
+@import '/src/theme/colors';
+
 .header__card {
-    width: 5rem;
+    width: 3.5rem;
+    height: 3.5rem;
     position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    transition: background-color 0.3s linear 0s;
+
+    &:hover {
+        background-color: $background-hover;
+
+        .header_card-counter {
+            background-color: $black;
+            color: $white;
+            transition: background-color 0.3s linear 0s;
+        }
+    }
 }
 
 .card__container {
-    width: 5rem;
+    width: 2rem;
     position: relative;
 }
 
 .header_card-link {
     display: block;
     background-image: url('/src/assets/images/cart.svg');
-    width: 5rem;
-    height: 5rem;
+    width: 2rem;
+    height: 2rem;
 }
 
 .header_card-counter {
-    padding: 0.1rem 0.6rem;
-    // background-color: var(--background);
-    border: 2px solid red;
+    padding: 0.1rem 0.5rem;
+    border: 2px solid $white;
     border-radius: 100px;
     position: absolute;
-    bottom: 4px;
-    right: 4px;
+    bottom: 2px;
+    right: 2px;
     z-index: 1;
-    background-color: aqua;
+    background-color: $background;
     margin: 0;
+    height: 1.13rem;
+    line-height: 1;
 }
 
 .card-counter {
