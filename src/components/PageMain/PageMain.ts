@@ -3,7 +3,7 @@ import { renderMainToolbar } from './components/MainToolbar/MainToolbar';
 import styles from './PageMain.module.scss';
 
 export const renderMainPage = (): HTMLElement => {
-    const main: HTMLElement = createElem('main', 'main');
+    const main: HTMLElement = createElem('main', styles['main']);
     const mainContainer: HTMLElement = createElem('div', styles['main__container']);
 
     const mainToollbar: HTMLElement = renderMainToolbar();

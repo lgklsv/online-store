@@ -1,0 +1,31 @@
+@import '/src/theme/variable';
+
+.select_item-sort {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2.2rem;
+    padding-left: 0.8rem;
+    border: 1px solid $primary10;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.select_list {
+    background-color: aliceblue;
+}
+
+.select_dropdown {
+    background-color: antiquewhite;
+}
+
+.select__item {
+    display: flex;
+    align-items: center;
+    height: 2.8rem;
+    padding-left: 0.8rem;
+    color: $primary-40;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 12px;
+}

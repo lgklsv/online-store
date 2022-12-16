@@ -1,7 +1,11 @@
 @import '/src/theme/variable';
+
+.main {
+    background-color: $background;
+    padding-top: 1.5rem;
+}
 .main__container {
     max-width: $desktop;
-    background-color: antiquewhite;
     height: 500px;
     margin-right: auto;
     margin-left: auto;
