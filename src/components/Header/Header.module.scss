@@ -3,6 +3,14 @@
 .header {
     background-color: $white;
     max-width: 100%;
+}
+
+.header__container {
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
