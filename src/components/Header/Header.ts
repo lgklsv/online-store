@@ -1,9 +1,11 @@
-// import { router } from '../../router/router';
+import { router } from '../../router/router';
 import { createElem } from '../../utils/create-element';
 import { renderHeaderCart } from './components/HeaderCard/HeaderCart';
 import styles from './Header.module.scss';
 
 export const renderHeader = (): HTMLElement => {
+    const hostEl = document.getElementById('app') as HTMLElement;
+
     const header: HTMLElement = createElem('header', 'header');
 
     const headerContainer = createElem('div', 'header__container');
@@ -13,13 +15,13 @@ export const renderHeader = (): HTMLElement => {
     storeLogoLink.setAttribute('href', '/');
 
     storeName.append(storeLogoLink);
-    // storeName.onclick = (e: Event) => {
-    //     if (e.target instanceof HTMLAnchorElement) {
-    //         e.preventDefault();
-    //         const pathname = e.target.getAttribute('href');
-    //         if (pathname) router(hostEl, pathname);
-    //     }
-    // };
+    storeName.onclick = (e: Event) => {
+        if (e.target instanceof HTMLAnchorElement) {
+            e.preventDefault();
+            const pathname = e.target.getAttribute('href');
+            if (pathname) router(hostEl, pathname);
+        }
+    };
 
     const totalSumm: HTMLElement = createElem('div', 'header__total-summ');
     const summHeader: HTMLElement = createElem('div', styles['total-summ__header']);
