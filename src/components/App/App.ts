@@ -1,3 +1,4 @@
+import { renderFooter } from '../Footer/Footer';
 import { renderHeader } from '../Header/Header';
 import styles from './App.module.scss';
 
@@ -9,9 +10,9 @@ export const renderApp = (): Element => {
     appContiner.innerHTML = '';
 
     const header: HTMLElement = renderHeader();
-    // const footer = `;
+    const footer: HTMLElement = renderFooter();
     // const main = ;
 
-    appContiner.append(header);
+    appContiner.append(header, footer);
     return appContiner;
 };
