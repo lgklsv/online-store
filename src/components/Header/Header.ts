@@ -1,5 +1,5 @@
-import { router } from '../../router/router';
 import { createElem } from '../../utils/create-element';
+import { router } from '../../utils/router';
 import { renderHeaderCart } from './components/HeaderCard/HeaderCart';
 import styles from './Header.module.scss';
 
@@ -15,6 +15,7 @@ export const renderHeader = (): HTMLElement => {
     storeLogoLink.setAttribute('href', '/');
 
     storeName.append(storeLogoLink);
+
     storeName.onclick = (e: Event) => {
         if (e.target instanceof HTMLAnchorElement) {
             e.preventDefault();
