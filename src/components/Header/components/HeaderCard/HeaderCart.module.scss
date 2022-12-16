@@ -1,6 +1,6 @@
 @import '/src/theme/colors';
 
-.header__card {
+.header__cart {
     width: 3.5rem;
     height: 3.5rem;
     position: relative;
@@ -15,7 +15,7 @@
     &:hover {
         background-color: $background-hover;
 
-        .header_card-counter {
+        .header_cart-counter {
             background-color: $black;
             color: $white;
             transition: background-color 0.3s linear 0s;
@@ -23,19 +23,19 @@
     }
 }
 
-.card__container {
+.cart__container {
     width: 2rem;
     position: relative;
 }
 
-.header_card-link {
+.header_cart-link {
     display: block;
     background-image: url('/src/assets/images/cart.svg');
     width: 2rem;
     height: 2rem;
 }
 
-.header_card-counter {
+.header_cart-counter {
     padding: 0.1rem 0.5rem;
     border: 2px solid $white;
     border-radius: 100px;
@@ -49,7 +49,7 @@
     line-height: 1;
 }
 
-.card-counter {
+.cart-counter {
     margin: 0;
     padding: 0;
     border: 0;

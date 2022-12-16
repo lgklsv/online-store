@@ -1,5 +1,5 @@
 import { createElem } from '../../utils/create-element';
-import { renderHeaderCard } from './components/HeaderCard/HeaderCard';
+import { renderHeaderCart } from './components/HeaderCard/HeaderCart';
 import styles from './Header.module.scss';
 
 export const renderHeader = (): HTMLElement => {
@@ -15,16 +15,16 @@ export const renderHeader = (): HTMLElement => {
     // блок суммы
     const totalSumm: HTMLElement = createElem('div', 'header__total-summ');
     const summHeader: HTMLElement = createElem('div', styles['total-summ__header']);
-    summHeader.innerHTML = 'Card total';
+    summHeader.innerHTML = 'Cart total';
     const summ: HTMLElement = createElem('div', 'total-summ__num');
     summ.innerHTML = '13579'; //значения должны меняться
 
     totalSumm.append(summHeader, summ);
 
     // корзина
-    const card = renderHeaderCard();
+    const cart = renderHeaderCart();
 
-    header.append(storeName, totalSumm, card);
+    header.append(storeName, totalSumm, cart);
 
     return header;
 };
