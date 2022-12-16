@@ -1,8 +1,9 @@
 import { createElem } from '../../utils/create-element';
 import { createLink } from '../../utils/create-link-element';
+import styles from './Footer.module.scss';
 
 export const renderFooter = (): HTMLElement => {
-    const footer: HTMLElement = createElem('footer', 'footer');
+    const footer: HTMLElement = createElem('footer', styles['footer']);
     const footerContainer: HTMLElement = createElem('div', 'footer__container');
 
     // credentials (top)
@@ -13,7 +14,7 @@ export const renderFooter = (): HTMLElement => {
         'https://github.com/Alesia-Abaeva',
         'footer__link',
         true,
-        'Alesia-Abaeva'
+        'Alesia-Abaeva  '
     );
 
     footerCredentials.append(footerGitLink);
@@ -26,7 +27,7 @@ export const renderFooter = (): HTMLElement => {
     // copyright (bottom)
     const footerCopyright: HTMLElement = createElem('div', 'footer__copyright');
 
-    const rsSchoolLink: HTMLElement = createLink('https://rs.school/js/', 'footer__link', true, '');
+    const rsSchoolLink: HTMLElement = createLink('https://rs.school/js/', 'rsSchoolLink', true, '');
 
     const copyrightText: HTMLElement = createElem('p', 'footer__text');
     copyrightText.innerHTML = '© 2022 markett. All rights reserved.';
