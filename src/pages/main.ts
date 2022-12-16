@@ -1,3 +1,6 @@
-export const app = function(): string  {
-    return `<h1>APP</h1>`;
-}
+import { renderApp } from '../components/App/App';
+
+export const app = function (): void {
+    console.log('MAIN');
+    renderApp();
+};

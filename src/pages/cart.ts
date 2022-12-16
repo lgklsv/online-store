@@ -1,3 +1,6 @@
-export const cart = function (): string {
-    return `<h1>CART</h1>`;
+import { renderApp } from '../components/App/App';
+
+export const cart = function (): void {
+    console.log('CART');
+    renderApp();
 };

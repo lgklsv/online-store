@@ -2,14 +2,15 @@ import { ROUTER_PATHS } from '../const/router-paths';
 import { extractPathId } from '../utils/extract-path-id';
 import { findProductById } from '../utils/find-product-by-id';
 import { PATH_NAMES } from '../const/path-names';
- 
+import { router } from '../utils/router';
+
 const menu = document.querySelector('.router-test-menu');
-const hostEl = document.getElementById('app');
+const hostEl = document.getElementById('app') as HTMLElement;
 
 /** Рендер темплейтов страниц */
-const pathResolver = (hostEl: HTMLDivElement, pathname: string): void => {
+export const pathResolver = (hostEl: HTMLDivElement, pathname: string): void => {
     let route = ROUTER_PATHS[pathname] || ROUTER_PATHS[PATH_NAMES.notFound];
-    if(pathname.startsWith(PATH_NAMES.product)){
+    if (pathname.startsWith(PATH_NAMES.product)) {
         const product = findProductById(extractPathId(pathname));
         if (product !== -1) {
             route = ROUTER_PATHS[PATH_NAMES.product];
@@ -21,7 +22,7 @@ const pathResolver = (hostEl: HTMLDivElement, pathname: string): void => {
             document.title = route.title;
         }
     } else {
-        hostEl.innerHTML = route.template();
+        route.template();
         document.title = route.title;
     }
 };
@@ -30,19 +31,12 @@ if (hostEl instanceof HTMLDivElement) {
     pathResolver(hostEl, window.location.pathname);
 }
 
-const router = (pathname: string): void => {
-    window.history.pushState({}, '', window.location.origin + pathname);
-    if (hostEl instanceof HTMLDivElement) {
-        pathResolver(hostEl, pathname);
-    }
-};
-
 if (menu instanceof HTMLElement) {
     menu.addEventListener('click', (e: Event) => {
         if (e.target instanceof HTMLAnchorElement) {
             e.preventDefault();
             const pathname = e.target.getAttribute('href');
-            if (pathname) router(pathname);
+            if (pathname) router(hostEl, pathname);
         }
     });
 }

@@ -1,5 +1,6 @@
 {
     "devDependencies": {
+        "@types/node-sass": "^4.11.3",
         "@typescript-eslint/eslint-plugin": "^5.46.1",
         "@typescript-eslint/parser": "^5.46.1",
         "@webpack-cli/generators": "^3.0.1",
@@ -33,7 +34,7 @@
         "build:prod": "webpack --mode=production --node-env=production",
         "watch": "webpack --watch --node-env=development",
         "serve": "webpack serve --node-env=development",
-        "start": "webpack serve --open --node-env=development"
+        "start": "webpack serve --open --mode=development --node-env=development"
     },
     "dependencies": {
         "clean-webpack-plugin": "^4.0.0",
