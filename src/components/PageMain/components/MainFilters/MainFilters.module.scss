@@ -1,4 +1,13 @@
+@import '/src/theme/variable';
+
 .filters {
-    background-color: red;
+    // background-color: red;
     height: 100%;
+}
+
+.filters__heading {
+    font-size: 1.1rem;
+    padding: 1rem 1.3rem;
+    color: $black;
+    font-weight: 400;
 }
