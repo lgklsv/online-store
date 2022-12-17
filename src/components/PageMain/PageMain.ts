@@ -1,4 +1,5 @@
 import { createElem } from '../../utils/create-element';
+import { renderMainCatalog } from './components/MainCatalog/MainCatalog';
 import { renderMainToolbar } from './components/MainToolbar/MainToolbar';
 import styles from './PageMain.module.scss';
 
@@ -7,9 +8,9 @@ export const renderMainPage = (): HTMLElement => {
     const mainContainer: HTMLElement = createElem('div', styles['main__container']);
 
     const mainToollbar: HTMLElement = renderMainToolbar();
-    // const mainCatalog: HTMLElement = createElem('div', 'main__catalog');
+    const mainCatalog: HTMLElement = renderMainCatalog();
 
-    mainContainer.append(mainToollbar);
+    mainContainer.append(mainToollbar, mainCatalog);
 
     main.append(mainContainer);
 
