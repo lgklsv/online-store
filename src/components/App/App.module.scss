@@ -5,6 +5,10 @@
     src: url('/src/assets/fonts/GraphikLCG-Regular.woff2') format('woff2');
 }
 
+.content {
+    min-height: calc(100vh - $footer-height);
+}
+
 .body {
     background-color: $background;
     font-family: GraphikLCG-Regular;
@@ -15,10 +19,4 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.container {
-    max-width: 100%;
-    margin-right: auto;
-    margin-left: auto;
 }

@@ -1,3 +1,5 @@
+import { createElem } from '../../utils/create-element';
+import { renderFooter } from '../Footer/Footer';
 import { renderHeader } from '../Header/Header';
 import styles from './App.module.scss';
 
@@ -8,10 +10,13 @@ export const renderApp = (): Element => {
     const appContiner: Element = document.querySelector('#app') as Element;
     appContiner.innerHTML = '';
 
+    const content: HTMLElement = createElem('div', styles['content']);
+
     const header: HTMLElement = renderHeader();
-    // const footer = `;
+    const footer: HTMLElement = renderFooter();
     // const main = ;
 
-    appContiner.append(header);
+    content.append(header);
+    appContiner.append(content, footer);
     return appContiner;
 };

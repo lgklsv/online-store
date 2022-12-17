@@ -8,7 +8,7 @@ export const renderHeader = (): HTMLElement => {
 
     const header: HTMLElement = createElem('header', 'header');
 
-    const headerContainer = createElem('div', 'header__container');
+    const headerContainer: HTMLElement = createElem('div', 'header__container');
 
     const storeName: HTMLElement = createElem('div', 'header__store-name');
     const storeLogoLink: HTMLElement = createElem('a', styles['store-name__link']);

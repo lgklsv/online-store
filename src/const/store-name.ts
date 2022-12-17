@@ -1,1 +1,1 @@
-export const storeName: string = 'Online Store';
+export const storeName: string = 'markett';

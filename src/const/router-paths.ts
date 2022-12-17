@@ -17,10 +17,10 @@ export const ROUTER_PATHS: Paths = {
     },
     [PATH_NAMES.cart]: {
         template: cart,
-        title: `Cart | ${storeName}`,
+        title: `cart | ${storeName}`,
     },
     [PATH_NAMES.product]: {
         template: product,
-        title: `Product | ${storeName}`,
+        title: `product | ${storeName}`,
     },
 };
