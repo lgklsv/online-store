@@ -4,9 +4,16 @@
     background-color: $background;
     padding-top: 1.5rem;
 }
+
 .main__container {
     max-width: $desktop;
     height: 500px;
     margin-right: auto;
     margin-left: auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 700px;
 }
