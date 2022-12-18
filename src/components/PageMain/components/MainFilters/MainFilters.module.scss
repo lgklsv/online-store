@@ -1,8 +1,13 @@
 @import '/src/theme/variable';
 
 .filters {
-    // background-color: red;
     height: 100%;
+    position: relative;
+}
+
+.filters__container {
+    position: sticky;
+    top: 0;
 }
 
 .filters__heading {
