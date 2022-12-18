@@ -2,3 +2,11 @@
 
 $desktop: 1200px;
 $footer-height: 70px;
+
+%border-for-toolbar {
+    border: 1px solid $primary10;
+    padding-left: 0.8rem;
+    height: 2.2rem;
+    font-size: 12px;
+    border-radius: 0.4rem;
+}

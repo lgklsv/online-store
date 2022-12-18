@@ -1,7 +1,7 @@
 @import '/src/theme/variable';
 
 .toolbar__select_item-sort {
-    width: 100%;
+    width: auto;
     position: relative;
     font-size: 1.2rem;
     line-height: 1.5rem;
@@ -11,14 +11,17 @@
     display: flex;
     // justify-content: space-between;
     justify-content: flex-start;
-    gap: 3rem;
     align-items: center;
-    height: 2.2rem;
-    padding-left: 0.8rem;
-    border: 1px solid $primary10;
-    border-radius: 0.4rem;
+    gap: 3rem;
     cursor: pointer;
-    font-size: 12px;
+    @extend %border-for-toolbar;
+
+    // height: 2.2rem;
+    // padding-left: 0.8rem;
+    // border: 1px solid $primary10;
+    // border-radius: 0.4rem;
+
+    // font-size: 12px;
 }
 
 .select_list {
@@ -71,6 +74,7 @@
 }
 
 .select__arrow {
+    margin: 1rem;
     transition: 0.15s 0.1s;
     height: 0.4rem;
     width: 0.4rem;

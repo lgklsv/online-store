@@ -2,4 +2,13 @@
 
 .main__toolbar {
     display: flex;
+    align-items: center;
+}
+
+.toolbar__quantity {
+    display: flex;
+    align-items: center;
+    width: auto;
+    padding-right: 0.8rem;
+    @extend %border-for-toolbar;
 }
