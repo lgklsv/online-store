@@ -24,7 +24,7 @@ export const renderCheckboxFilter = (title: string, data?: string[], subClass?: 
         filterCheckboxLabel.setAttribute('for', 'category-ID'); // приходит из данных
 
         const itemCount: HTMLElement = createElem ('span', 'checkbox-filter__item-count');
-        itemCount.innerHTML = '(5/5)';
+        itemCount.innerHTML = '5/5';
 
         filterOption.append(filterCheckbox, filterCheckboxLabel, itemCount);
 
