@@ -10,7 +10,7 @@ export const renderMainToolbar = (): HTMLElement => {
 
     const selectSort: HTMLElement = renderSelectSort();
     const productQuantity: HTMLElement = createElem('div', styles['toolbar__quantity']);
-    productQuantity.innerHTML = `FOUND: ${String(PRODUCTS.length)}`;
+    productQuantity.innerHTML = `Всего: ${String(PRODUCTS.length)}`;
 
     const searchProduct: HTMLElement = renderSearchProduct();
     const selectView: HTMLElement = renderSelectView();
