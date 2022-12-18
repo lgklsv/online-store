@@ -1,30 +1,21 @@
-import { sortOptions } from '../../../../const/select-sort';
+import { PRODUCTS } from '../../../../const/products';
 import { createElem } from '../../../../utils/create-element';
+import { renderSearchProduct } from './components/SearchProduct/SearchProduct';
+import { renderSelectSort } from './components/SelectSort/SelectSort';
+import { renderSelectView } from './components/SelectView/SelectView';
 import styles from './MainToolbar.module.scss';
 
 export const renderMainToolbar = (): HTMLElement => {
-    // sortOptions;
-    const mainToolbar: HTMLElement = createElem('div', 'main__toolbar');
+    const mainToolbar: HTMLElement = createElem('div', styles['main__toolbar']);
 
-    const toolbarSelect: HTMLElement = createElem('div', styles['toolbar__select_item-sort']);
-    const selectItem: HTMLElement = createElem('div', styles['select_item-sort']);
-    const itemSpan: HTMLElement = createElem('span', styles['select_item-sort__text']);
-    itemSpan.innerHTML = 'Сортировка';
+    const selectSort: HTMLElement = renderSelectSort();
+    const productQuantity: HTMLElement = createElem('div', styles['toolbar__quantity']);
+    productQuantity.innerHTML = `Всего: ${String(PRODUCTS.length)}`;
 
-    const selectDrop: HTMLElement = createElem('div', styles['select_dropdown']);
-    const selectList: HTMLElement = createElem('li', styles['select_list']);
+    const searchProduct: HTMLElement = renderSearchProduct();
+    const selectView: HTMLElement = renderSelectView();
 
-    for (let i = 0; i < sortOptions.length; i++) {
-        const selectItem = createElem('li', 'select__item');
-        selectItem.innerHTML = sortOptions[i];
-        selectList.append(selectItem);
-    }
-
-    selectDrop.append(selectList);
-
-    selectItem.append(itemSpan);
-    toolbarSelect.append(selectItem);
-    mainToolbar.append(toolbarSelect, selectDrop);
+    mainToolbar.append(searchProduct, productQuantity, selectSort, selectView);
 
     return mainToolbar;
 };

@@ -1,31 +1,16 @@
 @import '/src/theme/variable';
 
-.select_item-sort {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 2.2rem;
-    padding-left: 0.8rem;
-    border: 1px solid $primary10;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.select_list {
-    background-color: aliceblue;
-}
-
-.select_dropdown {
-    background-color: antiquewhite;
-}
-
-.select__item {
+.main__toolbar {
     display: flex;
     align-items: center;
-    height: 2.8rem;
-    padding-left: 0.8rem;
-    color: $light-text;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 12px;
+    gap: 1rem; //TODO - изменить размер отступа
+    justify-content: flex-end;
+}
+
+.toolbar__quantity {
+    display: flex;
+    align-items: center;
+    width: auto;
+    padding-right: 0.8rem;
+    @extend %border-for-toolbar;
 }
