@@ -1,6 +1,5 @@
 import { renderFooter } from '../Footer/Footer';
 import { renderHeader } from '../Header/Header';
-import { renderMainPage } from '../PageMain/PageMain';
 import styles from './App.module.scss';
 
 export const renderApp = (func?: () => HTMLElement): Element => {
@@ -12,8 +11,7 @@ export const renderApp = (func?: () => HTMLElement): Element => {
 
     const header: HTMLElement = renderHeader();
     const footer: HTMLElement = renderFooter();
-    const main: HTMLElement = renderMainPage();
 
-    appContiner.append(header, main, footer);
+    appContiner.append(header, footer);
     return appContiner;
 };

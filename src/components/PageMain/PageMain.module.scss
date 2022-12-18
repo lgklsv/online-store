@@ -7,7 +7,6 @@
 
 .main__container {
     max-width: $desktop;
-    height: 500px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -15,5 +14,4 @@
 .content {
     display: grid;
     grid-template-columns: 0.75fr 3fr;
-    height: 700px;
 }
