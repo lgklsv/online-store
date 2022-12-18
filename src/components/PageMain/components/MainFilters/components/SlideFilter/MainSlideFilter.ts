@@ -12,6 +12,7 @@ export const renderSlideFilter = (
     const slideFilter: HTMLElement = createElem('div', styles['slide-filter']);
     // Heading
     const heading: HTMLElement = createElem('h3', 'slide-filter__heading');
+    heading.classList.add('filter-title');
     heading.innerHTML = title;
 
     // Num input 1
