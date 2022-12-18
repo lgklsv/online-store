@@ -11,9 +11,10 @@ export const renderMainPage = (): HTMLElement => {
 
     const mainToollbar: HTMLElement = renderMainToolbar();
     const mainCatalog: HTMLElement = renderMainCatalog();
+
     const mainFilters: HTMLElement = renderMainFilters();
 
-    mainContent.append(mainFilters, mainCatalog)
+    mainContent.append(mainFilters, mainCatalog);
     mainContainer.append(mainToollbar, mainContent);
 
     main.append(mainContainer);
