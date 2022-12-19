@@ -8,15 +8,20 @@ export const renderCartPage = (): HTMLElement => {
     const mainContainer: HTMLElement = createElem('div', 'main__container');
     const mainContent: HTMLElement = createElem('div', styles['cart']);
 
-    
     // Cart items (left part)
     const cartItemsContainer: HTMLElement = createElem('div', 'cart__items-container');
+    const cartHeadingContainer: HTMLElement = createElem('div', 'cart__items-heading-container');
     const cartHeading: HTMLElement = createElem('h1', 'cart__heading');
     cartHeading.innerHTML = 'Товары в корзине';
+    
+    const cartDeleteAllBtn: HTMLElement = createElem('p', 'cart__delete-all-btn');
+    cartDeleteAllBtn.innerHTML = 'Удалить все';
+    
+    cartHeadingContainer.append(cartHeading, cartDeleteAllBtn);
+
     const cartItems: HTMLElement = renderCartItems();
 
-    cartItemsContainer.append(cartHeading, cartItems);
-
+    cartItemsContainer.append(cartHeadingContainer, cartItems);
 
     // Cart checkout (right part)
     const cartCheckoutContainer: HTMLElement = createElem('div', 'cart__checkout-container');
@@ -25,7 +30,6 @@ export const renderCartPage = (): HTMLElement => {
     const cartCheckout: HTMLElement = renderCartCheckout();
 
     cartCheckoutContainer.append(checkoutHeading, cartCheckout)
-
     mainContent.append(cartItemsContainer, cartCheckoutContainer);
     mainContainer.append(mainContent);
     main.append(mainContainer);

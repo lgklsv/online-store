@@ -5,7 +5,7 @@ import { PRODUCTS } from '../../../const/products';
 export const renderCartItems = (): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 10; i++) {
         const item: HTMLElement = createElem('div', 'cart-item');
 
         // Ссылка на товар 
@@ -54,19 +54,14 @@ export const renderCartItems = (): HTMLElement => {
 
         itemQuaintityContainer.append(itemQuaintity, itemCounter);
 
-        const deleteBtn: HTMLElement = createElem('div', 'cart-item__delete-btn');
-        const deleteIcon: HTMLElement = createElem('div', 'cart-item__delete-icon');
-
-        deleteBtn.append(deleteIcon);
         // Цена товара, скидка //TODO - заменить на блок из главной страницы
         const itemPrice: HTMLElement = createElem('div', 'cart-item__price');
         itemPrice.innerHTML = String(PRODUCTS[i].price) + ' ₽'; 
 
 
-        item.append(itemLink, itemQuaintityContainer,deleteBtn, itemPrice);
+        item.append(itemLink, itemQuaintityContainer, itemPrice);
 
         cartItems.append(item);
     }
-
     return cartItems;
 };

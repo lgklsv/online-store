@@ -1,7 +1,6 @@
 @import '/src/theme/variable';
 
 .cart {
-    height: calc(100vh - $header-height - $footer-height);
     display: grid;
     grid-template-columns: 2fr 1fr;
 }
@@ -14,8 +13,24 @@
     padding: 0 0.5rem;
 }
 
+.cart__items-heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .cart__heading {
     @extend %heading-m;
-    padding-top: 2rem;
-    padding-left: 0;
+    margin-top: 2rem;
+    margin-left: 0;
+}
+
+.cart__delete-all-btn {
+    @extend %heading-m;
+    color: $red;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    margin-left: 0;
+    margin-right: 0.5rem;
+    cursor: pointer;
 }
