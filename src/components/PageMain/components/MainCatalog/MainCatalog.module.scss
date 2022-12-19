@@ -137,6 +137,10 @@
     color: $light-text;
 }
 
+.product-card__price {
+    height: 54px;
+}
+
 .old-price {
     color: $light-text;
     text-decoration: line-through;
