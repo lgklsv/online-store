@@ -18,7 +18,7 @@ export const pathResolver = (hostEl: HTMLDivElement, pathname: string): void => 
             document.title = route.title;
         } else {
             route = ROUTER_PATHS[PATH_NAMES.notFound];
-            hostEl.innerHTML = route.template();
+            route.template();
             document.title = route.title;
         }
     } else {

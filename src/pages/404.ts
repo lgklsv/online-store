@@ -1,3 +1,11 @@
-export const notFound = function (): string {
-    return `<h1>PAGE NOT FOUND 404</h1>`;
+import { renderApp } from '../components/App/App';
+import { renderNotFoundPage } from "../components/NotFoundPage/NotFoundPage";
+
+export const notFound = function (): void {
+    renderApp(renderNotFoundPage);
+
+    const headerTolalValue = document.querySelector('.header__total-summ');
+    if(headerTolalValue instanceof HTMLElement) {
+        headerTolalValue?.classList.add('hidden');
+    }
 };
