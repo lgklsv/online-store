@@ -53,12 +53,17 @@ export const renderCartItems = (): HTMLElement => {
         itemCounter.append(minusBtn, itemCounterQty, plusBtn);
 
         itemQuaintityContainer.append(itemQuaintity, itemCounter);
+
+        const deleteBtn: HTMLElement = createElem('div', 'cart-item__delete-btn');
+        const deleteIcon: HTMLElement = createElem('div', 'cart-item__delete-icon');
+
+        deleteBtn.append(deleteIcon);
         // Цена товара, скидка //TODO - заменить на блок из главной страницы
         const itemPrice: HTMLElement = createElem('div', 'cart-item__price');
         itemPrice.innerHTML = String(PRODUCTS[i].price) + ' ₽'; 
 
 
-        item.append(itemLink, itemQuaintityContainer, itemPrice);
+        item.append(itemLink, itemQuaintityContainer,deleteBtn, itemPrice);
 
         cartItems.append(item);
     }

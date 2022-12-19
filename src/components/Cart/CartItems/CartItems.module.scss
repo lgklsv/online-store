@@ -83,6 +83,28 @@
     }
 }
 
+.cart-item__delete-btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .3s ease;
+    &:hover {
+        background-color: $grey;
+    }
+}
+
+.cart-item__delete-icon {
+    width: 1.15rem;
+    height: 1.32rem;
+    background-image: url('../../../assets/images/trashcan.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .cart-item__price {
     padding-right: 2rem;
 }
