@@ -1,0 +1,36 @@
+@import '/src/theme/variable';
+
+.cart {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.cart__items-container {
+    padding: 0 0.5rem;
+}
+
+.cart__checkout-container {
+    padding: 0 0.5rem;
+}
+
+.cart__items-heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart__heading {
+    @extend %heading-m;
+    margin-top: 2rem;
+    margin-left: 0;
+}
+
+.cart__delete-all-btn {
+    @extend %heading-m;
+    color: $red;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    margin-left: 0;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}

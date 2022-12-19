@@ -2,6 +2,7 @@
 
 $desktop: 1200px;
 $footer-height: 70px;
+$header-height: 80px;
 
 %border-for-toolbar {
     border: 1px solid $primary10;
@@ -10,4 +11,40 @@ $footer-height: 70px;
     font-size: 12px;
     border-radius: 0.4rem;
 }
-$header-height: 80px;
+
+%heading-m {
+    font-size: 1.1rem;
+    margin: 0 1.3rem 1rem 1.3rem;
+    color: $black;
+    font-weight: 400;
+}
+
+%btn-grey {
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    color: $black;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background-color: $light-grey;
+    transition: background-color .3s ease;
+    border-radius: 5px;
+    &:hover {
+        background-color: $grey;
+    }
+}
+
+%btn-black {
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    color: $white;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background-color: $black;
+    transition: background-color .3s ease;
+    border-radius: 5px;
+    &:hover {
+        background-color: $primary-80;
+    }
+}

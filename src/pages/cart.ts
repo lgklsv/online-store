@@ -1,7 +1,7 @@
 import { renderApp } from '../components/App/App';
-import { renderMainPage } from '../components/PageMain/PageMain'; // TODO - исправить на рендер корзины
+import { renderCartPage } from '../components/Cart/Cart';
 
 export const cart = function (): void {
     console.log('CART');
-    renderApp(renderMainPage);
+    renderApp(renderCartPage);
 };
