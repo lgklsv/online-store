@@ -23,13 +23,5 @@
 }
 
 .not-found__btn {
-    text-decoration: none;
-    color: $black;
-    padding: 1rem;
-    background-color: $light-grey;
-    transition: background-color .3s ease;
-    border-radius: 5px;
-    &:hover {
-        background-color: $grey;
-    }
+    @extend %btn-grey;
 }

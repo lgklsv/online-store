@@ -10,12 +10,12 @@
     padding: 0 0.5rem;
 }
 
-// .cart__checkout-container {
-//     // background-color: blue;
-// }
+.cart__checkout-container {
+    padding: 0 0.5rem;
+}
 
 .cart__heading {
     @extend %heading-m;
-    padding-top: 1rem;
+    padding-top: 2rem;
     padding-left: 0;
 }

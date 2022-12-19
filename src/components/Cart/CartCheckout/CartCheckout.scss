@@ -1,0 +1,51 @@
+@import '/src/theme/variable';
+
+.cart__checkout {
+    background-color: $white;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.checkout-coupon {
+    padding-bottom: 1rem;
+}
+
+.checkout-coupon__title {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+.checkout-coupon__body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkout-coupon__input {
+    width: 215px;
+    height: 48px;
+    padding: 1rem;
+    outline: none;
+    border: 1px solid $light-grey;
+    border-radius: 5px;
+
+    &:focus {
+        border: 1px solid transparent;
+        box-shadow: 0 0 0 1px $black;
+    }
+}
+
+.checkout-coupon__btn {
+    @extend %btn-grey;
+    height: 48px;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.cart__checkout-btn {
+    @extend %btn-black;
+    width: 100%;
+    margin-top: 1rem;
+}

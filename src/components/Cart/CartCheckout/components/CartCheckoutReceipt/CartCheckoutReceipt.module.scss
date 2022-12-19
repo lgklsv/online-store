@@ -1,0 +1,22 @@
+@import '/src/theme/variable';
+
+.cart__checkout-receipt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.cart__checkout-receipt-title,
+.cart__checkout-receipt-amount {
+    font-size: 0.9rem;
+    color: $light-text;
+}
+
+.cart__checkout-receipt-title_b,
+.cart__checkout-receipt-amount_b {
+    font-size: 1.3rem;
+    color: $black;
+    font-weight: bold;
+}
+
