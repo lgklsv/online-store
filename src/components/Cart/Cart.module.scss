@@ -1,0 +1,21 @@
+@import '/src/theme/variable';
+
+.cart {
+    height: calc(100vh - $header-height - $footer-height);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.cart__items-container {
+    padding: 0 0.5rem;
+}
+
+// .cart__checkout-container {
+//     // background-color: blue;
+// }
+
+.cart__heading {
+    @extend %heading-m;
+    padding-top: 1rem;
+    padding-left: 0;
+}
