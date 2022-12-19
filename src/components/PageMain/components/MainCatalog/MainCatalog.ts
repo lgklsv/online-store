@@ -13,6 +13,7 @@ export const renderMainCatalog = (): HTMLElement => {
     for (let i = 0; i < PRODUCTS.length; i++) {
         console.log();
         const productCard: HTMLElement = createElem('div', 'products-card');
+        productCard.setAttribute('data-product', `${PRODUCTS[i].title}`);
         const productCardOverlay: HTMLElement = createElem('div', 'products-card__overlay');
 
         // оберка ссылки - здесь же ховер
