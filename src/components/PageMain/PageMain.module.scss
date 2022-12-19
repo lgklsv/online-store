@@ -6,6 +6,7 @@
 }
 
 .main__container {
+    display: flex;
     max-width: $desktop;
     margin-right: auto;
     margin-left: auto;
@@ -14,6 +15,7 @@
 }
 
 .content {
-    display: grid;
-    grid-template-columns: 0.75fr 3fr;
+    width: 100%;
+    // display: grid;
+    // grid-template-columns: 0.75fr 3fr;
 }

@@ -14,8 +14,8 @@ export const renderMainPage = (): HTMLElement => {
 
     const mainFilters: HTMLElement = renderMainFilters();
 
-    mainContent.append(mainFilters, mainCatalog);
-    mainContainer.append(mainToollbar, mainContent);
+    mainContent.append(mainToollbar, mainCatalog);
+    mainContainer.append(mainFilters, mainContent);
 
     main.append(mainContainer);
 
