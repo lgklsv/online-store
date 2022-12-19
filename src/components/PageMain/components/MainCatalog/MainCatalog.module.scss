@@ -88,6 +88,22 @@
 }
 
 .product-card__title {
+    height: 60px;
     font-size: 14px;
     margin-bottom: 1.2rem;
+}
+.old-price {
+    color: $light-text;
+    text-decoration: line-through;
+}
+
+.product-card__price-discount {
+    display: inline-block;
+    color: $black;
+    margin-left: 0.4rem;
+}
+
+.product-card__price-new {
+    color: $red;
+    margin-top: 0.4rem;
 }
