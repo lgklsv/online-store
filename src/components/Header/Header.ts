@@ -1,6 +1,6 @@
 import { createElem } from '../../utils/create-element';
 import { router } from '../../utils/router';
-import { renderHeaderCart } from './components/HeaderCard/HeaderCart';
+import { renderHeaderCart } from './components/HeaderCart/HeaderCart';
 import styles from './Header.module.scss';
 
 export const renderHeader = (): HTMLElement => {

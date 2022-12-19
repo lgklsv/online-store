@@ -1,0 +1,28 @@
+@import '/src/theme/variable';
+
+.filters {
+    height: 100%;
+    position: relative;
+}
+
+.filters__container {
+    position: sticky;
+    top: 0;
+    margin-right: 1.3rem;
+    padding: 1.3rem 1.3rem 1.3rem 0;
+}
+
+.filters__heading {
+    font-size: 1.1rem;
+    padding: 0 1.3rem 1rem 1.3rem;
+    color: $black;
+    font-weight: 400;
+}
+
+.filter-title {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.8rem 0;
+    color: $black;
+    font-weight: 400;
+}
