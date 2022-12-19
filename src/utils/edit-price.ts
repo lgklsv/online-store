@@ -12,4 +12,8 @@ export const editPrice = (number: number): string => {
     return 's';
 };
 
+export const newPrice = (price: number, discount: number): string => {
+    return String(Math.round(price - (price / 100) * discount));
+};
+
 // TODO - сделать функцию для отображения цены с рублевый знаком!
