@@ -14,3 +14,8 @@ interface Product {
     thumbnail: string;
     images: string[];
 }
+
+interface ExtendedProduct extends Product {
+    discountPrice: number;
+    search: string;
+}

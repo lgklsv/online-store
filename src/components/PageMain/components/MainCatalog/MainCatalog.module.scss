@@ -26,6 +26,10 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 25%));
 }
 
+.view-3 {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 33%));
+}
+
 .products-card {
     display: block;
     width: 100%;
@@ -137,6 +141,10 @@
     color: $light-text;
 }
 
+.product-card__price {
+    height: 54px;
+}
+
 .old-price {
     color: $light-text;
     text-decoration: line-through;
@@ -196,4 +204,8 @@
     gap: 0.4rem;
     align-items: center;
     justify-content: center;
+}
+
+.hide {
+    display: none;
 }

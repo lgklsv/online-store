@@ -10,9 +10,10 @@
 }
 
 .toolbar__quantity {
+    width: 6rem;
     display: flex;
     align-items: center;
-    width: auto;
+    // width: auto;
     padding-right: 0.8rem;
     @extend %border-for-toolbar;
 }

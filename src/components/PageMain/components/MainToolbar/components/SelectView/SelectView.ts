@@ -1,8 +1,9 @@
+import { changeClass } from '../../../../../../utils/add-remove-class';
 import { createElem } from '../../../../../../utils/create-element';
 import { createInput } from '../../../../../../utils/create-input-element';
 import styles from './SelectView.module.scss';
 
-export const renderSelectView = (): HTMLElement => {
+export const renderSelectView = (node: NodeListOf<ChildNode>): HTMLElement => {
     const selectView: HTMLElement = createElem('div', styles['toolbar__select-view']);
     const cardSizeNine: HTMLElement = createElem('div', 'select-view__card-size');
     const nineLabel: HTMLElement = createElem('label', styles['card-size__label']);
@@ -12,10 +13,7 @@ export const renderSelectView = (): HTMLElement => {
 
     nineLabel.append(nineInput, nineSpan);
     cardSizeNine.append(nineLabel);
-
-    nineLabel.onclick = () => {
-        console.log('nine');
-    };
+    cardSizeNine.classList.add('active-view');
 
     // TODO -оптимизировать и убрать повторение - вынести в функцию
     const cardSizeFour: HTMLElement = createElem('div', 'select-view__card-size');
@@ -29,6 +27,18 @@ export const renderSelectView = (): HTMLElement => {
     cardSizeFour.append(fourLabel);
 
     selectView.append(cardSizeNine, cardSizeFour);
+
+    const nodeChangeSize: HTMLElement = node[0].childNodes[0] as HTMLElement;
+
+    cardSizeNine.onclick = () => {
+        nodeChangeSize.classList.remove('view-3');
+        changeClass(cardSizeFour, cardSizeNine, 'active-view');
+    };
+
+    cardSizeFour.onclick = () => {
+        nodeChangeSize.classList.add('view-3');
+        changeClass(cardSizeNine, cardSizeFour, 'active-view');
+    };
 
     return selectView;
 };
