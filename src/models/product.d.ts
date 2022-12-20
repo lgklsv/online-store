@@ -13,4 +13,10 @@ interface Product {
     category: string;
     thumbnail: string;
     images: string[];
+    [key: string]: string | number | string[];
+}
+
+interface ProductProps {
+    category: string;
+    amount: number;
 }

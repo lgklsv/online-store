@@ -6,5 +6,5 @@ interface Paths {
 }
 
 interface PathNames {
-    [key: string]: string ;
+    [key: string]: string;
 }

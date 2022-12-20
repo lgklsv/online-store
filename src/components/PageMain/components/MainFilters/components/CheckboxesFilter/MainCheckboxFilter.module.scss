@@ -22,7 +22,7 @@
 
 .checkbox-filter__item {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -71,5 +71,4 @@
 .checkbox-filter__item-count {
     font-size: 0.8rem;
     color: $black;
-    padding-left: 4.5rem;
 }
