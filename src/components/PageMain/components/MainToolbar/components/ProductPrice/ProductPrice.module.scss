@@ -1,0 +1,26 @@
+@import '/src/theme/variable';
+
+.old-price {
+    color: $light-text;
+    text-decoration: line-through;
+}
+
+.product-card__price-discount {
+    display: inline-block;
+    color: $black;
+    margin-left: 0.4rem;
+}
+
+.product-card__price-new {
+    color: $red;
+    margin-top: 0.4rem;
+}
+
+.product-card__price_cart {
+    width: 150px;
+    padding-right: 2rem;
+}
+
+.product-card__price-new_cart {
+    margin: 0;
+}

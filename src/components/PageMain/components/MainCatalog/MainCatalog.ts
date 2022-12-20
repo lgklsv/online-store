@@ -1,7 +1,8 @@
 import { PRODUCTS } from '../../../../const/products';
 import { createElem } from '../../../../utils/create-element';
 import { newNameProduct } from '../../../../utils/edit-name-products';
-import { newPrice } from '../../../../utils/edit-price';
+// import { newPrice } from '../../../../utils/edit-price';
+import { renderProductPrice } from '../MainToolbar/components/ProductPrice/ProductPrice';
 import styles from './MainCatalog.module.scss';
 
 export const renderMainCatalog = (): HTMLElement => {
@@ -41,24 +42,10 @@ export const renderMainCatalog = (): HTMLElement => {
         productTitle.append(productBrand, productName);
 
         //цена товара
-        const productPrice: HTMLElement = createElem('div', 'product-card__price');
-        const productPriceFull: HTMLElement = createElem('span', 'product-card__price-full');
-        productPriceFull.innerHTML = String(PRODUCTS[i].price) + ' ₽';
+        const productPrice: HTMLElement = renderProductPrice(PRODUCTS[i], 'main');
 
         const productOrder: HTMLElement = createElem('div', 'product-card__price-order');
         productOrder.innerHTML = 'В корзину';
-
-        // проверка есть ли скидка
-        if (PRODUCTS[i].discountPercentage !== 0) {
-            const productPriceDiscount: HTMLElement = createElem('span', 'product-card__price-discount');
-            productPriceFull.classList.add('old-price');
-            productPriceDiscount.innerHTML = '–' + String(PRODUCTS[i].discountPercentage) + '%';
-
-            const productPriceNew: HTMLElement = createElem('div', 'product-card__price-new');
-            productPriceNew.innerHTML = newPrice(PRODUCTS[i].price, PRODUCTS[i].discountPercentage) + ' ₽';
-
-            productPrice.append(productPriceFull, productPriceDiscount, productPriceNew); //
-        } else productPrice.append(productPriceFull); //
 
         const sizeWrapper: HTMLElement = createElem('div', styles['product-card__sizes-wrapper']);
 

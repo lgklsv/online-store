@@ -88,7 +88,11 @@
     }
 }
 
-.cart-item__price {
+.product-card__price_cart {
+    width: 150px;
     padding-right: 2rem;
-    width: 110px;
+}
+
+.product-card__price-new_cart {
+    margin: 0;
 }
