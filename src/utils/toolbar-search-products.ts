@@ -9,6 +9,9 @@ export const searchProdInput = (value_input: string, parent: HTMLElement): Exten
             if (elem.search?.toLocaleLowerCase().search(value_input) == -1) {
                 counts.push(elem);
                 countProducts(store.origin, counts);
+                parent.innerHTML = 'Товары не найдены ( ´•︵•` )';
+                addProducts(elements, parent);
+                store.sort = elements;
             } else {
                 parent.innerHTML = '';
                 elements.push(elem);
