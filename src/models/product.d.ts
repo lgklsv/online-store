@@ -20,3 +20,8 @@ interface ProductProps {
     category: string;
     amount: number;
 }
+
+interface ExtendedProduct extends Product {
+    discountPrice: number;
+    search: string;
+}

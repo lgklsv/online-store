@@ -10,15 +10,16 @@ export const renderMainPage = (): HTMLElement => {
     mainContainer.classList.add('main-grid');
     const mainContent: HTMLElement = createElem('div', 'content');
 
-    const mainToollbar: HTMLElement = renderMainToolbar();
     const mainCatalog: HTMLElement = renderMainCatalog();
-
     const mainFilters: HTMLElement = renderMainFilters();
+    const mainToollbar: HTMLElement = renderMainToolbar(mainCatalog.childNodes);
 
     mainContent.append(mainToollbar, mainCatalog);
     mainContainer.append(mainFilters, mainContent);
 
     main.append(mainContainer);
+
+    console.log();
 
     return main;
 };

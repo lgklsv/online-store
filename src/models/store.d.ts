@@ -1,4 +1,4 @@
 interface Store {
-    origin: Product[];
-    sort: Product[];
+    origin: ExtendedProduct[];
+    sort: ExtendedProduct[];
 }
