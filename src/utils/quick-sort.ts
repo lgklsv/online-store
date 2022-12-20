@@ -1,9 +1,14 @@
-export const quickSort = (arr: ExtendedProduct[], param: string): Product[] => {
-    const copyArray = arr;
+export const quickSort = (arr: ExtendedProduct[], param: keyof ExtendedProduct): ExtendedProduct[] => {
+    const copyArray = [...arr];
     return quickSortHelper(copyArray, 0, copyArray.length - 1, param);
 };
 
-const quickSortHelper = (arr: ExtendedProduct[], left: number, rigth: number, param: string): ExtendedProduct[] => {
+const quickSortHelper = (
+    arr: ExtendedProduct[],
+    left: number,
+    rigth: number,
+    param: keyof ExtendedProduct
+): ExtendedProduct[] => {
     if (arr.length < 2) {
         return arr;
     }
@@ -21,15 +26,15 @@ const quickSortHelper = (arr: ExtendedProduct[], left: number, rigth: number, pa
     return arr;
 };
 
-const partition = (arr: ExtendedProduct[], left: number, rigth: number, param: string): number => {
-    const pivot = arr[Math.floor((left + rigth) / 2)].price;
+const partition = (arr: ExtendedProduct[], left: number, rigth: number, param: keyof ExtendedProduct): number => {
+    const pivot = arr[Math.floor((left + rigth) / 2)][param];
 
     while (left <= rigth) {
-        while (arr[left].price < pivot) {
+        while (arr[left][param] < pivot) {
             left++;
         }
 
-        while (arr[rigth].price > pivot) {
+        while (arr[rigth][param] > pivot) {
             rigth--;
         }
 

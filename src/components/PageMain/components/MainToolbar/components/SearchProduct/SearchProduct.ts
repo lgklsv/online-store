@@ -2,6 +2,7 @@ import styles from './SearchProduct.module.scss';
 import { createElem } from '../../../../../../utils/create-element';
 import { createInput } from '../../../../../../utils/create-input-element';
 import { searchProdInput } from '../../../../../../utils/toolbar-search-products';
+// import { store } from '../../../../../../const/store';
 
 export const renderSearchProduct = (node: NodeListOf<ChildNode>): HTMLElement => {
     const catalogProduct: HTMLElement = node[0].childNodes[0] as HTMLElement;

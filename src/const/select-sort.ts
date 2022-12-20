@@ -20,11 +20,11 @@ export const SORT_OPTIONS: Record<SortTypes, string> = {
 
 /** Функции сортировки с соответствием типу сортировки через идентификатор */
 export const SORT_FUNCTIONS: Record<SortTypes, SortFn> = {
-    [SORT_TYPE.DEFAULT]: (products: ExtendedProduct[]) => quickSort(products, 'e'),
-    [SORT_TYPE.PRICES_ASC]: (products: ExtendedProduct[]) => quickSort(products, 'f').reverse(),
-    [SORT_TYPE.PRICES_DESC]: (products: ExtendedProduct[]) => quickSort(products, 'd').reverse(),
-    [SORT_TYPE.DISCOUNT_ASC]: (products: ExtendedProduct[]) => quickSort(products, 'd').reverse(),
-    [SORT_TYPE.DISCOUNT_DESC]: (products: ExtendedProduct[]) => quickSort(products, 'e').reverse(),
+    [SORT_TYPE.DEFAULT]: (products) => quickSort(products, 'id'),
+    [SORT_TYPE.PRICES_ASC]: (products) => quickSort(products, 'discountPrice'),
+    [SORT_TYPE.PRICES_DESC]: (products) => quickSort(products, 'discountPrice').reverse(),
+    [SORT_TYPE.DISCOUNT_ASC]: (products) => quickSort(products, 'rating'),
+    [SORT_TYPE.DISCOUNT_DESC]: (products) => quickSort(products, 'rating').reverse(),
 };
 
 /** массив с вариантами сортировки */

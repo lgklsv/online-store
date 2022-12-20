@@ -5,23 +5,25 @@ export const searchProdInput = (value_input: string, parent: HTMLElement): Exten
     const counts: ExtendedProduct[] = [];
     const elements: ExtendedProduct[] = [];
     if (value_input != '') {
-        store.sort.forEach((elem: ExtendedProduct) => {
-            if (elem.title.toLocaleLowerCase().search(value_input) == -1) {
+        store.origin.forEach((elem: ExtendedProduct) => {
+            if (elem.search?.toLocaleLowerCase().search(value_input) == -1) {
                 counts.push(elem);
-                countProducts(store.sort, counts);
+                countProducts(store.origin, counts);
             } else {
                 parent.innerHTML = '';
                 elements.push(elem);
                 addProducts(elements, parent);
+                store.sort = elements;
             }
-            console.log(elements);
+            console.log('elements', elements);
         });
     } else {
         store.sort.forEach((elem: ExtendedProduct) => {
-            countProducts(store.sort, counts);
+            countProducts(store.origin, counts);
         });
     }
 
+    // console.log(store.sort);
     return elements;
     // TODO - добавить передачу запроса в строку
 };
