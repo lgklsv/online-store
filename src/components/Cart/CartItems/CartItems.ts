@@ -1,18 +1,18 @@
 import { createElem } from '../../../utils/create-element';
 import styles from './CartItems.module.scss';
 import { PRODUCTS } from '../../../const/products';
-import { renderEmptyCart } from './components/CartEmpty/CartEmpty';
+// import { renderEmptyCart } from './components/CartEmpty/CartEmpty';
 
 export const renderCartItems = (): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
 
     // Тут будет если длина равна 0, то рендерим сообщение что в корзине пусто 
-    const cartItemsTemp = 0;
-    if (cartItemsTemp === 0) {
-        cartItems.append(renderEmptyCart());
-        return cartItems;
-    }
-    
+    const cartItemsTemp = 5;
+    // if (cartItemsTemp === 0) {
+    //     cartItems.append(renderEmptyCart());
+    //     return cartItems;
+    // }
+
     for (let i = 0; i < cartItemsTemp; i++) {
         const item: HTMLElement = createElem('div', 'cart-item');
 
