@@ -13,10 +13,6 @@ export const renderSelectView = (): HTMLElement => {
     nineLabel.append(nineInput, nineSpan);
     cardSizeNine.append(nineLabel);
 
-    nineLabel.onclick = () => {
-        console.log('nine');
-    };
-
     // TODO -оптимизировать и убрать повторение - вынести в функцию
     const cardSizeFour: HTMLElement = createElem('div', 'select-view__card-size');
     const fourLabel: HTMLElement = createElem('label', styles['card-size__label']);
@@ -29,6 +25,11 @@ export const renderSelectView = (): HTMLElement => {
     cardSizeFour.append(fourLabel);
 
     selectView.append(cardSizeNine, cardSizeFour);
+
+    cardSizeNine.onclick = () => {
+        console.log('это КНОПКА!!!!');
+        // TODO - добавить изменения свойства грид ряда
+    };
 
     return selectView;
 };

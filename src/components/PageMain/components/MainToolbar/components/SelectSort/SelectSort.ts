@@ -1,4 +1,4 @@
-import { sortOptions } from '../../../../../../const/select-sort';
+import { sortId, sortOptions } from '../../../../../../const/select-sort';
 import { createElem } from '../../../../../../utils/create-element';
 import styles from './SelectSort.module.scss';
 
@@ -17,6 +17,7 @@ export const renderSelectSort = (): HTMLElement => {
 
     for (let i = 0; i < sortOptions.length; i++) {
         const selectItemLi = createElem('li', 'select__item');
+        selectItemLi.setAttribute('id', sortId[i]);
         selectItemLi.innerHTML = sortOptions[i];
         selectList.append(selectItemLi);
         itemli.push(selectItemLi);

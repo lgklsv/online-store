@@ -1,7 +1,7 @@
 import styles from './SearchProduct.module.scss';
 import { createElem } from '../../../../../../utils/create-element';
 import { createInput } from '../../../../../../utils/create-input-element';
-import { searchProdInput } from '../../../../../../utils/search-products';
+import { searchProdInput } from '../../../../../../utils/toolbar-search-products';
 
 export const renderSearchProduct = (): HTMLElement => {
     const searchProduct: HTMLElement = createElem('div', styles['toolbar__search-product']);
