@@ -6,8 +6,9 @@ import styles from './PageMain.module.scss';
 
 export const renderMainPage = (): HTMLElement => {
     const main: HTMLElement = createElem('main', styles['main']);
-    const mainContainer: HTMLElement = createElem('div', styles['main__container']);
-    const mainContent: HTMLElement = createElem('div', styles['content']);
+    const mainContainer: HTMLElement = createElem('div', 'main__container');
+    mainContainer.classList.add('main-grid');
+    const mainContent: HTMLElement = createElem('div', 'content');
 
     const mainToollbar: HTMLElement = renderMainToolbar();
     const mainCatalog: HTMLElement = renderMainCatalog();
