@@ -1,5 +1,6 @@
 export const quickSort = (arr: Product[]): Product[] => {
-    return quickSortHelper(arr, 0, arr.length - 1);
+    const copyArray = arr;
+    return quickSortHelper(copyArray, 0, copyArray.length - 1);
 };
 
 const quickSortHelper = (arr: Product[], left: number, rigth: number): Product[] => {

@@ -8,7 +8,7 @@ import styles from './MainToolbar.module.scss';
 export const renderMainToolbar = (node: NodeListOf<ChildNode>): HTMLElement => {
     const mainToolbar: HTMLElement = createElem('div', styles['main__toolbar']);
 
-    const selectSort: HTMLElement = renderSelectSort();
+    const selectSort: HTMLElement = renderSelectSort(node);
     const productQuantity: HTMLElement = createElem('div', styles['toolbar__quantity']);
     productQuantity.innerHTML = `Всего: ${String(PRODUCTS.length)}`;
 

@@ -1,6 +1,6 @@
 import { PRODUCTS } from '../../../../const/products';
+import { addProducts } from '../../../../utils/add-product';
 import { createElem } from '../../../../utils/create-element';
-import { renderProduct } from './components/ProductCard/ProductCard';
 import styles from './MainCatalog.module.scss';
 
 export const renderMainCatalog = (): HTMLElement => {
@@ -9,10 +9,7 @@ export const renderMainCatalog = (): HTMLElement => {
 
     const catalogProduct: HTMLElement = createElem('div', styles['catalog_products']);
 
-    for (let i = 0; i < PRODUCTS.length; i++) {
-        const productCard: HTMLElement = renderProduct(PRODUCTS[i]);
-        catalogProduct.append(productCard);
-    }
+    addProducts(PRODUCTS, catalogProduct);
 
     catalogWrapper.append(catalogProduct);
     catalog.append(catalogWrapper);

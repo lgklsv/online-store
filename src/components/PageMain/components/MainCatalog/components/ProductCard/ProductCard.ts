@@ -50,8 +50,13 @@ export const renderProduct = (DATA: Product) => {
         const productPriceNew: HTMLElement = createElem('div', 'product-card__price-new');
         productPriceNew.innerHTML = newPrice(DATA.price, DATA.discountPercentage) + ' ₽';
 
+        productCard.setAttribute('data-price', `${newPrice(DATA.price, DATA.discountPercentage)}`);
+
         productPrice.append(productPriceFull, productPriceDiscount, productPriceNew); //
-    } else productPrice.append(productPriceFull); //
+    } else {
+        productCard.setAttribute('data-price', `${DATA.price}`);
+        productPrice.append(productPriceFull);
+    } //
 
     const sizeWrapper: HTMLElement = createElem('div', 'product-card__sizes-wrapper');
 

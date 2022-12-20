@@ -1,8 +1,13 @@
 import { sortId, sortOptions } from '../../../../../../const/select-sort';
+import { store } from '../../../../../../const/store';
+import { addProducts } from '../../../../../../utils/add-product';
 import { createElem } from '../../../../../../utils/create-element';
+import { quickSort } from '../../../../../../utils/quick-sort';
 import styles from './SelectSort.module.scss';
 
-export const renderSelectSort = (): HTMLElement => {
+export const renderSelectSort = (node: NodeListOf<ChildNode>): HTMLElement => {
+    const catalogProduct: HTMLElement = node[0].childNodes[0] as HTMLElement;
+
     const toolbarSelect: HTMLElement = createElem('div', styles['toolbar__select_item-sort']);
 
     const selectItem: HTMLElement = createElem('div', styles['select_item-sort']);
@@ -30,6 +35,12 @@ export const renderSelectSort = (): HTMLElement => {
 
             selectItemLi.classList.add('select');
             itemSpan.innerHTML = selectItemLi.textContent as string;
+            // убираем соддержимое блока
+            // TODO - добавить на разные варианты сортировки разные функции
+            catalogProduct.innerHTML = '';
+            store.sort = quickSort(store.sort);
+            addProducts(store.sort, catalogProduct);
+            console.log(store);
         };
     }
 
