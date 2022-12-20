@@ -1,27 +1,27 @@
-export const quickSort = (arr: Product[]): Product[] => {
+export const quickSort = (arr: ExtendedProduct[], param: string): Product[] => {
     const copyArray = arr;
-    return quickSortHelper(copyArray, 0, copyArray.length - 1);
+    return quickSortHelper(copyArray, 0, copyArray.length - 1, param);
 };
 
-const quickSortHelper = (arr: Product[], left: number, rigth: number): Product[] => {
+const quickSortHelper = (arr: ExtendedProduct[], left: number, rigth: number, param: string): ExtendedProduct[] => {
     if (arr.length < 2) {
         return arr;
     }
 
-    const index = partition(arr, left, rigth);
+    const index = partition(arr, left, rigth, param);
 
     if (left < index - 1) {
-        quickSortHelper(arr, left, index - 1);
+        quickSortHelper(arr, left, index - 1, param);
     }
 
     if (index < rigth) {
-        quickSortHelper(arr, index, rigth);
+        quickSortHelper(arr, index, rigth, param);
     }
 
     return arr;
 };
 
-const partition = (arr: Product[], left: number, rigth: number): number => {
+const partition = (arr: ExtendedProduct[], left: number, rigth: number, param: string): number => {
     const pivot = arr[Math.floor((left + rigth) / 2)].price;
 
     while (left <= rigth) {

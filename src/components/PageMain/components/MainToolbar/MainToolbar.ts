@@ -12,7 +12,7 @@ export const renderMainToolbar = (node: NodeListOf<ChildNode>): HTMLElement => {
     const productQuantity: HTMLElement = createElem('div', styles['toolbar__quantity']);
     productQuantity.innerHTML = `Всего: ${String(PRODUCTS.length)}`;
 
-    const searchProduct: HTMLElement = renderSearchProduct();
+    const searchProduct: HTMLElement = renderSearchProduct(node);
     const selectView: HTMLElement = renderSelectView(node);
 
     mainToolbar.append(searchProduct, productQuantity, selectSort, selectView);

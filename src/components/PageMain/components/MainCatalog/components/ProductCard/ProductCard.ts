@@ -1,11 +1,13 @@
-// import { PRODUCTS } from '../../../../../../const/products';
 import { createElem } from '../../../../../../utils/create-element';
 import { newNameProduct } from '../../../../../../utils/edit-name-products';
 import { newPrice } from '../../../../../../utils/edit-price';
 
 export const renderProduct = (DATA: Product) => {
     const productCard: HTMLElement = createElem('div', 'products-card');
-    productCard.setAttribute('data-product', `${DATA.title}`);
+    productCard.setAttribute(
+        'data-product',
+        `${DATA.title} ${newPrice(DATA.price, DATA.discountPercentage)} ${DATA.color}`
+    );
     const productCardOverlay: HTMLElement = createElem('div', 'products-card__overlay');
 
     // оберка ссылки - здесь же ховер
@@ -52,11 +54,11 @@ export const renderProduct = (DATA: Product) => {
 
         productCard.setAttribute('data-price', `${newPrice(DATA.price, DATA.discountPercentage)}`);
 
-        productPrice.append(productPriceFull, productPriceDiscount, productPriceNew); //
+        productPrice.append(productPriceFull, productPriceDiscount, productPriceNew);
     } else {
         productCard.setAttribute('data-price', `${DATA.price}`);
         productPrice.append(productPriceFull);
-    } //
+    }
 
     const sizeWrapper: HTMLElement = createElem('div', 'product-card__sizes-wrapper');
 

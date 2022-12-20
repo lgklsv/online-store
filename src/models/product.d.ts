@@ -13,4 +13,9 @@ interface Product {
     category: string;
     thumbnail: string;
     images: string[];
+    // discountPrice?: string;
+}
+
+interface ExtendedProduct extends Product {
+    discountPrice?: number;
 }
