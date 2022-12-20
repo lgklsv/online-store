@@ -5,7 +5,7 @@ import { renderSelectSort } from './components/SelectSort/SelectSort';
 import { renderSelectView } from './components/SelectView/SelectView';
 import styles from './MainToolbar.module.scss';
 
-export const renderMainToolbar = (): HTMLElement => {
+export const renderMainToolbar = (node: NodeListOf<ChildNode>): HTMLElement => {
     const mainToolbar: HTMLElement = createElem('div', styles['main__toolbar']);
 
     const selectSort: HTMLElement = renderSelectSort();
@@ -13,7 +13,7 @@ export const renderMainToolbar = (): HTMLElement => {
     productQuantity.innerHTML = `Всего: ${String(PRODUCTS.length)}`;
 
     const searchProduct: HTMLElement = renderSearchProduct();
-    const selectView: HTMLElement = renderSelectView();
+    const selectView: HTMLElement = renderSelectView(node);
 
     mainToolbar.append(searchProduct, productQuantity, selectSort, selectView);
 

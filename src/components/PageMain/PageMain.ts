@@ -9,15 +9,16 @@ export const renderMainPage = (): HTMLElement => {
     const mainContainer: HTMLElement = createElem('div', styles['main__container']);
     const mainContent: HTMLElement = createElem('div', styles['content']);
 
-    const mainToollbar: HTMLElement = renderMainToolbar();
     const mainCatalog: HTMLElement = renderMainCatalog();
-
     const mainFilters: HTMLElement = renderMainFilters();
+    const mainToollbar: HTMLElement = renderMainToolbar(mainCatalog.childNodes);
 
     mainContent.append(mainToollbar, mainCatalog);
     mainContainer.append(mainFilters, mainContent);
 
     main.append(mainContainer);
+
+    console.log();
 
     return main;
 };
