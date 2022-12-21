@@ -58,6 +58,34 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
     rightRangeInput.setAttribute('max', max);
     rightRangeInput.setAttribute('value', max);
 
+    rangeInputs.oninput = (e: Event) => {
+        console.log(e.target);
+        const targetInput = e.target;
+        if (targetInput instanceof HTMLInputElement) {
+            const rangeInputsEl = targetInput.parentElement;
+            if (rangeInputsEl instanceof HTMLElement) {
+                const beforRangeInputParent = rangeInputsEl.previousElementSibling;
+                if (beforRangeInputParent instanceof HTMLElement) {
+                    const progress = beforRangeInputParent.firstElementChild;
+
+                    const rangeInputs = rangeInputsEl.children;
+                    const rangeLeft = rangeInputs[0];
+                    const rangeRight = rangeInputs[1];
+                    if (
+                        rangeLeft instanceof HTMLInputElement &&
+                        rangeRight instanceof HTMLInputElement &&
+                        progress instanceof HTMLElement
+                    ) {
+                        let minVal = +rangeLeft.value;
+                        let maxVal = +rangeRight.value;
+                        progress.style.left = (minVal / +rangeLeft.max) * 100 + '%';
+                        progress.style.right = 100 - (maxVal / +rangeRight.max) * 100 + '%';
+                    }
+                }
+            }
+        }
+    };
+
     rangeInputs.append(leftRangeInput, rightRangeInput);
 
     slideFilter.append(heading, slideFilterNumbers, slideFilterSlider, rangeInputs);
