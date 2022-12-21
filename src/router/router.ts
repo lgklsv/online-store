@@ -12,8 +12,8 @@ export const pathResolver = (hostEl: HTMLDivElement, pathname: string): void => 
         const product = findProductById(extractPathId(pathname));
         if (product !== -1) {
             route = ROUTER_PATHS[PATH_NAMES.product];
-            hostEl.innerHTML = route.template(findProductById(extractPathId(pathname)));
             document.title = route.title;
+            route.template(product);
         } else {
             route = ROUTER_PATHS[PATH_NAMES.notFound];
             route.template();
@@ -25,7 +25,9 @@ export const pathResolver = (hostEl: HTMLDivElement, pathname: string): void => 
     }
 };
 
-pathResolver(hostEl, window.location.pathname);
+if (hostEl instanceof HTMLDivElement) {
+    pathResolver(hostEl, window.location.pathname);
+}
 
 window.addEventListener('popstate', (): void => {
     pathResolver(hostEl, window.location.pathname);

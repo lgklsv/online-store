@@ -1,13 +1,15 @@
 import { createElem } from '../../../../../../utils/create-element';
-import { renderInformationProduct } from '../Information/Information';
 import styles from './Slider.module.scss';
 
 export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
-    const toolbarProdPage: HTMLElement = createElem('div', styles['product-page__prod-container']);
+    const sliderContainer: HTMLElement = createElem('div', styles['product-page__slider-container']);
+    const sliderLeft: HTMLElement = createElem('div', styles['product-page__slider-left']);
+    const sliderRight: HTMLElement = createElem('div', styles['product-page__slider-right']);
+    const sliderGalery: HTMLElement = createElem('div', styles['slider-right__galery']);
 
-    const information = renderInformationProduct(product);
+    sliderRight.append(sliderGalery);
 
-    toolbarProdPage.append(information);
+    sliderContainer.append(sliderLeft, sliderRight);
 
-    return toolbarProdPage;
+    return sliderContainer;
 };

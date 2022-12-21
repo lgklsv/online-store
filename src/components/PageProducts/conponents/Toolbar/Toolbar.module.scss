@@ -3,8 +3,13 @@
 .toolbar__product-page {
     min-height: 3.2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 3rem;
     transition: top 0.3s ease;
+}
+
+.product-page__item-score {
+    text-decoration: none;
+    color: inherit;
 }

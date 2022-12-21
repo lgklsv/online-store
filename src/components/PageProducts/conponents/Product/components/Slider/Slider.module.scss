@@ -1,0 +1,23 @@
+@import '/src/theme/variable';
+
+.product-page__slider-container {
+    width: 100%;
+    display: flex;
+    flex: 1 1 75.3rem;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    flex-direction: column;
+}
+
+.product-page__slider-left {
+    width: 100%;
+    flex: 0 1 4rem;
+    margin: 0;
+}
+
+.product-page__slider-right {
+    flex: 1 1 auto;
+    width: auto;
+    padding: 0 2.4rem;
+}
