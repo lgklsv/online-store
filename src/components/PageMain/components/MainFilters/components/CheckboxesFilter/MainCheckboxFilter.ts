@@ -1,10 +1,8 @@
 import styles from './MainCheckboxFilter.module.scss';
 import { createElem } from '../../../../../../utils/create-element';
 import { createInput } from '../../../../../../utils/create-input-element';
-import { appliedFilters, store } from '../../../../../../const/store';
-import { addProducts } from '../../../../../../utils/add-product';
-import { filterByCategory } from '../../../FilterFunctions/filterByCategory';
-import { filterByBrand } from '../../../FilterFunctions/filterByBrand';
+import { appliedFilters } from '../../../../../../const/store';
+import { renderFiltered } from '../../../Filter/filter';
 
 /** Функция создает универсальный фильтр с чекбоксами, аргументы: название фильтра, подкласс и массив названий для фильтрации */
 export const renderCheckboxFilter = (title: string, data: ProductProps[], subClass: string): HTMLElement => {
@@ -34,68 +32,32 @@ export const renderCheckboxFilter = (title: string, data: ProductProps[], subCla
         itemCount.innerHTML = `${data[i].amount}/${data[i].amount}`;
 
         filterOption.append(filterCheckbox, filterCheckboxLabel, itemCount);
-
         filterList.append(filterOption);
     }
 
     filterList.onchange = (e: Event) => {
-        console.log(e.target);
         const targetInput = e.target;
-        let typeFilter;
-        console.log(store);
+        let filterType;
         if (targetInput instanceof HTMLInputElement) {
             targetInput.classList.contains('checkbox-filter__input_category')
-                ? (typeFilter = 'category')
-                : (typeFilter = 'brand');
-            console.log(targetInput.checked);
+                ? (filterType = 'category')
+                : (filterType = 'brand');
 
             const filterBy = targetInput.id.toLowerCase().replace(/_/g, ' ');
             if (targetInput.checked) {
-                if (appliedFilters[typeFilter]) {
-                    appliedFilters[typeFilter].push(filterBy);
-                } else {
-                    appliedFilters[typeFilter] = [];
-                    appliedFilters[typeFilter].push(filterBy);
-                }
+                if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
+                appliedFilters[filterType].push(filterBy);
             } else {
-                const i = appliedFilters[typeFilter].indexOf(filterBy);
-                if (appliedFilters[typeFilter]) {
-                    appliedFilters[typeFilter].splice(i, 1);
-                    if (appliedFilters[typeFilter].length === 0) {
-                        delete appliedFilters[typeFilter];
+                const i = appliedFilters[filterType].indexOf(filterBy);
+                if (appliedFilters[filterType]) {
+                    appliedFilters[filterType].splice(i, 1);
+                    if (appliedFilters[filterType].length === 0) {
+                        delete appliedFilters[filterType];
                     }
                 }
             }
-            console.log(Object.entries(appliedFilters));
-
-            const catalogProduct = document.querySelector('.catalog_products');
-            if (catalogProduct instanceof HTMLElement) {
-                catalogProduct.innerHTML = '';
-                store.sort2 = [];
-
-                const allFiltersObj = Object.entries(appliedFilters);
-
-                if (allFiltersObj.length > 0) {
-                    allFiltersObj.forEach((entryArr, indexObj) => {
-                        console.log(entryArr);
-                        const [filterType, filterValueArr] = entryArr;
-                        console.log(filterType, filterValueArr);
-
-                        if (filterType === 'category') {
-                            store.sort2 = filterByCategory(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
-                        } else {
-                            store.sort2 = filterByBrand(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
-                        }
-                    });
-                    addProducts(store.sort2, catalogProduct);
-                } else {
-                    addProducts(store.origin, catalogProduct);
-                }
-            }
-
-            console.log(appliedFilters);
+            renderFiltered(appliedFilters);
         }
-        console.log(typeFilter);
     };
 
     filterBody.append(filterList);

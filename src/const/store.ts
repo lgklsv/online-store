@@ -1,6 +1,5 @@
 import { newPrice } from '../utils/edit-price';
 import { PRODUCTS } from './products';
-import { AppliedFilters } from '../models/appliedFilters';
 
 export const store: Store = {
     origin: PRODUCTS.map((product: Product) => ({

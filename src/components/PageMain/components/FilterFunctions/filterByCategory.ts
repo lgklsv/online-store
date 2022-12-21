@@ -1,4 +1,3 @@
-
 export const filterByCategory = (data: ExtendedProduct[], filterValueArr: string[]): ExtendedProduct[] => {
     let outputArr: ExtendedProduct[] = [];
     filterValueArr.forEach((value) => {
