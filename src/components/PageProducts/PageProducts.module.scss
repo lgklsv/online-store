@@ -1,10 +1,20 @@
 @import '/src/theme/variable';
 
+.main {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
 .page-main__container {
     width: 100%;
-    padding: 0 2.4rem;
     display: block;
     max-width: 1200px;
     height: 100%;
     margin: 0 auto;
+    padding-right: 15px;
+    padding-left: 15px;
 }

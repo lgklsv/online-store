@@ -1,1 +1,57 @@
 @import '/src/theme/variable';
+
+.product-page__info-container {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 35.1rem;
+}
+
+.product-page__card {
+    display: flex;
+    flex-direction: column;
+    max-width: 35.1rem;
+    height: max-content;
+    padding: 3.2rem;
+    background-color: $white;
+    border-radius: 0.4rem;
+}
+
+.product-page__header-wrapper {
+    margin-bottom: 2rem;
+}
+
+.product-page__header {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+}
+
+.product-page__header-descrip {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: $light-text;
+}
+
+.product-page__size-title {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 14px;
+}
+
+.product-page__size-plate {
+    @include show-size(0.8rem, 0.8rem);
+}
+
+.product-page__sizes {
+    @include size(0.8rem, 2.5rem);
+    font-weight: 400;
+    font-size: 1rem;
+
+    &:hover {
+        background-color: $primary10;
+    }
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

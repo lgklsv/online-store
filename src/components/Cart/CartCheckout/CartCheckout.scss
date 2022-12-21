@@ -38,14 +38,14 @@
 }
 
 .checkout-coupon__btn {
-    @extend %btn-grey;
+    @include btn($black, $light-grey, $grey);
     height: 48px;
     padding: 0.5rem;
     flex-grow: 1;
 }
 
 .cart__checkout-btn {
-    @extend %btn-black;
+    @include btn($white, $black, $primary-80);
     width: 100%;
     margin-top: 1rem;
 }

@@ -160,18 +160,7 @@
 }
 
 .product-card__sizes {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    @extend %border-for-toolbar;
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
-    height: 1.8rem;
-    background-color: $primary10;
-
-    &:active {
-        background-color: $white;
-    }
+    @include size(0.4rem, 1.8rem);
 }
 
 .active-size {
@@ -179,11 +168,7 @@
 }
 
 .show_sizes {
-    margin-top: 0.8rem;
-    display: flex;
-    gap: 0.4rem;
-    align-items: center;
-    justify-content: center;
+    @include show-size(0.8rem, 0.4rem);
 }
 
 .hide {

@@ -19,32 +19,40 @@ $header-height: 80px;
     font-weight: 400;
 }
 
-%btn-grey {
+@mixin btn($color, $background-color, $hover-background-color) {
     cursor: pointer;
     border: none;
     text-decoration: none;
-    color: $black;
+    color: $color;
     padding: 1rem;
     font-size: 0.9rem;
-    background-color: $light-grey;
-    transition: background-color .3s ease;
+    background-color: $background-color;
+    transition: background-color 0.3s ease;
     border-radius: 5px;
     &:hover {
-        background-color: $grey;
+        background-color: $hover-background-color;
     }
 }
 
-%btn-black {
+@mixin show-size($margin, $gap) {
+    margin-top: $margin;
+    display: flex;
+    gap: $gap;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin size($padding, $heigth) {
     cursor: pointer;
-    border: none;
-    text-decoration: none;
-    color: $white;
-    padding: 1rem;
-    font-size: 0.9rem;
-    background-color: $black;
-    transition: background-color .3s ease;
-    border-radius: 5px;
-    &:hover {
-        background-color: $primary-80;
+    display: flex;
+    align-items: center;
+    @extend %border-for-toolbar;
+    padding-left: $padding;
+    padding-right: $padding;
+    height: $heigth;
+    background-color: $primaty-5;
+
+    &:active {
+        background-color: $white;
     }
 }

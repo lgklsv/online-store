@@ -13,14 +13,13 @@ export const renderProductPageToolbar = (product: ExtendedProduct): HTMLElement 
 
     const mainLink: HTMLElement = createLink('/', 'product-page__item-score', true, 'Главная');
     toolbarProdPage.append(mainLink);
+    const str = '&nbsp;';
 
     path.forEach((elem) => {
         const itemScope = createElem('div', 'product-page__item-score');
-        itemScope.innerHTML = `/ ${elem}`;
+        itemScope.innerHTML = `${str}/ ${elem}`;
         toolbarProdPage.append(itemScope);
     });
-
-    // // Главная / Футболки / Adidas / Название
 
     return toolbarProdPage;
 };
