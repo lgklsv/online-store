@@ -4,8 +4,8 @@ import { findProductById } from '../utils/find-product-by-id';
 import { PATH_NAMES } from '../const/path-names';
 import { router } from '../utils/router';
 
-const menu = document.querySelector('.router-test-menu');
-const hostEl = document.getElementById('app') as HTMLElement;
+const menu = document.querySelector('.router-test-menu') as HTMLElement;
+const hostEl = document.getElementById('app') as HTMLDivElement;
 
 /** Рендер темплейтов страниц */
 export const pathResolver = (hostEl: HTMLDivElement, pathname: string): void => {
@@ -27,22 +27,15 @@ export const pathResolver = (hostEl: HTMLDivElement, pathname: string): void => 
     }
 };
 
-if (hostEl instanceof HTMLDivElement) {
-    pathResolver(hostEl, window.location.pathname);
-}
+pathResolver(hostEl, window.location.pathname);
 
-if (menu instanceof HTMLElement) {
-    menu.addEventListener('click', (e: Event) => {
-        if (e.target instanceof HTMLAnchorElement) {
-            e.preventDefault();
-            const pathname = e.target.getAttribute('href');
-            if (pathname) router(hostEl, pathname);
-        }
-    });
-}
+menu.addEventListener('click', (e: Event) => {
+    const target = e.target as HTMLAnchorElement;
+    e.preventDefault();
+    const pathname = target.getAttribute('href');
+    if (pathname) router(hostEl, pathname);
+});
 
 window.addEventListener('popstate', (): void => {
-    if (hostEl instanceof HTMLDivElement) {
-        pathResolver(hostEl, window.location.pathname);
-    }
+    pathResolver(hostEl, window.location.pathname);
 });

@@ -67,7 +67,6 @@ export const renderCartItems = (): HTMLElement => {
         const itemPrice: HTMLElement = renderProductPrice(PRODUCTS[i], 'cart');
 
         item.append(itemLink, itemQuaintityContainer, itemPrice);
-
         cartItems.append(item);
     }
     return cartItems;

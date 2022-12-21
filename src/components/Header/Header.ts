@@ -17,11 +17,10 @@ export const renderHeader = (): HTMLElement => {
     storeName.append(storeLogoLink);
 
     storeName.onclick = (e: Event) => {
-        if (e.target instanceof HTMLAnchorElement) {
-            e.preventDefault();
-            const pathname = e.target.getAttribute('href');
-            if (pathname) router(hostEl, pathname);
-        }
+        const target = e.target as HTMLAnchorElement;
+        e.preventDefault();
+        const pathname = target.getAttribute('href');
+        if (pathname) router(hostEl, pathname);
     };
 
     const totalSumm: HTMLElement = createElem('div', 'header__total-summ');

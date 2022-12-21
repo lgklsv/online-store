@@ -36,28 +36,26 @@ export const renderCheckboxFilter = (title: string, data: ProductProps[], subCla
     }
 
     filterList.onchange = (e: Event) => {
-        const targetInput = e.target;
+        const targetInput = e.target as HTMLInputElement;
         let filterType;
-        if (targetInput instanceof HTMLInputElement) {
-            targetInput.classList.contains('checkbox-filter__input_category')
-                ? (filterType = 'category')
-                : (filterType = 'brand');
+        targetInput.classList.contains('checkbox-filter__input_category')
+            ? (filterType = 'category')
+            : (filterType = 'brand');
 
-            const filterBy = targetInput.id.toLowerCase().replace(/_/g, ' ');
-            if (targetInput.checked) {
-                if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
-                appliedFilters[filterType].push(filterBy);
-            } else {
-                const i = appliedFilters[filterType].indexOf(filterBy);
-                if (appliedFilters[filterType]) {
-                    appliedFilters[filterType].splice(i, 1);
-                    if (appliedFilters[filterType].length === 0) {
-                        delete appliedFilters[filterType];
-                    }
+        const filterBy = targetInput.id.toLowerCase().replace(/_/g, ' ');
+        if (targetInput.checked) {
+            if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
+            appliedFilters[filterType].push(filterBy);
+        } else {
+            const i = appliedFilters[filterType].indexOf(filterBy);
+            if (appliedFilters[filterType]) {
+                appliedFilters[filterType].splice(i, 1);
+                if (appliedFilters[filterType].length === 0) {
+                    delete appliedFilters[filterType];
                 }
             }
-            renderFiltered(appliedFilters);
         }
+        renderFiltered(appliedFilters);
     };
 
     filterBody.append(filterList);

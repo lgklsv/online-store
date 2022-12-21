@@ -65,52 +65,42 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
     let priceGap = 1;
 
     rangeInputs.oninput = (e: Event) => {
-        const targetInput = e.target;
+        const targetInput = e.target as HTMLInputElement;
         let filterType;
-        if (targetInput instanceof HTMLInputElement) {
-            const rangeInputsEl = targetInput.parentElement;
-            if (rangeInputsEl instanceof HTMLElement) {
-                rangeInputsEl.classList.contains('slide-filter__ranges_price')
-                    ? (filterType = 'price')
-                    : (filterType = 'stock');
+        const rangeInputsEl = targetInput.parentElement as HTMLElement;
+        rangeInputsEl.classList.contains('slide-filter__ranges_price')
+            ? (filterType = 'price')
+            : (filterType = 'stock');
 
-                console.log(filterType);
-                let minVal: number = 0;
-                let maxVal: number = 0;
+        console.log(filterType);
+        let minVal: number = 0;
+        let maxVal: number = 0;
 
-                const beforRangeInputParent = rangeInputsEl.previousElementSibling;
-                if (beforRangeInputParent instanceof HTMLElement) {
-                    const progress = beforRangeInputParent.firstElementChild;
+        const beforRangeInputParent = rangeInputsEl.previousElementSibling as HTMLElement;
 
-                    const rangeInputs = rangeInputsEl.children;
-                    const rangeLeft = rangeInputs[0];
-                    const rangeRight = rangeInputs[1];
-                    if (
-                        rangeLeft instanceof HTMLInputElement &&
-                        rangeRight instanceof HTMLInputElement &&
-                        progress instanceof HTMLElement
-                    ) {
-                        minVal = +rangeLeft.value;
-                        maxVal = +rangeRight.value;
+        const progress = beforRangeInputParent.firstElementChild as HTMLElement;
 
-                        if (maxVal - minVal < priceGap) {
-                            if (targetInput.classList.contains('range-input_left')) {
-                                rangeLeft.value = (maxVal - priceGap).toString();
-                            } else {
-                                rangeRight.value = (minVal + priceGap).toString();
-                            }
-                        } else {
-                            progress.style.left = (minVal / +rangeLeft.max) * 100 + '%';
-                            progress.style.right = 100 - (maxVal / +rangeRight.max) * 100 + '%';
-                        }
-                    }
-                }
+        const rangeInputs = rangeInputsEl.children;
+        const rangeLeft = rangeInputs[0] as HTMLInputElement;
+        const rangeRight = rangeInputs[1] as HTMLInputElement;
+        
+        minVal = +rangeLeft.value;
+        maxVal = +rangeRight.value;
 
-                if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
-                appliedFilters[filterType] = [minVal, maxVal];
-                renderFiltered(appliedFilters);
+        if (maxVal - minVal < priceGap) {
+            if (targetInput.classList.contains('range-input_left')) {
+                rangeLeft.value = (maxVal - priceGap).toString();
+            } else {
+                rangeRight.value = (minVal + priceGap).toString();
             }
+        } else {
+            progress.style.left = (minVal / +rangeLeft.max) * 100 + '%';
+            progress.style.right = 100 - (maxVal / +rangeRight.max) * 100 + '%';
         }
+
+        if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
+        appliedFilters[filterType] = [minVal, maxVal];
+        renderFiltered(appliedFilters);
     };
 
     rangeInputs.append(leftRangeInput, rightRangeInput);

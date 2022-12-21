@@ -19,11 +19,9 @@ export const renderCartPage = (): HTMLElement => {
     cartDeleteAllBtn.innerHTML = 'Удалить все';
 
     cartDeleteAllBtn.onclick = () => {
-        const cartItems = document.querySelector('.cart__items');
-        if (cartItems instanceof HTMLElement) {
-            cartItems.innerHTML = '';
-            cartItems.append(renderEmptyCart());
-        }
+        const cartItems = document.querySelector('.cart__items') as HTMLElement;
+        cartItems.innerHTML = '';
+        cartItems.append(renderEmptyCart());
     };
 
     cartHeadingContainer.append(cartHeading, cartDeleteAllBtn);
