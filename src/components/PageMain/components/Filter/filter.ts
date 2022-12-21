@@ -5,6 +5,7 @@ import { filterByPrice } from '../FilterFunctions/filterByPrice';
 import { filterByStock } from '../FilterFunctions/filterByStock';
 import { addProducts } from '../../../../utils/add-product';
 import { renderEmptyCatalog } from '../EmptyCatalog/EmptyCatalog';
+import { updateUI } from '../updateUI/updateUI';
 
 /** Функция которая принимает объект applied filters и проходит по всем выставленным там фильтрам по порядку */
 export const renderFiltered = (appliedFilters: AppliedFilters) => {
@@ -24,7 +25,6 @@ export const renderFiltered = (appliedFilters: AppliedFilters) => {
                 store.sort2 = filterByBrand(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
             } else if (filterType === 'price') {
                 store.sort2 = filterByPrice(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
-                console.log(store.sort2);
             } else if (filterType === 'stock') {
                 store.sort2 = filterByStock(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
             }
@@ -38,8 +38,12 @@ export const renderFiltered = (appliedFilters: AppliedFilters) => {
             catalogProduct.classList.remove('catalog-product_empty');
             addProducts(store.sort2, catalogProduct);
         }
+        updateUI(store.sort2);
     } else {
         catalogProduct.classList.remove('catalog-product_empty');
         addProducts(store.origin, catalogProduct);
+        updateUI(store.origin);
     }
+
+    // console.log(appliedFilters);
 };

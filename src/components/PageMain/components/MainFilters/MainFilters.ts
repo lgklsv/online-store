@@ -10,14 +10,10 @@ import { getStockValues } from '../../../../utils/products-data-helpers/get-stoc
 
 export const renderMainFilters = (): HTMLElement => {
     const filters: HTMLElement = createElem('div', styles['filters']);
-
     const filtersContainer: HTMLElement = createElem('div', 'filters__container');
-
     const heading: HTMLElement = createElem('h2', 'filters__heading');
     heading.textContent = 'Фильтры';
 
-    console.log(getPriceValues(PRODUCTS));
-    console.log(getStockValues(PRODUCTS));
     const priceFilter: HTMLElement = renderSlideFilter('Цена', 'cash', getPriceValues(PRODUCTS), 'price');
     const stockFilter: HTMLElement = renderSlideFilter('Количество', 'stock', getStockValues(PRODUCTS), 'stock');
 
@@ -35,6 +31,5 @@ export const renderMainFilters = (): HTMLElement => {
 
     filtersContainer.append(heading, priceFilter, stockFilter, categoryFilter, brandFilter);
     filters.append(filtersContainer);
-
     return filters;
 };

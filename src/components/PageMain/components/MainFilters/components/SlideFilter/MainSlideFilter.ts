@@ -24,6 +24,7 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
     numbersFromTitle.innerHTML = 'От';
     const numbersInputFromWrap: HTMLElement = createElem('div', `slide-filter-num__input-wrap_${rangeIcon}`);
     const numbersFromInput: HTMLInputElement = createInput('number', 'slide-filter-num__input', min);
+    numbersFromInput.classList.add(`num-input-left_${subClass}`);
 
     numbersInputFromWrap.append(numbersFromInput);
     numbersFrom.append(numbersFromTitle, numbersInputFromWrap);
@@ -34,6 +35,7 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
     numbersToTitle.innerHTML = 'До';
     const numbersInputToWrap: HTMLElement = createElem('div', `slide-filter-num__input-wrap_${rangeIcon}`);
     const numbersToInput: HTMLInputElement = createInput('number', 'slide-filter-num__input', max);
+    numbersToInput.classList.add(`num-input-right_${subClass}`);
 
     numbersInputToWrap.append(numbersToInput);
     numbersTo.append(numbersToTitle, numbersInputToWrap);
@@ -43,6 +45,7 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
     // Double range slider
     const slideFilterSlider: HTMLElement = createElem('div', 'slide-filter__slider');
     const sliderProgress: HTMLElement = createElem('div', 'progress');
+    sliderProgress.classList.add(`progress_${subClass}`);
 
     slideFilterSlider.append(sliderProgress);
 
@@ -72,18 +75,16 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
             ? (filterType = 'price')
             : (filterType = 'stock');
 
-        console.log(filterType);
         let minVal: number = 0;
         let maxVal: number = 0;
 
         const beforRangeInputParent = rangeInputsEl.previousElementSibling as HTMLElement;
-
         const progress = beforRangeInputParent.firstElementChild as HTMLElement;
 
         const rangeInputs = rangeInputsEl.children;
         const rangeLeft = rangeInputs[0] as HTMLInputElement;
         const rangeRight = rangeInputs[1] as HTMLInputElement;
-        
+
         minVal = +rangeLeft.value;
         maxVal = +rangeRight.value;
 
@@ -104,7 +105,6 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
     };
 
     rangeInputs.append(leftRangeInput, rightRangeInput);
-
     slideFilter.append(heading, slideFilterNumbers, slideFilterSlider, rangeInputs);
     return slideFilter;
 };
