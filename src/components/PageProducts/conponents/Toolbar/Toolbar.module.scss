@@ -1,0 +1,10 @@
+@import '/src/theme/variable';
+
+.toolbar__product-page {
+    min-height: 3.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    transition: top 0.3s ease;
+}

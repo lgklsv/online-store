@@ -1,0 +1,26 @@
+import { createElem } from '../../../../utils/create-element';
+import { createLink } from '../../../../utils/create-link-element';
+import { newNameProduct } from '../../../../utils/edit-name-products';
+import styles from './Toolbar.module.scss';
+export const renderProductPageToolbar = (product: ExtendedProduct): HTMLElement => {
+    const toolbarProdPage: HTMLElement = createElem('div', styles['toolbar__product-page']);
+
+    const path: string[] = [
+        `${product.category}`,
+        `${product.brand}`,
+        `${newNameProduct(product.brand, product.title)}`,
+    ];
+
+    const mainLink: HTMLElement = createLink('/', 'product-page__item-score link', true, 'Главная');
+    toolbarProdPage.append(mainLink);
+
+    path.forEach((elem) => {
+        const itemScope = createElem('div', 'product-page__item-score');
+        itemScope.innerHTML = elem;
+        toolbarProdPage.append(itemScope);
+    });
+
+    // // Главная / Футболки / Adidas / Название
+
+    return toolbarProdPage;
+};
