@@ -1,6 +1,8 @@
 import { store } from '../../../../const/store';
 import { filterByCategory } from '../FilterFunctions/filterByCategory';
 import { filterByBrand } from '../FilterFunctions/filterByBrand';
+import { filterByPrice } from '../FilterFunctions/filterByPrice';
+import { filterByStock } from '../FilterFunctions/filterByStock';
 import { addProducts } from '../../../../utils/add-product';
 import { renderEmptyCatalog } from '../EmptyCatalog/EmptyCatalog';
 
@@ -21,6 +23,11 @@ export const renderFiltered = (appliedFilters: AppliedFilters) => {
                     store.sort2 = filterByCategory(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
                 } else if (filterType === 'brand') {
                     store.sort2 = filterByBrand(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
+                } else if (filterType === 'price') {
+                    store.sort2 = filterByPrice(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
+                    console.log(store.sort2);
+                } else if (filterType === 'stock') {
+                    store.sort2 = filterByStock(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
                 }
                 // добавляем остальные функции фильтров по тому же принципу
             });

@@ -18,8 +18,8 @@ export const renderMainFilters = (): HTMLElement => {
 
     console.log(getPriceValues(PRODUCTS));
     console.log(getStockValues(PRODUCTS));
-    const priceFilter: HTMLElement = renderSlideFilter('Цена', 'cash', getPriceValues(PRODUCTS));
-    const stockFilter: HTMLElement = renderSlideFilter('Количество', 'stock', getStockValues(PRODUCTS));
+    const priceFilter: HTMLElement = renderSlideFilter('Цена', 'cash', getPriceValues(PRODUCTS), 'price');
+    const stockFilter: HTMLElement = renderSlideFilter('Количество', 'stock', getStockValues(PRODUCTS), 'stock');
 
     const categoryFilter: HTMLElement = renderCheckboxFilter(
         'Категория',

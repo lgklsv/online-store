@@ -1,9 +1,11 @@
 import { createElem } from '../../../../../../utils/create-element';
 import { createInput } from '../../../../../../utils/create-input-element';
 import styles from './MainSlideFilter.module.scss';
+import { appliedFilters } from '../../../../../../const/store';
+import { renderFiltered } from '../../../Filter/filter';
 
 /** Функция создает универсальный фильтр со слайдером, аргументы: название фильтра, подкласс и массив чисел для фильтрации */
-export const renderSlideFilter = (title: string, rangeIcon: string, data: number[], subClass?: string): HTMLElement => {
+export const renderSlideFilter = (title: string, rangeIcon: string, data: number[], subClass: string): HTMLElement => {
     const slideFilter: HTMLElement = createElem('div', styles['slide-filter']);
     // Heading
     const heading: HTMLElement = createElem('h3', 'slide-filter__heading');
@@ -21,7 +23,7 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
     const numbersFromTitle: HTMLElement = createElem('div', 'slide-filter-num__title');
     numbersFromTitle.innerHTML = 'От';
     const numbersInputFromWrap: HTMLElement = createElem('div', `slide-filter-num__input-wrap_${rangeIcon}`);
-    const numbersFromInput: HTMLInputElement = createInput('number', 'slide-filter-num__input', min); // приходит на основе данных
+    const numbersFromInput: HTMLInputElement = createInput('number', 'slide-filter-num__input', min);
 
     numbersInputFromWrap.append(numbersFromInput);
     numbersFrom.append(numbersFromTitle, numbersInputFromWrap);
@@ -32,7 +34,6 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
     numbersToTitle.innerHTML = 'До';
     const numbersInputToWrap: HTMLElement = createElem('div', `slide-filter-num__input-wrap_${rangeIcon}`);
     const numbersToInput: HTMLInputElement = createInput('number', 'slide-filter-num__input', max);
-    // приходит на основе данных
 
     numbersInputToWrap.append(numbersToInput);
     numbersTo.append(numbersToTitle, numbersInputToWrap);
@@ -47,23 +48,36 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
 
     // Range inputs
     const rangeInputs: HTMLElement = createElem('div', 'slide-filter__ranges');
+    rangeInputs.classList.add(`slide-filter__ranges_${subClass}`);
 
     const leftRangeInput: HTMLInputElement = createInput('range', 'slide-filter__range-input');
-    leftRangeInput.setAttribute('min', min); // приходит на основе данных
+    leftRangeInput.classList.add('range-input_left');
+    leftRangeInput.setAttribute('min', min);
     leftRangeInput.setAttribute('max', max);
     leftRangeInput.setAttribute('value', min);
 
     const rightRangeInput: HTMLInputElement = createInput('range', 'slide-filter__range-input');
-    rightRangeInput.setAttribute('min', min); // приходит на основе данных
+    rightRangeInput.classList.add('range-input_right');
+    rightRangeInput.setAttribute('min', min);
     rightRangeInput.setAttribute('max', max);
     rightRangeInput.setAttribute('value', max);
 
+    let priceGap = 1;
+
     rangeInputs.oninput = (e: Event) => {
-        console.log(e.target);
         const targetInput = e.target;
+        let filterType;
         if (targetInput instanceof HTMLInputElement) {
             const rangeInputsEl = targetInput.parentElement;
             if (rangeInputsEl instanceof HTMLElement) {
+                rangeInputsEl.classList.contains('slide-filter__ranges_price')
+                    ? (filterType = 'price')
+                    : (filterType = 'stock');
+
+                console.log(filterType);
+                let minVal: number = 0;
+                let maxVal: number = 0;
+
                 const beforRangeInputParent = rangeInputsEl.previousElementSibling;
                 if (beforRangeInputParent instanceof HTMLElement) {
                     const progress = beforRangeInputParent.firstElementChild;
@@ -76,12 +90,25 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
                         rangeRight instanceof HTMLInputElement &&
                         progress instanceof HTMLElement
                     ) {
-                        let minVal = +rangeLeft.value;
-                        let maxVal = +rangeRight.value;
-                        progress.style.left = (minVal / +rangeLeft.max) * 100 + '%';
-                        progress.style.right = 100 - (maxVal / +rangeRight.max) * 100 + '%';
+                        minVal = +rangeLeft.value;
+                        maxVal = +rangeRight.value;
+
+                        if (maxVal - minVal < priceGap) {
+                            if (targetInput.classList.contains('range-input_left')) {
+                                rangeLeft.value = (maxVal - priceGap).toString();
+                            } else {
+                                rangeRight.value = (minVal + priceGap).toString();
+                            }
+                        } else {
+                            progress.style.left = (minVal / +rangeLeft.max) * 100 + '%';
+                            progress.style.right = 100 - (maxVal / +rangeRight.max) * 100 + '%';
+                        }
                     }
                 }
+
+                if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
+                appliedFilters[filterType] = [minVal, maxVal];
+                renderFiltered(appliedFilters);
             }
         }
     };
