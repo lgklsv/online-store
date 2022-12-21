@@ -1,5 +1,5 @@
 /** Функция которая универсально обновялет UI в range фильтрах */
-export const updateRangeFilters = (data: number[], type: string): void => {
+export const updateRangeFiltersUI = (data: number[], type: string): void => {
     const inputLeft = document.querySelector(`.num-input-left_${type}`) as HTMLInputElement;
     const inputRight = document.querySelector(`.num-input-right_${type}`) as HTMLInputElement;
 

@@ -44,6 +44,4 @@ export const renderFiltered = (appliedFilters: AppliedFilters) => {
         addProducts(store.origin, catalogProduct);
         updateUI(store.origin);
     }
-
-    // console.log(appliedFilters);
 };

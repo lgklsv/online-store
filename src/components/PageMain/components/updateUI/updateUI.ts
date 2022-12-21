@@ -1,6 +1,10 @@
+import { getAmountOfProps } from '../../../../utils/products-data-helpers/get-amount-of-props';
 import { getPriceValues } from '../../../../utils/products-data-helpers/get-price-values';
 import { getStockValues } from '../../../../utils/products-data-helpers/get-stock-values';
-import { updateRangeFilters } from './components/updateRangeFilters';
+import { updateRangeFiltersUI } from './components/updateRangeFiltersUI';
+import { store } from '../../../../const/store';
+import { getBrands, getCategoties } from '../../../../utils/products-data-helpers/get-alpha-filtered-props';
+import { updateCheckboxFiltersUI } from './components/updateCheckboxFilterUI';
 
 /** Функция которая принимает объект с данными после филтраци и обновляет UI по всей сранице */
 export const updateUI = (data: ExtendedProduct[]) => {
@@ -10,9 +14,16 @@ export const updateUI = (data: ExtendedProduct[]) => {
 
     // Обновляем range фильтры
     // Price
-    updateRangeFilters(getPriceValues(data), 'price');
+    updateRangeFiltersUI(getPriceValues(data), 'price');
     // Stock
-    updateRangeFilters(getStockValues(data), 'stock');
+    updateRangeFiltersUI(getStockValues(data), 'stock');
 
-    // Обновляем checkbox фильтры 
+    // Обновляем checkbox фильтры
+    // Category
+    const categoryAmountOfProps = getAmountOfProps(store.sort2, getCategoties(store.sort2), 'category');
+    updateCheckboxFiltersUI(categoryAmountOfProps, data, 'category');
+
+    // Brand
+    const brandAmountOfProps = getAmountOfProps(store.sort2, getBrands(store.sort2), 'brand');
+    updateCheckboxFiltersUI(brandAmountOfProps, data, 'brand');
 };
