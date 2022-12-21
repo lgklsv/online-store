@@ -1,7 +1,7 @@
 import { createElem } from '../../../utils/create-element';
 import styles from './CartItems.module.scss';
 import { PRODUCTS } from '../../../const/products';
-import { renderProductPrice } from '../../PageMain/components/MainToolbar/components/ProductPrice/ProductPrice';
+import { renderProductPrice } from '../../PageMain/components/MainCatalog/components/ProductPrice/ProductPrice';
 // import { renderEmptyCart } from './components/CartEmpty/CartEmpty';
 
 export const renderCartItems = (): HTMLElement => {

@@ -16,14 +16,18 @@ export const renderMainFilters = (): HTMLElement => {
 
     const priceFilter: HTMLElement = renderSlideFilter('Цена', 'cash');
     const stockFilter: HTMLElement = renderSlideFilter('Количество', 'stock');
-    console.log(getCategoties(PRODUCTS));
-    // console.log(getAmountOfProps(PRODUCTS, getCategoties(PRODUCTS)));
+
     const categoryFilter: HTMLElement = renderCheckboxFilter(
         'Категория',
-        getAmountOfProps(PRODUCTS, getCategoties(PRODUCTS), 'category')
+        getAmountOfProps(PRODUCTS, getCategoties(PRODUCTS), 'category'),
+        'category'
     );
 
-    const brandFilter: HTMLElement = renderCheckboxFilter('Бренд', getAmountOfProps(PRODUCTS, getBrands(PRODUCTS), 'brand'));
+    const brandFilter: HTMLElement = renderCheckboxFilter(
+        'Бренд',
+        getAmountOfProps(PRODUCTS, getBrands(PRODUCTS), 'brand'),
+        'brand'
+    );
 
     filtersContainer.append(heading, priceFilter, stockFilter, categoryFilter, brandFilter);
     filters.append(filtersContainer);

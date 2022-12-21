@@ -1,7 +1,7 @@
 import { createElem } from '../../../../../../utils/create-element';
 import { newNameProduct } from '../../../../../../utils/edit-name-products';
 import { newPrice } from '../../../../../../utils/edit-price';
-import { renderProductPrice } from '../../../MainToolbar/components/ProductPrice/ProductPrice';
+import { renderProductPrice } from '../ProductPrice/ProductPrice';
 
 export const renderProduct = (DATA: Product) => {
     const productCard: HTMLElement = createElem('div', 'products-card');
