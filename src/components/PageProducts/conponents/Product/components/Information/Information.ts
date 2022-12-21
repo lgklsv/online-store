@@ -1,8 +1,16 @@
 import { createElem } from '../../../../../../utils/create-element';
 import { newNameProduct } from '../../../../../../utils/edit-name-products';
+import { newPrice } from '../../../../../../utils/edit-price';
+import { renderInformationAboutProducts } from './components/InfoDescriptions/InfoDescriptions';
+import {
+    renderOrderAddCart,
+    renderOrderButton,
+    renderOrderProductQuantity,
+} from './components/InfoOrderProducts/InfoOrderProducts';
 import styles from './Information.module.scss';
 
 export const renderInformationProduct = (product: ExtendedProduct): HTMLElement => {
+    const countProduct = 0;
     const informationContainer: HTMLElement = createElem('div', styles['product-page__info-container']);
     const informationCard: HTMLElement = createElem('div', styles['product-page__card']);
 
@@ -29,7 +37,39 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
 
     sizeWrapp.append(sizeTitle, sizePlate);
 
-    informationCard.append(headerWrapper, sizeWrapp);
+    // Цена
+    const productPrice: HTMLElement = createElem('div', styles['product-page__price']);
+    const productPriceFull: HTMLElement = createElem('span', 'product-card__price-full');
+    productPriceFull.innerHTML = String(product.price) + ' ₽';
+
+    // проверка есть ли скидка TODO - вынести в отдельную функцию
+    if (product.discountPercentage !== 0) {
+        const productPriceDiscount: HTMLElement = createElem('span', 'product-card__price-discount');
+        productPriceFull.classList.add('old-price');
+        productPriceDiscount.innerHTML = '–' + String(product.discountPercentage) + '%';
+
+        const productPriceNew: HTMLElement = createElem('div', 'product-card__price-new');
+        productPriceNew.innerHTML = newPrice(product.price, product.discountPercentage) + ' ₽';
+
+        productPrice.append(productPriceNew, productPriceFull, productPriceDiscount);
+    } else {
+        productPrice.append(productPriceFull);
+    }
+
+    const addToCart = renderOrderAddCart(product);
+    const productQantity = renderOrderProductQuantity(countProduct);
+    const orderLink = renderOrderButton();
+    const productDescroprions = renderInformationAboutProducts(product);
+
+    informationCard.append(
+        headerWrapper,
+        sizeWrapp,
+        productPrice,
+        addToCart,
+        productQantity,
+        orderLink,
+        productDescroprions
+    );
 
     informationContainer.append(informationCard);
 

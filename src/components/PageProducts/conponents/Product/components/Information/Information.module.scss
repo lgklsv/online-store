@@ -5,6 +5,7 @@
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
     width: 35.1rem;
+    // background-color: ;
 }
 
 .product-page__card {
@@ -12,8 +13,7 @@
     flex-direction: column;
     max-width: 35.1rem;
     height: max-content;
-    padding: 3.2rem;
-    background-color: $white;
+    padding: 2.2rem;
     border-radius: 0.4rem;
 }
 
@@ -54,4 +54,15 @@
     }
 
     transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 2.4rem;
+}
+
+.product-page__price {
+    padding-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    font-weight: 400;
+    text-align: center;
+    border-top: 1px solid $primaty-5;
 }

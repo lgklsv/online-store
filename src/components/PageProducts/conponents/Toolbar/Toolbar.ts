@@ -1,3 +1,4 @@
+import { space } from '../../../../const/store-name';
 import { createElem } from '../../../../utils/create-element';
 import { createLink } from '../../../../utils/create-link-element';
 import { newNameProduct } from '../../../../utils/edit-name-products';
@@ -13,11 +14,10 @@ export const renderProductPageToolbar = (product: ExtendedProduct): HTMLElement 
 
     const mainLink: HTMLElement = createLink('/', 'product-page__item-score', true, 'Главная');
     toolbarProdPage.append(mainLink);
-    const str = '&nbsp;';
 
     path.forEach((elem) => {
         const itemScope = createElem('div', 'product-page__item-score');
-        itemScope.innerHTML = `${str}/ ${elem}`;
+        itemScope.innerHTML = `${space}/ ${elem}`;
         toolbarProdPage.append(itemScope);
     });
 
