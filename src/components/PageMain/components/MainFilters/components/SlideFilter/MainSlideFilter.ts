@@ -3,17 +3,16 @@ import { createInput } from '../../../../../../utils/create-input-element';
 import styles from './MainSlideFilter.module.scss';
 
 /** Функция создает универсальный фильтр со слайдером, аргументы: название фильтра, подкласс и массив чисел для фильтрации */
-export const renderSlideFilter = (
-    title: string,
-    rangeIcon: string,
-    data?: number[],
-    subClass?: string
-): HTMLElement => {
+export const renderSlideFilter = (title: string, rangeIcon: string, data: number[], subClass?: string): HTMLElement => {
     const slideFilter: HTMLElement = createElem('div', styles['slide-filter']);
     // Heading
     const heading: HTMLElement = createElem('h3', 'slide-filter__heading');
     heading.classList.add('filter-title');
     heading.innerHTML = title;
+
+    // MIN MAX
+    const min = data[0].toString();
+    const max = data[data.length - 1].toString();
 
     // Num input 1
     const slideFilterNumbers: HTMLElement = createElem('div', 'slide-filter__numbers');
@@ -22,7 +21,7 @@ export const renderSlideFilter = (
     const numbersFromTitle: HTMLElement = createElem('div', 'slide-filter-num__title');
     numbersFromTitle.innerHTML = 'От';
     const numbersInputFromWrap: HTMLElement = createElem('div', `slide-filter-num__input-wrap_${rangeIcon}`);
-    const numbersFromInput: HTMLInputElement = createInput('number', 'slide-filter-num__input', '434'); // приходит на основе данных
+    const numbersFromInput: HTMLInputElement = createInput('number', 'slide-filter-num__input', min); // приходит на основе данных
 
     numbersInputFromWrap.append(numbersFromInput);
     numbersFrom.append(numbersFromTitle, numbersInputFromWrap);
@@ -32,7 +31,7 @@ export const renderSlideFilter = (
     const numbersToTitle: HTMLElement = createElem('div', 'slide-filter-num__title');
     numbersToTitle.innerHTML = 'До';
     const numbersInputToWrap: HTMLElement = createElem('div', `slide-filter-num__input-wrap_${rangeIcon}`);
-    const numbersToInput: HTMLInputElement = createInput('number', 'slide-filter-num__input', '13434');
+    const numbersToInput: HTMLInputElement = createInput('number', 'slide-filter-num__input', max);
     // приходит на основе данных
 
     numbersInputToWrap.append(numbersToInput);
@@ -50,14 +49,14 @@ export const renderSlideFilter = (
     const rangeInputs: HTMLElement = createElem('div', 'slide-filter__ranges');
 
     const leftRangeInput: HTMLInputElement = createInput('range', 'slide-filter__range-input');
-    leftRangeInput.setAttribute('min', '0'); // приходит на основе данных
-    leftRangeInput.setAttribute('max', '10000');
-    leftRangeInput.setAttribute('value', '2500');
+    leftRangeInput.setAttribute('min', min); // приходит на основе данных
+    leftRangeInput.setAttribute('max', max);
+    leftRangeInput.setAttribute('value', min);
 
     const rightRangeInput: HTMLInputElement = createInput('range', 'slide-filter__range-input');
-    rightRangeInput.setAttribute('min', '0'); // приходит на основе данных
-    rightRangeInput.setAttribute('max', '10000');
-    rightRangeInput.setAttribute('value', '7500');
+    rightRangeInput.setAttribute('min', min); // приходит на основе данных
+    rightRangeInput.setAttribute('max', max);
+    rightRangeInput.setAttribute('value', max);
 
     rangeInputs.append(leftRangeInput, rightRangeInput);
 
