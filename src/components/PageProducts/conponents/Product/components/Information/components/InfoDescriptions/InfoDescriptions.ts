@@ -41,16 +41,11 @@ export const renderInformationAboutProducts = (product: ExtendedProduct) => {
         dataDescriptionsContent.append(contentItem);
     });
 
-    dataDescriptionsBody.classList.add('hidden');
     prodContant.append(dataDescriptionsContent);
     dataDescriptionsBody.append(prodContant);
 
     dataDescriptionsTitle.onclick = () => {
-        // dataDescriptionsBody.style.height = '0px';
-        // dataDescriptionsBody.style.height = '332px';
-
         descriptionsTitle.classList.toggle('active-desc');
-        dataDescriptionsBody.classList.toggle('hidden');
         dataDescriptionsBody.classList.toggle('show_content');
     };
 

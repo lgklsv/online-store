@@ -67,9 +67,6 @@
     }
 }
 .product-page__data-item-body {
-    opacity: 0;
-    // transform: 1s;
-    // cursor: default;
     overflow: hidden;
     height: 0px;
     transition-property: height, margin, padding;
@@ -78,11 +75,6 @@
     margin-bottom: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
-    color: inherit;
-    -moz-transition: height 0.5s;
-    -ms-transition: height 0.5s;
-    -o-transition: height 0.5s;
-    -webkit-transition: height 0.5s;
     transition: height 0.5s;
 }
 
@@ -113,15 +105,8 @@
         background-color: $primary-70;
     }
 }
-.hidden {
-    display: none;
-}
 
 .show_content {
-    opacity: 1;
     overflow: hidden;
     height: 332px;
-    // transition-property: height, margin, padding;
-    // transition-duration: 500ms;
 }
-// TODO - сделать плавный скрол

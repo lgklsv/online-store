@@ -20,7 +20,6 @@ export const renderProduct = (DATA: Product) => {
 
     // изображение товара
     const productImg: HTMLElement = createElem('div', 'product-card__image');
-
     const img: HTMLElement = createElem('img', 'image-product');
     img.setAttribute('src', DATA.thumbnail);
 
@@ -41,7 +40,7 @@ export const renderProduct = (DATA: Product) => {
 
     const productOrder: HTMLElement = createElem('div', 'product-card__price-order');
     productOrder.innerHTML = 'В корзину';
-    
+
     const sizeWrapper: HTMLElement = createElem('div', 'product-card__sizes-wrapper');
 
     productDesc.append(productTitle, productPrice);
