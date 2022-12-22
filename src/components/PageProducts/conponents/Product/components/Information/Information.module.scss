@@ -51,11 +51,16 @@
     font-size: 1rem;
 
     &:hover {
-        background-color: $primary10;
+        opacity: 0.7;
     }
 
     transition: background-color 0.3s ease, color 0.3s ease;
     margin-bottom: 2rem;
+}
+
+._active-size {
+    background-color: $black;
+    color: $white;
 }
 
 .product-page__price {

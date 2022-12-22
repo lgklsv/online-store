@@ -3,18 +3,19 @@ import { createElem } from '../../../../../../../../utils/create-element';
 import { createLink } from '../../../../../../../../utils/create-link-element';
 import styles from './InfoOrderProducts.module.scss';
 
-export const renderOrderAddCart = (product: ExtendedProduct): HTMLElement => {
+export const renderOrderAddCart = (product: ExtendedProduct): ReturnElements => {
     // Добавить в корзину
     const productActions: HTMLElement = createElem('div', styles['product-page__actions']);
     const productOrder: HTMLElement = createElem('button', styles['product-page__order']);
     const orderTitle: HTMLElement = createElem('span', styles['product-page__order-title']);
     const orderSize: HTMLElement = createElem('span', styles['product-page__order-size']);
     productOrder.append(orderTitle, orderSize);
+
     orderTitle.innerHTML = 'Добавить в корзину';
     orderSize.innerHTML = product.sizes[0];
     productActions.append(productOrder);
 
-    return productActions;
+    return { productActions, orderSize };
 };
 
 export const renderOrderProductQuantity = (countProduct: number): HTMLElement => {
@@ -42,3 +43,7 @@ export const renderOrderButton = (): HTMLElement => {
     productCartLink.classList.add('product-page__order');
     return productCartLink;
 };
+
+interface ReturnElements {
+    [key: string]: HTMLElement;
+}

@@ -11,8 +11,14 @@ import styles from './Information.module.scss';
 
 export const renderInformationProduct = (product: ExtendedProduct): HTMLElement => {
     const countProduct = 0;
+
     const informationContainer: HTMLElement = createElem('div', styles['product-page__info-container']);
     const informationCard: HTMLElement = createElem('div', styles['product-page__card']);
+
+    const { productActions, orderSize } = renderOrderAddCart(product);
+    const productQantity = renderOrderProductQuantity(countProduct);
+    const orderLink = renderOrderButton();
+    const productDescroprions = renderInformationAboutProducts(product);
 
     // заголовок
     const headerWrapper: HTMLElement = createElem('div', styles['product-page__header-wrapper']);
@@ -28,10 +34,29 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
     const sizeTitle: HTMLElement = createElem('h1', styles['product-page__size-title']);
     sizeTitle.innerHTML = 'Доступные размеры';
     const sizePlate: HTMLElement = createElem('h3', styles['product-page__size-plate']);
+    const sizes: HTMLElement[] = [];
 
-    product.sizes.forEach((elem) => {
+    product.sizes.forEach((elem, index) => {
+        //добваляем елементы
         const productSize: HTMLElement = createElem('div', styles['product-page__sizes']);
         productSize.innerHTML = elem;
+        sizes.push(productSize);
+
+        if (index === 0) {
+            productSize.classList.add('_active-size');
+        }
+
+        // вешаем событие на элемент
+        productSize.onclick = () => {
+            // убираем активный класс
+            sizes.forEach((size) => {
+                size.classList.remove('_active-size');
+            });
+
+            productSize.classList.add('_active-size');
+            orderSize.innerHTML = elem; //изменяем содержимое кнопки
+        };
+
         sizePlate.append(productSize);
     });
 
@@ -42,7 +67,8 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
     const productPriceFull: HTMLElement = createElem('span', 'product-card__price-full');
     productPriceFull.innerHTML = String(product.price) + ' ₽';
 
-    // проверка есть ли скидка TODO - вынести в отдельную функцию
+    // проверка есть ли скидка
+    // TODO - вынести в отдельную функцию
     if (product.discountPercentage !== 0) {
         const productPriceDiscount: HTMLElement = createElem('span', 'product-card__price-discount');
         productPriceFull.classList.add('old-price');
@@ -56,16 +82,11 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
         productPrice.append(productPriceFull);
     }
 
-    const addToCart = renderOrderAddCart(product);
-    const productQantity = renderOrderProductQuantity(countProduct);
-    const orderLink = renderOrderButton();
-    const productDescroprions = renderInformationAboutProducts(product);
-
     informationCard.append(
         headerWrapper,
         sizeWrapp,
         productPrice,
-        addToCart,
+        productActions,
         productQantity,
         orderLink,
         productDescroprions
