@@ -23,3 +23,45 @@
     color: $black;
     font-weight: 400;
 }
+
+.filters__reset {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 0.8rem 1rem 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+    &:hover .filters__reset-title,
+    &:hover .filters__reset-btn {
+        color: $light-text;
+    }
+}
+
+.filters__reset-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    color: $black;
+    font-size: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: $light-grey;
+    transition: background-color 0.3s ease;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.filters__reset-title {
+    transition: color 0.3s ease;
+    margin: 0;
+}
+
+.filters__reset-icon {
+    text-align: center;
+    vertical-align: middle;
+}

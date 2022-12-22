@@ -44,7 +44,7 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
 
     const priceGap = 1;
 
-    slideFilterNumbers.onchange = (e: Event) => {
+    slideFilterNumbers.onchange = (e: Event): void => {
         console.log(e.target);
         const targetInput = e.target as HTMLInputElement;
         const filterType =
@@ -106,7 +106,7 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
     rightRangeInput.setAttribute('max', max);
     rightRangeInput.setAttribute('value', max);
 
-    rangeInputs.oninput = (e: Event) => {
+    rangeInputs.oninput = (e: Event): void => {
         const targetInput = e.target as HTMLInputElement;
         const rangeInputsEl = targetInput.parentElement as HTMLElement;
         const filterType = rangeInputsEl.classList.contains('slide-filter__ranges_price') ? 'price' : 'stock';

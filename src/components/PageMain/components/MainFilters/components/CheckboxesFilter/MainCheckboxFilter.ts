@@ -35,7 +35,7 @@ export const renderCheckboxFilter = (title: string, data: ProductProps[], subCla
         filterList.append(filterOption);
     }
 
-    filterList.onchange = (e: Event) => {
+    filterList.onchange = (e: Event): void => {
         const targetInput = e.target as HTMLInputElement;
         const filterType = targetInput.classList.contains('checkbox-filter__input_category') ? 'category' : 'brand';
 
