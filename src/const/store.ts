@@ -13,4 +13,8 @@ export const store: Store = {
         discountPrice: Number(newPrice(product.price, product.discountPercentage)),
         search: product.title + ' ' + String(product.price) + ' ' + product.color,
     })),
+
+    sort2: [],
 };
+
+export const appliedFilters: AppliedFilters = {};

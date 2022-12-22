@@ -1,11 +1,20 @@
 import { createElem } from '../../../utils/create-element';
 import styles from './CartItems.module.scss';
 import { PRODUCTS } from '../../../const/products';
+import { renderProductPrice } from '../../PageMain/components/MainCatalog/components/ProductPrice/ProductPrice';
+// import { renderEmptyCart } from './components/CartEmpty/CartEmpty';
 
 export const renderCartItems = (): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
 
-    for (let i = 0; i < 10; i++) {
+    // Тут будет если длина равна 0, то рендерим сообщение что в корзине пусто 
+    const cartItemsTemp = 3;
+    // if (cartItemsTemp === 0) {
+    //     cartItems.append(renderEmptyCart());
+    //     return cartItems;
+    // }
+
+    for (let i = 0; i < cartItemsTemp; i++) {
         const item: HTMLElement = createElem('div', 'cart-item');
 
         // Ссылка на товар 
@@ -54,13 +63,10 @@ export const renderCartItems = (): HTMLElement => {
 
         itemQuaintityContainer.append(itemQuaintity, itemCounter);
 
-        // Цена товара, скидка //TODO - заменить на блок из главной страницы
-        const itemPrice: HTMLElement = createElem('div', 'cart-item__price');
-        itemPrice.innerHTML = String(PRODUCTS[i].price) + ' ₽'; 
-
+        //цена товара
+        const itemPrice: HTMLElement = renderProductPrice(PRODUCTS[i], 'cart');
 
         item.append(itemLink, itemQuaintityContainer, itemPrice);
-
         cartItems.append(item);
     }
     return cartItems;

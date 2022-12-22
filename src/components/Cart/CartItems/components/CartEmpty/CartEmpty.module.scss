@@ -1,0 +1,20 @@
+@import '/src/theme/variable';
+
+.empty-cart {
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: auto 0;
+}
+
+.empty-cart__message {
+    margin-bottom: 2.4rem;
+    text-align: center;
+    font-size: 1.8rem
+}
+
+.empty-cart__btn {
+    @extend %btn-grey;
+}

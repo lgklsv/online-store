@@ -1,0 +1,26 @@
+@import '/src/theme/variable';
+
+.empty-catalog {
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: auto 0;
+}
+
+.empty-catalog__message {
+    margin-bottom: 2.4rem;
+    text-align: center;
+    font-size: 1.8rem
+}
+
+.empty-catalog__btn {
+    @extend %btn-grey;
+}
+
+.catalog-product_empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

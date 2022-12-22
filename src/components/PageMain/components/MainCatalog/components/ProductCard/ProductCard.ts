@@ -1,6 +1,7 @@
 import { createElem } from '../../../../../../utils/create-element';
 import { newNameProduct } from '../../../../../../utils/edit-name-products';
 import { newPrice } from '../../../../../../utils/edit-price';
+import { renderProductPrice } from '../ProductPrice/ProductPrice';
 
 export const renderProduct = (DATA: Product) => {
     const productCard: HTMLElement = createElem('div', 'products-card');
@@ -36,30 +37,11 @@ export const renderProduct = (DATA: Product) => {
     productTitle.append(productBrand, productName);
 
     //цена товара
-    const productPrice: HTMLElement = createElem('div', 'product-card__price');
-    const productPriceFull: HTMLElement = createElem('span', 'product-card__price-full');
-    productPriceFull.innerHTML = String(DATA.price) + ' ₽';
+    const productPrice: HTMLElement = renderProductPrice(DATA, 'main');
 
     const productOrder: HTMLElement = createElem('div', 'product-card__price-order');
     productOrder.innerHTML = 'В корзину';
-
-    // проверка есть ли скидка
-    if (DATA.discountPercentage !== 0) {
-        const productPriceDiscount: HTMLElement = createElem('span', 'product-card__price-discount');
-        productPriceFull.classList.add('old-price');
-        productPriceDiscount.innerHTML = '–' + String(DATA.discountPercentage) + '%';
-
-        const productPriceNew: HTMLElement = createElem('div', 'product-card__price-new');
-        productPriceNew.innerHTML = newPrice(DATA.price, DATA.discountPercentage) + ' ₽';
-
-        productCard.setAttribute('data-price', `${newPrice(DATA.price, DATA.discountPercentage)}`);
-
-        productPrice.append(productPriceFull, productPriceDiscount, productPriceNew);
-    } else {
-        productCard.setAttribute('data-price', `${DATA.price}`);
-        productPrice.append(productPriceFull);
-    }
-
+    
     const sizeWrapper: HTMLElement = createElem('div', 'product-card__sizes-wrapper');
 
     productDesc.append(productTitle, productPrice);

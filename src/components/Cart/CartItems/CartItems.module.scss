@@ -28,6 +28,7 @@
     align-items: center;
     text-decoration: none;  
     height: 100%;
+    width: 350px;
 }
 
 .cart-item__image {
@@ -63,6 +64,7 @@
 .cart-item__quaintity {
     font-size: 0.8rem;
     color: $light-text;
+    align-self: flex-start;
 }
 
 .cart-item__counter {
@@ -86,6 +88,11 @@
     }
 }
 
-.cart-item__price {
+.product-card__price_cart {
+    width: 150px;
     padding-right: 2rem;
+}
+
+.product-card__price-new_cart {
+    margin: 0;
 }

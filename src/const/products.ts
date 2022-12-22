@@ -19,7 +19,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.69,
         stock: 94,
         brand: 'New Balance',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/w/wl574vi1-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/w/wl574vi1-0_1104x1104.jpg',
@@ -41,7 +41,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.44,
         stock: 34,
         brand: 'Dr. Martens',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/2/26860001-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/2/26860001-0_1104x1104.jpg',
@@ -74,7 +74,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.09,
         stock: 36,
         brand: 'Converse',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/1/173121-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/1/173121-0_1104x1104.jpg',
@@ -101,7 +101,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.3,
         stock: 123,
         brand: 'Adidas',
-        category: 't-shirt',
+        category: 'Футболки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hm2659-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hm2659-0_1104x1104.jpg',
@@ -131,7 +131,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.09,
         stock: 32,
         brand: 'Adidas',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/g/gw5824-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/g/gw5824-0_1104x1104.jpg',
@@ -164,7 +164,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.57,
         stock: 83,
         brand: 'Y-3',
-        category: 'shirt',
+        category: 'Рубашки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hb3406-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hb3406-0_1104x1104.jpg',
@@ -191,7 +191,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.25,
         stock: 50,
         brand: 'Vans',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/k/kedy-vans-old-skool-true-white-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/k/kedy-vans-old-skool-true-white-0_1104x1104.jpg',
@@ -222,7 +222,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.43,
         stock: 68,
         brand: 'Adidas',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/g/gy4419-1_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/g/gy4419-0_1104x1104.jpg',
@@ -249,7 +249,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.54,
         stock: 96,
         brand: 'Timberland',
-        category: 'jacket',
+        category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/t/tbla2aeb-001-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/t/tbla2aeb-001-0_1104x1104.jpg',
@@ -282,7 +282,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.43,
         stock: 89,
         brand: 'Timberland',
-        category: 'jacket',
+        category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/t/tbla5u1w-ct2-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/t/tbla5u1w-ct2-0_1104x1104.jpg',
@@ -317,7 +317,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.26,
         stock: 65,
         brand: 'New Balance',
-        category: 'jacket',
+        category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/m/mj13510-bk-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/m/mj13510-bk-0_1104x1104.jpg',
@@ -346,7 +346,7 @@ export const PRODUCTS: Product[] = [
         rating: 4,
         stock: 52,
         brand: 'Y-3',
-        category: 'jacket',
+        category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hg8670-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hg8670-0_1104x1104.jpg',
@@ -372,7 +372,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.59,
         stock: 61,
         brand: 'MSGM',
-        category: 't-shirt',
+        category: 'Футболки',
         thumbnail: 'https://img.brandshop.ru/cache/products/3/3341mdm177-227798-12-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/3/3341mdm177-227798-12-0_1104x1104.jpg',
@@ -406,7 +406,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.21,
         stock: 114,
         brand: 'Helly Hansen',
-        category: 'jacket',
+        category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/5/55964-619-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/5/55964-619-0_1104x1104.jpg',
@@ -431,7 +431,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.7,
         stock: 105,
         brand: 'Dr. Martens',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail:
             'https://img.brandshop.ru/cache/products/b/botinki-dr-martens-1461-yellow-stitch-smooth-black-2-0_1104x1104.jpg',
         images: [
@@ -462,7 +462,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.83,
         stock: 110,
         brand: 'Maison Kitsune',
-        category: 't-shirt',
+        category: 'Футболки',
         thumbnail:
             'https://img.brandshop.ru/cache/products/z/zhenskaya-futbolka-maison-kitsune-tricolor-fox-patch-white-0_1104x1104.jpg',
         images: [
@@ -493,7 +493,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.52,
         stock: 78,
         brand: 'Polo Ralph Lauren',
-        category: 'shirt',
+        category: 'Рубашки',
         thumbnail: 'https://img.brandshop.ru/cache/products/7/710-829443-009-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/7/710-829443-009-0_1104x1104.jpg',
@@ -522,7 +522,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.56,
         stock: 88,
         brand: 'Lacoste',
-        category: 'shirt',
+        category: 'Рубашки',
         thumbnail: 'https://img.brandshop.ru/cache/products/c/ch0208-7tm-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/c/ch0208-7tm-0_1104x1104.jpg',
@@ -554,7 +554,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.42,
         stock: 54,
         brand: 'Lacoste',
-        category: 'shirt',
+        category: 'Рубашки',
         thumbnail: 'https://img.brandshop.ru/cache/products/c/ch2311-11m-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/c/ch2311-11m-0_1104x1104.jpg',
@@ -575,7 +575,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.06,
         stock: 140,
         brand: 'Edwin',
-        category: 'jeans',
+        category: 'Джинсы',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i030527-89-eq-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i030527-89-eq-0_1104x1104.jpg',
@@ -600,7 +600,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.44,
         stock: 133,
         brand: 'RIPNDIP',
-        category: 'jeans',
+        category: 'Джинсы',
         thumbnail: 'https://img.brandshop.ru/cache/products/r/rnd9021-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/r/rnd9021-0_1104x1104.jpg',
@@ -635,7 +635,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.57,
         stock: 146,
         brand: 'Edwin',
-        category: 'jeans',
+        category: 'Джинсы',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i030695-05-99-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i030695-05-99-0_1104x1104.jpg',
@@ -669,7 +669,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.85,
         stock: 26,
         brand: 'Edwin',
-        category: 'jeans',
+        category: 'Джинсы',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i030696-01-kr-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i030696-01-kr-0_1104x1104.jpg',
@@ -691,7 +691,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.94,
         stock: 113,
         brand: 'Edwin',
-        category: 'jeans',
+        category: 'Джинсы',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i030524-01-i9-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i030524-01-i9-0_1104x1104.jpg',
@@ -718,7 +718,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.87,
         stock: 47,
         brand: 'Polo Ralph Lauren',
-        category: 't-shirt',
+        category: 'Футболки',
         thumbnail: 'https://img.brandshop.ru/cache/products/7/710-750444-015-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/7/710-750444-015-0_1104x1104.jpg',
@@ -744,7 +744,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.08,
         stock: 131,
         brand: 'Y-3',
-        category: 't-shirt',
+        category: 'Футболки',
         thumbnail: 'https://img.brandshop.ru/cache/products/g/gm3273-2_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/g/gm3273-2_1104x1104.jpg',
@@ -765,7 +765,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.41,
         stock: 17,
         brand: 'Adidas',
-        category: 't-shirt',
+        category: 'Футболки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/he9448-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/he9448-0_1104x1104.jpg',
@@ -791,7 +791,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.82,
         stock: 54,
         brand: 'MSGM',
-        category: 't-shirt',
+        category: 'Футболки',
         thumbnail: 'https://img.brandshop.ru/cache/products/3/3341mdm196-227798-01-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/3/3341mdm196-227798-01-0_1104x1104.jpg',
@@ -819,7 +819,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.44,
         stock: 7,
         brand: 'Alpha Industries',
-        category: 't-shirt',
+        category: 'Футболки',
         thumbnail: 'https://img.brandshop.ru/cache/products/c/ctn52002c1-100-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/c/ctn52002c1-100-0_1104x1104.jpg',
@@ -845,7 +845,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.92,
         stock: 54,
         brand: 'Y-3',
-        category: 't-shirt',
+        category: 'Футболки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hg6095-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hg6095-0_1104x1104.jpg',
@@ -868,7 +868,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.16,
         stock: 140,
         brand: 'Napapijri',
-        category: 'jacket',
+        category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/n/np0a4gjf041-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/n/np0a4gjf041-0_1104x1104.jpg',
@@ -906,7 +906,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.74,
         stock: 30,
         brand: 'Alpha Industries',
-        category: 'jacket',
+        category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/m/mjn31210c1-310-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/m/mjn31210c1-310-0_1104x1104.jpg',
@@ -916,30 +916,26 @@ export const PRODUCTS: Product[] = [
     },
     {
         id: 33,
-        title: 'Canada Goose Citadel',
-        sex: 'any',
-        color: ['black'],
-        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        title: 'Timberland Outdoor Archive Puffe',
+        sex: 'male',
+        color: ['black', 'green'],
+        sizes: ['M', 'L', 'XL'],
         description: [
-            'Материал: Верх - 85% полиэстер, 15% хлопок; Подкладка - 100% нейлон; Наполнитель - 80% пух, 20% перо',
-            'Страна-производитель: Канада',
-            'На модели размер куртки - M',
-            'Рост модели - 188 см',
+            'Материал: Верх - 100% полиамид; Подкладка - 100% полиэстер; Нополнитель - 100% полиэстер',
+            'Страна-производитель: Бангладеш',
         ],
-        price: 113890,
+        price: 23990,
         discountPercentage: 30,
         rating: 4.31,
         stock: 106,
-        brand: 'Canada Goose',
-        category: 'jacket',
-        thumbnail: 'https://img.brandshop.ru/cache/products/4/4567m-61-0_1104x1104.jpg',
+        brand: 'Timberland',
+        category: 'Куртки',
+        thumbnail: 'https://img.brandshop.ru/cache/products/t/tb0a2aebd-a51-0_1104x1104.jpg',
         images: [
-            'https://img.brandshop.ru/cache/products/4/4567m-61-0_1104x1104.jpg',
-            'https://img.brandshop.ru/cache/products/4/4567m-61-1_1104x1104.jpg',
-            'https://img.brandshop.ru/cache/products/4/4567m-61-2_1104x1104.jpg',
-            'https://img.brandshop.ru/cache/products/4/4567m-61-3_1104x1104.jpg',
-            'https://img.brandshop.ru/cache/products/4/4567m-61-4_1104x1104.jpg',
-            'https://img.brandshop.ru/cache/products/4/4567m-61-5_1104x1104.jpg',
+            'https://img.brandshop.ru/cache/products/t/tb0a2aebd-a51-0_1104x1104.jpg',
+            'https://img.brandshop.ru/cache/products/t/tb0a2aebd-a51-1_1104x1104.jpg',
+            'https://img.brandshop.ru/cache/products/t/tb0a2aebd-a51-2_1104x1104.jpg',
+            'https://img.brandshop.ru/cache/products/t/tb0a2aebd-a51-3_1104x1104.jpg',
         ],
     },
     {
@@ -957,7 +953,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.01,
         stock: 136,
         brand: 'Edwin',
-        category: 'jacket',
+        category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i029732-1ar-99-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i029732-1ar-99-0_1104x1104.jpg',
@@ -991,7 +987,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.06,
         stock: 68,
         brand: 'Helly Hansen',
-        category: 'jacket',
+        category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/5/53757-823-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/5/53757-823-0_1104x1104.jpg',
@@ -1018,7 +1014,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.26,
         stock: 39,
         brand: 'Alpha Industries',
-        category: 'jacket',
+        category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/m/mjm21000c1-310-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/m/mjm21000c1-310-0_1104x1104.jpg',
@@ -1047,7 +1043,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.52,
         stock: 107,
         brand: 'Adidas',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/f/fv8278-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/f/fv8278-0_1104x1104.jpg',
@@ -1077,7 +1073,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.8,
         stock: 20,
         brand: 'Nike',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/c/cw5814-002-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/c/cw5814-002-0_1104x1104.jpg',
@@ -1109,7 +1105,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.55,
         stock: 55,
         brand: 'Adidas',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/g/gx1331-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/g/gx1331-0_1104x1104.jpg',
@@ -1137,7 +1133,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.91,
         stock: 84,
         brand: 'Nike',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/c/ck2351-001-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/c/ck2351-001-0_1104x1104.jpg',
@@ -1165,7 +1161,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.65,
         stock: 21,
         brand: 'Adidas',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/f/fx5502-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/f/fx5502-0_1104x1104.jpg',
@@ -1196,7 +1192,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.65,
         stock: 14,
         brand: 'Raf Simons',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hr740001s-0003-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hr740001s-0003-0_1104x1104.jpg',
@@ -1226,7 +1222,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.31,
         stock: 43,
         brand: 'Adidas',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/g/gz8108-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/g/gz8108-0_1104x1104.jpg',
@@ -1255,7 +1251,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.95,
         stock: 130,
         brand: 'Nike',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/d/dh2925-111-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/d/dh2925-111-0_1104x1104.jpg',
@@ -1290,7 +1286,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.67,
         stock: 96,
         brand: 'Nike',
-        category: 'jacket',
+        category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/d/dh4079-601-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/d/dh4079-601-0_1104x1104.jpg',
@@ -1311,7 +1307,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.14,
         stock: 72,
         brand: 'Edwin',
-        category: 'shirt',
+        category: 'Рубашки',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i031061-1au-67-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i031061-1au-67-0_1104x1104.jpg',
@@ -1333,7 +1329,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.19,
         stock: 50,
         brand: 'Dr. Martens',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/2/26205001-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/2/26205001-0_1104x1104.jpg',
@@ -1363,7 +1359,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.02,
         stock: 25,
         brand: 'Dr. Martens',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/2/24480100-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/2/24480100-0_1104x1104.jpg',
@@ -1394,7 +1390,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.72,
         stock: 107,
         brand: 'Timberland',
-        category: 'shoes',
+        category: 'Ботинки',
         thumbnail:
             'https://img.brandshop.ru/cache/products/m/muzhskie-botinki-timberland-6-inch-premium-waterproof-black-0_1104x1104.jpg',
         images: [
@@ -1431,7 +1427,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.71,
         stock: 51,
         brand: 'Etudes',
-        category: 'coat',
+        category: 'Пальто',
         thumbnail: 'https://img.brandshop.ru/cache/products/e/e16b-025-01-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/e/e16b-025-01-0_1104x1104.jpg',
@@ -1464,7 +1460,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.89,
         stock: 15,
         brand: 'Puma',
-        category: 'coat',
+        category: 'Пальто',
         thumbnail: 'https://img.brandshop.ru/cache/products/5/532492-01-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/5/532492-01-0_1104x1104.jpg',
@@ -1490,7 +1486,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.99,
         stock: 5,
         brand: 'SOPHNET.',
-        category: 'coat',
+        category: 'Пальто',
         thumbnail: 'https://img.brandshop.ru/cache/products/s/soph-222028-beige-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/s/soph-222028-beige-0_1104x1104.jpg',
@@ -1525,7 +1521,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.65,
         stock: 45,
         brand: 'Helly Hansen',
-        category: 'coat',
+        category: 'Пальто',
         thumbnail: 'https://img.brandshop.ru/cache/products/5/53517-692-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/5/53517-692-0_1104x1104.jpg',
@@ -1550,7 +1546,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.95,
         stock: 85,
         brand: 'MA.Strum',
-        category: 'coat',
+        category: 'Пальто',
         thumbnail: 'https://img.brandshop.ru/cache/products/m/mas1544-m306-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/m/mas1544-m306-0_1104x1104.jpg',
@@ -1582,7 +1578,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.35,
         stock: 7,
         brand: 'Etudes',
-        category: 'coat',
+        category: 'Пальто',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/h22mm750wo00bk-5_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/h22mm750wo00bk-5_1104x1104.jpg',
@@ -1614,7 +1610,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.85,
         stock: 31,
         brand: 'Helly Hansen',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/6/65850-597-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/6/65850-597-0_1104x1104.jpg',
@@ -1645,7 +1641,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.41,
         stock: 11,
         brand: 'Helly Hansen',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/6/62936-619-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/6/62936-619-0_1104x1104.jpg',
@@ -1677,7 +1673,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.73,
         stock: 3,
         brand: 'Adidas',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hf2000-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hf2000-0_1104x1104.jpg',
@@ -1709,7 +1705,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.39,
         stock: 8,
         brand: 'Adidas',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hf7531-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hf7531-0_1104x1104.jpg',
@@ -1736,7 +1732,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.72,
         stock: 67,
         brand: 'Adidas',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hi6016-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hi6016-0_1104x1104.jpg',
@@ -1762,7 +1758,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.72,
         stock: 12,
         brand: 'Polo Ralph',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/7/710-766778-048-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/7/710-766778-048-0_1104x1104.jpg',
@@ -1791,7 +1787,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.72,
         stock: 20,
         brand: 'Polo Ralph',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/7/710-858452-001-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/7/710-858452-001-0_1104x1104.jpg',
@@ -1816,7 +1812,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.58,
         stock: 11,
         brand: 'Polo Ralph',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/7/710-858016-001-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/7/710-858016-001-0_1104x1104.jpg',
@@ -1846,7 +1842,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.77,
         stock: 1,
         brand: 'Converse',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/1/10023691001-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/1/10023691001-0_1104x1104.jpg',
@@ -1873,7 +1869,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.87,
         stock: 59,
         brand: 'Puma',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/5/534282-61-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/5/534282-61-0_1104x1104.jpg',
@@ -1904,7 +1900,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.07,
         stock: 74,
         brand: 'Puma',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/5/534202-03-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/5/534202-03-0_1104x1104.jpg',
@@ -1935,7 +1931,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.77,
         stock: 69,
         brand: 'New Balance',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/m/mt21558-bk-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/m/mt21558-bk-0_1104x1104.jpg',
@@ -1966,7 +1962,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.97,
         stock: 94,
         brand: 'Puma',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/5/532102-01-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/5/532102-01-0_1104x1104.jpg',
@@ -1998,7 +1994,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.17,
         stock: 34,
         brand: 'Adidas',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/h06653-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/h06653-0_1104x1104.jpg',
@@ -2030,7 +2026,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.17,
         stock: 51,
         brand: 'F.C. Real Bristol',
-        category: 'shorts',
+        category: 'Шорты',
         thumbnail: 'https://img.brandshop.ru/cache/products/f/fcrb-220053-green-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/f/fcrb-220053-green-0_1104x1104.jpg',
@@ -2066,7 +2062,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.97,
         stock: 2,
         brand: 'Edwin',
-        category: 'shorts',
+        category: 'Шорты',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i030303-0wv-gn-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i030303-0wv-gn-0_1104x1104.jpg',
@@ -2097,7 +2093,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.09,
         stock: 6,
         brand: 'Edwin',
-        category: 'shorts',
+        category: 'Шорты',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i030334-0wz-67-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i030334-0wz-67-0_1104x1104.jpg',
@@ -2132,7 +2128,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.73,
         stock: 17,
         brand: 'Helly Hansen',
-        category: 'shorts',
+        category: 'Шорты',
         thumbnail:
             'https://img.brandshop.ru/cache/products/m/muzhskie-shorti-helly-hansen-quick-dry-11-inch-ebony-0_1104x1104.jpg',
         images: [
@@ -2164,7 +2160,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.89,
         stock: 2,
         brand: 'Edwin',
-        category: 'shorts',
+        category: 'Шорты',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i030336-0x0-67-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i030336-0x0-67-0_1104x1104.jpg',
@@ -2199,7 +2195,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.12,
         stock: 1,
         brand: 'Edwin',
-        category: 'shorts',
+        category: 'Шорты',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i030393-0xi-td-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i030393-0xi-td-0_1104x1104.jpg',
@@ -2229,7 +2225,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.96,
         stock: 8,
         brand: 'maharishi',
-        category: 'shorts',
+        category: 'Шорты',
         thumbnail: 'https://img.brandshop.ru/cache/products/8/8096-olive-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/8/8096-olive-0_1104x1104.jpg',
@@ -2258,7 +2254,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.52,
         stock: 15,
         brand: 'MA.Strum',
-        category: 'shorts',
+        category: 'Шорты',
         thumbnail: 'https://img.brandshop.ru/cache/products/m/mas2348-m428-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/m/mas2348-m428-0_1104x1104.jpg',
@@ -2290,7 +2286,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.92,
         stock: 3,
         brand: 'Alltimers',
-        category: 'shorts',
+        category: 'Шорты',
         thumbnail: 'https://img.brandshop.ru/cache/products/p/pn3579-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/p/pn3579-0_1104x1104.jpg',
@@ -2317,7 +2313,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.73,
         stock: 7,
         brand: 'MARKET',
-        category: 'shorts',
+        category: 'Шорты',
         thumbnail: 'https://img.brandshop.ru/cache/products/3/395000518-0001-00_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/3/395000518-0001-00_1104x1104.jpg',
@@ -2345,7 +2341,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.43,
         stock: 17,
         brand: 'Y-3',
-        category: 'skirt',
+        category: 'Юбки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hg8550-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hg8550-0_1104x1104.jpg',
@@ -2372,7 +2368,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.82,
         stock: 7,
         brand: 'Helly Hansen',
-        category: 'undershirt',
+        category: 'Майки',
         thumbnail: 'https://img.brandshop.ru/cache/products/3/33838-597-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/3/33838-597-0_1104x1104.jpg',
@@ -2403,7 +2399,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.92,
         stock: 65,
         brand: 'Adidas',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/he9505-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/he9505-0_1104x1104.jpg',
@@ -2434,7 +2430,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.93,
         stock: 69,
         brand: 'Adidas',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hf7529-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hf7529-0_1104x1104.jpg',
@@ -2468,7 +2464,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.81,
         stock: 83,
         brand: 'Y-3',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hg6153-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hg6153-0_1104x1104.jpg',
@@ -2498,7 +2494,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.87,
         stock: 31,
         brand: 'Y-3',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hg8666-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hg8666-0_1104x1104.jpg',
@@ -2528,7 +2524,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.86,
         stock: 2,
         brand: 'Polo Ralph',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/2/211-780215-019-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/2/211-780215-019-0_1104x1104.jpg',
@@ -2555,7 +2551,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.81,
         stock: 23,
         brand: 'Evisu',
-        category: 'shorts',
+        category: 'Шорты',
         thumbnail: 'https://img.brandshop.ru/cache/products/2/2esgnw2ds204xxct-blkx-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/2/2esgnw2ds204xxct-blkx-0_1104x1104.jpg',
@@ -2575,7 +2571,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.53,
         stock: 77,
         brand: 'maharishi',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/4/4052-jngl-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/4/4052-jngl-0_1104x1104.jpg',
@@ -2609,7 +2605,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.93,
         stock: 79,
         brand: 'maharishi',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/7/7026-black-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/7/7026-black-0_1104x1104.jpg',
@@ -2631,7 +2627,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.97,
         stock: 45,
         brand: 'maharishi',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/9/9895-blk-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/9/9895-blk-0_1104x1104.jpg',
@@ -2651,7 +2647,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.92,
         stock: 98,
         brand: 'Edwin',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i030302-nyb-gn-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i030302-nyb-gn-0_1104x1104.jpg',
@@ -2671,7 +2667,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.91,
         stock: 34,
         brand: 'Edwin',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i030274-5i-ab-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/i/i030274-5i-ab-0_1104x1104.jpg',
@@ -2691,7 +2687,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.98,
         stock: 4,
         brand: 'Adidas',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hf9916-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hf9916-0_1104x1104.jpg',
@@ -2725,7 +2721,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.38,
         stock: 6,
         brand: 'Adidas',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hd2721-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hd2721-0_1104x1104.jpg',
@@ -2759,7 +2755,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.49,
         stock: 10,
         brand: 'Converse',
-        category: 'pants',
+        category: 'Штаны',
         thumbnail: 'https://img.brandshop.ru/cache/products/1/10023692001-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/1/10023692001-0_1104x1104.jpg',
@@ -2785,7 +2781,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.89,
         stock: 19,
         brand: 'thisisneverthat',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/t/tn213tswho12bk-00_1104x1104.jpeg',
         images: [
             'https://img.brandshop.ru/cache/products/t/tn213tswho12bk-00_1104x1104.jpeg',
@@ -2814,7 +2810,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.66,
         stock: 89,
         brand: 'thisisneverthat',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/t/tn213tswcw01hgr-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/t/tn213tswcw01hgr-0_1104x1104.jpg',
@@ -2840,7 +2836,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.91,
         stock: 34,
         brand: 'thisisneverthat',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/t/tn210tswcw02bk-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/t/tn210tswcw02bk-0_1104x1104.jpg',
@@ -2870,7 +2866,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.97,
         stock: 1,
         brand: 'Adidas',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hk6695-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/hk6695-0_1104x1104.jpg',
@@ -2901,7 +2897,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.74,
         stock: 5,
         brand: 'Adidas',
-        category: 'hoody',
+        category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/h62576-0_1104x1104.jpg',
         images: [
             'https://img.brandshop.ru/cache/products/h/h62576-0_1104x1104.jpg',

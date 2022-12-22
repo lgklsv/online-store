@@ -1,7 +1,6 @@
 @import '/src/theme/variable';
 
 .catalog {
-    height: 100%;
     padding-bottom: 2rem;
     display: flex;
 }
@@ -141,26 +140,6 @@
     color: $light-text;
 }
 
-.product-card__price {
-    height: 54px;
-}
-
-.old-price {
-    color: $light-text;
-    text-decoration: line-through;
-}
-
-.product-card__price-discount {
-    display: inline-block;
-    color: $black;
-    margin-left: 0.4rem;
-}
-
-.product-card__price-new {
-    color: $red;
-    margin-top: 0.4rem;
-}
-
 .product-card__price-order {
     display: flex;
     align-items: center;
@@ -179,6 +158,7 @@
 .product-card__sizes-wrapper {
     position: relative;
 }
+
 .product-card__sizes {
     cursor: pointer;
     display: flex;
