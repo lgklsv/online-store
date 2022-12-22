@@ -4,23 +4,6 @@ import styles from './Slider.module.scss';
 export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
     const sliderContainer: HTMLElement = createElem('div', styles['product-page__slider-container']);
 
-    // мини галерея
-    const sliderLeft: HTMLElement = createElem('div', styles['product-page__slider-left']);
-    const sliderMiniGalery: HTMLElement = createElem('div', styles['slider-left__container']);
-
-    product.images.forEach((img) => {
-        const slideMini: HTMLElement = createElem('div', styles['slider-left__wrapper']);
-        const slideMiniImg: HTMLElement = createElem('div', styles['slider-left__wrapper_img']);
-        const image: HTMLElement = createElem('img', styles['product-mini-img']);
-        image.setAttribute('src', img);
-
-        slideMiniImg.append(image);
-        slideMini.append(slideMiniImg);
-        sliderMiniGalery.append(slideMini);
-    });
-
-    sliderLeft.append(sliderMiniGalery);
-
     // главное фото
     const sliderRight: HTMLElement = createElem('div', styles['product-page__slider-right']);
     const sliderGalery: HTMLElement = createElem('div', styles['slider-right__galery']);
@@ -36,6 +19,27 @@ export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
     sliderRigthWrapper.append(zoomContainer);
     sliderGalery.append(sliderRigthWrapper);
     sliderRight.append(sliderGalery);
+
+    // мини галерея
+    const sliderLeft: HTMLElement = createElem('div', styles['product-page__slider-left']);
+    const sliderMiniGalery: HTMLElement = createElem('div', styles['slider-left__container']);
+
+    product.images.forEach((img) => {
+        const slideMini: HTMLElement = createElem('div', styles['slider-left__wrapper']);
+        const slideMiniImg: HTMLElement = createElem('div', styles['slider-left__wrapper_img']);
+        const image: HTMLElement = createElem('img', styles['product-mini-img']);
+        image.setAttribute('src', img);
+
+        slideMiniImg.append(image);
+        slideMini.append(slideMiniImg);
+        sliderMiniGalery.append(slideMini);
+
+        slideMini.onclick = () => {
+            productImage.setAttribute('src', img);
+        };
+    });
+
+    sliderLeft.append(sliderMiniGalery);
 
     sliderContainer.append(sliderLeft, sliderRight);
 
