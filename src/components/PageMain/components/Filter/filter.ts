@@ -11,7 +11,7 @@ import { updateUI } from '../updateUI/updateUI';
 export const renderFiltered = (appliedFilters: AppliedFilters) => {
     const catalogProduct = document.querySelector('.catalog_products') as HTMLElement;
     catalogProduct.innerHTML = '';
-    store.sort2 = [];
+    store.sorted = [];
 
     const allFiltersObj = Object.entries(appliedFilters);
 
@@ -20,25 +20,25 @@ export const renderFiltered = (appliedFilters: AppliedFilters) => {
             const [filterType, filterValueArr] = entryArr;
 
             if (filterType === 'category') {
-                store.sort2 = filterByCategory(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
+                store.sorted = filterByCategory(indexObj === 0 ? store.origin : store.sorted, filterValueArr);
             } else if (filterType === 'brand') {
-                store.sort2 = filterByBrand(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
+                store.sorted = filterByBrand(indexObj === 0 ? store.origin : store.sorted, filterValueArr);
             } else if (filterType === 'price') {
-                store.sort2 = filterByPrice(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
+                store.sorted = filterByPrice(indexObj === 0 ? store.origin : store.sorted, filterValueArr);
             } else if (filterType === 'stock') {
-                store.sort2 = filterByStock(indexObj === 0 ? store.origin : store.sort2, filterValueArr);
+                store.sorted = filterByStock(indexObj === 0 ? store.origin : store.sorted, filterValueArr);
             }
             // добавляем остальные функции фильтров по тому же принципу
         });
 
-        if (store.sort2.length === 0) {
+        if (store.sorted.length === 0) {
             catalogProduct.classList.add('catalog-product_empty');
             catalogProduct.append(renderEmptyCatalog());
         } else {
             catalogProduct.classList.remove('catalog-product_empty');
-            addProducts(store.sort2, catalogProduct);
+            addProducts(store.sorted, catalogProduct);
         }
-        updateUI(store.sort2);
+        updateUI(store.sorted);
     } else {
         catalogProduct.classList.remove('catalog-product_empty');
         addProducts(store.origin, catalogProduct);

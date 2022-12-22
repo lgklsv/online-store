@@ -14,7 +14,7 @@ export const store: Store = {
         search: product.title + ' ' + String(product.price) + ' ' + product.color,
     })),
 
-    sort2: [],
+    sorted: [],
 };
 
 export const appliedFilters: AppliedFilters = {};

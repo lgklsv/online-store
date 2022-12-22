@@ -20,10 +20,10 @@ export const updateUI = (data: ExtendedProduct[]) => {
 
     // Обновляем checkbox фильтры
     // Category
-    const categoryAmountOfProps = getAmountOfProps(store.sort2, getCategoties(store.sort2), 'category');
+    const categoryAmountOfProps = getAmountOfProps(store.sorted, getCategoties(store.sorted), 'category');
     updateCheckboxFiltersUI(categoryAmountOfProps, data, 'category');
 
     // Brand
-    const brandAmountOfProps = getAmountOfProps(store.sort2, getBrands(store.sort2), 'brand');
+    const brandAmountOfProps = getAmountOfProps(store.sorted, getBrands(store.sorted), 'brand');
     updateCheckboxFiltersUI(brandAmountOfProps, data, 'brand');
 };
