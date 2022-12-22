@@ -1,11 +1,8 @@
 import { createElem } from '../../utils/create-element';
-import { router } from '../../utils/router';
 import { renderHeaderCart } from './components/HeaderCart/HeaderCart';
 import styles from './Header.module.scss';
 
 export const renderHeader = (): HTMLElement => {
-    const hostEl = document.getElementById('app') as HTMLElement;
-
     const header: HTMLElement = createElem('header', 'header');
 
     const headerContainer: HTMLElement = createElem('div', 'header__container');
@@ -15,13 +12,6 @@ export const renderHeader = (): HTMLElement => {
     storeLogoLink.setAttribute('href', '/');
 
     storeName.append(storeLogoLink);
-
-    storeName.onclick = (e: Event) => {
-        const target = e.target as HTMLAnchorElement;
-        e.preventDefault();
-        const pathname = target.getAttribute('href');
-        if (pathname) router(hostEl, pathname);
-    };
 
     const totalSumm: HTMLElement = createElem('div', 'header__total-summ');
     const summHeader: HTMLElement = createElem('div', styles['total-summ__header']);

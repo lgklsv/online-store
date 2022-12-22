@@ -2,6 +2,9 @@ import { ROUTER_PATHS } from '../const/router-paths';
 import { extractPathId } from '../utils/extract-path-id';
 import { findProductById } from '../utils/find-product-by-id';
 import { PATH_NAMES } from '../const/path-names';
+import { appliedFilters } from '../const/store';
+import { fromQueryString } from '../components/PageMain/components/QueryString/from-query-string';
+import { renderFiltered } from '../components/PageMain/components/Filter/filter';
 
 const hostEl = document.getElementById('app') as HTMLDivElement;
 
@@ -22,6 +25,12 @@ export const pathResolver = (hostEl: HTMLDivElement, pathname: string): void => 
     } else {
         route.template();
         document.title = route.title;
+
+        // Get filters from query string on '/' route
+        fromQueryString(window.location.search);
+        if (pathname === '/' && Object.entries(appliedFilters).length !== 0) {
+            renderFiltered(appliedFilters);
+        }
     }
 };
 

@@ -8,6 +8,7 @@ export const resetFilters = (appliedFilters: AppliedFilters): void => {
         }
     }
     store.sorted = [];
+    window.history.replaceState(null, '', '/');
     const appContiner = document.querySelector('#app') as Element;
     const main = document.querySelector('.main') as HTMLElement;
     appContiner.replaceChild(renderMainPage(), main);

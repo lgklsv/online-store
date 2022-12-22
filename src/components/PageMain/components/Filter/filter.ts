@@ -6,6 +6,7 @@ import { filterByStock } from '../FilterFunctions/filterByStock';
 import { addProducts } from '../../../../utils/add-product';
 import { renderEmptyCatalog } from '../EmptyCatalog/EmptyCatalog';
 import { updateUI } from '../updateUI/updateUI';
+import { toQueryString } from '../QueryString/to-query-string';
 
 /** Функция которая принимает объект applied filters и проходит по всем выставленным там фильтрам по порядку */
 export const renderFiltered = (appliedFilters: AppliedFilters) => {
@@ -13,10 +14,11 @@ export const renderFiltered = (appliedFilters: AppliedFilters) => {
     catalogProduct.innerHTML = '';
     store.sorted = [];
 
-    const allFiltersObj = Object.entries(appliedFilters);
+    toQueryString(appliedFilters);
+    const allFiltersArr = Object.entries(appliedFilters);
 
-    if (allFiltersObj.length > 0) {
-        allFiltersObj.forEach((entryArr, indexObj) => {
+    if (allFiltersArr.length > 0) {
+        allFiltersArr.forEach((entryArr, indexObj) => {
             const [filterType, filterValueArr] = entryArr;
 
             if (filterType === 'category') {
