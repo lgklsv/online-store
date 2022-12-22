@@ -47,6 +47,12 @@ export const renderInformationAboutProducts = (product: ExtendedProduct) => {
     dataDescriptionsTitle.onclick = () => {
         descriptionsTitle.classList.toggle('active-desc');
         dataDescriptionsBody.classList.toggle('show_content');
+
+        if (dataDescriptionsBody.classList.contains('show_content')) {
+            dataDescriptionsBody.style.height = String(dataDescriptionsBody.scrollHeight) + 'px';
+        } else dataDescriptionsBody.style.height = '0px';
+
+        // console.log(dataDescriptionsBody.scrollHeight);
     };
 
     productDataDescriptions.append(dataDescriptionsTitle, dataDescriptionsBody);

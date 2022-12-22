@@ -49,6 +49,8 @@
     @include size(0.8rem, 2.5rem);
     font-weight: 400;
     font-size: 1rem;
+    width: 4rem;
+    justify-content: center;
 
     &:hover {
         opacity: 0.7;
