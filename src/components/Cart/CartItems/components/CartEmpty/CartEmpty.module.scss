@@ -12,9 +12,9 @@
 .empty-cart__message {
     margin-bottom: 2.4rem;
     text-align: center;
-    font-size: 1.8rem
+    font-size: 1.8rem;
 }
 
 .empty-cart__btn {
-    @extend %btn-grey;
+    @include btn($black, $light-grey, $grey);
 }

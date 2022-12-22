@@ -1,7 +1,6 @@
 @import '/src/theme/variable';
 
 .product-page__slider-container {
-    background-color: $white;
     width: 100%;
     height: 100%;
     display: flex;
@@ -14,7 +13,8 @@
 
 .product-page__slider-left {
     width: 100%;
-    flex: 0 1 4rem;
+    // flex: 0 1 4rem;
+    flex: 0 0 5rem;
     margin: 0;
 }
 

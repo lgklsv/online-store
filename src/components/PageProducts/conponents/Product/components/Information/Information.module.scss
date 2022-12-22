@@ -15,6 +15,7 @@
     height: max-content;
     padding: 2.2rem;
     border-radius: 0.4rem;
+    background: $white;
 }
 
 .product-page__header-wrapper {
@@ -54,14 +55,14 @@
     }
 
     transition: background-color 0.3s ease, color 0.3s ease;
-    margin-bottom: 2.4rem;
+    margin-bottom: 2rem;
 }
 
 .product-page__price {
-    padding-top: 1.2rem;
-    margin-bottom: 1.2rem;
-    font-size: 1.8rem;
-    line-height: 2.8rem;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    line-height: 2.3rem;
     font-weight: 400;
     text-align: center;
     border-top: 1px solid $primaty-5;

@@ -38,7 +38,7 @@
 }
 
 .checkout-coupon__btn {
-    @include btn($black, $light-grey, $grey);
+    @include btn($black, $light-grey, $grey); //btn-grey
     height: 48px;
     padding: 0.5rem;
     flex-grow: 1;

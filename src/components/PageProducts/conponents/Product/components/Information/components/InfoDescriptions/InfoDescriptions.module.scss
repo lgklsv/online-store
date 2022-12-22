@@ -3,7 +3,7 @@
 .product-page__data {
     position: relative;
     // margin-bottom: 2.4rem;
-    margin-top: 2.4rem;
+    margin-top: 2rem;
 }
 
 .product-page__data-item {
@@ -14,7 +14,7 @@
     cursor: pointer;
     padding: 0 1.6rem;
     border-bottom: 1px solid $primaty-5;
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.7rem;
     font-weight: 400;
 }
@@ -26,7 +26,7 @@
 .product-page__data-item-title,
 .product-page__data-item-value {
     margin-bottom: 0.1rem;
-    padding: 0.8rem 0;
+    padding: 0.5rem 0;
 }
 
 .product-page__data-item-title {
