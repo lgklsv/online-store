@@ -3,6 +3,7 @@ import { createElem } from '../../../../utils/create-element';
 import { createLink } from '../../../../utils/create-link-element';
 import { newNameProduct } from '../../../../utils/edit-name-products';
 import styles from './Toolbar.module.scss';
+
 export const renderProductPageToolbar = (product: ExtendedProduct): HTMLElement => {
     const toolbarProdPage: HTMLElement = createElem('div', styles['toolbar__product-page']);
 

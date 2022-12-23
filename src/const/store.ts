@@ -33,4 +33,7 @@ export const store: Store = {
 
 export const appliedFilters: AppliedFilters = {};
 
-// export const productsCartData: CartData = {};
+export const productsCartData: Cart = {
+    productsInCart: [],
+    count: 0,
+};

@@ -1,5 +1,22 @@
 @import '/src/theme/variable';
 
+.product-page__header-wrapper {
+    margin-bottom: 2rem;
+}
+
+.product-page__header {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+}
+
+.product-page__header-descrip {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: $light-text;
+}
+
 .product-page__data {
     position: relative;
     // margin-bottom: 2.4rem;
