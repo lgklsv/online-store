@@ -5,6 +5,7 @@ import styles from './PageProducts.module.scss';
 
 export const renderProductPage = (product: ExtendedProduct): HTMLElement => {
     const main: HTMLElement = createElem('main', styles['main']);
+    main.classList.add(styles['main__page-products']);
     const pageProdContainer: HTMLElement = createElem('div', styles['page-main__container']);
 
     const toolbar: HTMLElement = renderProductPageToolbar(product);

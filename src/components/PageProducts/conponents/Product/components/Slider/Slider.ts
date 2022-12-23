@@ -2,6 +2,7 @@ import { createElem } from '../../../../../../utils/create-element';
 import styles from './Slider.module.scss';
 
 export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
+    console.log(product);
     const sliderContainer: HTMLElement = createElem('div', styles['product-page__slider-container']);
 
     // главное фото
@@ -19,6 +20,33 @@ export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
     sliderRigthWrapper.append(zoomContainer);
     sliderGalery.append(sliderRigthWrapper);
     sliderRight.append(sliderGalery);
+
+    zoomRegion.onclick = () => {
+        zoomRegion.classList.toggle('cursor');
+
+        if (zoomRegion.classList.contains('cursor')) {
+            productImage.style.transform = `translate(-50%, -50%) scale(2)`;
+        }
+
+        zoomRegion.onmousemove = (event) => {
+            if (!zoomRegion.classList.contains('cursor')) {
+                return (productImage.style.transform = `translate(-50%, -50%) scale(1)`);
+            } else {
+                let clientX = event.clientX - zoomRegion.offsetLeft;
+                let clientY = event.clientY - zoomRegion.offsetTop;
+                let mWidth = zoomRegion.offsetWidth;
+                let mHeight = zoomRegion.offsetHeight;
+                clientX = (clientX / mWidth) * 100;
+                clientY = (clientY / mHeight) * 100;
+
+                productImage.style.transform = `translate(-${clientX}%, -${clientY}%) scale(2)`;
+            }
+        };
+
+        zoomRegion.onmouseleave = (event) => {
+            productImage.style.transform = `translate(-50%, -50%) scale(1)`;
+        };
+    };
 
     // мини галерея
     const sliderLeft: HTMLElement = createElem('div', styles['product-page__slider-left']);
