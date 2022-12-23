@@ -34,6 +34,10 @@
             background-color: $primaty-5;
             height: 539px;
         }
+
+        .product-card__raiting {
+            opacity: 0.5;
+        }
     }
 }
 
@@ -143,4 +147,35 @@
 
 .hide {
     display: none;
+}
+
+.product-card__raiting {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    font-size: 0.8rem;
+}
+
+.product-card__raiting-container {
+    margin: 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.1rem;
+}
+
+.product-card__raiting-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.raiting-icon {
+    width: 0.7rem;
+    height: 0.7rem;
+    background-image: url('/src/assets/images/star.svg');
+}
+
+.product-card__raiting-data {
+    padding: 0;
+    margin: 0;
 }
