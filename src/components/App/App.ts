@@ -14,5 +14,6 @@ export const renderApp = (func: () => HTMLElement): Element => {
     const main: HTMLElement = func();
 
     appContiner.append(header, main, footer);
+
     return appContiner;
 };

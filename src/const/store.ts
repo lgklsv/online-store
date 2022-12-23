@@ -5,16 +5,32 @@ export const store: Store = {
     origin: PRODUCTS.map((product: Product) => ({
         ...product,
         discountPrice: Number(newPrice(product.price, product.discountPercentage)),
-        search: product.title + ' ' + String(product.price) + ' ' + product.color,
+        search:
+            product.title +
+            ' ' +
+            newPrice(product.price, product.discountPercentage) +
+            ' ' +
+            product.color +
+            ' ' +
+            product.category,
     })),
 
     sort: PRODUCTS.map((product: Product) => ({
         ...product,
         discountPrice: Number(newPrice(product.price, product.discountPercentage)),
-        search: product.title + ' ' + String(product.price) + ' ' + product.color,
+        search:
+            product.title +
+            ' ' +
+            newPrice(product.price, product.discountPercentage) +
+            ' ' +
+            product.color +
+            ' ' +
+            product.category,
     })),
 
     sort2: [],
 };
 
 export const appliedFilters: AppliedFilters = {};
+
+// export const productsCartData: CartData = {};

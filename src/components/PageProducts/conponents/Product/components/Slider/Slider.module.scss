@@ -1,0 +1,111 @@
+@import '/src/theme/variable';
+
+.product-page__slider-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex: 1 1 75.3rem;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.product-page__slider-left {
+    width: 100%;
+    // flex: 0 1 4rem;
+    flex: 0 0 5rem;
+    margin: 0;
+}
+
+.product-page__slider-right {
+    flex: 1 1 auto;
+    width: auto;
+    padding: 0 2.4rem;
+    height: 100%;
+}
+
+.slider-right__wrapper {
+    margin-bottom: 20px;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.zoom_container {
+    font-size: 0;
+}
+
+.zoom_region {
+    cursor: zoom-in;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 35rem;
+    overflow: hidden;
+    // TODO - изменить парамент для адаптивности
+}
+
+.cursor {
+    cursor: zoom-out;
+}
+
+.product-image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    object-fit: cover;
+    cursor: zoom-out;
+}
+
+.slider-left__container {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    z-index: 1;
+    transform: translate3d(0px, 0px, 0px);
+    max-width: 38rem;
+}
+
+.slider-left__wrapper {
+    border-radius: 0.4rem;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.slider-left__wrapper_img {
+    border: 3px solid $background;
+    border-radius: 0.2rem;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    // padding-top: 50%;
+    margin-top: 20%;
+    color: rgba(0, 0, 0, 0);
+}
+
+.active-img {
+    border: 8px solid $primaty-5;
+}
+
+.product-mini-img {
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
