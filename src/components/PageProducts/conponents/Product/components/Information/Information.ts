@@ -43,17 +43,17 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
         sizes.push(productSize);
 
         if (index === 0) {
-            productSize.classList.add('_active-size');
+            productSize.classList.add('active-size');
         }
 
         // вешаем событие на элемент
         productSize.onclick = () => {
             // убираем активный класс
             sizes.forEach((size) => {
-                size.classList.remove('_active-size');
+                size.classList.remove('active-size');
             });
 
-            productSize.classList.add('_active-size');
+            productSize.classList.add('active-size');
             orderSize.innerHTML = elem; //изменяем содержимое кнопки
         };
 

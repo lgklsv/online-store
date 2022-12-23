@@ -32,10 +32,10 @@ export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
             if (!zoomRegion.classList.contains('cursor')) {
                 return (productImage.style.transform = `translate(-50%, -50%) scale(1)`);
             } else {
-                let clientX = event.clientX - zoomRegion.offsetLeft;
-                let clientY = event.clientY - zoomRegion.offsetTop;
-                let mWidth = zoomRegion.offsetWidth;
-                let mHeight = zoomRegion.offsetHeight;
+                let clientX: number = event.clientX - zoomRegion.offsetLeft;
+                let clientY: number = event.clientY - zoomRegion.offsetTop;
+                let mWidth: number = zoomRegion.offsetWidth;
+                let mHeight: number = zoomRegion.offsetHeight;
                 clientX = (clientX / mWidth) * 100;
                 clientY = (clientY / mHeight) * 100;
 
@@ -43,7 +43,7 @@ export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
             }
         };
 
-        zoomRegion.onmouseleave = (event) => {
+        zoomRegion.onmouseleave = () => {
             productImage.style.transform = `translate(-50%, -50%) scale(1)`;
         };
     };
@@ -51,8 +51,9 @@ export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
     // мини галерея
     const sliderLeft: HTMLElement = createElem('div', styles['product-page__slider-left']);
     const sliderMiniGalery: HTMLElement = createElem('div', styles['slider-left__container']);
+    const arraySliders: HTMLElement[] = [];
 
-    product.images.forEach((img) => {
+    product.images.forEach((img, i) => {
         const slideMini: HTMLElement = createElem('div', styles['slider-left__wrapper']);
         const slideMiniImg: HTMLElement = createElem('div', styles['slider-left__wrapper_img']);
         const image: HTMLElement = createElem('img', styles['product-mini-img']);
@@ -62,7 +63,18 @@ export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
         slideMini.append(slideMiniImg);
         sliderMiniGalery.append(slideMini);
 
+        arraySliders.push(slideMiniImg);
+
+        if (i === 0) {
+            slideMiniImg.classList.add('active-img');
+        }
+
         slideMini.onclick = () => {
+            arraySliders.forEach((wrap) => {
+                console.log(wrap);
+                wrap.classList.remove('active-img');
+            });
+            slideMiniImg.classList.add('active-img');
             productImage.setAttribute('src', img);
         };
     });
