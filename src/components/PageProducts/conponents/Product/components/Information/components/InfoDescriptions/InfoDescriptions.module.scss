@@ -110,3 +110,13 @@
     overflow: hidden;
     height: 332px;
 }
+
+.product-page__price {
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+    font-weight: 400;
+    text-align: center;
+    border-top: 1px solid $primaty-5;
+}

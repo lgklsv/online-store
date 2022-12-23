@@ -1,7 +1,6 @@
 import { createElem } from '../../../../../../utils/create-element';
 import { newNameProduct } from '../../../../../../utils/edit-name-products';
-import { newPrice } from '../../../../../../utils/edit-price';
-import { renderInformationAboutProducts } from './components/InfoDescriptions/InfoDescriptions';
+import { renderInformationAboutProducts, renderPriceProducts } from './components/InfoDescriptions/InfoDescriptions';
 import {
     renderOrderAddCart,
     renderOrderButton,
@@ -10,15 +9,16 @@ import {
 import styles from './Information.module.scss';
 
 export const renderInformationProduct = (product: ExtendedProduct): HTMLElement => {
-    const countProduct = 0;
+    let countProduct: number = 0; // TODO - сделать глобальной переменной (объект с размером и кол-вом)?
 
     const informationContainer: HTMLElement = createElem('div', styles['product-page__info-container']);
     const informationCard: HTMLElement = createElem('div', styles['product-page__card']);
 
-    const { productActions, orderSize } = renderOrderAddCart(product);
-    const productQantity = renderOrderProductQuantity(countProduct);
-    const orderLink = renderOrderButton();
-    const productDescroprions = renderInformationAboutProducts(product);
+    const productPrice = renderPriceProducts(product); // Цена
+    const { productActions, orderSize } = renderOrderAddCart(product); //Кнопка добавить в корзину и элемент, в который мы передаем размер
+    // const productQantity = renderOrderProductQuantity(countProduct); // Кнопка добавления кол-ва в корзину товара
+    const orderLink = renderOrderButton(); // Кнопка перехода в корзину
+    const productDescroprions = renderInformationAboutProducts(product); // Описание
 
     // заголовок
     const headerWrapper: HTMLElement = createElem('div', styles['product-page__header-wrapper']);
@@ -37,7 +37,6 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
     const sizes: HTMLElement[] = [];
 
     product.sizes.forEach((elem, index) => {
-        //добваляем елементы
         const productSize: HTMLElement = createElem('div', styles['product-page__sizes']);
         productSize.innerHTML = elem;
         sizes.push(productSize);
@@ -46,9 +45,7 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
             productSize.classList.add('active-size');
         }
 
-        // вешаем событие на элемент
         productSize.onclick = () => {
-            // убираем активный класс
             sizes.forEach((size) => {
                 size.classList.remove('active-size');
             });
@@ -62,37 +59,23 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
 
     sizeWrapp.append(sizeTitle, sizePlate);
 
-    // Цена
-    const productPrice: HTMLElement = createElem('div', styles['product-page__price']);
-    const productPriceFull: HTMLElement = createElem('span', 'product-card__price-full');
-    productPriceFull.innerHTML = String(product.price) + ' ₽';
-
-    // проверка есть ли скидка
-    // TODO - вынести в отдельную функцию
-    if (product.discountPercentage !== 0) {
-        const productPriceDiscount: HTMLElement = createElem('span', 'product-card__price-discount');
-        productPriceFull.classList.add('old-price');
-        productPriceDiscount.innerHTML = '–' + String(product.discountPercentage) + '%';
-
-        const productPriceNew: HTMLElement = createElem('div', 'product-card__price-new');
-        productPriceNew.innerHTML = newPrice(product.price, product.discountPercentage) + ' ₽';
-
-        productPrice.append(productPriceNew, productPriceFull, productPriceDiscount);
-    } else {
-        productPrice.append(productPriceFull);
-    }
-
-    informationCard.append(
-        headerWrapper,
-        sizeWrapp,
-        productPrice,
-        productActions,
-        productQantity,
-        orderLink,
-        productDescroprions
-    );
+    informationCard.append(headerWrapper, sizeWrapp, productPrice, productActions, productDescroprions);
 
     informationContainer.append(informationCard);
+
+    productActions.onclick = () => {
+        countProduct = 1;
+        informationCard.innerHTML = '';
+
+        informationCard.append(
+            headerWrapper,
+            sizeWrapp,
+            productPrice,
+            renderOrderProductQuantity(countProduct),
+            orderLink,
+            productDescroprions
+        );
+    };
 
     return informationContainer;
 };

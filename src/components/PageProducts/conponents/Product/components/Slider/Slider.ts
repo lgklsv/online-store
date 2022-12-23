@@ -2,7 +2,6 @@ import { createElem } from '../../../../../../utils/create-element';
 import styles from './Slider.module.scss';
 
 export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
-    console.log(product);
     const sliderContainer: HTMLElement = createElem('div', styles['product-page__slider-container']);
 
     // главное фото
@@ -71,7 +70,6 @@ export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
 
         slideMini.onclick = () => {
             arraySliders.forEach((wrap) => {
-                console.log(wrap);
                 wrap.classList.remove('active-img');
             });
             slideMiniImg.classList.add('active-img');
