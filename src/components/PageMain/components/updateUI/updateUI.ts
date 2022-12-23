@@ -6,7 +6,8 @@ import { store } from '../../../../const/store';
 import { getBrands, getCategoties } from '../../../../utils/products-data-helpers/get-alpha-filtered-props';
 import { updateCheckboxFiltersUI } from './components/updateCheckboxFilterUI';
 import { updateResetFiltersBtn } from './components/updateResetFiltersBtn';
-import { getSearchValue } from '../../../../utils/products-data-helpers/get-search-value';
+import { getPropValue } from '../../../../utils/products-data-helpers/get-search-value';
+import { updateSortFilterUI } from './components/updateSortFilterUI';
 
 /** Функция которая принимает объект с данными после филтраци и обновляет UI по всей сранице */
 export const updateUI = (data: ExtendedProduct[]) => {
@@ -33,9 +34,9 @@ export const updateUI = (data: ExtendedProduct[]) => {
 
     // Обновляем строку поиска
     const searchBar = document.querySelector('.search-product__input') as HTMLInputElement;
-    console.log(searchBar);
-    const searchString = getSearchValue();
-    if(searchString !== -1) {
-        searchBar.value = searchString;
-    };
+    const searchValue = getPropValue('input');
+    if (Array.isArray(searchValue)) searchBar.value = searchValue[0].toString();
+
+    // Обновляем элемент сортировки
+    updateSortFilterUI();
 };

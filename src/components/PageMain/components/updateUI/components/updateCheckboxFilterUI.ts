@@ -14,7 +14,7 @@ export const updateCheckboxFiltersUI = (data: ProductProps[], filteredData: Exte
         } else {
             for (let j = 0; j < data.length; j++) {
                 if (allInputs[i].id.toLowerCase().replace(/_/g, ' ') === data[j].category.toLowerCase()) {
-                    if (checkValue(data[j].category)) allInputs[i].checked = true;
+                    if (checkValue(allInputs[i].id)) allInputs[i].checked = true;
 
                     title.classList.remove('tinted');
                     itemCount.classList.remove('tinted');
@@ -22,6 +22,7 @@ export const updateCheckboxFiltersUI = (data: ProductProps[], filteredData: Exte
                     continue outside;
                 }
             }
+            if (checkValue(allInputs[i].id)) allInputs[i].checked = true;
             title.classList.add('tinted');
             itemCount.classList.add('tinted');
             itemCount.innerHTML = `0/${itemCount.innerHTML.split('/')[1]}`;

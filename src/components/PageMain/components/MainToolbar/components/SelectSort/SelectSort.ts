@@ -18,14 +18,14 @@ export const renderSelectSort = (node: NodeListOf<ChildNode>): HTMLElement => {
 
     const toolbarSelect: HTMLElement = createElem('div', styles['toolbar__select_item-sort']);
 
-    const selectItem: HTMLElement = createElem('div', styles['select_item-sort']);
-    const itemSpan: HTMLElement = createElem('span', styles['select_item-sort__text']);
+    const selectItem: HTMLElement = createElem('div', 'select_item-sort');
+    const itemSpan: HTMLElement = createElem('span', 'select_item-sort__text');
     itemSpan.innerHTML = 'Сортировка';
 
     const arrowButton: HTMLElement = createElem('div', 'select__arrow');
 
-    const selectDrop: HTMLElement = createElem('div', styles['select_dropdown']);
-    const selectList: HTMLElement = createElem('ul', styles['select_list']);
+    const selectDrop: HTMLElement = createElem('div', 'select_dropdown');
+    const selectList: HTMLElement = createElem('ul', 'select_list');
     const itemli: HTMLElement[] = [];
     const filterType = 'sort';
 
