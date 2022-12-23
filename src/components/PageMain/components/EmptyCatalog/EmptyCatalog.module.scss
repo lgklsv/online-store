@@ -12,11 +12,11 @@
 .empty-catalog__message {
     margin-bottom: 2.4rem;
     text-align: center;
-    font-size: 1.8rem
+    font-size: 1.8rem;
 }
 
 .empty-catalog__btn {
-    @extend %btn-grey;
+    @include btn($black, $light-grey, $grey);
 }
 
 .catalog-product_empty {

@@ -6,7 +6,11 @@ export const checkValue = function (value: string): boolean {
 
     for (let i = 0; i < allFiltersArr.length; i++) {
         const valuesArr = allFiltersArr[i][1];
-        if (valuesArr.includes(value.toLowerCase().replace(/ /g, '_'))) return true;
+        if (
+            valuesArr.includes(value.toLowerCase().replace(/ /g, '_')) &&
+            (allFiltersArr[i][0] === 'category' || allFiltersArr[i][0] === 'brand')
+        )
+            return true;
     }
     return false;
 };

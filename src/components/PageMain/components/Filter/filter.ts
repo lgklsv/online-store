@@ -7,6 +7,8 @@ import { addProducts } from '../../../../utils/add-product';
 import { renderEmptyCatalog } from '../EmptyCatalog/EmptyCatalog';
 import { updateUI } from '../updateUI/updateUI';
 import { toQueryString } from '../QueryString/to-query-string';
+import { SORT_FUNCTIONS } from '../../../../const/select-sort';
+import { searchProdInput } from '../../../../utils/toolbar-search-products';
 
 /** Функция которая принимает объект applied filters и проходит по всем выставленным там фильтрам по порядку */
 export const renderFiltered = (appliedFilters: AppliedFilters) => {
@@ -29,8 +31,16 @@ export const renderFiltered = (appliedFilters: AppliedFilters) => {
                 store.sorted = filterByPrice(indexObj === 0 ? store.origin : store.sorted, filterValueArr);
             } else if (filterType === 'stock') {
                 store.sorted = filterByStock(indexObj === 0 ? store.origin : store.sorted, filterValueArr);
+            } else if (filterType === 'sort') {
+                store.sorted = SORT_FUNCTIONS[filterValueArr as unknown as SortTypes](
+                    indexObj === 0 ? store.origin : store.sorted
+                );
+            } else if (filterType === 'input') {
+                store.sorted = searchProdInput(
+                    filterValueArr as unknown as string,
+                    indexObj === 0 ? store.origin : store.sorted
+                );
             }
-            // добавляем остальные функции фильтров по тому же принципу
         });
 
         if (store.sorted.length === 0) {
@@ -45,5 +55,5 @@ export const renderFiltered = (appliedFilters: AppliedFilters) => {
         catalogProduct.classList.remove('catalog-product_empty');
         addProducts(store.origin, catalogProduct);
         updateUI(store.origin);
-    }
+    }    
 };

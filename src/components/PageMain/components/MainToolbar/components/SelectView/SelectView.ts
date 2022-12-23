@@ -29,6 +29,7 @@ export const renderSelectView = (node: NodeListOf<ChildNode>): HTMLElement => {
     selectView.append(cardSizeNine, cardSizeFour);
 
     const nodeChangeSize: HTMLElement = node[0].childNodes[0] as HTMLElement;
+    // console.log(nodeChangeSize);
 
     cardSizeNine.onclick = () => {
         nodeChangeSize.classList.remove('view-3');

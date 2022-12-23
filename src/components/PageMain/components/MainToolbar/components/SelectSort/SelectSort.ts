@@ -1,8 +1,15 @@
-import { SORT_FUNCTIONS, SORT_OPTIONS } from '../../../../../../const/select-sort';
+import {
+    // SORT_FUNCTIONS,
+    SORT_OPTIONS,
+} from '../../../../../../const/select-sort';
 // import { sortId, sortOptions } from '../../../../../../const/select-sort';
-import { store } from '../../../../../../const/store';
-import { addProducts } from '../../../../../../utils/add-product';
+import {
+    appliedFilters,
+    // store
+} from '../../../../../../const/store';
+// import { addProducts } from '../../../../../../utils/add-product';
 import { createElem } from '../../../../../../utils/create-element';
+import { renderFiltered } from '../../../Filter/filter';
 // import { quickSort } from '../../../../../../utils/quick-sort';
 import styles from './SelectSort.module.scss';
 
@@ -20,6 +27,7 @@ export const renderSelectSort = (node: NodeListOf<ChildNode>): HTMLElement => {
     const selectDrop: HTMLElement = createElem('div', styles['select_dropdown']);
     const selectList: HTMLElement = createElem('ul', styles['select_list']);
     const itemli: HTMLElement[] = [];
+    const filterType = 'sort';
 
     (Object.entries(SORT_OPTIONS) as [SortTypes, string][]).forEach(([key, value]) => {
         const selectItemLi = createElem('li', 'select__item');
@@ -29,15 +37,14 @@ export const renderSelectSort = (node: NodeListOf<ChildNode>): HTMLElement => {
 
         selectItemLi.onclick = () => {
             itemli.forEach((el) => el.classList.remove('select'));
-
             selectItemLi.classList.add('select');
             itemSpan.innerHTML = selectItemLi.textContent as string;
             // убираем соддержимое блока
-            // TODO - добавить на разные варианты сортировки разные функции
             catalogProduct.innerHTML = '';
-            store.sort = SORT_FUNCTIONS[key](store.sort);
-            addProducts(store.sort, catalogProduct);
-            console.log(store);
+
+            if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
+            appliedFilters[filterType][0] = key;
+            renderFiltered(appliedFilters);
         };
     });
 
