@@ -1,0 +1,56 @@
+@import '/src/theme/variable';
+
+.toolbar__copy-filters {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.102);
+    height: 2.2rem;
+    font-size: 12px;
+    border-radius: 0.4rem;
+    cursor: pointer;
+
+    &:hover .toolbar__copy-filters-tooltip {
+        opacity: 1;
+        &::after {
+            opacity: 1;
+        }
+    }
+}
+
+.toolbar__copy-filters-tooltip {
+    font-size: 0.7rem;
+    text-align: center;
+    width: 130px;
+    background-color: $black;
+    color: $white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+
+    position: absolute;
+    z-index: 1;
+    bottom: 110%;
+    left: 50%;
+    margin-left: -65px;
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    &::after {
+        content: '';
+        opacity: 0;
+        border: 10px solid transparent;
+        border-top-color: black;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -10px;
+        transition: all 0.3s ease;
+    }
+}
+
+.toolbar__copy-filters-icon {
+    transform: scale(0.5);
+    user-select: none;
+}
