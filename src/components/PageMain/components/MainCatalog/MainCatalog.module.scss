@@ -27,6 +27,15 @@
 
 .view-3 {
     grid-template-columns: repeat(auto-fit, minmax(150px, 33%));
+    .products-card {
+        height: 639px;
+
+        &:hover {
+            .products-card__overlay {
+                height: 639px;
+            }
+        }
+    }
 }
 
 .products-card {
