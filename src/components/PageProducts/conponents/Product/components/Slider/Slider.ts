@@ -21,7 +21,7 @@ export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
     sliderRight.append(sliderGalery);
 
     zoomRegion.onclick = () => {
-        zoomRegion.classList.toggle('cursor');
+        zoomRegion.classList.toggle(styles['cursor']);
 
         if (zoomRegion.classList.contains('cursor')) {
             productImage.style.transform = `translate(-50%, -50%) scale(2)`;
@@ -65,14 +65,14 @@ export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
         arraySliders.push(slideMiniImg);
 
         if (i === 0) {
-            slideMiniImg.classList.add('active-img');
+            slideMiniImg.classList.add(styles['active-img']);
         }
 
         slideMini.onclick = () => {
             arraySliders.forEach((wrap) => {
                 wrap.classList.remove('active-img');
             });
-            slideMiniImg.classList.add('active-img');
+            slideMiniImg.classList.add(styles['active-img']);
             productImage.setAttribute('src', img);
         };
     });
