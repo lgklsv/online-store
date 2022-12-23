@@ -6,8 +6,8 @@ import styles from './Product.module.scss';
 export const renderProduct = (product: ExtendedProduct): HTMLElement => {
     const toolbarProdPage: HTMLElement = createElem('div', styles['product-page__prod-container']);
 
-    const slider = rendreSliderProduct(product);
-    const information = renderInformationProduct(product);
+    const slider: HTMLElement = rendreSliderProduct(product);
+    const information: HTMLElement = renderInformationProduct(product);
 
     toolbarProdPage.append(slider, information);
 

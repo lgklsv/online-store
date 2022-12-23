@@ -46,7 +46,7 @@ export const renderInformationAboutProducts = (product: ExtendedProduct): HTMLEl
     dataDescriptionsBody.append(prodContant);
 
     dataDescriptionsTitle.onclick = () => {
-        descriptionsTitle.classList.toggle('active-desc');
+        descriptionsTitle.classList.toggle(styles['active-desc']);
         dataDescriptionsBody.classList.toggle('show_content');
 
         if (dataDescriptionsBody.classList.contains('show_content')) {

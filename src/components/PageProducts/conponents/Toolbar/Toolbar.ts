@@ -12,11 +12,11 @@ export const renderProductPageToolbar = (product: ExtendedProduct): HTMLElement 
         `${newNameProduct(product.brand, product.title)}`,
     ];
 
-    const mainLink: HTMLElement = createLink('/', 'product-page__item-score', true, 'Главная');
+    const mainLink: HTMLElement = createLink('/', styles['product-page__item-score'], true, 'Главная');
     toolbarProdPage.append(mainLink);
 
     path.forEach((elem) => {
-        const itemScope = createElem('div', 'product-page__item-score');
+        const itemScope = createElem('div', styles['product-page__item-score']);
         itemScope.innerHTML = `${space}/ ${elem}`;
         toolbarProdPage.append(itemScope);
     });

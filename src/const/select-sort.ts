@@ -26,27 +26,3 @@ export const SORT_FUNCTIONS: Record<SortTypes, SortFn> = {
     [SORT_TYPE.DISCOUNT_ASC]: (products) => quickSort(products, 'discountPercentage').reverse(),
     [SORT_TYPE.RATING]: (products) => quickSort(products, 'rating').reverse(),
 };
-
-/** массив с вариантами сортировки */
-export const sortOptions: string[] = [
-    'По умолчанию',
-    'По возрастанию цены',
-    'По убыванию цены',
-    'По возрастанию скидки',
-    'По убыванию скидки',
-];
-
-export const sortId: string[] = [
-    'defaul-sort',
-    'ascending-prices',
-    'descending-prices',
-    'ascending-discounts',
-    'descending-discounts',
-];
-
-// export const sortObj = {
-//     'ascending_prices': () => {},
-//     'descending-prices',
-//     'ascending-discounts',
-//     'descending-discounts',
-// }

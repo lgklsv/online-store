@@ -16,6 +16,12 @@
     font-size: 12px;
     color: $light-text;
 
+    &:first-child {
+        &:hover {
+            color: $black;
+        }
+    }
+
     &:last-child {
         color: $black;
     }

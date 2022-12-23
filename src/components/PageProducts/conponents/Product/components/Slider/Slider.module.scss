@@ -7,7 +7,6 @@
     flex: 1 1 75.3rem;
     justify-content: flex-start;
     flex-direction: row;
-    align-items: center;
     align-items: flex-start;
 }
 
@@ -34,7 +33,6 @@
 }
 
 .zoom_container {
-    // cursor: zoom-out;
     font-size: 0;
 }
 
@@ -50,7 +48,6 @@
 
 .cursor {
     cursor: zoom-out;
-    // TODO - изменить парамент для адаптивности
 }
 
 .product-image {
@@ -64,7 +61,6 @@
     pointer-events: none;
     object-fit: cover;
     cursor: zoom-out;
-    // height: 32px;
 }
 
 .slider-left__container {
@@ -111,5 +107,5 @@
     display: block;
     width: 100%;
     height: 100%;
-    // pointer-events: none;
+    pointer-events: none;
 }

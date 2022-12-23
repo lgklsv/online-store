@@ -9,10 +9,12 @@ export const renderOrderAddCart = (product: ExtendedProduct): ReturnElements => 
     const productOrder: HTMLElement = createElem('button', styles['product-page__order']);
     const orderTitle: HTMLElement = createElem('span', styles['product-page__order-title']);
     const orderSize: HTMLElement = createElem('span', styles['product-page__order-size']);
+
     productOrder.append(orderTitle, orderSize);
 
     orderTitle.innerHTML = 'Добавить в корзину';
     orderSize.innerHTML = product.sizes[0];
+
     productActions.append(productOrder);
 
     return { productActions, orderSize };
@@ -40,7 +42,7 @@ export const renderOrderButton = (): HTMLElement => {
         false,
         'Оформить заказ'
     );
-    productCartLink.classList.add('product-page__order');
+    productCartLink.classList.add(styles['product-page__order']);
     return productCartLink;
 };
 
