@@ -31,7 +31,7 @@
 
     position: absolute;
     z-index: 1;
-    bottom: 110%;
+    bottom: 115%;
     left: 50%;
     margin-left: -65px;
     opacity: 0;
@@ -40,11 +40,11 @@
     &::after {
         content: '';
         opacity: 0;
-        border: 10px solid transparent;
+        border: 5px solid transparent;
         border-top-color: black;
         position: absolute;
         top: 100%;
-        left: 50%;
+        left: 54%;
         margin-left: -10px;
         transition: all 0.3s ease;
     }
