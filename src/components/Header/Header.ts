@@ -1,3 +1,5 @@
+import { productsCartData } from '../../const/store';
+import { calcAmountCart } from '../../utils/calculate-amount-cart';
 import { createElem } from '../../utils/create-element';
 import { renderHeaderCart } from './components/HeaderCart/HeaderCart';
 import styles from './Header.module.scss';
@@ -18,6 +20,7 @@ export const renderHeader = (): HTMLElement => {
     summHeader.innerHTML = 'Cart total';
     const summ: HTMLElement = createElem('div', 'total-summ__num');
     summ.innerHTML = '13579'; //TODO - добавить функцию генерации суммы корзины
+    calcAmountCart(productsCartData.productsInCart);
 
     totalSumm.append(summHeader, summ);
 

@@ -35,6 +35,7 @@ export const store: Store = {
 
 export const appliedFilters: AppliedFilters = {};
 
+/** глобальная переменная, которая передается в local storage */
 export const productsCartData: Cart = getLocalStorage(LOCAL_STORAGE_KEYS.PRODUCT) ?? {
     productsInCart: [],
     count: 0,
