@@ -1,0 +1,41 @@
+@import '/src/theme/variable';
+
+.checkout-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transition: all .3s ease;
+    transform: translateX(-50%) translateY(200%);
+    background-color: $white;
+    width: $desktop;
+    height: 700px;
+    border-radius: 5px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.checkout-modal__overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    transition: all .3s ease;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1;
+}
+
+.hidden_overlay {
+    opacity: 0;
+    transition: all .3s ease;
+    pointer-events: none;
+}
+
+.active {
+    opacity: 1;
+    transition: all 0.3s ease;
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: all;
+}

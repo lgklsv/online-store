@@ -39,6 +39,17 @@ export const renderCartCheckout = (): HTMLElement => {
     const checkoutBtn: HTMLElement = createElem('button', 'cart__checkout-btn');
     checkoutBtn.innerHTML = 'Оформить заказ';
 
+    checkoutBtn.onclick = (e: Event): void => {
+        const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
+        if (overlay) {
+            overlay.classList.remove('hidden_overlay');
+        }
+        const modal = document.querySelector('.checkout-modal') as HTMLElement;
+        if (modal) {
+            modal.classList.add('active');
+        }
+    };
+
     cartCheckout.append(checkoutCoupon, checkoutQty, checkoutSum, checkoutTotal, checkoutBtn);
 
     return cartCheckout;
