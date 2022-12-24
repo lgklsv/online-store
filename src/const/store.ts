@@ -28,7 +28,7 @@ export const store: Store = {
             product.category,
     })),
 
-    sort2: [],
+    sorted: [],
 };
 
 export const appliedFilters: AppliedFilters = {};

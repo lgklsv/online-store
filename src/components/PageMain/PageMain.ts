@@ -18,8 +18,5 @@ export const renderMainPage = (): HTMLElement => {
     mainContainer.append(mainFilters, mainContent);
 
     main.append(mainContainer);
-
-    console.log();
-
     return main;
 };

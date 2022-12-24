@@ -1,7 +1,7 @@
 interface Store {
     origin: ExtendedProduct[];
     sort: ExtendedProduct[];
-    sort2: ExtendedProduct[];
+    sorted: ExtendedProduct[];
 }
 
 interface CartData {

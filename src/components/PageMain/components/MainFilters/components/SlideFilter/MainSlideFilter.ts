@@ -42,6 +42,47 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
 
     slideFilterNumbers.append(numbersFrom, numbersTo);
 
+    const priceGap = 1;
+
+    slideFilterNumbers.onchange = (e: Event): void => {
+        console.log(e.target);
+        const targetInput = e.target as HTMLInputElement;
+        const filterType =
+            targetInput.classList.contains('num-input-left_price') ||
+            targetInput.classList.contains('num-input-right_price')
+                ? 'price'
+                : 'stock';
+
+        const side = targetInput.className.includes('left') ? 'left' : 'right';
+
+        const rangeInputsParent = document.querySelector(`.slide-filter__ranges_${filterType}`) as HTMLElement;
+        const progress = document.querySelector(`.progress_${filterType}`) as HTMLElement;
+        console.log(progress); 
+        const rangeInputs = rangeInputsParent.children;
+
+        const rangeLeft = rangeInputs[0] as HTMLInputElement;
+        const rangeRight = rangeInputs[1] as HTMLInputElement;
+        console.log(rangeLeft, rangeRight);
+
+        let minVal = side === 'left' ? +targetInput.value : +rangeLeft.value;
+        let maxVal = side === 'right' ? +targetInput.value : +rangeRight.value;
+
+        if (maxVal - minVal < priceGap) {
+            if (side === 'left') {
+                rangeLeft.value = (maxVal - priceGap).toString();
+            } else {
+                rangeRight.value = (minVal + priceGap).toString();
+            }
+        } else {
+            progress.style.left = (minVal / +rangeLeft.max) * 100 + '%';
+            progress.style.right = 100 - (maxVal / +rangeRight.max) * 100 + '%';
+        }
+
+        if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
+        appliedFilters[filterType] = [minVal, maxVal];
+        renderFiltered(appliedFilters);
+    };
+
     // Double range slider
     const slideFilterSlider: HTMLElement = createElem('div', 'slide-filter__slider');
     const sliderProgress: HTMLElement = createElem('div', 'progress');
@@ -65,19 +106,10 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
     rightRangeInput.setAttribute('max', max);
     rightRangeInput.setAttribute('value', max);
 
-    let priceGap = 1;
-
-    rangeInputs.oninput = (e: Event) => {
+    rangeInputs.oninput = (e: Event): void => {
         const targetInput = e.target as HTMLInputElement;
-        let filterType;
         const rangeInputsEl = targetInput.parentElement as HTMLElement;
-        rangeInputsEl.classList.contains('slide-filter__ranges_price')
-            ? (filterType = 'price')
-            : (filterType = 'stock');
-
-        let minVal: number = 0;
-        let maxVal: number = 0;
-
+        const filterType = rangeInputsEl.classList.contains('slide-filter__ranges_price') ? 'price' : 'stock';
         const beforRangeInputParent = rangeInputsEl.previousElementSibling as HTMLElement;
         const progress = beforRangeInputParent.firstElementChild as HTMLElement;
 
@@ -85,8 +117,8 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
         const rangeLeft = rangeInputs[0] as HTMLInputElement;
         const rangeRight = rangeInputs[1] as HTMLInputElement;
 
-        minVal = +rangeLeft.value;
-        maxVal = +rangeRight.value;
+        let minVal = +rangeLeft.value;
+        let maxVal = +rangeRight.value;
 
         if (maxVal - minVal < priceGap) {
             if (targetInput.classList.contains('range-input_left')) {
