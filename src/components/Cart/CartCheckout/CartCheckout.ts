@@ -1,6 +1,7 @@
 import { PRODUCTS } from '../../../const/products';
 import { createElem } from '../../../utils/create-element';
 import { createInput } from '../../../utils/create-input-element';
+import { toggleModal } from '../CheckoutModal/components/ToggleModal';
 import styles from './CartCheckout.scss';
 import { renderCartCheckoutReceipt } from './components/CartCheckoutReceipt/CartCheckoutReceipt';
 
@@ -41,13 +42,8 @@ export const renderCartCheckout = (): HTMLElement => {
 
     checkoutBtn.onclick = (e: Event): void => {
         const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
-        if (overlay) {
-            overlay.classList.remove('hidden_overlay');
-        }
         const modal = document.querySelector('.checkout-modal') as HTMLElement;
-        if (modal) {
-            modal.classList.add('active');
-        }
+        toggleModal(modal, overlay);
     };
 
     cartCheckout.append(checkoutCoupon, checkoutQty, checkoutSum, checkoutTotal, checkoutBtn);

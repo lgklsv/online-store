@@ -4,6 +4,7 @@ import { renderCartCheckout } from './CartCheckout/CartCheckout';
 import { renderCartItems } from './CartItems/CartItems';
 import { renderEmptyCart } from './CartItems/components/CartEmpty/CartEmpty';
 import { renderCheckoutModal } from './CheckoutModal/CheckoutModal';
+import { toggleModal } from './CheckoutModal/components/ToggleModal';
 
 export const renderCartPage = (): HTMLElement => {
     const main: HTMLElement = createElem('main', 'main');
@@ -43,11 +44,8 @@ export const renderCartPage = (): HTMLElement => {
     overlay.classList.add('hidden_overlay');
 
     overlay.onclick = (): void => {
-        overlay.classList.add('hidden_overlay');
         const modal = document.querySelector('.checkout-modal') as HTMLElement;
-        if (modal) {
-            modal.classList.remove('active');
-        }
+        toggleModal(modal, overlay);
     };
     modalContainer.append(renderCheckoutModal(), overlay);
 
