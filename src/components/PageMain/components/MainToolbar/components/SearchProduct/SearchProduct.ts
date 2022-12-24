@@ -1,7 +1,6 @@
 import styles from './SearchProduct.module.scss';
 import { createElem } from '../../../../../../utils/create-element';
 import { createInput } from '../../../../../../utils/create-input-element';
-// import { searchProdInput } from '../../../../../../utils/toolbar-search-products';
 import { appliedFilters } from '../../../../../../const/store';
 import { renderFiltered } from '../../../Filter/filter';
 
@@ -16,11 +15,13 @@ export const renderSearchProduct = (node: NodeListOf<ChildNode>): HTMLElement =>
     searchProductInput.oninput = () => {
         let valueInput: string = searchProductInput.value.toLocaleLowerCase().trim();
 
-        if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
-        appliedFilters[filterType][0] = valueInput;
+        if (!valueInput) {
+            delete appliedFilters[filterType];
+        } else {
+            if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
+            appliedFilters[filterType][0] = valueInput;
+        }
         renderFiltered(appliedFilters);
-
-        // searchProdInput(valueInput, catalogProduct);
     };
 
     searchProduct.append(searchProductInput);

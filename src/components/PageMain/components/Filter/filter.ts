@@ -8,7 +8,7 @@ import { renderEmptyCatalog } from '../EmptyCatalog/EmptyCatalog';
 import { updateUI } from '../updateUI/updateUI';
 import { toQueryString } from '../QueryString/to-query-string';
 import { SORT_FUNCTIONS } from '../../../../const/select-sort';
-import { searchProdInput } from '../../../../utils/toolbar-search-products';
+import { searchProdInput } from '../FilterFunctions/toolbar-search-products';
 
 /** Функция которая принимает объект applied filters и проходит по всем выставленным там фильтрам по порядку */
 export const renderFiltered = (appliedFilters: AppliedFilters) => {
@@ -22,26 +22,22 @@ export const renderFiltered = (appliedFilters: AppliedFilters) => {
     if (allFiltersArr.length > 0) {
         allFiltersArr.forEach((entryArr, indexObj) => {
             const [filterType, filterValueArr] = entryArr;
+            const storeType = indexObj === 0 ? store.origin : store.sorted;
 
             if (filterType === 'category') {
-                store.sorted = filterByCategory(indexObj === 0 ? store.origin : store.sorted, filterValueArr);
+                store.sorted = filterByCategory(storeType, filterValueArr);
             } else if (filterType === 'brand') {
-                store.sorted = filterByBrand(indexObj === 0 ? store.origin : store.sorted, filterValueArr);
+                store.sorted = filterByBrand(storeType, filterValueArr);
             } else if (filterType === 'price') {
-                store.sorted = filterByPrice(indexObj === 0 ? store.origin : store.sorted, filterValueArr);
+                store.sorted = filterByPrice(storeType, filterValueArr);
             } else if (filterType === 'stock') {
-                store.sorted = filterByStock(indexObj === 0 ? store.origin : store.sorted, filterValueArr);
+                store.sorted = filterByStock(storeType, filterValueArr);
             } else if (filterType === 'sort') {
-                store.sorted = SORT_FUNCTIONS[filterValueArr as unknown as SortTypes](
-                    indexObj === 0 ? store.origin : store.sorted
-                );
+                store.sorted = SORT_FUNCTIONS[filterValueArr as unknown as SortTypes](storeType);
             } else if (filterType === 'input') {
-                store.sorted = searchProdInput(
-                    filterValueArr as unknown as string,
-                    indexObj === 0 ? store.origin : store.sorted
-                );
+                store.sorted = searchProdInput(storeType, filterValueArr);
             } else if (filterType === 'big') {
-                store.sorted = indexObj === 0 ? store.origin : store.sorted;
+                store.sorted = storeType;
             }
         });
 
@@ -57,5 +53,5 @@ export const renderFiltered = (appliedFilters: AppliedFilters) => {
         catalogProduct.classList.remove('catalog-product_empty');
         addProducts(store.origin, catalogProduct);
         updateUI(store.origin);
-    }    
+    }
 };

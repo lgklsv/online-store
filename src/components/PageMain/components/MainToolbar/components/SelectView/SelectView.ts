@@ -32,7 +32,6 @@ export const renderSelectView = (node: NodeListOf<ChildNode>): HTMLElement => {
 
     const nodeChangeSize: HTMLElement = node[0].childNodes[0] as HTMLElement;
 
-    console.log(nodeChangeSize);
     const filterType = 'big';
 
     selectView.onclick = (e: Event) => {
