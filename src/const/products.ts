@@ -225,7 +225,6 @@ export const PRODUCTS: Product[] = [
         category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/g/gy4419-1_1104x1104.jpg',
         images: [
-            'https://img.brandshop.ru/cache/products/g/gy4419-0_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/g/gy4419-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/g/gy4419-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/g/gy4419-3_1104x1104.jpg',
