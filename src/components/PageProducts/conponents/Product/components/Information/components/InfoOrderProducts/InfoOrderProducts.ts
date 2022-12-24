@@ -4,7 +4,7 @@ import { space } from '../../../../../../../../const/store-name';
 import { createElem } from '../../../../../../../../utils/create-element';
 import { createLink } from '../../../../../../../../utils/create-link-element';
 import { setLocalStorage } from '../../../../../../../../utils/local-storage';
-import { updateHeaderCount } from '../../../../../../../../utils/update-cart';
+import { updateHeader } from '../../../../../../../../utils/update-cart';
 import { updateInfoProd } from '../../Information';
 import { helperForSize } from '../InfoSize/InfoSize';
 import styles from './InfoOrderProducts.module.scss';
@@ -36,7 +36,7 @@ export const renderOrderAddCart = (product: ExtendedProduct, size: string): Retu
         productsCartData.productsInCart.push(productData); //изменяем глобальный объект
         setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT); //обновляем Local Storage
 
-        updateHeaderCount(productsCartData.count); // изменения данных в хэдере
+        updateHeader(productsCartData.count, productsCartData.productsInCart); // изменения данных в хэдере
         updateInfoProd(product, true, helperForSize.countSizeProducts);
     };
 
@@ -60,7 +60,6 @@ export const renderOrderProductQuantity = (
 
     productCartIconPlus.onclick = () => {
         productsCartData.count++;
-        updateHeaderCount(productsCartData.count);
 
         const findedProduct = productsCartData.productsInCart.find((data) => {
             return product.id === data.product.id && String(data.size) === activeSize;
@@ -69,8 +68,8 @@ export const renderOrderProductQuantity = (
         findedProduct.quantity++;
 
         productCartDescriptions.innerHTML = findedProduct.quantity + `${space}` + 'в корзине';
-
         setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
+        updateHeader(productsCartData.count, productsCartData.productsInCart);
     };
 
     productCartIconMinus.onclick = () => {
@@ -88,10 +87,10 @@ export const renderOrderProductQuantity = (
         }
 
         productsCartData.count--;
-        updateHeaderCount(productsCartData.count); //обновили элемент корзины
 
         productCartDescriptions.innerHTML = findedProduct.quantity + `${space}` + 'в корзине';
         setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
+        updateHeader(productsCartData.count, productsCartData.productsInCart); //обновили элемент корзины
     };
 
     productCardMore.append(productCartIconMinus, productCartDescriptions, productCartIconPlus);

@@ -17,11 +17,11 @@ export const renderHeader = (): HTMLElement => {
 
     const totalSumm: HTMLElement = createElem('div', 'header__total-summ');
     const summHeader: HTMLElement = createElem('div', styles['total-summ__header']);
-    summHeader.innerHTML = 'Cart total';
-    const summ: HTMLElement = createElem('div', 'total-summ__num');
-    summ.innerHTML = '13579'; //TODO - добавить функцию генерации суммы корзины
-    calcAmountCart(productsCartData.productsInCart);
+    // summHeader.innerHTML = 'Cart total';
+    summHeader.innerHTML = 'Сумма корзины';
 
+    const summ: HTMLElement = createElem('div', 'total-summ__num');
+    summ.innerHTML = calcAmountCart(productsCartData.productsInCart) + ' ₽'; //TODO - добавить функцию генерации суммы корзины
     totalSumm.append(summHeader, summ);
 
     const cart = renderHeaderCart();
