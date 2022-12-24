@@ -1,6 +1,8 @@
 import { changeClass } from '../../../../../../utils/add-remove-class';
 import { createElem } from '../../../../../../utils/create-element';
 import { createInput } from '../../../../../../utils/create-input-element';
+import { appliedFilters } from '../../../../../../const/store';
+import { renderFiltered } from '../../../Filter/filter';
 import styles from './SelectView.module.scss';
 
 export const renderSelectView = (node: NodeListOf<ChildNode>): HTMLElement => {
@@ -29,16 +31,27 @@ export const renderSelectView = (node: NodeListOf<ChildNode>): HTMLElement => {
     selectView.append(cardSizeNine, cardSizeFour);
 
     const nodeChangeSize: HTMLElement = node[0].childNodes[0] as HTMLElement;
-    // console.log(nodeChangeSize);
 
-    cardSizeNine.onclick = () => {
-        nodeChangeSize.classList.remove('view-3');
-        changeClass(cardSizeFour, cardSizeNine, 'active-view');
-    };
+    console.log(nodeChangeSize);
+    const filterType = 'big';
 
-    cardSizeFour.onclick = () => {
-        nodeChangeSize.classList.add('view-3');
-        changeClass(cardSizeNine, cardSizeFour, 'active-view');
+    selectView.onclick = (e: Event) => {
+        const target = e.target as HTMLElement;
+        if (target.classList.contains('card-size__input')) {
+            const label = target.parentElement as HTMLElement;
+            const value = label.id === 'card-size-four' ? 'true' : 'false';
+            if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
+            appliedFilters[filterType] = [value];
+
+            if (label.id === 'card-size-four') {
+                nodeChangeSize.classList.add('view-3');
+                changeClass(cardSizeNine, cardSizeFour, 'active-view');
+            } else {
+                nodeChangeSize.classList.remove('view-3');
+                changeClass(cardSizeFour, cardSizeNine, 'active-view');
+            }
+            renderFiltered(appliedFilters);
+        }
     };
 
     return selectView;

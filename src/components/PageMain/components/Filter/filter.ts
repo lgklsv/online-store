@@ -40,6 +40,8 @@ export const renderFiltered = (appliedFilters: AppliedFilters) => {
                     filterValueArr as unknown as string,
                     indexObj === 0 ? store.origin : store.sorted
                 );
+            } else if (filterType === 'big') {
+                store.sorted = indexObj === 0 ? store.origin : store.sorted;
             }
         });
 

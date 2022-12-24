@@ -9,6 +9,7 @@ import { updateResetFiltersBtn } from './components/updateResetFiltersBtn';
 import { getPropValue } from '../../../../utils/products-data-helpers/get-search-value';
 import { updateSortFilterUI } from './components/updateSortFilterUI';
 import { updateCopyFiltersBtn } from '../MainToolbar/components/CopyFiltersLink/CopyFiltersLink';
+import { updateViewUI } from './components/updateViewUI';
 
 /** Функция которая принимает объект с данными после филтраци и обновляет UI по всей сранице */
 export const updateUI = (data: ExtendedProduct[]) => {
@@ -43,4 +44,7 @@ export const updateUI = (data: ExtendedProduct[]) => {
 
     // Обновляем элемент сортировки
     updateSortFilterUI();
+
+    // Обновляем выбор вида
+    updateViewUI();
 };
