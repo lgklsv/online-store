@@ -3,6 +3,7 @@ import { createInput } from '../../../utils/create-input-element';
 import styles from './CheckoutModal.module.scss';
 import { renderCard } from './components/CreditCard/CreditCard';
 import { toggleModal } from './components/ToggleModal';
+import { validateAddress } from './components/Validators/validateAddress';
 import { validateEmail } from './components/Validators/validateEmail';
 import { validateName } from './components/Validators/validateName';
 import { validatePhone } from './components/Validators/validateTel';
@@ -82,11 +83,11 @@ export const renderCheckoutModal = (): HTMLElement => {
     const phoneInput: HTMLElement = createInput('tel', 'checkout-modal__input');
     phoneInput.setAttribute('placeholder', 'Введите номер телефона');
     phoneInput.setAttribute('spellcheck', 'false');
-    
+
     phoneInput.oninput = (e: Event): void => {
         if (e.target instanceof HTMLInputElement) {
             const inputValue = e.target.value.trim();
-            if(inputValue.length === 1 && inputValue !== '+'){
+            if (inputValue.length === 1 && inputValue !== '+') {
                 e.target.value = `+${e.target.value}`;
             }
             const messageElement = e.target.nextElementSibling as HTMLElement;
@@ -108,6 +109,14 @@ export const renderCheckoutModal = (): HTMLElement => {
     const addressInput: HTMLElement = createInput('text', 'checkout-modal__input');
     addressInput.setAttribute('placeholder', 'Введите адрес');
     addressInput.setAttribute('spellcheck', 'false');
+
+    addressInput.oninput = (e: Event): void => {
+        if (e.target instanceof HTMLInputElement) {
+            const inputValue = e.target.value.trim();
+            const messageElement = e.target.nextElementSibling as HTMLElement;
+            validateAddress(inputValue, messageElement);
+        }
+    };
 
     const addressError: HTMLElement = createElem('p', 'checkout-modal__message');
     addressError.innerHTML = 'Эти данные необходимы для получения и оформления заказа';
