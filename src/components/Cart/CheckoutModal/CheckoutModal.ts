@@ -3,6 +3,7 @@ import { createInput } from '../../../utils/create-input-element';
 import styles from './CheckoutModal.module.scss';
 import { renderCard } from './components/CreditCard/CreditCard';
 import { toggleModal } from './components/ToggleModal';
+import { validateEmail } from './components/Validators/validateEmail';
 import { validateName } from './components/Validators/validateName';
 
 export const renderCheckoutModal = (): HTMLElement => {
@@ -34,6 +35,7 @@ export const renderCheckoutModal = (): HTMLElement => {
 
     const nameInput: HTMLElement = createInput('text', 'checkout-modal__input');
     nameInput.setAttribute('placeholder', 'Введите имя и фамилию');
+    nameInput.setAttribute('spellcheck', 'false');
 
     nameInput.oninput = (e: Event): void => {
         if (e.target instanceof HTMLInputElement) {
@@ -56,12 +58,13 @@ export const renderCheckoutModal = (): HTMLElement => {
 
     const emailInput: HTMLElement = createInput('email', 'checkout-modal__input');
     emailInput.setAttribute('placeholder', 'Введите e-mail');
+    emailInput.setAttribute('spellcheck', 'false');
 
     emailInput.oninput = (e: Event): void => {
         if (e.target instanceof HTMLInputElement) {
             const inputValue = e.target.value.trim();
             const messageElement = e.target.nextElementSibling as HTMLElement;
-            validateName(inputValue, messageElement);
+            validateEmail(inputValue, messageElement);
         }
     };
     const emailError: HTMLElement = createElem('p', 'checkout-modal__message');
@@ -77,6 +80,8 @@ export const renderCheckoutModal = (): HTMLElement => {
 
     const phoneInput: HTMLElement = createInput('tel', 'checkout-modal__input');
     phoneInput.setAttribute('placeholder', 'Введите номер телефона');
+    phoneInput.setAttribute('spellcheck', 'false');
+
     const phoneError: HTMLElement = createElem('p', 'checkout-modal__message');
     phoneError.innerHTML = 'Эти данные необходимы для получения и оформления заказа';
     phoneError.classList.add('checkout-modal__warning');
@@ -90,6 +95,8 @@ export const renderCheckoutModal = (): HTMLElement => {
 
     const addressInput: HTMLElement = createInput('text', 'checkout-modal__input');
     addressInput.setAttribute('placeholder', 'Введите адрес');
+    addressInput.setAttribute('spellcheck', 'false');
+    
     const addressError: HTMLElement = createElem('p', 'checkout-modal__message');
     addressError.innerHTML = 'Эти данные необходимы для получения и оформления заказа';
     addressError.classList.add('checkout-modal__warning');
