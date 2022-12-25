@@ -1,10 +1,12 @@
 import { LOCAL_STORAGE_KEYS } from '../../../../../../../../const/local-storage';
 import { productsCartData } from '../../../../../../../../const/store';
 import { space } from '../../../../../../../../const/store-name';
+import { addInCart } from '../../../../../../../../utils/add-in-cart';
 import { createElem } from '../../../../../../../../utils/create-element';
 import { createLink } from '../../../../../../../../utils/create-link-element';
 import { setLocalStorage } from '../../../../../../../../utils/local-storage';
 import { updateHeader } from '../../../../../../../../utils/update-cart';
+
 import { updateInfoProd } from '../../Information';
 import { helperForSize } from '../InfoSize/InfoSize';
 import styles from './InfoOrderProducts.module.scss';
@@ -25,19 +27,20 @@ export const renderOrderAddCart = (product: ExtendedProduct, size: string): Retu
     productActions.append(productOrder);
 
     productOrder.onclick = () => {
-        productsCartData.count++;
+        addInCart(product, helperForSize);
+        // productsCartData.count++;
 
-        const productData: CartData = {
-            product: product,
-            size: helperForSize.sizeForData,
-            quantity: helperForSize.countSizeProducts,
-        };
+        // const productData: CartData = {
+        //     product: product,
+        //     size: helperForSize.sizeForData,
+        //     quantity: helperForSize.countSizeProducts,
+        // };
 
-        productsCartData.productsInCart.push(productData); //изменяем глобальный объект
-        setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT); //обновляем Local Storage
+        // productsCartData.productsInCart.push(productData); //изменяем глобальный объект
+        // setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT); //обновляем Local Storage
 
-        updateHeader(productsCartData.count, productsCartData.productsInCart); // изменения данных в хэдере
-        updateInfoProd(product, true, helperForSize.countSizeProducts);
+        // updateHeader(productsCartData.count, productsCartData.productsInCart); // изменения данных в хэдере
+        // updateInfoProd(product, true, helperForSize.countSizeProducts);
     };
 
     return { productActions, orderSize, productOrder };

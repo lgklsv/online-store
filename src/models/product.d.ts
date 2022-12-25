@@ -25,3 +25,9 @@ interface ExtendedProduct extends Product {
     discountPrice: number;
     search: string;
 }
+
+interface HelperSize {
+    activSize: string;
+    countSizeProducts: number;
+    sizeForData: string;
+}

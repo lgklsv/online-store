@@ -50,12 +50,16 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
 };
 
 /** обновляем блок с кнопками добавления товара */
-export const updateInfoProd = (product: ExtendedProduct, isAdd: boolean, count: number) => {
+export const updateInfoProd = (product: ExtendedProduct, isAdd: boolean, count: number, page?: string) => {
     const buttonContainer: HTMLElement = document.querySelector('.button-container') as HTMLElement;
     const { productActions } = renderOrderAddCart(product, helperForSize.sizeForData);
     const orderLink = renderOrderButton();
 
     buttonContainer.innerHTML = '';
+
+    if (page) {
+        console.log(page);
+    }
 
     if (!isAdd) {
         buttonContainer.append(productActions);

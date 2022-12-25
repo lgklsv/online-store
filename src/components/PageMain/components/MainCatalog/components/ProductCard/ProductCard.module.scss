@@ -1,4 +1,5 @@
 @import '/src/theme/variable';
+
 .products-card {
     display: block;
     width: 100%;
@@ -8,10 +9,8 @@
     background-color: $background;
     border-radius: 0.4rem;
     position: relative;
-    // height: 28rem;
     max-width: 28rem;
     height: 539px;
-    // margin-bottom: 0.8rem;
 
     .products-card__overlay {
         display: block;
@@ -119,7 +118,7 @@
     align-items: center;
     width: max-content;
     margin: 1.2rem auto 0;
-    // background-color: $white;
+    // background-color: $black;
     border-radius: 0.4rem;
     font-size: 12px;
     padding: 0.8rem;
@@ -138,7 +137,8 @@
 }
 
 .active-size {
-    background-color: $white;
+    background-color: $black;
+    color: $white;
 }
 
 .show_sizes {
@@ -178,4 +178,10 @@
 .product-card__raiting-data {
     padding: 0;
     margin: 0;
+}
+
+.in-cart {
+    background-color: $primaty-5;
+    // border-color: $black;
+    color: $black;
 }

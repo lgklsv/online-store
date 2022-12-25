@@ -3,7 +3,7 @@ import { createElem } from '../../../../../../../../utils/create-element';
 import { updateInfoProd } from '../../Information';
 import styles from './InfoSize.module.scss';
 
-export const helperForSize = {
+export const helperForSize: HelperSize = {
     activSize: '', // флаг размера, сравниваем с текущим
     countSizeProducts: 1,
     sizeForData: '',
@@ -28,15 +28,12 @@ export const renderSize = (product: ExtendedProduct, orderSize: HTMLElement): HT
 
         productSize.onclick = () => {
             helperForSize.sizeForData = elem;
-            console.log(helperForSize, 'helperForSize');
             // если выбрали новый размер, должна снова появится кнопка добавить в корзину
             if (helperForSize.activSize !== elem) {
                 // проверка данных из глобального объекта, чтобы понять добавляли ли мы этот размер в корзину или нет(проверка по id и размеру)
                 const findedProduct = productsCartData.productsInCart.find((data) => {
                     return product.id === data.product.id && String(data.size) === elem;
                 });
-
-                console.log('findedProduct===', findedProduct);
 
                 if (!findedProduct) {
                     updateInfoProd(product, false, helperForSize.countSizeProducts);
