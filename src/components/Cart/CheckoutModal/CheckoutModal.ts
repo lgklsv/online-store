@@ -35,7 +35,7 @@ export const renderCheckoutModal = (): HTMLElement => {
     const nameLabel: HTMLElement = createElem('label', 'checkout-modal__label');
     nameLabel.innerHTML = 'Имя и фамилия';
 
-    const nameInput: HTMLElement = createInput('text', 'checkout-modal__input');
+    const nameInput: HTMLInputElement = createInput('text', 'checkout-modal__input');
     nameInput.setAttribute('placeholder', 'Введите имя и фамилию');
     nameInput.setAttribute('spellcheck', 'false');
 
@@ -58,7 +58,7 @@ export const renderCheckoutModal = (): HTMLElement => {
     const emailLabel: HTMLElement = createElem('label', 'checkout-modal__label');
     emailLabel.innerHTML = 'E-mail';
 
-    const emailInput: HTMLElement = createInput('email', 'checkout-modal__input');
+    const emailInput: HTMLInputElement = createInput('email', 'checkout-modal__input');
     emailInput.setAttribute('placeholder', 'Введите e-mail');
     emailInput.setAttribute('spellcheck', 'false');
 
@@ -80,7 +80,7 @@ export const renderCheckoutModal = (): HTMLElement => {
     const phoneLabel: HTMLElement = createElem('label', 'checkout-modal__label');
     phoneLabel.innerHTML = 'Номер телефона';
 
-    const phoneInput: HTMLElement = createInput('tel', 'checkout-modal__input');
+    const phoneInput: HTMLInputElement = createInput('tel', 'checkout-modal__input');
     phoneInput.setAttribute('placeholder', 'Введите номер телефона');
     phoneInput.setAttribute('spellcheck', 'false');
 
@@ -106,7 +106,7 @@ export const renderCheckoutModal = (): HTMLElement => {
     const addressLabel: HTMLElement = createElem('label', 'checkout-modal__label');
     addressLabel.innerHTML = 'Адрес';
 
-    const addressInput: HTMLElement = createInput('text', 'checkout-modal__input');
+    const addressInput: HTMLInputElement = createInput('text', 'checkout-modal__input');
     addressInput.setAttribute('placeholder', 'Введите адрес');
     addressInput.setAttribute('spellcheck', 'false');
 
@@ -135,5 +135,45 @@ export const renderCheckoutModal = (): HTMLElement => {
 
     checkoutForm.append(checkoutDetails, card, paymentBtn);
     modal.append(heading, closeModalBtn, checkoutForm);
+
+    checkoutForm.onsubmit = (e: Event): void => {
+        e.preventDefault();
+
+        const name = nameInput.value;
+        const messageName = nameInput.nextElementSibling as HTMLElement;
+
+        const email = emailInput.value;
+        const messageEmail = emailInput.nextElementSibling as HTMLElement;
+
+        const phone = phoneInput.value;
+        const messagePhone = phoneInput.nextElementSibling as HTMLElement;
+
+        const address = addressInput.value;
+        const messageAddress = addressInput.nextElementSibling as HTMLElement;
+
+        if (
+            validateName(name, messageName) &&
+            validateEmail(email, messageEmail) &&
+            validatePhone(phone, messagePhone) &&
+            validateAddress(address, messageAddress)
+        ) {
+            // TODO clean cart
+
+            // render Success page
+            modal.innerHTML = '';
+            const heading: HTMLElement = createElem('h2', 'checkout-modal__heading');
+            heading.style.marginTop = '2rem';
+            heading.innerHTML = 'Спасибо за заказ 🕊️ На главную страницу через 3сек';
+            modal.append(heading);
+
+            let time = 3;
+            setInterval((): void => {
+                time--;
+                heading.innerHTML = 'Спасибо за заказ 🕊️ На главную страницу через ${time}сек';
+                // return to main
+                if (time === 0) window.location.href = '/';
+            }, 1000);
+        }
+    };
     return modal;
 };
