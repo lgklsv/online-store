@@ -1,6 +1,7 @@
 import { createElem } from '../../../../../utils/create-element';
 import { createInput } from '../../../../../utils/create-input-element';
 import { validateCardNumber } from '../Validators/validateCardNumber';
+import { validateExpDate } from '../Validators/validateExpDate';
 import styles from './CreditCard.module.scss';
 
 export const renderCard = (): HTMLElement => {
@@ -15,7 +16,7 @@ export const renderCard = (): HTMLElement => {
     cardNumLabel.innerHTML = 'Номер карты';
 
     const cardNumInput: HTMLElement = createInput('text', 'card__input');
-    cardNumInput.classList.add('card__input_number');
+    cardNumInput.id = 'card-number';
     cardNumInput.setAttribute('placeholder', '0000 0000 0000 0000');
 
     cardNumInput.oninput = (e: Event): void => {
@@ -40,10 +41,7 @@ export const renderCard = (): HTMLElement => {
         } else {
             logo.className = 'card__logo';
         }
-
-        
-        console.log(inputValue);
-        console.log(validateCardNumber(inputValue));
+        validateCardNumber(inputValue);
     };
 
     cardNum.append(cardNumLabel, cardNumInput);
@@ -56,8 +54,35 @@ export const renderCard = (): HTMLElement => {
     const cardExpLabel: HTMLElement = createElem('label', 'card__input-label');
     cardExpLabel.innerHTML = 'Срок действия';
 
-    const cardExpInput: HTMLElement = createInput('number', 'card__input');
+    const cardExpInput: HTMLElement = createInput('text', 'card__input');
     cardExpInput.setAttribute('placeholder', 'ММ / ГГ');
+    cardExpInput.id = 'expiration';
+
+    cardExpInput.oninput = (e: Event): void => {
+        const target = e.target as HTMLInputElement;
+        target.classList.remove('error');
+
+        let inputValue = target.value;
+
+        target.value = inputValue
+            .replace(/^([1-9]\/|[2-9])$/g, '0$1/')
+            .replace(/^(0[1-9]|1[0-2])$/g, '$1/')
+            .replace(/^([0-1])([3-9])$/g, '0$1/$2')
+            .replace(/^(0?[1-9]|1[0-2])([0-9]{2})$/g, '$1/$2')
+            .replace(/^([0]+)\/|[0]+$/g, '0')
+            .replace(/[^\d\/]|^[\/]*$/g, '')
+            .replace(
+                /\//g,
+                (
+                    (i) => (m: string) =>
+                        !i++ ? m : ''
+                )(0)
+            )
+            .trim();
+        if (inputValue.length > 5) target.value = inputValue.slice(0, 5);
+        validateExpDate(inputValue);
+    };
+
     cardExp.append(cardExpLabel, cardExpInput);
 
     // CVC

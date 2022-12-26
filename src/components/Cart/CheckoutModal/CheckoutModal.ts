@@ -8,6 +8,7 @@ import { validateEmail } from './components/Validators/validateEmail';
 import { validateName } from './components/Validators/validateName';
 import { validatePhone } from './components/Validators/validateTel';
 import { validateCardNumber } from './components/Validators/validateCardNumber';
+import { validateExpDate } from './components/Validators/validateExpDate';
 
 export const renderCheckoutModal = (): HTMLElement => {
     const modal: HTMLElement = createElem('div', styles['checkout-modal']);
@@ -152,16 +153,20 @@ export const renderCheckoutModal = (): HTMLElement => {
         // const address = addressInput.value;
         // const messageAddress = addressInput.nextElementSibling as HTMLElement;
 
-        const cardNumInput = document.querySelector('.card__input_number') as HTMLInputElement;
+        const cardNumInput = document.getElementById('card-number') as HTMLInputElement;
         let cardNum = cardNumInput.value;
         cardNum = cardNum.replace(/ /g, '');
+
+        const cardExpInput = document.getElementById('expiration') as HTMLInputElement;
+        let expNum = cardExpInput.value;
 
         if (
             // validateName(name, messageName) &&
             // validateEmail(email, messageEmail) &&
             // validatePhone(phone, messagePhone) &&
             // validateAddress(address, messageAddress) &&
-            validateCardNumber(cardNum)
+            validateCardNumber(cardNum) &&
+            validateExpDate(expNum)
         ) {
             // TODO clean cart
 
@@ -180,14 +185,13 @@ export const renderCheckoutModal = (): HTMLElement => {
                 if (time === 0) window.location.href = '/';
             }, 1000);
         } else {
-            if (!validateCardNumber(cardNum)) {
-                cardNumInput.classList.add('error');
-                const cardEl = card.firstElementChild as HTMLElement;
-
-                cardEl.classList.remove('card__error-ani');
-                void cardEl.offsetWidth; // trigger a DOM reflow
-                cardEl.classList.add('card__error-ani');
-            }
+            if (!validateCardNumber(cardNum)) cardNumInput.classList.add('error');
+            if (!validateExpDate(expNum)) cardExpInput.classList.add('error');
+            // Animation
+            const cardEl = card.firstElementChild as HTMLElement;
+            cardEl.classList.remove('card__error-ani');
+            void cardEl.offsetWidth; // trigger a DOM reflow
+            cardEl.classList.add('card__error-ani');
         }
     };
     return modal;
