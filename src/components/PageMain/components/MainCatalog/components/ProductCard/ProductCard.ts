@@ -1,11 +1,12 @@
-import { productsCartData } from '../../../../../../const/store';
 import { addInCart } from '../../../../../../utils/add-in-cart';
 import { createElem } from '../../../../../../utils/create-element';
 import { newNameProduct } from '../../../../../../utils/edit-name-products';
 import { newPrice } from '../../../../../../utils/edit-price';
 import { onLoadPage } from '../../../../../../utils/onload-data-product';
+import { updateComponent } from '../../../../../../utils/update-component';
 import { renderProductQuantity } from '../../../../../PageProducts/conponents/Product/components/Information/components/InfoOrderProducts/InfoOrderProducts';
 import { helperForSize } from '../../../../../PageProducts/conponents/Product/components/Information/components/InfoSize/InfoSize';
+import { productCardBuilder } from '../../../../../PageProducts/conponents/Product/components/Information/components/InfoSize/product-cart-builder';
 import { renderProductPrice } from '../ProductPrice/ProductPrice';
 import styles from './ProductCard.module.scss';
 
@@ -66,55 +67,24 @@ export const renderProduct = (product: ExtendedProduct) => {
 
     // размерный ряд
     const sizeWrapper: HTMLElement = createElem('div', 'product-card__sizes-wrapper');
-    const sizes: HTMLElement[] = [];
     sizeWrapper.style.display = 'none';
 
-    product.sizes.forEach((elem, index) => {
-        const productSize: HTMLElement = createElem('div', 'product-card__sizes');
-        productSize.innerHTML = elem;
-        sizes.push(productSize);
-
-        if (index === 0) {
-            productSize.classList.add('active-size');
-        }
-
-        productSize.onclick = () => {
-            helperForSize.sizeForData = elem;
-
-            // На главной - должна меняться надпись на кнопке В корзину - на В корзине
-            // если выбрали новый размер, должна снова появится кнопка добавить в корзину
-            if (helperForSize.activSize !== elem) {
-                // проверка данных из глобального объекта, чтобы понять добавляли ли мы этот размер в корзину или нет(проверка по id и размеру)
-                const findedProduct = productsCartData.productsInCart.find((data) => {
-                    return product.id === data.product.id && String(data.size) === elem;
-                });
-
-                if (!findedProduct) {
-                    updateProductCatd(buttonContainer, productOrder);
-                } else {
-                    updateProductCatd(
-                        buttonContainer,
-                        renderProductQuantity(
-                            findedProduct.quantity,
-                            helperForSize.sizeForData,
-                            product,
-                            buttonContainer,
-                            productOrder
-                        )
-                    );
-                }
-            }
-
-            sizes.forEach((size) => {
-                size.classList.remove('active-size');
-            });
-
-            productSize.classList.add('active-size');
-            helperForSize.activSize = elem;
-        };
-
-        sizeWrapper.append(productSize);
-    });
+    product.sizes.forEach(
+        productCardBuilder({
+            product,
+            sizeContainer: sizeWrapper,
+            onFoundProduct: (count) =>
+                updateComponent(
+                    buttonContainer,
+                    renderProductQuantity({
+                        countProduct: count,
+                        product,
+                        onEmptyCount: () => updateComponent(buttonContainer, productOrder),
+                    })
+                ),
+            onNotFoundProduct: () => updateComponent(buttonContainer, productOrder),
+        })
+    );
 
     productCard.onmouseenter = () => {
         // на это событие появляется размерная сетка
@@ -137,36 +107,17 @@ export const renderProduct = (product: ExtendedProduct) => {
 
     productOrder.onclick = () => {
         addInCart(product, helperForSize);
-        updateProductCatd(
+        updateComponent(
             buttonContainer,
-            renderProductQuantity(
-                helperForSize.countSizeProducts,
-                helperForSize.sizeForData,
+            renderProductQuantity({
+                countProduct: helperForSize.countSizeProducts,
                 product,
-                buttonContainer,
-                productOrder
-            )
+                onEmptyCount: () => updateComponent(buttonContainer, productOrder),
+            })
         );
-
-        // const quantity = renderMainProductQuantity(
-        //     helperForSize.countSizeProducts,
-        //     helperForSize.sizeForData,
-        //     product,
-        //     buttonContainer,
-        //     productOrder
-        // );
-
-        // buttonContainer.innerHTML = '';
-        // buttonContainer.append(quantity);
     };
 
-    //
     productCard.append(productCardOverlay, productLink, buttonContainer, sizeWrapper, productRating);
 
     return productCard;
 };
-
-export const updateProductCatd = (parent: HTMLElement, сhild: HTMLElement): void => {
-    parent.innerHTML = '';
-    parent.append(сhild);
-}; //TODO - изменить название!!!

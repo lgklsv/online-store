@@ -1,6 +1,6 @@
 import { createElem } from '../../../../../../utils/create-element';
 import { onLoadPage } from '../../../../../../utils/onload-data-product';
-
+import { updateComponent } from '../../../../../../utils/update-component';
 import {
     renderInformationAboutProducts,
     renderPriceProducts,
@@ -9,7 +9,6 @@ import {
 import {
     renderOrderAddCart,
     renderOrderButton,
-    // renderOrderProductQuantity,
     renderProductQuantity,
 } from './components/InfoOrderProducts/InfoOrderProducts';
 import { helperForSize, renderSize } from './components/InfoSize/InfoSize';
@@ -30,23 +29,6 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
 
     // проверка перед начальной загрузкой страницы товара
     onLoadPage(product, buttonContainer, productActions, orderLink);
-    // Старый код!!!!
-    // TODO- исправить стили!
-
-    // if (productsCartData.count !== 0) {
-    //     const findedProduct = productsCartData.productsInCart.find((data) => {
-    //         return product.id === data.product.id && String(data.size) === product.sizes[0];
-    //     }) as CartData;
-
-    //     if (!findedProduct) {
-    //         buttonContainer.append(productActions);
-    //     } else {
-    //         buttonContainer.append(
-    //             renderOrderProductQuantity(findedProduct.quantity, product.sizes[0], product), //передевать данные из объекта
-    //             orderLink
-    //         );
-    //     }
-    // } else buttonContainer.append(productActions);
 
     informationCard.append(headerWrapper, sizeWrapp, productPrice, buttonContainer, productDescroprions);
 
@@ -57,20 +39,20 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
 
 /** обновляем блок с кнопками добавления товара */
 export const updateInfoProd = (product: ExtendedProduct, isAdd: boolean, count: number) => {
-    const buttonContainer: HTMLElement = document.querySelector('.button-container') as HTMLElement;
+    const buttonContainer = document.querySelector('.button-container') as HTMLElement;
     const { productActions } = renderOrderAddCart(product, helperForSize.sizeForData);
     const orderLink = renderOrderButton();
 
-    buttonContainer.innerHTML = '';
-
     if (!isAdd) {
-        buttonContainer.append(productActions);
-    } else {
-        buttonContainer.append(
-            renderProductQuantity(count, helperForSize.sizeForData, product, buttonContainer, productActions),
-            orderLink
-        );
-
-        // buttonContainer.append(renderOrderProductQuantity(count, helperForSize.sizeForData, product), orderLink);
+        return updateComponent(buttonContainer, productActions);
     }
+    return updateComponent(
+        buttonContainer,
+        renderProductQuantity({
+            countProduct: count,
+            product,
+            onEmptyCount: () => updateComponent(buttonContainer, productActions),
+        }),
+        orderLink
+    );
 };
