@@ -7,14 +7,14 @@ export const validateName = (name: string, messageEl: HTMLElement): boolean => {
         /^[а-яА-ЯёЁa-zA-Z\s]*$/.test(name)
     ) {
         messageEl.innerHTML = '✓';
-        messageEl.className = 'checkout-modal__message checkout-modal__done';
+        messageEl.className = 'checkout-modal__message done';
         return true;
     } else if (inputArr.length !== 2) {
         messageEl.innerHTML = 'Необходимо ввести имя и фамилию вместе';
-        messageEl.className = 'checkout-modal__message checkout-modal__error';
+        messageEl.className = 'checkout-modal__message error';
     } else if (!/^[а-яА-ЯёЁa-zA-Z\s]*$/.test(name)) {
         messageEl.innerHTML = 'Можно использовать только буквы ';
-        messageEl.className = 'checkout-modal__message checkout-modal__error';
+        messageEl.className = 'checkout-modal__message error';
     }
     return false;
 };

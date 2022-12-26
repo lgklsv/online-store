@@ -5,11 +5,11 @@ export const validateEmail = (email: string, messageEl: HTMLElement): boolean =>
         )
     ) {
         messageEl.innerHTML = '✓';
-        messageEl.className = 'checkout-modal__message checkout-modal__done';
+        messageEl.className = 'checkout-modal__message done';
         return true;
     } else {
         messageEl.innerHTML = 'Неверный e-mail';
-        messageEl.className = 'checkout-modal__message checkout-modal__error';
+        messageEl.className = 'checkout-modal__message error';
     }
     return false;
 };

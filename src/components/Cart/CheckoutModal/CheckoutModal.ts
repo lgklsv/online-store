@@ -7,6 +7,7 @@ import { validateAddress } from './components/Validators/validateAddress';
 import { validateEmail } from './components/Validators/validateEmail';
 import { validateName } from './components/Validators/validateName';
 import { validatePhone } from './components/Validators/validateTel';
+import { validateCardNumber } from './components/Validators/validateCardNumber';
 
 export const renderCheckoutModal = (): HTMLElement => {
     const modal: HTMLElement = createElem('div', styles['checkout-modal']);
@@ -139,23 +140,28 @@ export const renderCheckoutModal = (): HTMLElement => {
     checkoutForm.onsubmit = (e: Event): void => {
         e.preventDefault();
 
-        const name = nameInput.value;
-        const messageName = nameInput.nextElementSibling as HTMLElement;
+        // const name = nameInput.value;
+        // const messageName = nameInput.nextElementSibling as HTMLElement;
 
-        const email = emailInput.value;
-        const messageEmail = emailInput.nextElementSibling as HTMLElement;
+        // const email = emailInput.value;
+        // const messageEmail = emailInput.nextElementSibling as HTMLElement;
 
-        const phone = phoneInput.value;
-        const messagePhone = phoneInput.nextElementSibling as HTMLElement;
+        // const phone = phoneInput.value;
+        // const messagePhone = phoneInput.nextElementSibling as HTMLElement;
 
-        const address = addressInput.value;
-        const messageAddress = addressInput.nextElementSibling as HTMLElement;
+        // const address = addressInput.value;
+        // const messageAddress = addressInput.nextElementSibling as HTMLElement;
+
+        const cardNumInput = document.querySelector('.card__input_number') as HTMLInputElement;
+        let cardNum = cardNumInput.value;
+        cardNum = cardNum.replace(/ /g, '');
 
         if (
-            validateName(name, messageName) &&
-            validateEmail(email, messageEmail) &&
-            validatePhone(phone, messagePhone) &&
-            validateAddress(address, messageAddress)
+            // validateName(name, messageName) &&
+            // validateEmail(email, messageEmail) &&
+            // validatePhone(phone, messagePhone) &&
+            // validateAddress(address, messageAddress) &&
+            validateCardNumber(cardNum)
         ) {
             // TODO clean cart
 
@@ -163,16 +169,25 @@ export const renderCheckoutModal = (): HTMLElement => {
             modal.innerHTML = '';
             const heading: HTMLElement = createElem('h2', 'checkout-modal__heading');
             heading.style.marginTop = '2rem';
-            heading.innerHTML = 'Спасибо за заказ 🕊️ На главную страницу через 3сек';
+            heading.innerHTML = 'Спасибо за заказ 🕊️ На главную страницу через 3 сек';
             modal.append(heading);
 
             let time = 3;
             setInterval((): void => {
                 time--;
-                heading.innerHTML = 'Спасибо за заказ 🕊️ На главную страницу через ${time}сек';
+                heading.innerHTML = `Спасибо за заказ 🕊️ На главную страницу через ${time} сек`;
                 // return to main
                 if (time === 0) window.location.href = '/';
             }, 1000);
+        } else {
+            if (!validateCardNumber(cardNum)) {
+                cardNumInput.classList.add('error');
+                const cardEl = card.firstElementChild as HTMLElement;
+
+                cardEl.classList.remove('card__error-ani');
+                void cardEl.offsetWidth; // trigger a DOM reflow
+                cardEl.classList.add('card__error-ani');
+            }
         }
     };
     return modal;

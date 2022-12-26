@@ -67,16 +67,16 @@
     // display: none;
 }
 
-.checkout-modal__warning {
-    color: $orange;
+.warning {
+    color: $orange !important;
 }
 
-.checkout-modal__error {
-    color: $red;
+.error {
+    color: $red !important;
 }
 
-.checkout-modal__done {
-    color: $green;
+.done {
+    color: $green !important;
 }
 
 .checkout-modal__form {

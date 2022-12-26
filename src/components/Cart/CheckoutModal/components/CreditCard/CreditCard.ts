@@ -1,5 +1,6 @@
 import { createElem } from '../../../../../utils/create-element';
 import { createInput } from '../../../../../utils/create-input-element';
+import { validateCardNumber } from '../Validators/validateCardNumber';
 import styles from './CreditCard.module.scss';
 
 export const renderCard = (): HTMLElement => {
@@ -13,9 +14,37 @@ export const renderCard = (): HTMLElement => {
     const cardNumLabel: HTMLElement = createElem('label', 'card__input-label');
     cardNumLabel.innerHTML = 'Номер карты';
 
-    const cardNumInput: HTMLElement = createInput('number', 'card__input');
-    cardNumInput.classList.add('card__input_number')
+    const cardNumInput: HTMLElement = createInput('text', 'card__input');
+    cardNumInput.classList.add('card__input_number');
     cardNumInput.setAttribute('placeholder', '0000 0000 0000 0000');
+
+    cardNumInput.oninput = (e: Event): void => {
+        const target = e.target as HTMLInputElement;
+        target.classList.remove('error');
+        card.classList.remove('card__error-ani');
+        let inputValue = target.value;
+
+        target.value = inputValue
+            .replace(/[^\d]+/g, '')
+            .replace(/\W/gi, '')
+            .replace(/(.{4})/g, '$1 ')
+            .trim();
+        if (inputValue.length > 19) target.value = inputValue.slice(0, 19);
+
+        if (inputValue[0] === '4') {
+            logo.className = 'card__logo card__logo_mastercard';
+        } else if (inputValue[0] === '5') {
+            logo.className = 'card__logo card__logo_visa';
+        } else if (inputValue.slice(0, 2) === '34' || inputValue.slice(0, 2) === '37') {
+            logo.className = 'card__logo card__logo_amex';
+        } else {
+            logo.className = 'card__logo';
+        }
+
+        
+        console.log(inputValue);
+        console.log(validateCardNumber(inputValue));
+    };
 
     cardNum.append(cardNumLabel, cardNumInput);
 
@@ -45,4 +74,4 @@ export const renderCard = (): HTMLElement => {
     card.append(logo, cardNum, cardDateAndCVC);
     cardContainer.append(card);
     return cardContainer;
-}
+};

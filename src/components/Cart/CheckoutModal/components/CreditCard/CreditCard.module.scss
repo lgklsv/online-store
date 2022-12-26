@@ -28,6 +28,18 @@
     right: 1rem;
 }
 
+.card__logo_mastercard {
+    background-image: url('../../../../../assets/images/mastercard.svg');
+}
+
+.card__logo_visa {
+    background-image: url('../../../../../assets/images/visa.svg');
+}
+
+.card__logo_amex {
+    background-image: url('../../../../../assets/images/amex.svg');
+}
+
 .card__bottom {
     display: flex;
     justify-content: center;
@@ -66,11 +78,36 @@
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
+        -webkit-appearance: none;
+        margin: 0;
     }
 }
 
 .card__input_number {
     width: 100%;
+}
+
+.card__error-ani {
+    animation: shake 0.45s;
+}
+
+@keyframes shake {
+    0% {
+        left: 0px;
+    }
+    20% {
+        left: 15px;
+    }
+    40% {
+        left: -15px;
+    }
+    60% {
+        left: 15px;
+    }
+    80% {
+        left: -15px;
+    }
+    100% {
+        left: 0px;
+    }
 }
