@@ -19,6 +19,7 @@ export const renderCard = (): HTMLElement => {
     cardNumInput.id = 'card-number';
     cardNumInput.setAttribute('placeholder', '0000 0000 0000 0000');
 
+    let paymentSystem: string | boolean;
     cardNumInput.oninput = (e: Event): void => {
         const target = e.target as HTMLInputElement;
         target.classList.remove('error');
@@ -92,7 +93,33 @@ export const renderCard = (): HTMLElement => {
 
     const cardCvcInput: HTMLElement = createInput('number', 'card__input');
     cardCvcInput.setAttribute('placeholder', 'CVC');
+    cardCvcInput.id = 'cvc-cvv';
     cardCvc.append(cardCvcLabel, cardCvcInput);
+
+    cardCvcInput.oninput = (e: Event): void => {
+        const target = e.target as HTMLInputElement;
+        target.classList.remove('error');
+
+        let inputValue = target.value;
+
+        target.value = inputValue
+            .replace(
+                /[^\d]/g,
+                ''
+            )
+            .trim();
+            
+        const cardNumInput = document.getElementById('card-number') as HTMLInputElement;
+        let cardNum = cardNumInput.value;
+        cardNum = cardNum.replace(/ /g, '');
+        paymentSystem = validateCardNumber(cardNum);
+
+        if (paymentSystem === 'amex') {
+            if (inputValue.length > 4) target.value = inputValue.slice(0, 4);
+        } else {
+            if (inputValue.length > 3) target.value = inputValue.slice(0, 3);
+        }
+    };
 
     cardDateAndCVC.append(cardExp, cardCvc);
 

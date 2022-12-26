@@ -9,6 +9,7 @@ import { validateName } from './components/Validators/validateName';
 import { validatePhone } from './components/Validators/validateTel';
 import { validateCardNumber } from './components/Validators/validateCardNumber';
 import { validateExpDate } from './components/Validators/validateExpDate';
+import { validateCvc } from './components/Validators/validateCvc';
 
 export const renderCheckoutModal = (): HTMLElement => {
     const modal: HTMLElement = createElem('div', styles['checkout-modal']);
@@ -141,32 +142,37 @@ export const renderCheckoutModal = (): HTMLElement => {
     checkoutForm.onsubmit = (e: Event): void => {
         e.preventDefault();
 
-        // const name = nameInput.value;
-        // const messageName = nameInput.nextElementSibling as HTMLElement;
+        const name = nameInput.value;
+        const messageName = nameInput.nextElementSibling as HTMLElement;
 
-        // const email = emailInput.value;
-        // const messageEmail = emailInput.nextElementSibling as HTMLElement;
+        const email = emailInput.value;
+        const messageEmail = emailInput.nextElementSibling as HTMLElement;
 
-        // const phone = phoneInput.value;
-        // const messagePhone = phoneInput.nextElementSibling as HTMLElement;
+        const phone = phoneInput.value;
+        const messagePhone = phoneInput.nextElementSibling as HTMLElement;
 
-        // const address = addressInput.value;
-        // const messageAddress = addressInput.nextElementSibling as HTMLElement;
+        const address = addressInput.value;
+        const messageAddress = addressInput.nextElementSibling as HTMLElement;
 
         const cardNumInput = document.getElementById('card-number') as HTMLInputElement;
         let cardNum = cardNumInput.value;
         cardNum = cardNum.replace(/ /g, '');
+        let paymentSystem = validateCardNumber(cardNum);
 
         const cardExpInput = document.getElementById('expiration') as HTMLInputElement;
         let expNum = cardExpInput.value;
 
+        const cardCvcInput = document.getElementById('cvc-cvv') as HTMLInputElement;
+        let cardCvc = cardCvcInput.value;
+
         if (
-            // validateName(name, messageName) &&
-            // validateEmail(email, messageEmail) &&
-            // validatePhone(phone, messagePhone) &&
-            // validateAddress(address, messageAddress) &&
+            validateName(name, messageName) &&
+            validateEmail(email, messageEmail) &&
+            validatePhone(phone, messagePhone) &&
+            validateAddress(address, messageAddress) &&
             validateCardNumber(cardNum) &&
-            validateExpDate(expNum)
+            validateExpDate(expNum) &&
+            validateCvc(paymentSystem, cardCvc)
         ) {
             // TODO clean cart
 
@@ -187,6 +193,7 @@ export const renderCheckoutModal = (): HTMLElement => {
         } else {
             if (!validateCardNumber(cardNum)) cardNumInput.classList.add('error');
             if (!validateExpDate(expNum)) cardExpInput.classList.add('error');
+            if (!validateCvc(paymentSystem, cardCvc)) cardCvcInput.classList.add('error');
             // Animation
             const cardEl = card.firstElementChild as HTMLElement;
             cardEl.classList.remove('card__error-ani');
