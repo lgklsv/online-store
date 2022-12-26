@@ -12,6 +12,7 @@ import { renderProductPrice } from '../ProductPrice/ProductPrice';
 import styles from './ProductCard.module.scss';
 
 export const renderProduct = (product: ExtendedProduct) => {
+    // console.log(product);
     const productCard: HTMLElement = createElem('div', 'products-card');
     productCard.setAttribute(
         'data-product',
@@ -59,7 +60,26 @@ export const renderProduct = (product: ExtendedProduct) => {
     const productOrder: HTMLElement = createElem('button', styles['product-card__price-order']);
     productOrder.innerHTML = 'В корзину';
 
-    buttonContainer.append(productOrder);
+    // проверка перед начальной загрузкой страницы
+    if (productsCartData.count !== 0) {
+        const findedProduct = productsCartData.productsInCart.find((data) => {
+            return product.id === data.product.id && String(data.size) === product.sizes[0];
+        }) as CartData;
+
+        if (!findedProduct) {
+            buttonContainer.append(productOrder);
+        } else {
+            buttonContainer.append(
+                renderMainProductQuantity(
+                    findedProduct.quantity,
+                    product.sizes[0],
+                    product,
+                    buttonContainer,
+                    productOrder
+                )
+            );
+        }
+    } else buttonContainer.append(productOrder);
 
     const sizeWrapper: HTMLElement = createElem('div', 'product-card__sizes-wrapper');
     const sizes: HTMLElement[] = [];
@@ -92,7 +112,6 @@ export const renderProduct = (product: ExtendedProduct) => {
                 });
 
                 if (!findedProduct) {
-                    console.log('не совпало');
                     buttonContainer.innerHTML = '';
                     buttonContainer.append(productOrder);
                 } else {
@@ -125,6 +144,7 @@ export const renderProduct = (product: ExtendedProduct) => {
         sizeWrapper.style.display = 'flex';
 
         if (helperForSize.sizeForData === '') {
+            console.log(sizeWrapper.childNodes[0]);
             helperForSize.sizeForData = String(sizeWrapper.childNodes[0].textContent);
         } //обновляем глобальную переменную, на случай, если не будет выбран размер
     };
@@ -132,6 +152,7 @@ export const renderProduct = (product: ExtendedProduct) => {
     productCard.onmouseleave = () => {
         productOrder.classList.remove('active-size');
         sizeWrapper.style.display = 'none';
+        helperForSize.sizeForData = '';
         // вместо перерендера - добавление display:none
     };
 
@@ -161,6 +182,7 @@ export const renderProduct = (product: ExtendedProduct) => {
         buttonContainer.append(quantity);
     };
 
+    //
     productCard.append(productCardOverlay, productLink, buttonContainer, sizeWrapper, productRating);
 
     return productCard;
