@@ -1,5 +1,6 @@
-import { productsCartData } from '../../../../../../const/store';
 import { createElem } from '../../../../../../utils/create-element';
+import { onLoadPage } from '../../../../../../utils/onload-data-product';
+
 import {
     renderInformationAboutProducts,
     renderPriceProducts,
@@ -8,7 +9,8 @@ import {
 import {
     renderOrderAddCart,
     renderOrderButton,
-    renderOrderProductQuantity,
+    // renderOrderProductQuantity,
+    renderProductQuantity,
 } from './components/InfoOrderProducts/InfoOrderProducts';
 import { helperForSize, renderSize } from './components/InfoSize/InfoSize';
 import styles from './Information.module.scss';
@@ -27,20 +29,24 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
     const sizeWrapp = renderSize(product, orderSize);
 
     // проверка перед начальной загрузкой страницы товара
-    if (productsCartData.count !== 0) {
-        const findedProduct = productsCartData.productsInCart.find((data) => {
-            return product.id === data.product.id && String(data.size) === product.sizes[0];
-        }) as CartData;
+    onLoadPage(product, buttonContainer, productActions, orderLink);
+    // Старый код!!!!
+    // TODO- исправить стили!
 
-        if (!findedProduct) {
-            buttonContainer.append(productActions);
-        } else {
-            buttonContainer.append(
-                renderOrderProductQuantity(findedProduct.quantity, product.sizes[0], product), //передевать данные из объекта
-                orderLink
-            );
-        }
-    } else buttonContainer.append(productActions);
+    // if (productsCartData.count !== 0) {
+    //     const findedProduct = productsCartData.productsInCart.find((data) => {
+    //         return product.id === data.product.id && String(data.size) === product.sizes[0];
+    //     }) as CartData;
+
+    //     if (!findedProduct) {
+    //         buttonContainer.append(productActions);
+    //     } else {
+    //         buttonContainer.append(
+    //             renderOrderProductQuantity(findedProduct.quantity, product.sizes[0], product), //передевать данные из объекта
+    //             orderLink
+    //         );
+    //     }
+    // } else buttonContainer.append(productActions);
 
     informationCard.append(headerWrapper, sizeWrapp, productPrice, buttonContainer, productDescroprions);
 
@@ -50,20 +56,21 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
 };
 
 /** обновляем блок с кнопками добавления товара */
-export const updateInfoProd = (product: ExtendedProduct, isAdd: boolean, count: number, page?: string) => {
+export const updateInfoProd = (product: ExtendedProduct, isAdd: boolean, count: number) => {
     const buttonContainer: HTMLElement = document.querySelector('.button-container') as HTMLElement;
     const { productActions } = renderOrderAddCart(product, helperForSize.sizeForData);
     const orderLink = renderOrderButton();
 
     buttonContainer.innerHTML = '';
 
-    if (page) {
-        console.log(page);
-    }
-
     if (!isAdd) {
         buttonContainer.append(productActions);
     } else {
-        buttonContainer.append(renderOrderProductQuantity(count, helperForSize.sizeForData, product), orderLink);
+        buttonContainer.append(
+            renderProductQuantity(count, helperForSize.sizeForData, product, buttonContainer, productActions),
+            orderLink
+        );
+
+        // buttonContainer.append(renderOrderProductQuantity(count, helperForSize.sizeForData, product), orderLink);
     }
 };

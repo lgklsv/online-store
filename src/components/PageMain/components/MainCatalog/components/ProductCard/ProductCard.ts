@@ -1,18 +1,15 @@
-import { LOCAL_STORAGE_KEYS } from '../../../../../../const/local-storage';
 import { productsCartData } from '../../../../../../const/store';
-import { space } from '../../../../../../const/store-name';
+import { addInCart } from '../../../../../../utils/add-in-cart';
 import { createElem } from '../../../../../../utils/create-element';
 import { newNameProduct } from '../../../../../../utils/edit-name-products';
 import { newPrice } from '../../../../../../utils/edit-price';
-import { setLocalStorage } from '../../../../../../utils/local-storage';
-import { updateHeader } from '../../../../../../utils/update-cart';
-// import { renderOrderProductQuantity } from '../../../../../PageProducts/conponents/Product/components/Information/components/InfoOrderProducts/InfoOrderProducts';
+import { onLoadPage } from '../../../../../../utils/onload-data-product';
+import { renderProductQuantity } from '../../../../../PageProducts/conponents/Product/components/Information/components/InfoOrderProducts/InfoOrderProducts';
 import { helperForSize } from '../../../../../PageProducts/conponents/Product/components/Information/components/InfoSize/InfoSize';
 import { renderProductPrice } from '../ProductPrice/ProductPrice';
 import styles from './ProductCard.module.scss';
 
 export const renderProduct = (product: ExtendedProduct) => {
-    // console.log(product);
     const productCard: HTMLElement = createElem('div', 'products-card');
     productCard.setAttribute(
         'data-product',
@@ -41,7 +38,6 @@ export const renderProduct = (product: ExtendedProduct) => {
     const productImg: HTMLElement = createElem('div', 'product-card__image');
     const img: HTMLElement = createElem('img', 'image-product');
     img.setAttribute('src', product.thumbnail);
-
     productImg.append(img);
 
     // описание товара
@@ -49,7 +45,6 @@ export const renderProduct = (product: ExtendedProduct) => {
     const productTitle: HTMLElement = createElem('div', 'product-card__title');
     const productBrand: HTMLElement = createElem('p', 'product-card__title-brand');
     const productName: HTMLElement = createElem('span', 'product-card__title-name');
-
     productBrand.innerHTML = product.brand;
     productName.innerHTML = newNameProduct(product.brand, product.title);
     productTitle.append(productBrand, productName);
@@ -60,36 +55,19 @@ export const renderProduct = (product: ExtendedProduct) => {
     const productOrder: HTMLElement = createElem('button', styles['product-card__price-order']);
     productOrder.innerHTML = 'В корзину';
 
-    // проверка перед начальной загрузкой страницы
-    if (productsCartData.count !== 0) {
-        const findedProduct = productsCartData.productsInCart.find((data) => {
-            return product.id === data.product.id && String(data.size) === product.sizes[0];
-        }) as CartData;
+    // проверка Local Storage перед начальной загрузкой страницы
+    onLoadPage(product, buttonContainer, productOrder);
 
-        if (!findedProduct) {
-            buttonContainer.append(productOrder);
-        } else {
-            buttonContainer.append(
-                renderMainProductQuantity(
-                    findedProduct.quantity,
-                    product.sizes[0],
-                    product,
-                    buttonContainer,
-                    productOrder
-                )
-            );
-        }
-    } else buttonContainer.append(productOrder);
+    productDesc.append(productTitle, productPrice); // описание товара
 
+    productBodyWrapper.append(productImg, productDesc); // оберка ссылки
+
+    productLink.append(productBodyWrapper); //ссылка
+
+    // размерный ряд
     const sizeWrapper: HTMLElement = createElem('div', 'product-card__sizes-wrapper');
     const sizes: HTMLElement[] = [];
     sizeWrapper.style.display = 'none';
-
-    productDesc.append(productTitle, productPrice);
-
-    productBodyWrapper.append(productImg, productDesc);
-
-    productLink.append(productBodyWrapper);
 
     product.sizes.forEach((elem, index) => {
         const productSize: HTMLElement = createElem('div', 'product-card__sizes');
@@ -112,18 +90,18 @@ export const renderProduct = (product: ExtendedProduct) => {
                 });
 
                 if (!findedProduct) {
-                    buttonContainer.innerHTML = '';
-                    buttonContainer.append(productOrder);
+                    updateProductCatd(buttonContainer, productOrder);
                 } else {
-                    const quantity = renderMainProductQuantity(
-                        findedProduct.quantity,
-                        helperForSize.sizeForData,
-                        product,
+                    updateProductCatd(
                         buttonContainer,
-                        productOrder
+                        renderProductQuantity(
+                            findedProduct.quantity,
+                            helperForSize.sizeForData,
+                            product,
+                            buttonContainer,
+                            productOrder
+                        )
                     );
-                    buttonContainer.innerHTML = '';
-                    buttonContainer.append(quantity);
                 }
             }
 
@@ -139,6 +117,7 @@ export const renderProduct = (product: ExtendedProduct) => {
     });
 
     productCard.onmouseenter = () => {
+        // на это событие появляется размерная сетка
         productOrder.classList.add('active-size');
         sizeWrapper.classList.add('show_sizes');
         sizeWrapper.style.display = 'flex';
@@ -146,7 +125,7 @@ export const renderProduct = (product: ExtendedProduct) => {
         if (helperForSize.sizeForData === '') {
             console.log(sizeWrapper.childNodes[0]);
             helperForSize.sizeForData = String(sizeWrapper.childNodes[0].textContent);
-        } //обновляем глобальную переменную, на случай, если не будет выбран размер
+        } //обновляем глобальную переменную, на случай, если не будет выбран размер и сразу нажмут кнопку 'добавить в корзину'
     };
 
     productCard.onmouseleave = () => {
@@ -157,29 +136,28 @@ export const renderProduct = (product: ExtendedProduct) => {
     };
 
     productOrder.onclick = () => {
-        productsCartData.count++;
-
-        const productData: CartData = {
-            product: product,
-            size: helperForSize.sizeForData,
-            quantity: helperForSize.countSizeProducts,
-        };
-
-        productsCartData.productsInCart.push(productData); //изменяем глобальный объект
-
-        setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT); //обновляем Local Storage
-        updateHeader(productsCartData.count, productsCartData.productsInCart); // изменения данных в хэдере
-
-        const quantity = renderMainProductQuantity(
-            helperForSize.countSizeProducts,
-            helperForSize.sizeForData,
-            product,
+        addInCart(product, helperForSize);
+        updateProductCatd(
             buttonContainer,
-            productOrder
+            renderProductQuantity(
+                helperForSize.countSizeProducts,
+                helperForSize.sizeForData,
+                product,
+                buttonContainer,
+                productOrder
+            )
         );
 
-        buttonContainer.innerHTML = '';
-        buttonContainer.append(quantity);
+        // const quantity = renderMainProductQuantity(
+        //     helperForSize.countSizeProducts,
+        //     helperForSize.sizeForData,
+        //     product,
+        //     buttonContainer,
+        //     productOrder
+        // );
+
+        // buttonContainer.innerHTML = '';
+        // buttonContainer.append(quantity);
     };
 
     //
@@ -188,61 +166,7 @@ export const renderProduct = (product: ExtendedProduct) => {
     return productCard;
 };
 
-export const renderMainProductQuantity = (
-    countProduct: number,
-    activeSize: string,
-    product: ExtendedProduct,
-    parentNode: HTMLElement,
-    childNodes: HTMLElement
-): HTMLElement => {
-    const productCardMore: HTMLElement = createElem('div', styles['product-card__cart-more']);
-    const productCartIconMinus: HTMLElement = createElem('button', styles['product-card__cart-icon']);
-    productCartIconMinus.innerHTML = '–';
-
-    const productCartIconPlus: HTMLElement = createElem('button', styles['product-card__cart-icon']);
-    productCartIconPlus.innerHTML = '+';
-
-    const productCartDescriptions: HTMLElement = createElem('span', styles['product-card__cart-descriptions']);
-    productCartDescriptions.innerHTML = String(countProduct) + `${space}` + 'в корзине';
-
-    productCartIconPlus.onclick = () => {
-        productsCartData.count++;
-
-        const findedProduct = productsCartData.productsInCart.find((data) => {
-            return product.id === data.product.id && String(data.size) === activeSize;
-        }) as CartData;
-
-        findedProduct.quantity++;
-
-        productCartDescriptions.innerHTML = findedProduct.quantity + `${space}` + 'в корзине';
-        setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
-        updateHeader(productsCartData.count, productsCartData.productsInCart);
-    };
-
-    productCartIconMinus.onclick = (event) => {
-        let index = 0;
-        const findedProduct = productsCartData.productsInCart.find((data, i) => {
-            index = i; // получаем индекс найденного товара в массиве
-            return product.id === data.product.id && String(data.size) === activeSize;
-        }) as CartData;
-
-        findedProduct.quantity--;
-
-        if (findedProduct.quantity === 0) {
-            productsCartData.productsInCart.splice(index, 1); // удаляем товар из массива
-
-            parentNode.innerHTML = '';
-            parentNode.append(childNodes);
-            // updateInfoProd(product, false, findedProduct.quantity);
-        }
-
-        productsCartData.count--;
-
-        productCartDescriptions.innerHTML = findedProduct.quantity + `${space}` + 'в корзине';
-        setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
-        updateHeader(productsCartData.count, productsCartData.productsInCart); //обновили элемент корзины
-    };
-
-    productCardMore.append(productCartIconMinus, productCartDescriptions, productCartIconPlus);
-    return productCardMore;
-};
+export const updateProductCatd = (parent: HTMLElement, сhild: HTMLElement): void => {
+    parent.innerHTML = '';
+    parent.append(сhild);
+}; //TODO - изменить название!!!

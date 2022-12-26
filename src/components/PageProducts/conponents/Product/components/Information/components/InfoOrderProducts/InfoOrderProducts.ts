@@ -6,7 +6,8 @@ import { createElem } from '../../../../../../../../utils/create-element';
 import { createLink } from '../../../../../../../../utils/create-link-element';
 import { setLocalStorage } from '../../../../../../../../utils/local-storage';
 import { updateHeader } from '../../../../../../../../utils/update-cart';
-
+import { updateProductCatd } from '../../../../../../../PageMain/components/MainCatalog/components/ProductCard/ProductCard';
+// import { updateProductCatd } from '../../../../../../../PageMain/components/MainCatalog/components/ProductCard/ProductCard';
 import { updateInfoProd } from '../../Information';
 import { helperForSize } from '../InfoSize/InfoSize';
 import styles from './InfoOrderProducts.module.scss';
@@ -28,28 +29,29 @@ export const renderOrderAddCart = (product: ExtendedProduct, size: string): Retu
 
     productOrder.onclick = () => {
         addInCart(product, helperForSize);
-        // productsCartData.count++;
-
-        // const productData: CartData = {
-        //     product: product,
-        //     size: helperForSize.sizeForData,
-        //     quantity: helperForSize.countSizeProducts,
-        // };
-
-        // productsCartData.productsInCart.push(productData); //изменяем глобальный объект
-        // setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT); //обновляем Local Storage
-
-        // updateHeader(productsCartData.count, productsCartData.productsInCart); // изменения данных в хэдере
-        // updateInfoProd(product, true, helperForSize.countSizeProducts);
+        updateInfoProd(product, true, helperForSize.countSizeProducts);
     };
 
     return { productActions, orderSize, productOrder };
 };
 
-export const renderOrderProductQuantity = (
+export const renderOrderButton = (): HTMLElement => {
+    const productCartLink: HTMLElement = createLink(
+        '/cart',
+        styles['product-order__checkout'],
+        false,
+        'Оформить заказ'
+    );
+    productCartLink.classList.add(styles['product-page__order']);
+    return productCartLink;
+};
+
+export const renderProductQuantity = (
     countProduct: number,
     activeSize: string,
-    product: ExtendedProduct
+    product: ExtendedProduct,
+    parentNode: HTMLElement,
+    childNodes: HTMLElement
 ): HTMLElement => {
     const productCardMore: HTMLElement = createElem('div', styles['product-page__cart-more']);
     const productCartIconMinus: HTMLElement = createElem('button', styles['product-page__cart-icon']);
@@ -86,7 +88,11 @@ export const renderOrderProductQuantity = (
 
         if (findedProduct.quantity === 0) {
             productsCartData.productsInCart.splice(index, 1); // удаляем товар из массива
-            updateInfoProd(product, false, findedProduct.quantity);
+            // =====
+
+            // кол-во равно нулю, возващаем кнопку добавить в корзину
+            updateProductCatd(parentNode, childNodes);
+            // updateInfoProd(product, false, findedProduct.quantity);
         }
 
         productsCartData.count--;
@@ -100,13 +106,56 @@ export const renderOrderProductQuantity = (
     return productCardMore;
 };
 
-export const renderOrderButton = (): HTMLElement => {
-    const productCartLink: HTMLElement = createLink(
-        '/cart',
-        styles['product-order__checkout'],
-        false,
-        'Оформить заказ'
-    );
-    productCartLink.classList.add(styles['product-page__order']);
-    return productCartLink;
-};
+// export const renderOrderProductQuantity = (
+//     countProduct: number,
+//     activeSize: string,
+//     product: ExtendedProduct
+// ): HTMLElement => {
+//     const productCardMore: HTMLElement = createElem('div', styles['product-page__cart-more']);
+//     const productCartIconMinus: HTMLElement = createElem('button', styles['product-page__cart-icon']);
+//     productCartIconMinus.innerHTML = '–';
+
+//     const productCartIconPlus: HTMLElement = createElem('button', styles['product-page__cart-icon']);
+//     productCartIconPlus.innerHTML = '+';
+
+//     const productCartDescriptions: HTMLElement = createElem('span', styles['product-page__cart-descriptions']);
+//     productCartDescriptions.innerHTML = String(countProduct) + `${space}` + 'в корзине';
+
+//     productCartIconPlus.onclick = () => {
+//         productsCartData.count++;
+
+//         const findedProduct = productsCartData.productsInCart.find((data) => {
+//             return product.id === data.product.id && String(data.size) === activeSize;
+//         }) as CartData;
+
+//         findedProduct.quantity++;
+
+//         productCartDescriptions.innerHTML = findedProduct.quantity + `${space}` + 'в корзине';
+//         setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
+//         updateHeader(productsCartData.count, productsCartData.productsInCart);
+//     };
+
+//     productCartIconMinus.onclick = () => {
+//         let index = 0;
+//         const findedProduct = productsCartData.productsInCart.find((data, i) => {
+//             index = i; // получаем индекс найденного товара в массиве
+//             return product.id === data.product.id && String(data.size) === activeSize;
+//         }) as CartData;
+
+//         findedProduct.quantity--;
+
+//         if (findedProduct.quantity === 0) {
+//             productsCartData.productsInCart.splice(index, 1); // удаляем товар из массива
+//             updateInfoProd(product, false, findedProduct.quantity);
+//         }
+
+//         productsCartData.count--;
+
+//         productCartDescriptions.innerHTML = findedProduct.quantity + `${space}` + 'в корзине';
+//         setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
+//         updateHeader(productsCartData.count, productsCartData.productsInCart); //обновили элемент корзины
+//     };
+
+//     productCardMore.append(productCartIconMinus, productCartDescriptions, productCartIconPlus);
+//     return productCardMore;
+// };
