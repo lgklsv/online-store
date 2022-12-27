@@ -3,10 +3,13 @@ import styles from './Cart.module.scss';
 import { renderCartCheckout } from './CartCheckout/CartCheckout';
 import { renderCartItems } from './CartItems/CartItems';
 import { renderEmptyCart } from './CartItems/components/CartEmpty/CartEmpty';
+import { renderCheckoutModal } from './CheckoutModal/CheckoutModal';
+import { toggleModal } from './CheckoutModal/components/ToggleModal';
 
 export const renderCartPage = (): HTMLElement => {
     const main: HTMLElement = createElem('main', 'main');
     const mainContainer: HTMLElement = createElem('div', 'main__container');
+    const modalContainer: HTMLElement = createElem('div', 'main__modal-container');
     const mainContent: HTMLElement = createElem('div', styles['cart']);
 
     // Cart items (left part)
@@ -36,10 +39,20 @@ export const renderCartPage = (): HTMLElement => {
     checkoutHeading.innerHTML = 'Итого';
     const cartCheckout: HTMLElement = renderCartCheckout();
 
+    // Modal for checkout
+    const overlay: HTMLElement = createElem('div', 'checkout-modal__overlay');
+    overlay.classList.add('hidden_overlay');
+
+    overlay.onclick = (): void => {
+        const modal = document.querySelector('.checkout-modal') as HTMLElement;
+        toggleModal(modal, overlay);
+    };
+    modalContainer.append(renderCheckoutModal(), overlay);
+
     cartCheckoutContainer.append(checkoutHeading, cartCheckout);
     mainContent.append(cartItemsContainer, cartCheckoutContainer);
     mainContainer.append(mainContent);
-    main.append(mainContainer);
+    main.append(mainContainer, modalContainer);
 
     return main;
 };
