@@ -63,9 +63,10 @@ export const renderCartItems = (): HTMLElement => {
         itemCounter.append(minusBtn, itemCounterQty, plusBtn);
 
         itemQuaintityContainer.append(itemQuaintity, itemCounter);
+        console.log(PRODUCTS);
 
         //цена товара
-        const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart');
+        const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', PRODUCTS.quantity);
 
         item.append(itemLink, itemQuaintityContainer, itemPrice);
         cartItems.append(item);
