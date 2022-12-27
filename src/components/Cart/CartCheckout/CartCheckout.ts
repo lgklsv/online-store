@@ -23,8 +23,6 @@ export const renderCartCheckout = (): HTMLElement => {
     couponBody.append(couponInput, couponBtn);
     checkoutCoupon.append(couponTitle, couponBody);
 
-    // console.log(productsCartData);
-
     const checkoutQty: HTMLElement = renderCartCheckoutReceipt('Количество', `${productsCartData.count}`, false);
 
     const checkoutSum: HTMLElement = renderCartCheckoutReceipt(
@@ -38,6 +36,7 @@ export const renderCartCheckout = (): HTMLElement => {
         `${calcAmountCart(productsCartData.productsInCart)} ₽`,
         true
     ); // Данные будут рассчитываться с учетом промокода
+    // TODO - добавить функцию учета скидки!
 
     const checkoutBtn: HTMLElement = createElem('button', 'cart__checkout-btn');
     checkoutBtn.innerHTML = 'Оформить заказ';
