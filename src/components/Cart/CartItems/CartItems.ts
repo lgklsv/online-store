@@ -4,6 +4,13 @@ import { renderProductPrice } from '../../PageMain/components/MainCatalog/compon
 import { productsCartData } from '../../../const/store';
 import { renderEmptyCart } from './components/CartEmpty/CartEmpty';
 import { newNameProduct } from '../../../utils/edit-name-products';
+import { setLocalStorage } from '../../../utils/local-storage';
+import { LOCAL_STORAGE_KEYS } from '../../../const/local-storage';
+import { updateHeader } from '../../../utils/update-cart';
+import { findProduct } from '../../../utils/find-products';
+import { calcAmountCart } from '../../../utils/calculate-amount-cart';
+import { renderCartCheckoutReceipt } from '../CartCheckout/components/CartCheckoutReceipt/CartCheckoutReceipt';
+import { updateComponent } from '../../../utils/update-component';
 
 export const renderCartItems = (): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
@@ -63,10 +70,31 @@ export const renderCartItems = (): HTMLElement => {
         itemCounter.append(minusBtn, itemCounterQty, plusBtn);
 
         itemQuaintityContainer.append(itemQuaintity, itemCounter);
-        console.log(PRODUCTS);
 
         //цена товара
         const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', PRODUCTS.quantity);
+
+        plusBtn.onclick = () => {
+            console.log('Нажимаю кнопочку +');
+            productsCartData.count++;
+
+            const findedProduct = findProduct(PRODUCTS.product.id, PRODUCTS.size) as CartData;
+            findedProduct.quantity++;
+
+            itemCounterQty.innerHTML = String(findedProduct.quantity);
+            setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
+            updateHeader(productsCartData.count, productsCartData.productsInCart);
+
+            // обновить цену товара
+            item.innerHTML = '';
+            const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', findedProduct.quantity);
+            // здесь же можно обновить данные о кол-ве товара
+            item.append(itemLink, itemQuaintityContainer, itemPrice);
+
+            // обновить глобальну цену
+            updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
+            // обновить данные о кол-ве товара
+        };
 
         item.append(itemLink, itemQuaintityContainer, itemPrice);
         cartItems.append(item);
@@ -74,3 +102,27 @@ export const renderCartItems = (): HTMLElement => {
 
     return cartItems;
 };
+
+export const updateTotalSumm = (sum: string, total?: string) => {
+    const parent = document.querySelector('.cart__checkout') as HTMLElement;
+
+    const checkoutQty: HTMLElement = renderCartCheckoutReceipt('Количество', `${productsCartData.count}`, false);
+
+    const checkoutSum: HTMLElement = renderCartCheckoutReceipt('Сумма', sum, false); // Данные будут приходить из обекта товаров корзины
+
+    const checkoutTotal: HTMLElement = renderCartCheckoutReceipt('Итого', total ?? sum, true); // Данные будут рассчитываться с учетом промокода
+
+    const updatedCheckout = [
+        parent.firstChild as ChildNode,
+        checkoutQty,
+        checkoutSum,
+        checkoutTotal,
+        parent.lastChild as ChildNode,
+    ];
+
+    updateComponent(parent, ...(updatedCheckout as HTMLElement[]));
+};
+
+// const updateSummProduct = (product: ExtendedProduct, quantity: number, node: HTMLElement) => {
+//     const itemPrice: HTMLElement = renderProductPrice(product, 'cart', quantity);
+// };

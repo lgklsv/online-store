@@ -1,10 +1,11 @@
 import { LOCAL_STORAGE_KEYS } from '../../const/local-storage';
 import { productsCartData } from '../../const/store';
+import { calcAmountCart } from '../../utils/calculate-amount-cart';
 import { createElem } from '../../utils/create-element';
 import { updateHeader } from '../../utils/update-cart';
 import styles from './Cart.module.scss';
 import { renderCartCheckout } from './CartCheckout/CartCheckout';
-import { renderCartItems } from './CartItems/CartItems';
+import { renderCartItems, updateTotalSumm } from './CartItems/CartItems';
 import { renderEmptyCart } from './CartItems/components/CartEmpty/CartEmpty';
 
 export const renderCartPage = (): HTMLElement => {
@@ -30,6 +31,7 @@ export const renderCartPage = (): HTMLElement => {
         productsCartData.productsInCart = [];
         productsCartData.count = 0;
         updateHeader(productsCartData.count, productsCartData.productsInCart);
+        updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
     };
 
     cartHeadingContainer.append(cartHeading, cartDeleteAllBtn);
