@@ -16,9 +16,9 @@ export const onCardNumberInput = (e: Event): void => {
         .trim();
     if (inputValue.length > 19) target.value = inputValue.slice(0, 19);
 
-    if (inputValue[0] === '4') {
+    if (inputValue[0] === '5') {
         logo.className = 'card__logo card__logo_mastercard';
-    } else if (inputValue[0] === '5') {
+    } else if (inputValue[0] === '4') {
         logo.className = 'card__logo card__logo_visa';
     } else if (inputValue.slice(0, 2) === '34' || inputValue.slice(0, 2) === '37') {
         logo.className = 'card__logo card__logo_amex';
