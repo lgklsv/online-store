@@ -3,6 +3,7 @@ import styles from './CartItems.module.scss';
 import { renderProductPrice } from '../../PageMain/components/MainCatalog/components/ProductPrice/ProductPrice';
 import { productsCartData } from '../../../const/store';
 import { renderEmptyCart } from './components/CartEmpty/CartEmpty';
+import { newNameProduct } from '../../../utils/edit-name-products';
 
 export const renderCartItems = (): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
@@ -34,9 +35,11 @@ export const renderCartItems = (): HTMLElement => {
         const itemBrand: HTMLElement = createElem('h2', 'cart-item__brand');
         itemBrand.innerHTML = `${PRODUCTS.product.brand}`;
         const itemTitle: HTMLElement = createElem('p', 'cart-item__title');
-        itemTitle.innerHTML = `${PRODUCTS.product.title}`;
+        itemTitle.innerHTML = `${newNameProduct(PRODUCTS.product.brand, PRODUCTS.product.title)}`;
+        const itemSize: HTMLElement = createElem('p', 'cart-item__size');
+        itemSize.innerHTML = `Размер: ${PRODUCTS.size}`;
 
-        itemTitleContainer.append(itemBrand, itemTitle);
+        itemTitleContainer.append(itemBrand, itemTitle, itemSize);
 
         itemLink.append(itemNumber, itemImage, itemTitleContainer);
 

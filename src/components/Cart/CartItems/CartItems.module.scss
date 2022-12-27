@@ -26,7 +26,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none;  
+    text-decoration: none;
     height: 100%;
     width: 350px;
 }
@@ -50,6 +50,11 @@
 
 .cart-item__title {
     font-size: 0.8rem;
+    color: $light-text;
+}
+
+.cart-item__size {
+    font-size: 0.6rem;
     color: $light-text;
 }
 
@@ -82,7 +87,7 @@
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    transition: background-color .3s ease;
+    transition: background-color 0.3s ease;
     &:hover {
         background-color: $grey;
     }
