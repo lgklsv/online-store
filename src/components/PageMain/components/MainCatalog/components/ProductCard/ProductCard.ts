@@ -57,7 +57,7 @@ export const renderProduct = (product: ExtendedProduct) => {
     productOrder.innerHTML = 'В корзину';
 
     // проверка Local Storage перед начальной загрузкой страницы
-    onLoadPage(product, buttonContainer, productOrder);
+    onLoadPage(product, buttonContainer, productOrder, 'main');
 
     productDesc.append(productTitle, productPrice); // описание товара
 
@@ -80,6 +80,7 @@ export const renderProduct = (product: ExtendedProduct) => {
                         countProduct: count,
                         product,
                         onEmptyCount: () => updateComponent(buttonContainer, productOrder),
+                        page: 'main',
                     })
                 ),
             onNotFoundProduct: () => updateComponent(buttonContainer, productOrder),
@@ -113,6 +114,7 @@ export const renderProduct = (product: ExtendedProduct) => {
                 countProduct: helperForSize.countSizeProducts,
                 product,
                 onEmptyCount: () => updateComponent(buttonContainer, productOrder),
+                page: 'main',
             })
         );
     };

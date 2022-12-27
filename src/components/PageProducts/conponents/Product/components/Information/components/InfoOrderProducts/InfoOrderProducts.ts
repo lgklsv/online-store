@@ -49,6 +49,7 @@ interface RenderProductQuantity {
     activeSize?: string;
     product: ExtendedProduct;
     onEmptyCount: () => void;
+    page: string;
 }
 
 export const renderProductQuantity = ({
@@ -56,15 +57,16 @@ export const renderProductQuantity = ({
     activeSize = helperForSize.sizeForData,
     product,
     onEmptyCount,
+    page = 'page',
 }: RenderProductQuantity): HTMLElement => {
-    const productCardMore: HTMLElement = createElem('div', styles['product-page__cart-more']);
-    const productCartIconMinus: HTMLElement = createElem('button', styles['product-page__cart-icon']);
+    const productCardMore: HTMLElement = createElem('div', styles[`product-${page}__cart-more`]);
+    const productCartIconMinus: HTMLElement = createElem('button', styles[`product-${page}__cart-icon`]);
     productCartIconMinus.innerHTML = '–';
 
-    const productCartIconPlus: HTMLElement = createElem('button', styles['product-page__cart-icon']);
+    const productCartIconPlus: HTMLElement = createElem('button', styles[`product-${page}__cart-icon`]);
     productCartIconPlus.innerHTML = '+';
 
-    const productCartDescriptions: HTMLElement = createElem('span', styles['product-page__cart-descriptions']);
+    const productCartDescriptions: HTMLElement = createElem('span', styles[`product-${page}__cart-descriptions`]);
     productCartDescriptions.innerHTML = String(countProduct) + `${space}` + 'в корзине';
 
     productCartIconPlus.onclick = () => {

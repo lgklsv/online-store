@@ -28,7 +28,7 @@ export const renderInformationProduct = (product: ExtendedProduct): HTMLElement 
     const sizeWrapp = renderSize(product, orderSize);
 
     // проверка перед начальной загрузкой страницы товара
-    onLoadPage(product, buttonContainer, productActions, orderLink);
+    onLoadPage(product, buttonContainer, productActions, 'page', orderLink);
 
     informationCard.append(headerWrapper, sizeWrapp, productPrice, buttonContainer, productDescroprions);
 
@@ -52,6 +52,7 @@ export const updateInfoProd = (product: ExtendedProduct, isAdd: boolean, count: 
             countProduct: count,
             product,
             onEmptyCount: () => updateComponent(buttonContainer, productActions),
+            page: 'page',
         }),
         orderLink
     );

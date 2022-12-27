@@ -6,6 +6,7 @@ export const onLoadPage = (
     product: ExtendedProduct,
     parent: HTMLElement,
     startChild: HTMLElement,
+    page: string,
     loadChild?: HTMLElement
 ) => {
     if (!productsCartData.count) {
@@ -27,6 +28,7 @@ export const onLoadPage = (
             activeSize: product.sizes[0],
             product,
             onEmptyCount: () => updateComponent(parent, startChild),
+            page: page,
         }),
         loadChild
     );
