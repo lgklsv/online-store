@@ -1,4 +1,5 @@
-import { PRODUCTS } from '../../../const/products';
+import { productsCartData } from '../../../const/store';
+import { calcAmountCart } from '../../../utils/calculate-amount-cart';
 import { createElem } from '../../../utils/create-element';
 import { createInput } from '../../../utils/create-input-element';
 import styles from './CartCheckout.scss';
@@ -22,17 +23,19 @@ export const renderCartCheckout = (): HTMLElement => {
     couponBody.append(couponInput, couponBtn);
     checkoutCoupon.append(couponTitle, couponBody);
 
-    const checkoutQty: HTMLElement = renderCartCheckoutReceipt('Количество', '3', false);
+    // console.log(productsCartData);
+
+    const checkoutQty: HTMLElement = renderCartCheckoutReceipt('Количество', `${productsCartData.count}`, false);
 
     const checkoutSum: HTMLElement = renderCartCheckoutReceipt(
         'Сумма',
-        `${PRODUCTS[0].price + PRODUCTS[1].price + PRODUCTS[2].price} ₽`,
+        `${calcAmountCart(productsCartData.productsInCart)} ₽`,
         false
     ); // Данные будут приходить из обекта товаров корзины
 
     const checkoutTotal: HTMLElement = renderCartCheckoutReceipt(
         'Итого',
-        `${PRODUCTS[0].price + PRODUCTS[1].price + PRODUCTS[2].price} ₽`,
+        `${calcAmountCart(productsCartData.productsInCart)} ₽`,
         true
     ); // Данные будут рассчитываться с учетом промокода
 
