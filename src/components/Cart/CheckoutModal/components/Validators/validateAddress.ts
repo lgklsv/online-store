@@ -4,8 +4,8 @@ export const validateAddress = (address: string, messageEl: HTMLElement): boolea
         messageEl.className = 'checkout-modal__message done';
         return true;
     } else {
-        messageEl.innerHTML = 'Неверный адрес';
-        messageEl.className = 'checkout-modal__message error';
+        messageEl.innerHTML = 'Адрес в формате город ..., улица ..., дом ..., квартира ...';
+        messageEl.className = 'checkout-modal__message warning';
     }
     return false;
 };

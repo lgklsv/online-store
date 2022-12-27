@@ -52,7 +52,6 @@ export const renderCheckoutModal = (): HTMLElement => {
 
     const nameError: HTMLElement = createElem('p', 'checkout-modal__message');
     nameError.innerHTML = 'Эти данные необходимы для получения и оформления заказа';
-    nameError.classList.add('checkout-modal__warning');
 
     nameDetails.append(nameLabel, nameInput, nameError);
 
@@ -74,7 +73,6 @@ export const renderCheckoutModal = (): HTMLElement => {
     };
     const emailError: HTMLElement = createElem('p', 'checkout-modal__message');
     emailError.innerHTML = 'Эти данные необходимы для получения и оформления заказа';
-    emailError.classList.add('checkout-modal__warning');
 
     emailDetails.append(emailLabel, emailInput, emailError);
 
@@ -93,6 +91,7 @@ export const renderCheckoutModal = (): HTMLElement => {
             if (inputValue.length === 1 && inputValue !== '+') {
                 e.target.value = `+${e.target.value}`;
             }
+            if (inputValue.length > 18) e.target.value = inputValue.slice(0, 18);
             const messageElement = e.target.nextElementSibling as HTMLElement;
             validatePhone(inputValue, messageElement);
         }
@@ -100,7 +99,6 @@ export const renderCheckoutModal = (): HTMLElement => {
 
     const phoneError: HTMLElement = createElem('p', 'checkout-modal__message');
     phoneError.innerHTML = 'Эти данные необходимы для получения и оформления заказа';
-    phoneError.classList.add('checkout-modal__warning');
 
     phoneDetails.append(phoneLabel, phoneInput, phoneError);
 
@@ -123,7 +121,6 @@ export const renderCheckoutModal = (): HTMLElement => {
 
     const addressError: HTMLElement = createElem('p', 'checkout-modal__message');
     addressError.innerHTML = 'Эти данные необходимы для получения и оформления заказа';
-    addressError.classList.add('checkout-modal__warning');
 
     addressDetails.append(addressLabel, addressInput, addressError);
 
@@ -176,29 +173,37 @@ export const renderCheckoutModal = (): HTMLElement => {
         ) {
             // TODO clean cart
 
-            // render Success page
+
+            // render success page
             modal.innerHTML = '';
             const heading: HTMLElement = createElem('h2', 'checkout-modal__heading');
             heading.style.marginTop = '2rem';
-            heading.innerHTML = 'Спасибо за заказ 🕊️ На главную страницу через 3 сек';
+            heading.innerHTML = 'Спасибо за заказ ヽ(•‿•)ノ На главную страницу через 3 сек';
             modal.append(heading);
 
             let time = 3;
             setInterval((): void => {
                 time--;
-                heading.innerHTML = `Спасибо за заказ 🕊️ На главную страницу через ${time} сек`;
+                heading.innerHTML = `Спасибо за заказ ヽ(•‿•)ノ На главную страницу через ${time} сек`;
                 // return to main
                 if (time === 0) window.location.href = '/';
             }, 1000);
         } else {
+            if (!validateName(name, messageName)) nameError.classList.add('error');
+            if (!validateEmail(email, messageEmail)) emailError.classList.add('error');
+            if (!validatePhone(phone, messagePhone)) phoneError.classList.add('error');
+            if (!validateAddress(address, messageAddress)) addressError.classList.add('error');
             if (!validateCardNumber(cardNum)) cardNumInput.classList.add('error');
             if (!validateExpDate(expNum)) cardExpInput.classList.add('error');
             if (!validateCvc(paymentSystem, cardCvc)) cardCvcInput.classList.add('error');
-            // Animation
-            const cardEl = card.firstElementChild as HTMLElement;
-            cardEl.classList.remove('card__error-ani');
-            void cardEl.offsetWidth; // trigger a DOM reflow
-            cardEl.classList.add('card__error-ani');
+
+            if (!validateCardNumber(cardNum) || !validateExpDate(expNum) || !validateCvc(paymentSystem, cardCvc)) {
+                // Animation
+                const cardEl = card.firstElementChild as HTMLElement;
+                cardEl.classList.remove('card__error-ani');
+                void cardEl.offsetWidth; // trigger a DOM reflow
+                cardEl.classList.add('card__error-ani');
+            }
         }
     };
     return modal;

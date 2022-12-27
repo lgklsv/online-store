@@ -11,10 +11,10 @@ export const validateName = (name: string, messageEl: HTMLElement): boolean => {
         return true;
     } else if (inputArr.length !== 2) {
         messageEl.innerHTML = 'Необходимо ввести имя и фамилию вместе';
-        messageEl.className = 'checkout-modal__message error';
+        messageEl.className = 'checkout-modal__message warning';
     } else if (!/^[а-яА-ЯёЁa-zA-Z\s]*$/.test(name)) {
         messageEl.innerHTML = 'Можно использовать только буквы ';
-        messageEl.className = 'checkout-modal__message error';
+        messageEl.className = 'checkout-modal__message warning';
     }
     return false;
 };

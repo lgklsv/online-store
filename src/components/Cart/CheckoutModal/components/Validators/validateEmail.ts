@@ -8,8 +8,8 @@ export const validateEmail = (email: string, messageEl: HTMLElement): boolean =>
         messageEl.className = 'checkout-modal__message done';
         return true;
     } else {
-        messageEl.innerHTML = 'Неверный e-mail';
-        messageEl.className = 'checkout-modal__message error';
+        messageEl.innerHTML = 'Пример example@gmail.com';
+        messageEl.className = 'checkout-modal__message warning';
     }
     return false;
 };
