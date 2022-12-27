@@ -5,11 +5,14 @@ import { updateHeader } from './update-cart';
 
 export const addInCart = (product: ExtendedProduct, helper: HelperSize): void => {
     productsCartData.count++;
+    console.log('0000', product);
+    console.log(helper);
 
     const productData: CartData = {
         product: product,
         size: helper.sizeForData,
         quantity: helper.countSizeProducts,
+        remainder: product.sizeQuantity[product.sizes.indexOf(helper.sizeForData)],
     };
 
     productsCartData.productsInCart.push(productData); //изменяем глобальный объект

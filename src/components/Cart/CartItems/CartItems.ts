@@ -6,11 +6,11 @@ import { renderEmptyCart } from './components/CartEmpty/CartEmpty';
 import { newNameProduct } from '../../../utils/edit-name-products';
 import { setLocalStorage } from '../../../utils/local-storage';
 import { LOCAL_STORAGE_KEYS } from '../../../const/local-storage';
-import { updateHeader } from '../../../utils/update-cart';
 import { findProduct } from '../../../utils/find-products';
 import { calcAmountCart } from '../../../utils/calculate-amount-cart';
-import { renderCartCheckoutReceipt } from '../CartCheckout/components/CartCheckoutReceipt/CartCheckoutReceipt';
+import { updateHeader } from '../../../utils/update-cart';
 import { updateComponent } from '../../../utils/update-component';
+import { renderCartCheckoutReceipt } from '../CartCheckout/components/CartCheckoutReceipt/CartCheckoutReceipt';
 
 export const renderCartItems = (): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
@@ -75,7 +75,6 @@ export const renderCartItems = (): HTMLElement => {
         const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', PRODUCTS.quantity);
 
         plusBtn.onclick = () => {
-            console.log('Нажимаю кнопочку +');
             productsCartData.count++;
 
             const findedProduct = findProduct(PRODUCTS.product.id, PRODUCTS.size) as CartData;
@@ -88,12 +87,38 @@ export const renderCartItems = (): HTMLElement => {
             // обновить цену товара
             item.innerHTML = '';
             const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', findedProduct.quantity);
+            //TODO - здесь же можно обновить данные о кол-ве товара
+            item.append(itemLink, itemQuaintityContainer, itemPrice);
+
+            updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
+        };
+
+        minusBtn.onclick = () => {
+            let index = 0;
+
+            const findedProduct = productsCartData.productsInCart.find((data, i) => {
+                index = i; // получаем индекс найденного товара в массиве
+                return PRODUCTS.product.id === data.product.id && String(data.size) === PRODUCTS.size;
+            }) as CartData;
+
+            findedProduct.quantity--;
+            itemCounterQty.innerHTML = String(findedProduct.quantity);
+
+            if (findedProduct.quantity === 0) {
+                productsCartData.productsInCart.splice(index, 1); // удаляем товар из массива
+                updateСartItemsContainer();
+            }
+
+            productsCartData.count--;
+
+            item.innerHTML = '';
+            const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', findedProduct.quantity);
             // здесь же можно обновить данные о кол-ве товара
             item.append(itemLink, itemQuaintityContainer, itemPrice);
 
-            // обновить глобальну цену
+            setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
+            updateHeader(productsCartData.count, productsCartData.productsInCart);
             updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
-            // обновить данные о кол-ве товара
         };
 
         item.append(itemLink, itemQuaintityContainer, itemPrice);
@@ -103,7 +128,17 @@ export const renderCartItems = (): HTMLElement => {
     return cartItems;
 };
 
-export const updateTotalSumm = (sum: string, total?: string) => {
+export const updateСartItemsContainer = (): void => {
+    const parent = document.querySelector('.cart__items-container') as HTMLElement;
+
+    const cartItems: HTMLElement = renderCartItems();
+
+    const updatedCheckout = [parent.firstChild as ChildNode, cartItems];
+
+    updateComponent(parent, ...(updatedCheckout as HTMLElement[]));
+};
+
+export const updateTotalSumm = (sum: string, total?: string): void => {
     const parent = document.querySelector('.cart__checkout') as HTMLElement;
 
     const checkoutQty: HTMLElement = renderCartCheckoutReceipt('Количество', `${productsCartData.count}`, false);
@@ -122,7 +157,3 @@ export const updateTotalSumm = (sum: string, total?: string) => {
 
     updateComponent(parent, ...(updatedCheckout as HTMLElement[]));
 };
-
-// const updateSummProduct = (product: ExtendedProduct, quantity: number, node: HTMLElement) => {
-//     const itemPrice: HTMLElement = renderProductPrice(product, 'cart', quantity);
-// };

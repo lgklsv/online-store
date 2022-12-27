@@ -1,6 +1,6 @@
 import { calcAmountCart } from './calculate-amount-cart';
 
-export const updateHeader = (newCount: number | string, array: CartData[]) => {
+export const updateHeader = (newCount: number | string, array: CartData[]): void => {
     const counterProduct: HTMLElement = document.querySelector('.cart-counter') as HTMLElement;
     counterProduct.innerHTML = String(newCount);
 
