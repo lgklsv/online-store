@@ -74,6 +74,14 @@ export const renderProductQuantity = ({
         const findedProduct = findProduct(product.id, activeSize) as CartData;
         if (findedProduct.quantity >= (findedProduct.remainder as number)) {
             productCartIconPlus.setAttribute('disabled', 'true'); // делаем кнопку неактивной
+            productCartDescriptions.innerHTML = 'Этот размер закончился'; //выводим сообщение
+            productCartDescriptions.classList.add('product-page__stop-order');
+
+            setInterval(() => {
+                productCartDescriptions.innerHTML = String(countProduct) + `${space}` + 'в корзине';
+                productCartDescriptions.classList.remove('product-page__stop-order');
+            }, 3000); //возвращаем исходное значение кнопки
+
             return;
         }
 
