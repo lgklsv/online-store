@@ -86,7 +86,6 @@ export const renderCartItems = (): HTMLElement => {
             }
 
             findedProduct.quantity++;
-
             itemCounterQty.innerHTML = String(findedProduct.quantity);
 
             productsCartData.count++;
@@ -115,13 +114,13 @@ export const renderCartItems = (): HTMLElement => {
             itemCounterQty.innerHTML = String(findedProduct.quantity);
             plusBtn.removeAttribute('disabled');
             itemQuaintity.classList.remove('quaintity-remainder');
+            
+            productsCartData.count--;
 
             if (findedProduct.quantity === 0) {
                 productsCartData.productsInCart.splice(index, 1); // удаляем товар из массива
                 updateСartItemsContainer();
             }
-
-            productsCartData.count--;
 
             item.innerHTML = '';
             const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', findedProduct.quantity);
