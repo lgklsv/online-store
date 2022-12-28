@@ -15,7 +15,6 @@ export const store: Store = {
             product.color +
             ' ' +
             product.category,
-        sizeQuantity: product.sizes.map(() => getRandomInt(47)),
     })),
 
     sort: PRODUCTS.map((product: Product) => ({
@@ -29,9 +28,6 @@ export const store: Store = {
             product.color +
             ' ' +
             product.category,
-
-        sizeQuantity: product.sizes.map(() => getRandomInt(47)),
-        // sizeQuantity: convertToObj(product.sizes) as SizeObj,
     })),
 
     sorted: [],
@@ -44,19 +40,3 @@ export const productsCartData: Cart = getLocalStorage(LOCAL_STORAGE_KEYS.PRODUCT
     productsInCart: [],
     count: 0,
 };
-
-function getRandomInt(max: number) {
-    return Math.floor(Math.random() * max);
-}
-
-// const convertToObj = (sizes: string[]) => {
-//     const arr = sizes.map(() => getRandomInt(47));
-//     const obj = sizes.reduce((acc, element, index) => {
-//         return {
-//             ...acc,
-//             [element]: arr[index],
-//         };
-//     }, {});
-
-//     return obj;
-// };

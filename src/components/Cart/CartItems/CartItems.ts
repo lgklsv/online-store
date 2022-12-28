@@ -54,7 +54,7 @@ export const renderCartItems = (): HTMLElement => {
         const itemQuaintityContainer: HTMLElement = createElem('div', 'cart-item__quaintity-container');
 
         const itemQuaintity: HTMLElement = createElem('p', 'cart-item__quaintity');
-        itemQuaintity.innerHTML = `На складе: ${PRODUCTS.product.stock}`;
+        itemQuaintity.innerHTML = `На складе: ${PRODUCTS.remainder}`;
 
         const itemCounter: HTMLElement = createElem('div', 'cart-item__counter');
 
@@ -75,13 +75,22 @@ export const renderCartItems = (): HTMLElement => {
         const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', PRODUCTS.quantity);
 
         plusBtn.onclick = () => {
-            productsCartData.count++;
-
             const findedProduct = findProduct(PRODUCTS.product.id, PRODUCTS.size) as CartData;
+
+            if (findedProduct.quantity >= (findedProduct.remainder as number)) {
+                plusBtn.setAttribute('disabled', 'true');
+
+                itemQuaintity.classList.add('quaintity-remainder');
+                // TODO - изменять кол-во в строке на складе!!!
+                return;
+            }
 
             findedProduct.quantity++;
 
             itemCounterQty.innerHTML = String(findedProduct.quantity);
+
+            productsCartData.count++;
+
             setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
             updateHeader(productsCartData.count, productsCartData.productsInCart);
 
@@ -104,6 +113,8 @@ export const renderCartItems = (): HTMLElement => {
 
             findedProduct.quantity--;
             itemCounterQty.innerHTML = String(findedProduct.quantity);
+            plusBtn.removeAttribute('disabled');
+            itemQuaintity.classList.remove('quaintity-remainder');
 
             if (findedProduct.quantity === 0) {
                 productsCartData.productsInCart.splice(index, 1); // удаляем товар из массива

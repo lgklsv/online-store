@@ -5,8 +5,6 @@ import { updateHeader } from './update-cart';
 
 export const addInCart = (product: ExtendedProduct, helper: HelperSize): void => {
     productsCartData.count++;
-    console.log('0000', product);
-    console.log(helper);
 
     const productData: CartData = {
         product: product,
@@ -14,6 +12,7 @@ export const addInCart = (product: ExtendedProduct, helper: HelperSize): void =>
         quantity: helper.countSizeProducts,
         remainder: product.sizeQuantity[product.sizes.indexOf(helper.sizeForData)],
     };
+    console.log('0000', productData, helper);
 
     productsCartData.productsInCart.push(productData); //изменяем глобальный объект
     setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT); //обновляем Local Storage
