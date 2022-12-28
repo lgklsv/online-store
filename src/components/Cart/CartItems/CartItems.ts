@@ -78,6 +78,7 @@ export const renderCartItems = (): HTMLElement => {
             productsCartData.count++;
 
             const findedProduct = findProduct(PRODUCTS.product.id, PRODUCTS.size) as CartData;
+
             findedProduct.quantity++;
 
             itemCounterQty.innerHTML = String(findedProduct.quantity);

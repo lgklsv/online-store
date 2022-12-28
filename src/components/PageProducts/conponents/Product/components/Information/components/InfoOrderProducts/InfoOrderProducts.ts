@@ -4,6 +4,7 @@ import { space } from '../../../../../../../../const/store-name';
 import { addInCart } from '../../../../../../../../utils/add-in-cart';
 import { createElem } from '../../../../../../../../utils/create-element';
 import { createLink } from '../../../../../../../../utils/create-link-element';
+import { findProduct } from '../../../../../../../../utils/find-products';
 import { setLocalStorage } from '../../../../../../../../utils/local-storage';
 import { updateHeader } from '../../../../../../../../utils/update-cart';
 import { updateInfoProd } from '../../Information';
@@ -72,9 +73,7 @@ export const renderProductQuantity = ({
     productCartIconPlus.onclick = () => {
         productsCartData.count++;
 
-        const findedProduct = productsCartData.productsInCart.find((data) => {
-            return product.id === data.product.id && String(data.size) === activeSize;
-        }) as CartData;
+        const findedProduct = findProduct(product.id, activeSize) as CartData;
 
         findedProduct.quantity++;
 

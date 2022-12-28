@@ -1,5 +1,6 @@
 import { renderProductQuantity } from '../components/PageProducts/conponents/Product/components/Information/components/InfoOrderProducts/InfoOrderProducts';
 import { productsCartData } from '../const/store';
+import { findProduct } from './find-products';
 import { updateComponent } from './update-component';
 
 export const onLoadPage = (
@@ -13,9 +14,7 @@ export const onLoadPage = (
         return updateComponent(parent, startChild);
     }
 
-    const findedProduct = productsCartData.productsInCart.find((data) => {
-        return product.id === data.product.id && String(data.size) === product.sizes[0];
-    }) as CartData;
+    const findedProduct = findProduct(product.id, product.sizes[0]) as CartData;
 
     if (!findedProduct) {
         return updateComponent(parent, startChild);
