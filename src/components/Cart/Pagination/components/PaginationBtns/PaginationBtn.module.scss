@@ -1,0 +1,9 @@
+@import '/src/theme/variable';
+
+.cart__pagination-btn {
+    @include btn($black, rgba(0, 0, 0, 0.102), $grey);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    padding: 0;
+}

@@ -9,6 +9,8 @@ import { renderCartItems, updateTotalSumm } from './CartItems/CartItems';
 import { renderEmptyCart } from './CartItems/components/CartEmpty/CartEmpty';
 import { renderCheckoutModal } from './CheckoutModal/CheckoutModal';
 import { toggleModal } from './CheckoutModal/components/ToggleModal';
+import { renderLimits } from './Pagination/components/Limits/Limits';
+import { renderPagination } from './Pagination/Pagination';
 
 export const renderCartPage = (): HTMLElement => {
     const main: HTMLElement = createElem('main', 'main');
@@ -21,6 +23,11 @@ export const renderCartPage = (): HTMLElement => {
     const cartHeadingContainer: HTMLElement = createElem('div', 'cart__items-heading-container');
     const cartHeading: HTMLElement = createElem('h1', 'cart__heading');
     cartHeading.innerHTML = 'Товары в корзине';
+
+    const cartTools: HTMLElement = createElem('div', 'cart__tools');
+
+    const limitContainer: HTMLElement = renderLimits(5);
+    const paginationContainer: HTMLElement = renderPagination(1);
 
     const cartDeleteAllBtn: HTMLElement = createElem('p', 'cart__delete-all-btn');
     cartDeleteAllBtn.innerHTML = 'Удалить все';
@@ -37,7 +44,9 @@ export const renderCartPage = (): HTMLElement => {
         updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
     };
 
-    cartHeadingContainer.append(cartHeading, cartDeleteAllBtn);
+    cartTools.append(limitContainer, paginationContainer, cartDeleteAllBtn);
+
+    cartHeadingContainer.append(cartHeading, cartTools);
 
     const cartItems: HTMLElement = renderCartItems();
 
