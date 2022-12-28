@@ -7,5 +7,11 @@ interface Store {
 interface CartData {
     product: ExtendedProduct;
     size: string;
-    quantity: string;
+    quantity: number;
+    remainder?: number;
+}
+
+interface Cart {
+    productsInCart: CartData[];
+    count: number;
 }

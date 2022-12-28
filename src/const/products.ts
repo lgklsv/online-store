@@ -28,6 +28,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/w/wl574vi1-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/w/wl574vi1-4_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 20, 40, 4, 20],
     },
     {
         id: 2,
@@ -50,6 +51,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/2/26860001-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/2/26860001-4_1104x1104.jpg',
         ],
+        sizeQuantity: [4, 10, 10, 7, 3],
     },
     {
         id: 3,
@@ -83,6 +85,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/1/173121-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/1/173121-4_1104x1104.jpg',
         ],
+        sizeQuantity: [5, 11, 10, 7, 3],
     },
     {
         id: 4,
@@ -110,6 +113,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hm2659-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hm2659-4_1104x1104.jpg',
         ],
+        sizeQuantity: [12, 11, 60, 35, 5],
     },
     {
         id: 5,
@@ -140,6 +144,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/g/gw5824-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/g/gw5824-4_1104x1104.jpg',
         ],
+        sizeQuantity: [6, 6, 7, 3, 10],
     },
     {
         id: 6,
@@ -172,6 +177,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hb3406-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hb3406-3_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 20, 20, 3, 20],
     },
     {
         id: 7,
@@ -199,6 +205,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/k/kedy-vans-old-skool-true-white-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/k/kedy-vans-old-skool-true-white-3_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 10, 10, 10, 10],
     },
     {
         id: 8,
@@ -225,12 +232,12 @@ export const PRODUCTS: Product[] = [
         category: 'Ботинки',
         thumbnail: 'https://img.brandshop.ru/cache/products/g/gy4419-1_1104x1104.jpg',
         images: [
-            'https://img.brandshop.ru/cache/products/g/gy4419-0_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/g/gy4419-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/g/gy4419-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/g/gy4419-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/g/gy4419-4_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 11, 8, 12, 27],
     },
     {
         id: 9,
@@ -257,6 +264,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/t/tbla2aeb-001-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/t/tbla2aeb-001-3_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 21, 39, 10, 16],
     },
     {
         id: 10,
@@ -280,7 +288,7 @@ export const PRODUCTS: Product[] = [
         price: 51990,
         discountPercentage: 0,
         rating: 4.43,
-        stock: 89,
+        stock: 90,
         brand: 'Timberland',
         category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/t/tbla5u1w-ct2-0_1104x1104.jpg',
@@ -291,6 +299,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/t/tbla5u1w-ct2-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/t/tbla5u1w-ct2-4_1104x1104.jpg',
         ],
+        sizeQuantity: [18, 20, 16, 18, 18],
     },
     {
         id: 11,
@@ -325,6 +334,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/m/mj13510-bk-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/m/mj13510-bk-3_1104x1104.jpg',
         ],
+        sizeQuantity: [13, 13, 13, 13, 13],
     },
     {
         id: 12,
@@ -344,7 +354,7 @@ export const PRODUCTS: Product[] = [
         price: 29490,
         discountPercentage: 15,
         rating: 4,
-        stock: 52,
+        stock: 55,
         brand: 'Y-3',
         category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/h/hg8670-0_1104x1104.jpg',
@@ -352,6 +362,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hg8670-0_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hg8670-1_1104x1104.jpg',
         ],
+        sizeQuantity: [11, 11, 11, 11, 11],
     },
     {
         id: 13,
@@ -370,7 +381,7 @@ export const PRODUCTS: Product[] = [
         price: 8990,
         discountPercentage: 0,
         rating: 4.59,
-        stock: 61,
+        stock: 65,
         brand: 'MSGM',
         category: 'Футболки',
         thumbnail: 'https://img.brandshop.ru/cache/products/3/3341mdm177-227798-12-0_1104x1104.jpg',
@@ -380,6 +391,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/3/3341mdm177-227798-12-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/3/3341mdm177-227798-12-3_1104x1104.jpg',
         ],
+        sizeQuantity: [13, 13, 13, 13, 13],
     },
     {
         id: 14,
@@ -404,7 +416,7 @@ export const PRODUCTS: Product[] = [
         price: 13990,
         discountPercentage: 30,
         rating: 4.21,
-        stock: 114,
+        stock: 115,
         brand: 'Helly Hansen',
         category: 'Куртки',
         thumbnail: 'https://img.brandshop.ru/cache/products/5/55964-619-0_1104x1104.jpg',
@@ -412,6 +424,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/5/55964-619-0_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/5/55964-619-1_1104x1104.jpg',
         ],
+        sizeQuantity: [23, 23, 23, 23, 23],
     },
     {
         id: 15,
@@ -441,6 +454,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/b/botinki-dr-martens-1461-yellow-stitch-smooth-black-2-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/b/botinki-dr-martens-1461-yellow-stitch-smooth-black-2-4_1104x1104.jpg',
         ],
+        sizeQuantity: [21, 21, 21, 21, 21],
     },
     {
         id: 16,
@@ -472,6 +486,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/z/zhenskaya-futbolka-maison-kitsune-tricolor-fox-patch-white-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/z/zhenskaya-futbolka-maison-kitsune-tricolor-fox-patch-white-4_1104x1104.jpg',
         ],
+        sizeQuantity: [30, 20, 20, 20, 20],
     },
     {
         id: 17,
@@ -499,6 +514,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/7/710-829443-009-0_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/7/710-829443-009-1_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 20, 20, 10, 18],
     },
     {
         id: 18,
@@ -530,6 +546,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/c/ch0208-7tm-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/c/ch0208-7tm-3_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 20, 20, 10, 18],
     },
     {
         id: 19,
@@ -562,6 +579,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/c/ch2311-11m-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/c/ch2311-11m-3_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 10, 10, 10, 14],
     },
     {
         id: 20,
@@ -582,6 +600,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i030527-89-eq-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i030527-89-eq-2_1104x1104.jpg',
         ],
+        sizeQuantity: [28, 28, 28, 28, 28],
     },
     {
         id: 21,
@@ -609,6 +628,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/r/rnd9021-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/r/rnd9021-4_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 30, 30, 30, 23],
     },
     {
         id: 22,
@@ -644,6 +664,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i030695-05-99-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i030695-05-99-4_1104x1104.jpg',
         ],
+        sizeQuantity: [26, 60, 20, 20, 20],
     },
     {
         id: 23,
@@ -678,6 +699,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i030696-01-kr-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i030696-01-kr-4_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 5, 5, 3, 3],
     },
     {
         id: 24,
@@ -700,6 +722,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i030524-01-i9-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i030524-01-i9-4_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 20, 20, 20, 33],
     },
     {
         id: 25,
@@ -724,6 +747,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/7/710-750444-015-0_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/7/710-750444-015-1_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 10, 17, 5, 5],
     },
     {
         id: 26,
@@ -752,6 +776,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/g/gm3273-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/g/gm3273-4_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 20, 20, 40, 17],
     },
     {
         id: 27,
@@ -771,6 +796,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/he9448-0_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/he9448-1_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 2, 2, 2, 1],
     },
     {
         id: 28,
@@ -799,6 +825,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/3/3341mdm196-227798-01-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/3/3341mdm196-227798-01-3_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 20, 10, 10, 4],
     },
     {
         id: 29,
@@ -827,6 +854,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/c/ctn52002c1-100-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/c/ctn52002c1-100-3_1104x1104.jpg',
         ],
+        sizeQuantity: [1, 2, 2, 1, 1],
     },
     {
         id: 30,
@@ -852,6 +880,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hg6095-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hg6095-2_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 20, 10, 10, 4],
     },
     {
         id: 31,
@@ -876,6 +905,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/n/np0a4gjf041-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/n/np0a4gjf041-3_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 30, 30, 30, 30],
     },
     {
         id: 32,
@@ -913,6 +943,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/m/mjn31210c1-310-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/m/mjn31210c1-310-2_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 5, 5, 5, 5],
     },
     {
         id: 33,
@@ -937,6 +968,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/t/tb0a2aebd-a51-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/t/tb0a2aebd-a51-3_1104x1104.jpg',
         ],
+        sizeQuantity: [30, 36, 40],
     },
     {
         id: 34,
@@ -960,6 +992,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i029732-1ar-99-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i029732-1ar-99-2_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 30, 30, 30, 26],
     },
     {
         id: 35,
@@ -996,6 +1029,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/5/53757-823-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/5/53757-823-4_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 20, 20, 10, 7],
     },
     {
         id: 36,
@@ -1023,6 +1057,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/m/mjm21000c1-310-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/m/mjm21000c1-310-4_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 10, 5, 5, 9],
     },
     {
         id: 37,
@@ -1052,6 +1087,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/f/fv8278-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/f/fv8278-4_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 20, 20, 20, 27],
     },
     {
         id: 38,
@@ -1082,6 +1118,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/c/cw5814-002-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/c/cw5814-002-4_1104x1104.jpg',
         ],
+        sizeQuantity: [4, 4, 4, 4, 4],
     },
     {
         id: 39,
@@ -1114,6 +1151,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/g/gx1331-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/g/gx1331-4_1104x1104.jpg',
         ],
+        sizeQuantity: [15, 10, 10, 10, 10],
     },
     {
         id: 40,
@@ -1142,6 +1180,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/c/ck2351-001-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/c/ck2351-001-4_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 20, 20, 20, 14],
     },
     {
         id: 41,
@@ -1170,6 +1209,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/f/fx5502-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/f/fx5502-4_1104x1104.jpg',
         ],
+        sizeQuantity: [4, 4, 4, 4, 5],
     },
     {
         id: 42,
@@ -1201,6 +1241,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hr740001s-0003-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hr740001s-0003-4_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 1, 1, 1, 1],
     },
     {
         id: 43,
@@ -1231,6 +1272,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/g/gz8108-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/g/gz8108-4_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 5, 5, 10, 13],
     },
     {
         id: 44,
@@ -1260,6 +1302,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/d/dh2925-111-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/d/dh2925-111-4_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 20, 20, 25, 45],
     },
     {
         id: 45,
@@ -1294,6 +1337,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/d/dh4079-601-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/d/dh4079-601-3_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 20, 20, 20, 16],
     },
     {
         id: 46,
@@ -1313,6 +1357,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i031061-1au-67-0_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i031061-1au-67-1_1104x1104.jpg',
         ],
+        sizeQuantity: [14, 27, 20, 1, 10],
     },
     {
         id: 47,
@@ -1337,6 +1382,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/2/26205001-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/2/26205001-3_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 10, 10, 10, 10],
     },
     {
         id: 48,
@@ -1367,6 +1413,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/2/24480100-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/2/24480100-3_1104x1104.jpg',
         ],
+        sizeQuantity: [5, 5, 5, 5, 5],
     },
     {
         id: 49,
@@ -1399,6 +1446,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/m/muzhskie-botinki-timberland-6-inch-premium-waterproof-black-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/m/muzhskie-botinki-timberland-6-inch-premium-waterproof-black-3_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 20, 20, 40, 17],
     },
     {
         id: 50,
@@ -1435,6 +1483,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/e/e16b-025-01-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/e/e16b-025-01-3_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 10, 21],
     },
     {
         id: 51,
@@ -1468,6 +1517,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/5/532492-01-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/5/532492-01-3_1104x1104.jpg',
         ],
+        sizeQuantity: [15],
     },
     {
         id: 52,
@@ -1494,6 +1544,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/s/soph-222028-beige-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/s/soph-222028-beige-3_1104x1104.jpg',
         ],
+        sizeQuantity: [2, 3],
     },
     {
         id: 53,
@@ -1528,6 +1579,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/5/53517-692-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/5/53517-692-2_1104x1104.jpg',
         ],
+        sizeQuantity: [45],
     },
     {
         id: 54,
@@ -1555,6 +1607,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/m/mas1544-m306-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/m/mas1544-m306-4_1104x1104.jpg',
         ],
+        sizeQuantity: [30, 15, 40],
     },
     {
         id: 55,
@@ -1587,6 +1640,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/h22mm750wo00bk-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/h22mm750wo00bk-4_1104x1104.jpg',
         ],
+        sizeQuantity: [4, 2, 1],
     },
     {
         id: 56,
@@ -1618,6 +1672,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/6/65850-597-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/6/65850-597-3_1104x1104.jpg',
         ],
+        sizeQuantity: [5, 10, 14, 2],
     },
     {
         id: 57,
@@ -1650,6 +1705,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/6/62936-619-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/6/62936-619-4_1104x1104.jpg',
         ],
+        sizeQuantity: [11],
     },
     {
         id: 58,
@@ -1682,6 +1738,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hf2000-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hf2000-4_1104x1104.jpg',
         ],
+        sizeQuantity: [1, 1, 1],
     },
     {
         id: 59,
@@ -1713,6 +1770,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hf7531-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hf7531-3_1104x1104.jpg',
         ],
+        sizeQuantity: [8],
     },
     {
         id: 60,
@@ -1740,6 +1798,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hi6016-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hi6016-3_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 20, 10, 17],
     },
     {
         id: 61,
@@ -1766,6 +1825,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/7/710-766778-048-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/7/710-766778-048-3_1104x1104.jpg',
         ],
+        sizeQuantity: [3, 3, 3, 3],
     },
     {
         id: 62,
@@ -1793,6 +1853,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/7/710-858452-001-0_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/7/710-858452-001-1_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 5, 5],
     },
     {
         id: 63,
@@ -1818,6 +1879,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/7/710-858016-001-0_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/7/710-858016-001-1_1104x1104.jpg',
         ],
+        sizeQuantity: [11],
     },
     {
         id: 64,
@@ -1840,7 +1902,7 @@ export const PRODUCTS: Product[] = [
         price: 20790,
         discountPercentage: 30,
         rating: 4.77,
-        stock: 1,
+        stock: 50,
         brand: 'Converse',
         category: 'Толстовки',
         thumbnail: 'https://img.brandshop.ru/cache/products/1/10023691001-0_1104x1104.jpg',
@@ -1849,6 +1911,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/1/10023691001-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/1/10023691001-2_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 10, 10, 10, 10],
     },
     {
         id: 65,
@@ -1877,6 +1940,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/5/534282-61-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/5/534282-61-3_1104x1104.jpg',
         ],
+        sizeQuantity: [59],
     },
     {
         id: 66,
@@ -1908,6 +1972,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/5/534202-03-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/5/534202-03-3_1104x1104.jpg',
         ],
+        sizeQuantity: [60, 5, 5, 4],
     },
     {
         id: 67,
@@ -1939,6 +2004,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/m/mt21558-bk-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/m/mt21558-bk-3_1104x1104.jpg',
         ],
+        sizeQuantity: [20, 20, 29],
     },
     {
         id: 68,
@@ -1972,6 +2038,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/5/532102-01-4_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/5/532102-01-5_1104x1104.jpg',
         ],
+        sizeQuantity: [45, 49],
     },
     {
         id: 69,
@@ -2002,6 +2069,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/h06653-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/h06653-3_1104x1104.jpg',
         ],
+        sizeQuantity: [30, 4],
     },
     {
         id: 70,
@@ -2035,6 +2103,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/f/fcrb-220053-green-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/f/fcrb-220053-green-4_1104x1104.jpg',
         ],
+        sizeQuantity: [25, 26],
     },
     {
         id: 71,
@@ -2060,7 +2129,7 @@ export const PRODUCTS: Product[] = [
         price: 7190,
         discountPercentage: 50,
         rating: 4.97,
-        stock: 2,
+        stock: 3,
         brand: 'Edwin',
         category: 'Шорты',
         thumbnail: 'https://img.brandshop.ru/cache/products/i/i030303-0wv-gn-0_1104x1104.jpg',
@@ -2071,6 +2140,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i030303-0wv-gn-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i030303-0wv-gn-4_1104x1104.jpg',
         ],
+        sizeQuantity: [1, 1, 1],
     },
     {
         id: 72,
@@ -2102,6 +2172,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i030334-0wz-67-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i030334-0wz-67-4_1104x1104.jpg',
         ],
+        sizeQuantity: [6],
     },
     {
         id: 73,
@@ -2138,6 +2209,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/m/muzhskie-shorti-helly-hansen-quick-dry-11-inch-ebony-01-10_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/m/muzhskie-shorti-helly-hansen-quick-dry-11-inch-ebony-01-11_1104x1104.jpg',
         ],
+        sizeQuantity: [17],
     },
     {
         id: 74,
@@ -2169,6 +2241,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i030336-0x0-67-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i030336-0x0-67-4_1104x1104.jpg',
         ],
+        sizeQuantity: [2],
     },
     {
         id: 75,
@@ -2204,6 +2277,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i030393-0xi-td-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i030393-0xi-td-4_1104x1104.jpg',
         ],
+        sizeQuantity: [1],
     },
     {
         id: 76,
@@ -2232,6 +2306,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/8/8096-olive-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/8/8096-olive-2_1104x1104.jpg',
         ],
+        sizeQuantity: [3, 5],
     },
     {
         id: 77,
@@ -2263,6 +2338,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/m/mas2348-m428-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/m/mas2348-m428-4_1104x1104.jpg',
         ],
+        sizeQuantity: [3, 3, 3, 6],
     },
     {
         id: 78,
@@ -2295,6 +2371,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/p/pn3579-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/p/pn3579-4_1104x1104.jpg',
         ],
+        sizeQuantity: [3],
     },
     {
         id: 79,
@@ -2322,6 +2399,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/3/395000518-0001-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/3/395000518-0001-4_1104x1104.jpg',
         ],
+        sizeQuantity: [7],
     },
     {
         id: 80,
@@ -2348,6 +2426,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hg8550-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hg8550-2_1104x1104.jpg',
         ],
+        sizeQuantity: [10, 7],
     },
     {
         id: 81,
@@ -2376,6 +2455,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/3/33838-597-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/3/33838-597-3_1104x1104.jpg',
         ],
+        sizeQuantity: [2, 3, 2],
     },
     {
         id: 82,
@@ -2407,6 +2487,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/he9505-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/he9505-3_1104x1104.jpg',
         ],
+        sizeQuantity: [19, 13, 30, 3],
     },
     {
         id: 83,
@@ -2438,6 +2519,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hf7529-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hf7529-3_1104x1104.jpg',
         ],
+        sizeQuantity: [14, 13, 34, 8],
     },
     {
         id: 84,
@@ -2472,6 +2554,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hg6153-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hg6153-3_1104x1104.jpg',
         ],
+        sizeQuantity: [25, 14, 33, 11],
     },
     {
         id: 85,
@@ -2503,6 +2586,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hg8666-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hg8666-4_1104x1104.jpg',
         ],
+        sizeQuantity: [2, 8, 10, 11],
     },
     {
         id: 86,
@@ -2530,6 +2614,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/2/211-780215-019-0_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/2/211-780215-019-1_1104x1104.jpg',
         ],
+        sizeQuantity: [2],
     },
     {
         id: 87,
@@ -2558,6 +2643,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/2/2esgnw2ds204xxct-blkx-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/2/2esgnw2ds204xxct-blkx-2_1104x1104.jpg',
         ],
+        sizeQuantity: [14, 9],
     },
     {
         id: 88,
@@ -2578,6 +2664,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/4/4052-jngl-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/4/4052-jngl-2_1104x1104.jpg',
         ],
+        sizeQuantity: [77],
     },
     {
         id: 89,
@@ -2614,6 +2701,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/7/7026-black-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/7/7026-black-4_1104x1104.jpg',
         ],
+        sizeQuantity: [9, 25, 15, 30],
     },
     {
         id: 90,
@@ -2634,6 +2722,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/9/9895-blk-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/9/9895-blk-2_1104x1104.jpg',
         ],
+        sizeQuantity: [9, 9, 9, 9, 9],
     },
     {
         id: 91,
@@ -2654,6 +2743,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i030302-nyb-gn-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i030302-nyb-gn-2_1104x1104.jpg',
         ],
+        sizeQuantity: [4, 14, 50, 10, 20],
     },
     {
         id: 92,
@@ -2674,6 +2764,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/i/i030274-5i-ab-1_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/i/i030274-5i-ab-2_1104x1104.jpg',
         ],
+        sizeQuantity: [4, 10, 10, 10],
     },
     {
         id: 93,
@@ -2696,6 +2787,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hf9916-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hf9916-4_1104x1104.jpg',
         ],
+        sizeQuantity: [4],
     },
     {
         id: 94,
@@ -2730,6 +2822,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hd2721-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hd2721-4_1104x1104.jpg',
         ],
+        sizeQuantity: [3, 3],
     },
     {
         id: 95,
@@ -2763,6 +2856,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/1/10023692001-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/1/10023692001-3_1104x1104.jpg',
         ],
+        sizeQuantity: [10],
     },
     {
         id: 96,
@@ -2789,6 +2883,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/t/tn213tswho12bk-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/t/tn213tswho12bk-3_1104x1104.jpg',
         ],
+        sizeQuantity: [11, 8],
     },
     {
         id: 97,
@@ -2818,6 +2913,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/t/tn213tswcw01hgr-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/t/tn213tswcw01hgr-3_1104x1104.jpg',
         ],
+        sizeQuantity: [45, 25, 19],
     },
     {
         id: 98,
@@ -2844,6 +2940,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/t/tn210tswcw02bk-2_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/t/tn210tswcw02bk-3_1104x1104.jpg',
         ],
+        sizeQuantity: [3, 10, 10, 11],
     },
     {
         id: 99,
@@ -2875,6 +2972,7 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/hk6695-3_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/hk6695-4_1104x1104.jpg',
         ],
+        sizeQuantity: [1],
     },
     {
         id: 100,
@@ -2907,5 +3005,6 @@ export const PRODUCTS: Product[] = [
             'https://img.brandshop.ru/cache/products/h/h62576-4_1104x1104.jpg',
             'https://img.brandshop.ru/cache/products/h/h62576-5_1104x1104.jpg',
         ],
+        sizeQuantity: [5],
     },
 ];

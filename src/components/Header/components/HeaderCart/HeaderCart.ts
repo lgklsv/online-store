@@ -1,3 +1,4 @@
+import { productsCartData } from '../../../../const/store';
 import { createElem } from '../../../../utils/create-element';
 import styles from './HeaderCart.module.scss';
 import { router } from '../../../../utils/router';
@@ -18,7 +19,7 @@ export const renderHeaderCart = (): HTMLElement => {
 
     const cartCounter: HTMLElement = createElem('div', styles['header_cart-counter']);
     const counterProduct: HTMLElement = createElem('span', styles['cart-counter']);
-    counterProduct.innerHTML = '1';
+    counterProduct.innerHTML = String(productsCartData.count);
 
     cartWrapper.append(cartLink);
 

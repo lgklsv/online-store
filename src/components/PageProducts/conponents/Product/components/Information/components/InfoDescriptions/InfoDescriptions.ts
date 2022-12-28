@@ -1,4 +1,5 @@
 import { createElem } from '../../../../../../../../utils/create-element';
+import { newNameProduct } from '../../../../../../../../utils/edit-name-products';
 import { newPrice } from '../../../../../../../../utils/edit-price';
 import styles from './InfoDescriptions.module.scss';
 
@@ -80,4 +81,16 @@ export const renderPriceProducts = (product: ExtendedProduct): HTMLElement => {
     }
 
     return productPrice;
+};
+
+export const renderTitle = (product: ExtendedProduct): HTMLElement => {
+    const headerWrapper: HTMLElement = createElem('div', styles['product-page__header-wrapper']);
+    const headerProduct: HTMLElement = createElem('h1', styles['product-page__header']);
+    headerProduct.innerHTML = product.brand;
+    const descrProduct: HTMLElement = createElem('h3', styles['product-page__header-descrip']);
+    descrProduct.innerHTML = `${product.sex}  ${product.category} ${newNameProduct(product.brand, product.title)}`;
+
+    headerWrapper.append(headerProduct, descrProduct);
+
+    return headerWrapper;
 };

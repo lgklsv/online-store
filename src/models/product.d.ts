@@ -13,7 +13,8 @@ interface Product {
     category: string;
     thumbnail: string;
     images: string[];
-    [key: string]: string | number | string[];
+    sizeQuantity: number[];
+    [key: string]: string | number | string[] | number[] | SizeQuantity;
 }
 
 interface ProductProps {
@@ -24,4 +25,15 @@ interface ProductProps {
 interface ExtendedProduct extends Product {
     discountPrice: number;
     search: string;
+    // sizeQuantity: number[];
+}
+
+interface HelperSize {
+    activSize: string;
+    countSizeProducts: number;
+    sizeForData: string;
+}
+
+interface SizeQuantity {
+    [key: string]: number;
 }
