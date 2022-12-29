@@ -39,6 +39,8 @@ export const renderProduct = (product: ExtendedProduct) => {
     const productImg: HTMLElement = createElem('div', 'product-card__image');
     const img: HTMLElement = createElem('img', 'image-product');
     img.setAttribute('src', product.thumbnail);
+    img.setAttribute('alt', product.title);
+
     productImg.append(img);
 
     // описание товара
