@@ -1,7 +1,10 @@
 import { getLocalStorage } from '../utils/local-storage';
 import { LOCAL_STORAGE_KEYS } from './local-storage';
 
-export const promocodeStorage: string[] = getLocalStorage(LOCAL_STORAGE_KEYS.PROMOCODES) ?? [];
+export const promocodeStorage: PromocodesData = getLocalStorage(LOCAL_STORAGE_KEYS.PROMOCODES) ?? {
+    promo: [],
+    discount: 0,
+};
 
 export const PROMOCODES_NAMES = {
     RS: 'RS',

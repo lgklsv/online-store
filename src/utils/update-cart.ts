@@ -22,7 +22,7 @@ export const updateСartItemsContainer = (): void => {
     updateComponent(parent, ...(updatedCheckout as HTMLElement[]));
 };
 
-export const updateTotalSumm = (sum: string, total?: string): void => {
+export const updateTotalSumm = (sum: string, total?: string, secondChild?: HTMLElement): void => {
     const parent = document.querySelector('.cart__checkout') as HTMLElement;
 
     const checkoutQty: HTMLElement = renderCartCheckoutReceipt('Количество', `${productsCartData.count}`, false);
@@ -33,6 +33,7 @@ export const updateTotalSumm = (sum: string, total?: string): void => {
 
     const updatedCheckout = [
         parent.firstChild as ChildNode,
+        secondChild ?? (parent.childNodes[1] as ChildNode), // добавила новый блок с купонами
         checkoutQty,
         checkoutSum,
         checkoutTotal,

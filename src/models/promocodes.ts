@@ -2,10 +2,9 @@ interface Promocodes {
     [key: string]: string[];
 }
 
-// interface PromocodesData {
-//     discount: number;
-//     fullmane: string;
-//     applied: boolean;
-// }
+interface PromocodesData {
+    promo: string[];
+    discount: number;
+}
 
 type PromoDiscount = ValueOf<typeof import('../const/promocodes').PROMOCODES_NAMES>;
