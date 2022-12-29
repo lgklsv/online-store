@@ -1,4 +1,3 @@
-// import { PROMOCODES_DISCOUNT, PROMOCODES_NAMES } from '../../../const/promocodes';
 import { promocodeStorage } from '../../../const/promocodes';
 import { productsCartData } from '../../../const/store';
 import { calcAmountCart, calcDiscount } from '../../../utils/calculate-amount-cart';
@@ -51,7 +50,6 @@ export const renderCartCheckout = (): HTMLElement => {
         `${calcAmountCart(productsCartData.productsInCart)} ₽`,
         true
     ); // Данные будут рассчитываться с учетом промокода
-    // TODO - добавить функцию учета скидки!
 
     // проверка на данные о купонах
     if (promocodeStorage.promo.length !== 0) {

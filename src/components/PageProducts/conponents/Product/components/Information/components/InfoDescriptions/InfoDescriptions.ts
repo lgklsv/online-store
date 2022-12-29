@@ -1,4 +1,3 @@
-import { productsCartData } from '../../../../../../../../const/store';
 import { createElem } from '../../../../../../../../utils/create-element';
 import { newNameProduct } from '../../../../../../../../utils/edit-name-products';
 import { newPrice } from '../../../../../../../../utils/edit-price';
@@ -6,17 +5,12 @@ import styles from './InfoDescriptions.module.scss';
 
 export const renderInformationAboutProducts = (product: ExtendedProduct): HTMLElement => {
     // наличие
-    console.log(product, productsCartData);
     const productData: HTMLElement = createElem('div', styles['product-page__data']);
     const productDataStock: HTMLElement = createElem('div', styles['product-page__data-item']);
     const dataStockTitle: HTMLElement = createElem('div', styles['product-page__data-item-title']);
     dataStockTitle.innerHTML = 'В наличии';
     const dataStockValue: HTMLElement = createElem('div', styles['product-page__data-item-value']);
-    // dataStockValue.innerHTML = String(product.sizeQuantity[0]);
     dataStockValue.innerHTML = String(product.stock);
-
-    // TODO - необходимо получить данные о товаре в локал, чтобы если они совпали,
-    // добавляем информацию о наличии товара первого размера
 
     productDataStock.append(dataStockTitle, dataStockValue);
 

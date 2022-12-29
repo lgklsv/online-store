@@ -1,6 +1,7 @@
 import { getLocalStorage } from '../utils/local-storage';
 import { LOCAL_STORAGE_KEYS } from './local-storage';
 
+/** Глобальный объект, который передает данные о промокодах в local storage */
 export const promocodeStorage: PromocodesData = getLocalStorage(LOCAL_STORAGE_KEYS.PROMOCODES) ?? {
     promo: [],
     discount: 0,

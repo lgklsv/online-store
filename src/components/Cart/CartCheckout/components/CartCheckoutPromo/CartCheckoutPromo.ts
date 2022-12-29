@@ -18,7 +18,7 @@ export const renderCartCheckoutPromo = (
         addPromocodes(promoWrap);
     }
 
-    let promoData = '';
+    let promoData: string = '';
 
     input.oninput = () => {
         let valueInput: string = input.value.toLocaleLowerCase().trim();
@@ -28,7 +28,6 @@ export const renderCartCheckoutPromo = (
                 title.innerHTML = `${key}  –${PROMOCODES_DISCOUNT[value]}%`;
                 buttom.removeAttribute('disabled');
                 promoData = value;
-                console.log(promoData);
                 return;
             }
             if (valueInput === '') {
@@ -45,11 +44,8 @@ export const renderCartCheckoutPromo = (
         });
 
         if (!findedPromocode) {
-            console.log('НЕТ СОВПАДЕНИЙ');
-
             //изменяем глобальный объект
             promocodeStorage.promo.push(promoData);
-            console.log(PROMOCODES_DISCOUNT[promoData as PromoDiscount]);
             promocodeStorage.discount = promocodeStorage.discount + PROMOCODES_DISCOUNT[promoData as PromoDiscount];
 
             // обновляем локальное хранилище
@@ -64,12 +60,11 @@ export const renderCartCheckoutPromo = (
         }
 
         if (findedPromocode) {
-            console.log('СОВПАДЕНИЕ ЕСТЬ! ЕСТЬ ПОПАДАНИЕ');
-            // addPromocodes(promoWrap);
-            // можно не обновлять блок!
+            title.innerHTML = 'Промокод уже активирован';
+            setTimeout(() => {
+                title.innerHTML = '';
+            }, 2000);
         }
-
-        console.log('Я нажала на кнопочку', promocodeStorage);
     };
 
     return promoWrap;
@@ -77,6 +72,7 @@ export const renderCartCheckoutPromo = (
 
 export const addPromocodes = (parent: HTMLElement): void => {
     parent.innerHTML = '';
+
     promocodeStorage.promo.forEach((promo) => {
         const promoBlock: HTMLElement = createElem('div', 'checkout-coupon__promo');
         const promoName: HTMLElement = createElem('div', 'checkout-coupon__promo-name');
@@ -86,13 +82,12 @@ export const addPromocodes = (parent: HTMLElement): void => {
         promoDelete.innerHTML = 'Удалить';
 
         promoDelete.onclick = (event) => {
-            let index = 0;
+            let index: number = 0;
             const findedPromo = promocodeStorage.promo.find((promo, i) => {
                 index = i; // получаем индекс найденного товара в массиве
                 return (event.target as HTMLElement).id == promo;
             });
 
-            console.log(findedPromo, index);
             promocodeStorage.discount -= PROMOCODES_DISCOUNT[findedPromo as PromoDiscount];
             promocodeStorage.promo.splice(index, 1); // удаляем товар из массива
             setLocalStorage(promocodeStorage, LOCAL_STORAGE_KEYS.PROMOCODES);

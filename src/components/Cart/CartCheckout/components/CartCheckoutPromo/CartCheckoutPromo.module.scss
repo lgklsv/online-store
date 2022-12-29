@@ -1,7 +1,6 @@
 @import '/src/theme/variable';
 
 .checkout-coupon__wrapper {
-    // display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
@@ -10,7 +9,6 @@
 .checkout-coupon__promo {
     display: flex;
     align-items: center;
-    // justify-content: center;
     width: 100%;
     gap: 0rem;
     justify-content: flex-start;

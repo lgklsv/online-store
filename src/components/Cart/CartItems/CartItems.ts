@@ -88,7 +88,6 @@ export const renderCartItems = (): HTMLElement => {
             itemCounterQty.innerHTML = String(findedProduct.quantity);
             itemQuaintity.innerHTML = `На складе: ${Number(PRODUCTS.remainder) - findedProduct.quantity}`;
 
-            // обновить цену товара
             const updatedItem = [
                 itemLink,
                 itemQuaintityContainer,
