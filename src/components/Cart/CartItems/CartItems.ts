@@ -39,14 +39,23 @@ export const renderCartItems = (): HTMLElement => {
 
         // Название товара
         const itemTitleContainer: HTMLElement = createElem('div', 'cart-item__heading');
+
         const itemBrand: HTMLElement = createElem('h2', 'cart-item__brand');
         itemBrand.innerHTML = `${PRODUCTS.product.brand}`;
         const itemTitle: HTMLElement = createElem('p', 'cart-item__title');
         itemTitle.innerHTML = `${newNameProduct(PRODUCTS.product.brand, PRODUCTS.product.title)}`;
+
+        // Размер товара
+        const info: HTMLElement = createElem('div', 'cart-item__info-container');
+
         const itemSize: HTMLElement = createElem('p', 'cart-item__size');
         itemSize.innerHTML = `Размер: ${PRODUCTS.size}`;
 
-        itemTitleContainer.append(itemBrand, itemTitle, itemSize);
+        const productRating = createElem('div', 'cart-item__raiting');
+        productRating.innerHTML = 'Рейтинг:' + String(PRODUCTS.product.rating);
+
+        info.append(itemSize, productRating);
+        itemTitleContainer.append(itemBrand, itemTitle, info);
 
         itemLink.append(itemNumber, itemImage, itemTitleContainer);
 
