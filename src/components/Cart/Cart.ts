@@ -2,6 +2,7 @@ import { LOCAL_STORAGE_KEYS } from '../../const/local-storage';
 import { productsCartData } from '../../const/store';
 import { calcAmountCart } from '../../utils/calculate-amount-cart';
 import { createElem } from '../../utils/create-element';
+import { getCartPage } from '../../utils/get-cart-page';
 import { updateHeader } from '../../utils/update-cart';
 import styles from './Cart.module.scss';
 import { renderCartCheckout } from './CartCheckout/CartCheckout';
@@ -11,6 +12,7 @@ import { renderCheckoutModal } from './CheckoutModal/CheckoutModal';
 import { toggleModal } from './CheckoutModal/components/ToggleModal';
 import { renderLimits } from './Pagination/components/Limits/Limits';
 import { renderPagination } from './Pagination/Pagination';
+import { pagination } from '../../const/store';
 
 export const renderCartPage = (): HTMLElement => {
     const main: HTMLElement = createElem('main', 'main');
@@ -25,9 +27,14 @@ export const renderCartPage = (): HTMLElement => {
     cartHeading.innerHTML = 'Товары в корзине';
 
     const cartTools: HTMLElement = createElem('div', 'cart__tools');
+    const limitContainer: HTMLElement = renderLimits(pagination.limit);
 
-    const limitContainer: HTMLElement = renderLimits(5);
-    const paginationContainer: HTMLElement = renderPagination(1);
+    const paginationEl: HTMLElement = createElem('div', 'cart__pagination');
+    const paginationContainer: HTMLElement = renderPagination(
+        pagination.page,
+        Math.ceil(productsCartData.productsInCart.length / pagination.limit)
+    );
+    paginationEl.append(paginationContainer);
 
     const cartDeleteAllBtn: HTMLElement = createElem('p', 'cart__delete-all-btn');
     cartDeleteAllBtn.innerHTML = 'Удалить все';
@@ -44,11 +51,13 @@ export const renderCartPage = (): HTMLElement => {
         updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
     };
 
-    cartTools.append(limitContainer, paginationContainer, cartDeleteAllBtn);
+    cartTools.append(limitContainer, paginationEl, cartDeleteAllBtn);
 
     cartHeadingContainer.append(cartHeading, cartTools);
 
-    const cartItems: HTMLElement = renderCartItems();
+    const cartItems: HTMLElement = renderCartItems(
+        getCartPage(productsCartData.productsInCart, pagination.page, pagination.limit)
+    );
 
     cartItemsContainer.append(cartHeadingContainer, cartItems);
 

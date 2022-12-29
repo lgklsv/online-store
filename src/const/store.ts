@@ -40,3 +40,8 @@ export const productsCartData: Cart = getLocalStorage(LOCAL_STORAGE_KEYS.PRODUCT
     productsInCart: [],
     count: 0,
 };
+
+export const pagination: Pagination = {
+    limit: 5,
+    page: 1,
+};

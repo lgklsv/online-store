@@ -11,8 +11,11 @@ import { calcAmountCart } from '../../../utils/calculate-amount-cart';
 import { updateHeader } from '../../../utils/update-cart';
 import { updateComponent } from '../../../utils/update-component';
 import { renderCartCheckoutReceipt } from '../CartCheckout/components/CartCheckoutReceipt/CartCheckoutReceipt';
+import { getCartPage } from '../../../utils/get-cart-page';
+import { pagination } from '../../../const/store';
+import { updatedPaginationBtns } from '../Pagination/components/PaginationBtns/components/update-paginaiton-btns';
 
-export const renderCartItems = (): HTMLElement => {
+export const renderCartItems = (curPageItems: CartData[]): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
 
     if (productsCartData.count === 0) {
@@ -20,7 +23,7 @@ export const renderCartItems = (): HTMLElement => {
         return cartItems;
     }
 
-    productsCartData.productsInCart.forEach((PRODUCTS, i) => {
+    curPageItems.forEach((PRODUCTS, i) => {
         const item: HTMLElement = createElem('div', 'cart-item');
 
         // Ссылка на товар
@@ -114,7 +117,7 @@ export const renderCartItems = (): HTMLElement => {
             itemCounterQty.innerHTML = String(findedProduct.quantity);
             plusBtn.removeAttribute('disabled');
             itemQuaintity.classList.remove('quaintity-remainder');
-            
+
             productsCartData.count--;
 
             if (findedProduct.quantity === 0) {
@@ -130,6 +133,7 @@ export const renderCartItems = (): HTMLElement => {
             setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
             updateHeader(productsCartData.count, productsCartData.productsInCart);
             updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
+            updatedPaginationBtns();
         };
 
         item.append(itemLink, itemQuaintityContainer, itemPrice);
@@ -142,7 +146,9 @@ export const renderCartItems = (): HTMLElement => {
 export const updateСartItemsContainer = (): void => {
     const parent = document.querySelector('.cart__items-container') as HTMLElement;
 
-    const cartItems: HTMLElement = renderCartItems();
+    const cartItems: HTMLElement = renderCartItems(
+        getCartPage(productsCartData.productsInCart, pagination.page, pagination.limit)
+    );
 
     const updatedCheckout = [parent.firstChild as ChildNode, cartItems];
 

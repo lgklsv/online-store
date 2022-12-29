@@ -7,3 +7,9 @@
     border-radius: 50%;
     padding: 0;
 }
+
+.disabled {
+    pointer-events: none;
+    background-color: $primaty-5;
+    color: $light-grey;
+}
