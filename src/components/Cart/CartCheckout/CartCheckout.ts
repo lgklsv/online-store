@@ -1,6 +1,7 @@
 // import { PROMOCODES_DISCOUNT, PROMOCODES_NAMES } from '../../../const/promocodes';
+import { promocodeStorage } from '../../../const/promocodes';
 import { productsCartData } from '../../../const/store';
-import { calcAmountCart } from '../../../utils/calculate-amount-cart';
+import { calcAmountCart, calcDiscount } from '../../../utils/calculate-amount-cart';
 import { createElem } from '../../../utils/create-element';
 import { createInput } from '../../../utils/create-input-element';
 import { toggleModal } from '../CheckoutModal/components/ToggleModal';
@@ -43,14 +44,21 @@ export const renderCartCheckout = (): HTMLElement => {
         'Сумма',
         `${calcAmountCart(productsCartData.productsInCart)} ₽`,
         false
-    ); // Данные будут приходить из обекта товаров корзины
+    );
 
-    const checkoutTotal: HTMLElement = renderCartCheckoutReceipt(
+    let checkoutTotal: HTMLElement = renderCartCheckoutReceipt(
         'Итого',
         `${calcAmountCart(productsCartData.productsInCart)} ₽`,
         true
     ); // Данные будут рассчитываться с учетом промокода
     // TODO - добавить функцию учета скидки!
+
+    // проверка на данные о купонах
+    if (promocodeStorage.promo.length !== 0) {
+        const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+        (checkoutSum.lastChild as HTMLElement).classList.add('old-price');
+        checkoutTotal = renderCartCheckoutReceipt('Итого', calcDiscount(total, promocodeStorage.discount), true);
+    }
 
     const checkoutBtn: HTMLElement = createElem('button', 'cart__checkout-btn');
     checkoutBtn.innerHTML = 'Оформить заказ';

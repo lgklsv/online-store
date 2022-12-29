@@ -7,9 +7,10 @@ import { newNameProduct } from '../../../utils/edit-name-products';
 import { setLocalStorage } from '../../../utils/local-storage';
 import { LOCAL_STORAGE_KEYS } from '../../../const/local-storage';
 import { findProduct } from '../../../utils/find-products';
-import { calcAmountCart } from '../../../utils/calculate-amount-cart';
+import { calcAmountCart, calcDiscount } from '../../../utils/calculate-amount-cart';
 import { updateHeader, updateTotalSumm, updateСartItemsContainer } from '../../../utils/update-cart';
 import { updateComponent } from '../../../utils/update-component';
+import { promocodeStorage } from '../../../const/promocodes';
 
 export const renderCartItems = (): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
@@ -98,7 +99,9 @@ export const renderCartItems = (): HTMLElement => {
 
             updateComponent(item, ...updatedItem);
             updateHeader(productsCartData.count, productsCartData.productsInCart);
-            updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
+
+            const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+            updateTotalSumm(`${total} ₽`, calcDiscount(total, promocodeStorage.discount));
         };
 
         minusBtn.onclick = () => {
@@ -132,7 +135,9 @@ export const renderCartItems = (): HTMLElement => {
 
             updateComponent(item, ...updatedItem);
             updateHeader(productsCartData.count, productsCartData.productsInCart);
-            updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
+
+            const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+            updateTotalSumm(`${total} ₽`, calcDiscount(total, promocodeStorage.discount));
         };
 
         item.append(itemLink, itemQuaintityContainer, itemPrice);

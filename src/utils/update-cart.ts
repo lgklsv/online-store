@@ -1,5 +1,6 @@
 import { renderCartCheckoutReceipt } from '../components/Cart/CartCheckout/components/CartCheckoutReceipt/CartCheckoutReceipt';
 import { renderCartItems } from '../components/Cart/CartItems/CartItems';
+import { promocodeStorage } from '../const/promocodes';
 import { productsCartData } from '../const/store';
 import { calcAmountCart } from './calculate-amount-cart';
 import { updateComponent } from './update-component';
@@ -28,6 +29,10 @@ export const updateTotalSumm = (sum: string, total?: string, secondChild?: HTMLE
     const checkoutQty: HTMLElement = renderCartCheckoutReceipt('Количество', `${productsCartData.count}`, false);
 
     const checkoutSum: HTMLElement = renderCartCheckoutReceipt('Сумма', sum, false); // Данные будут приходить из обекта товаров корзины
+
+    if (promocodeStorage.promo.length !== 0) {
+        (checkoutSum.lastChild as HTMLElement).classList.add('old-price');
+    }
 
     const checkoutTotal: HTMLElement = renderCartCheckoutReceipt('Итого', total ?? sum, true); // Данные будут рассчитываться с учетом промокода
 
