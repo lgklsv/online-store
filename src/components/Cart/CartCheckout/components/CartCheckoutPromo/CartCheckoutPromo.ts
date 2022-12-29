@@ -15,7 +15,6 @@ export const renderCartCheckoutPromo = (
     const promoWrap: HTMLElement = createElem('div', styles['checkout-coupon__wrapper']);
 
     if (promocodeStorage.promo.length !== 0) {
-        console.log('данные есть в массиве');
         addPromocodes(promoWrap);
     }
 
@@ -80,7 +79,32 @@ export const addPromocodes = (parent: HTMLElement): void => {
     parent.innerHTML = '';
     promocodeStorage.promo.forEach((promo) => {
         const promoBlock: HTMLElement = createElem('div', 'checkout-coupon__promo');
-        promoBlock.innerHTML = `${promo}`;
+        const promoName: HTMLElement = createElem('div', 'checkout-coupon__promo-name');
+        const promoDisc: HTMLElement = createElem('div', 'checkout-coupon__promo-discount');
+        const promoDelete: HTMLElement = createElem('div', 'checkout-coupon__promo-delete');
+        promoDelete.setAttribute('id', `${promo}`);
+        promoDelete.innerHTML = 'Удалить';
+
+        promoDelete.onclick = (event) => {
+            let index = 0;
+            const findedPromo = promocodeStorage.promo.find((promo, i) => {
+                index = i; // получаем индекс найденного товара в массиве
+                return (event.target as HTMLElement).id == promo;
+            });
+
+            console.log(findedPromo, index);
+            promocodeStorage.discount -= PROMOCODES_DISCOUNT[findedPromo as PromoDiscount];
+            promocodeStorage.promo.splice(index, 1); // удаляем товар из массива
+            setLocalStorage(promocodeStorage, LOCAL_STORAGE_KEYS.PROMOCODES);
+
+            const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+            updateTotalSumm(`${total} ₽`, calcDiscount(total, promocodeStorage.discount));
+            addPromocodes(parent);
+        };
+
+        promoName.innerHTML = `${promo}`;
+        promoDisc.innerHTML = `– ${PROMOCODES_DISCOUNT[promo as PromoDiscount]}%`;
+        promoBlock.append(promoName, promoDisc, promoDelete);
         parent.append(promoBlock);
     });
 };
