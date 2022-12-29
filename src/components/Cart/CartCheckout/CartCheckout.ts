@@ -1,28 +1,41 @@
+// import { PROMOCODES_DISCOUNT, PROMOCODES_NAMES } from '../../../const/promocodes';
 import { productsCartData } from '../../../const/store';
 import { calcAmountCart } from '../../../utils/calculate-amount-cart';
 import { createElem } from '../../../utils/create-element';
 import { createInput } from '../../../utils/create-input-element';
 import { toggleModal } from '../CheckoutModal/components/ToggleModal';
 import styles from './CartCheckout.scss';
+import { renderCartCheckoutPromo } from './components/CartCheckoutPromo/CartCheckoutPromo';
 import { renderCartCheckoutReceipt } from './components/CartCheckoutReceipt/CartCheckoutReceipt';
 
 export const renderCartCheckout = (): HTMLElement => {
     const cartCheckout: HTMLElement = createElem('div', styles['cart__checkout']);
 
     const checkoutCoupon: HTMLElement = createElem('div', 'checkout-coupon');
+    const couponTitleWrap: HTMLElement = createElem('p', 'checkout-coupon__title-wrapper');
+
     const couponTitle: HTMLElement = createElem('p', 'checkout-coupon__title');
     couponTitle.innerHTML = 'Промокод';
 
+    const couponPromo: HTMLElement = createElem('p', 'checkout-coupon__title');
+    couponPromo.innerHTML = ''; // блок для вывода сообщения о найденном промокоде при совпадении значений
+
+    couponTitleWrap.append(couponTitle, couponPromo);
+
     const couponBody: HTMLElement = createElem('div', 'checkout-coupon__body');
 
-    const couponInput: HTMLElement = createInput('text', 'checkout-coupon__input');
+    const couponInput: HTMLInputElement = createInput('text', 'checkout-coupon__input');
     couponInput.setAttribute('placeholder', 'Введите промокод');
 
     const couponBtn: HTMLElement = createElem('button', 'checkout-coupon__btn');
     couponBtn.innerHTML = 'Применить';
+    couponBtn.setAttribute('disabled', 'true'); // делаем кнопку неактивной
+
+    // облочка для блока с промокодами
+    const promoWrap = renderCartCheckoutPromo(couponInput, couponPromo, couponBtn);
 
     couponBody.append(couponInput, couponBtn);
-    checkoutCoupon.append(couponTitle, couponBody);
+    checkoutCoupon.append(couponTitleWrap, couponBody);
 
     const checkoutQty: HTMLElement = renderCartCheckoutReceipt('Количество', `${productsCartData.count}`, false);
 
@@ -48,7 +61,7 @@ export const renderCartCheckout = (): HTMLElement => {
         toggleModal(modal, overlay);
     };
 
-    cartCheckout.append(checkoutCoupon, checkoutQty, checkoutSum, checkoutTotal, checkoutBtn);
+    cartCheckout.append(checkoutCoupon, promoWrap, checkoutQty, checkoutSum, checkoutTotal, checkoutBtn);
 
     return cartCheckout;
 };
