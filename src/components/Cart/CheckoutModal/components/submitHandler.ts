@@ -6,6 +6,7 @@ import { validateCardNumber } from './Validators/validateCardNumber';
 import { validateExpDate } from './Validators/validateExpDate';
 import { validateCvc } from './Validators/validateCvc';
 import { createElem } from '../../../../utils/create-element';
+import { productsCartData } from '../../../../const/store';
 
 export const onSubmitCheckout = (e: Event): void => {
     e.preventDefault();
@@ -51,6 +52,9 @@ export const onSubmitCheckout = (e: Event): void => {
         validateCvc(paymentSystem, cardCvc)
     ) {
         // TODO clean cart
+        localStorage.clear();
+        productsCartData.productsInCart = [];
+        productsCartData.count = 0;
 
         // render success page
         const modal = document.querySelector('.checkout-modal') as HTMLElement;
