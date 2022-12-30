@@ -13,6 +13,7 @@ import { updateComponent } from '../../../utils/update-component';
 import { pagination } from '../../../const/store';
 import { updatePaginationBtns } from '../Pagination/components/PaginationBtns/components/update-paginaiton-btns';
 import { promocodeStorage } from '../../../const/promocodes';
+import { formatPriceNum } from '../../../utils/format-price';
 
 export const renderCartItems = (curPageItems: CartData[]): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
@@ -114,12 +115,12 @@ export const renderCartItems = (curPageItems: CartData[]): HTMLElement => {
             updateComponent(item, ...updatedItem);
             updateHeader(productsCartData.count, productsCartData.productsInCart);
 
-            const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
-            updateTotalSumm(`${total} ₽`, calcDiscount(total, promocodeStorage.discount));
+            let total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+            total = total.replace(' ', '');
+            updateTotalSumm(`${formatPriceNum(total)} ₽`, calcDiscount(total, promocodeStorage.discount));
         };
 
         minusBtn.onclick = () => {
-            productsCartData.count--;
             let index = 0;
 
             const findedProduct = productsCartData.productsInCart.find((data, i) => {
@@ -155,9 +156,10 @@ export const renderCartItems = (curPageItems: CartData[]): HTMLElement => {
 
             updateComponent(item, ...updatedItem);
             updateHeader(productsCartData.count, productsCartData.productsInCart);
-            
-            const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
-            updateTotalSumm(`${total} ₽`, calcDiscount(total, promocodeStorage.discount));
+
+            let total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+            total = total.replace(' ', '');
+            updateTotalSumm(`${formatPriceNum(total)} ₽`, calcDiscount(total, promocodeStorage.discount));
             updatePaginationBtns();
         };
 
