@@ -53,7 +53,9 @@ export const renderCartCheckout = (): HTMLElement => {
 
     // проверка на данные о купонах
     if (promocodeStorage.promo.length !== 0) {
-        const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+        let total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+        console.log(total);
+        total = total.replace(' ', '');
         (checkoutSum.lastChild as HTMLElement).classList.add('old-price');
         checkoutTotal = renderCartCheckoutReceipt('Итого', calcDiscount(total, promocodeStorage.discount), true);
     }
@@ -61,7 +63,7 @@ export const renderCartCheckout = (): HTMLElement => {
     const checkoutBtn: HTMLElement = createElem('button', 'cart__checkout-btn');
     checkoutBtn.innerHTML = 'Оформить заказ';
 
-    checkoutBtn.onclick = (e: Event): void => {
+    checkoutBtn.onclick = (): void => {
         const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
         const modal = document.querySelector('.checkout-modal') as HTMLElement;
         toggleModal(modal, overlay);

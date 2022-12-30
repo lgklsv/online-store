@@ -55,8 +55,8 @@ export const renderCartCheckoutPromo = (
 
             // изменяем общую сумму корзины
             let total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
-            console.log(total);
             total = total.replace(' ', '');
+            
             updateTotalSumm(`${formatPriceNum(total)} ₽`, calcDiscount(total, promocodeStorage.discount), promoWrap);
 
             return;
@@ -96,9 +96,8 @@ export const addPromocodes = (parent: HTMLElement): void => {
             setLocalStorage(promocodeStorage, LOCAL_STORAGE_KEYS.PROMOCODES);
 
             let total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
-            console.log(total);
             total = total.replace(' ', '');
-            console.log(total);
+
             updateTotalSumm(`${formatPriceNum(total)} ₽`, calcDiscount(total, promocodeStorage.discount));
             addPromocodes(parent);
         };
