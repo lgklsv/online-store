@@ -6,6 +6,7 @@ import { validateCardNumber } from './Validators/validateCardNumber';
 import { validateExpDate } from './Validators/validateExpDate';
 import { validateCvc } from './Validators/validateCvc';
 import { createElem } from '../../../../utils/create-element';
+import { productsCartData } from '../../../../const/store';
 
 export const onSubmitCheckout = (e: Event): void => {
     e.preventDefault();
@@ -50,7 +51,10 @@ export const onSubmitCheckout = (e: Event): void => {
         validateExpDate(expNum) &&
         validateCvc(paymentSystem, cardCvc)
     ) {
-        // TODO clean cart
+        // clean cart
+        localStorage.clear();
+        productsCartData.productsInCart = [];
+        productsCartData.count = 0;
 
         // render success page
         const modal = document.querySelector('.checkout-modal') as HTMLElement;
@@ -59,6 +63,8 @@ export const onSubmitCheckout = (e: Event): void => {
         heading.style.marginTop = '2rem';
         heading.innerHTML = 'Спасибо за заказ ヽ(•‿•)ノ На главную страницу через 3 сек';
         modal.append(heading);
+        const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
+        overlay.style.pointerEvents = 'none';
 
         let time = 3;
         setInterval((): void => {

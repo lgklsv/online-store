@@ -10,6 +10,7 @@ import { updateHeader } from '../../../../../../../../utils/update-cart';
 import { updateInfoProd } from '../../Information';
 import { helperForSize } from '../InfoSize/InfoSize';
 import styles from './InfoOrderProducts.module.scss';
+import { router } from '../../../../../../../../utils/router';
 
 export const renderOrderAddCart = (product: ExtendedProduct, size: string): ReturnElements => {
     const productActions: HTMLElement = createElem('div', styles['product-page__actions']);
@@ -61,6 +62,8 @@ export const renderProductQuantity = ({
 
     const productCartDescriptions: HTMLElement = createElem('span', styles[`product-${page}__cart-descriptions`]);
     productCartDescriptions.innerHTML = String(countProduct) + `${space}` + 'в корзине';
+
+    productCartDescriptions.onclick = (): void => router('/cart');
 
     productCartIconPlus.onclick = () => {
         const findedProduct = findProduct(product.id, activeSize) as CartData;

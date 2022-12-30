@@ -1,3 +1,5 @@
+import { formatPriceNum } from "./format-price";
+
 export const calcAmountCart = (array: CartData[]): string => {
     let summ = 0;
 
@@ -5,11 +7,11 @@ export const calcAmountCart = (array: CartData[]): string => {
         summ += product.product.discountPrice * product.quantity;
     });
 
-    return String(summ);
+    return formatPriceNum(summ);
 };
 
 export const calcDiscount = (total: string | number, discount: string | number): string => {
     const percent = Math.floor(Number(total) / 100) * Number(discount);
 
-    return String(Number(total) - percent) + '₽';
+    return formatPriceNum(Number(total) - percent) + ' ₽';
 };

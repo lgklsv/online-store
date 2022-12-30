@@ -16,7 +16,7 @@ export const renderHeader = (): HTMLElement => {
     storeName.append(storeLogoLink);
 
     const totalSumm: HTMLElement = createElem('div', 'header__total-summ');
-    const summHeader: HTMLElement = createElem('div', styles['total-summ__header']);
+    const summHeader: HTMLElement = createElem('div', 'total-summ__header');
     summHeader.innerHTML = 'Сумма корзины';
 
     const summ: HTMLElement = createElem('div', 'total-summ__num');

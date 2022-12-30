@@ -10,9 +10,12 @@ import { findProduct } from '../../../utils/find-products';
 import { calcAmountCart, calcDiscount } from '../../../utils/calculate-amount-cart';
 import { updateHeader, updateTotalSumm, updateСartItemsContainer } from '../../../utils/update-cart';
 import { updateComponent } from '../../../utils/update-component';
+import { pagination } from '../../../const/store';
+import { updatePaginationBtns } from '../Pagination/components/PaginationBtns/components/update-paginaiton-btns';
 import { promocodeStorage } from '../../../const/promocodes';
+import { formatPriceNum } from '../../../utils/format-price';
 
-export const renderCartItems = (): HTMLElement => {
+export const renderCartItems = (curPageItems: CartData[]): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
 
     if (productsCartData.count === 0) {
@@ -20,7 +23,7 @@ export const renderCartItems = (): HTMLElement => {
         return cartItems;
     }
 
-    productsCartData.productsInCart.forEach((PRODUCTS, i) => {
+    curPageItems.forEach((PRODUCTS, i) => {
         const item: HTMLElement = createElem('div', 'cart-item');
 
         // Ссылка на товар
@@ -28,9 +31,11 @@ export const renderCartItems = (): HTMLElement => {
         itemLink.setAttribute('href', `/product/${PRODUCTS.product.id}`);
         itemLink.setAttribute('target', '_blank');
 
+        const itemIndex = i + 1 + (pagination.page - 1) * pagination.limit;
+
         // Номер товара в корзине
         const itemNumber: HTMLElement = createElem('div', 'cart-item__number');
-        itemNumber.innerHTML = (i + 1).toString();
+        itemNumber.innerHTML = itemIndex.toString();
 
         // Картинка товара
         const itemImage: HTMLElement = createElem('img', 'cart-item__image');
@@ -93,6 +98,8 @@ export const renderCartItems = (): HTMLElement => {
             }
 
             findedProduct.quantity++;
+            itemCounterQty.innerHTML = String(findedProduct.quantity);
+
             productsCartData.count++;
             itemCounterQty.innerHTML = String(findedProduct.quantity);
             itemQuaintity.innerHTML = `На складе: ${Number(PRODUCTS.remainder) - findedProduct.quantity}`;
@@ -108,12 +115,12 @@ export const renderCartItems = (): HTMLElement => {
             updateComponent(item, ...updatedItem);
             updateHeader(productsCartData.count, productsCartData.productsInCart);
 
-            const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
-            updateTotalSumm(`${total} ₽`, calcDiscount(total, promocodeStorage.discount));
+            let total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+            total = total.replace(' ', '');
+            updateTotalSumm(`${formatPriceNum(total)} ₽`, calcDiscount(total, promocodeStorage.discount));
         };
 
         minusBtn.onclick = () => {
-            productsCartData.count--;
             let index = 0;
 
             const findedProduct = productsCartData.productsInCart.find((data, i) => {
@@ -128,11 +135,17 @@ export const renderCartItems = (): HTMLElement => {
             plusBtn.removeAttribute('disabled'); //делаем кнопку увеличения активной
             itemQuaintity.classList.remove('quaintity-remainder');
 
+            productsCartData.count--;
+
             if (findedProduct.quantity === 0) {
                 productsCartData.productsInCart.splice(index, 1); // удаляем товар из массива
                 updateСartItemsContainer();
             }
 
+            item.innerHTML = '';
+            const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', findedProduct.quantity);
+            // здесь же можно обновить данные о кол-ве товара
+            item.append(itemLink, itemQuaintityContainer, itemPrice);
             const updatedItem = [
                 itemLink,
                 itemQuaintityContainer,
@@ -144,8 +157,10 @@ export const renderCartItems = (): HTMLElement => {
             updateComponent(item, ...updatedItem);
             updateHeader(productsCartData.count, productsCartData.productsInCart);
 
-            const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
-            updateTotalSumm(`${total} ₽`, calcDiscount(total, promocodeStorage.discount));
+            let total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+            total = total.replace(' ', '');
+            updateTotalSumm(`${formatPriceNum(total)} ₽`, calcDiscount(total, promocodeStorage.discount));
+            updatePaginationBtns();
         };
 
         item.append(itemLink, itemQuaintityContainer, itemPrice);

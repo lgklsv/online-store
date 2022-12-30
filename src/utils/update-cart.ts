@@ -4,6 +4,8 @@ import { promocodeStorage } from '../const/promocodes';
 import { productsCartData } from '../const/store';
 import { calcAmountCart } from './calculate-amount-cart';
 import { updateComponent } from './update-component';
+import { getCartPage } from './get-cart-page';
+import { pagination } from '../const/store';
 
 export const updateHeader = (newCount: number | string, array: CartData[]): void => {
     const counterProduct: HTMLElement = document.querySelector('.cart-counter') as HTMLElement;
@@ -16,7 +18,9 @@ export const updateHeader = (newCount: number | string, array: CartData[]): void
 export const updateСartItemsContainer = (): void => {
     const parent = document.querySelector('.cart__items-container') as HTMLElement;
 
-    const cartItems: HTMLElement = renderCartItems();
+    const cartItems: HTMLElement = renderCartItems(
+        getCartPage(productsCartData.productsInCart, pagination.page, pagination.limit)
+    );
 
     const updatedCheckout = [parent.firstChild as ChildNode, cartItems];
 

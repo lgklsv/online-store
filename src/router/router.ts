@@ -5,6 +5,10 @@ import { PATH_NAMES } from '../const/path-names';
 import { appliedFilters } from '../const/store';
 import { fromQueryString } from '../components/PageMain/components/QueryString/from-query-string';
 import { renderFiltered } from '../components/PageMain/components/Filter/filter';
+import { fromQueryStringToPag } from '../components/Cart/Pagination/components/QueryString/from-query-string-to-pag';
+import { updateCartItems } from '../components/Cart/Pagination/components/PaginationBtns/components/update-rendered-items';
+import { updatePaginationBtns } from '../components/Cart/Pagination/components/PaginationBtns/components/update-paginaiton-btns';
+import { updateLimits } from '../components/Cart/Pagination/components/PaginationBtns/components/update-limit-ui';
 
 /** Рендер темплейтов страниц */
 export const pathResolver = (pathname: string): void => {
@@ -28,6 +32,13 @@ export const pathResolver = (pathname: string): void => {
         fromQueryString(window.location.search);
         if (pathname === '/' && Object.entries(appliedFilters).length !== 0) {
             renderFiltered(appliedFilters);
+        }
+
+        if (pathname === '/cart') {
+            fromQueryStringToPag(window.location.search);
+            updateCartItems();
+            updatePaginationBtns();
+            updateLimits();
         }
     }
 };

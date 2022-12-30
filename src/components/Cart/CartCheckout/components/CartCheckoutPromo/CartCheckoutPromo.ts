@@ -3,6 +3,7 @@ import { promocodeStorage, PROMOCODES_DISCOUNT, PROMOCODES_NAMES } from '../../.
 import { productsCartData } from '../../../../../const/store';
 import { calcAmountCart, calcDiscount } from '../../../../../utils/calculate-amount-cart';
 import { createElem } from '../../../../../utils/create-element';
+import { formatPriceNum } from '../../../../../utils/format-price';
 import { setLocalStorage } from '../../../../../utils/local-storage';
 import { updateTotalSumm } from '../../../../../utils/update-cart';
 import styles from './CartCheckoutPromo.module.scss';
@@ -39,7 +40,7 @@ export const renderCartCheckoutPromo = (
 
     buttom.onclick = () => {
         // проверяем есть ли данный промокод в глобальнои объекте
-        const findedPromocode = promocodeStorage.promo.find((promocode) => {
+        const findedPromocode = promocodeStorage.promo.find((promocode: string) => {
             return promoData === promocode;
         });
 
@@ -53,8 +54,10 @@ export const renderCartCheckoutPromo = (
             addPromocodes(promoWrap);
 
             // изменяем общую сумму корзины
-            const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
-            updateTotalSumm(`${total} ₽`, calcDiscount(total, promocodeStorage.discount), promoWrap);
+            let total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+            total = total.replace(' ', '');
+            
+            updateTotalSumm(`${formatPriceNum(total)} ₽`, calcDiscount(total, promocodeStorage.discount), promoWrap);
 
             return;
         }
@@ -73,7 +76,7 @@ export const renderCartCheckoutPromo = (
 export const addPromocodes = (parent: HTMLElement): void => {
     parent.innerHTML = '';
 
-    promocodeStorage.promo.forEach((promo) => {
+    promocodeStorage.promo.forEach((promo: string) => {
         const promoBlock: HTMLElement = createElem('div', 'checkout-coupon__promo');
         const promoName: HTMLElement = createElem('div', 'checkout-coupon__promo-name');
         const promoDisc: HTMLElement = createElem('div', 'checkout-coupon__promo-discount');
@@ -81,9 +84,9 @@ export const addPromocodes = (parent: HTMLElement): void => {
         promoDelete.setAttribute('id', `${promo}`);
         promoDelete.innerHTML = 'Удалить';
 
-        promoDelete.onclick = (event) => {
+        promoDelete.onclick = (event: Event) => {
             let index: number = 0;
-            const findedPromo = promocodeStorage.promo.find((promo, i) => {
+            const findedPromo = promocodeStorage.promo.find((promo: string, i: number) => {
                 index = i; // получаем индекс найденного товара в массиве
                 return (event.target as HTMLElement).id == promo;
             });
@@ -92,8 +95,10 @@ export const addPromocodes = (parent: HTMLElement): void => {
             promocodeStorage.promo.splice(index, 1); // удаляем товар из массива
             setLocalStorage(promocodeStorage, LOCAL_STORAGE_KEYS.PROMOCODES);
 
-            const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
-            updateTotalSumm(`${total} ₽`, calcDiscount(total, promocodeStorage.discount));
+            let total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+            total = total.replace(' ', '');
+
+            updateTotalSumm(`${formatPriceNum(total)} ₽`, calcDiscount(total, promocodeStorage.discount));
             addPromocodes(parent);
         };
 
