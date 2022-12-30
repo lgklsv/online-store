@@ -45,14 +45,6 @@ export const renderOrderButton = (): HTMLElement => {
     return productCartLink;
 };
 
-interface RenderProductQuantity {
-    countProduct: number;
-    activeSize?: string;
-    product: ExtendedProduct;
-    onEmptyCount: () => void;
-    page: string;
-}
-
 export const renderProductQuantity = ({
     countProduct = 1,
     activeSize = helperForSize.sizeForData,
@@ -89,10 +81,6 @@ export const renderProductQuantity = ({
 
         findedProduct.quantity++;
 
-        // Отнимает значения в блоке отображения кол-ва товаров
-        // const a = document.querySelector('.product-page__data-item-value') as HTMLElement;
-        // a.innerHTML = `${Number(findedProduct.remainder) - findedProduct.quantity}`;
-
         productCartDescriptions.innerHTML = findedProduct.quantity + `${space}` + 'в корзине';
         setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
         updateHeader(productsCartData.count, productsCartData.productsInCart);
@@ -100,7 +88,6 @@ export const renderProductQuantity = ({
 
     productCartIconMinus.onclick = () => {
         productCartIconPlus.removeAttribute('disabled'); //делаем кнопку увеличения активной
-        // itemQuaintity.classList.remove('quaintity-remainder');
 
         let index = 0;
         const findedProduct = productsCartData.productsInCart.find((data, i) => {
