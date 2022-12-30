@@ -15,7 +15,6 @@ export const renderPagination = (curPage: number, numPages: number): HTMLElement
     }
     // last page
     else if (curPage === numPages && numPages > 1) {
-        console.log('here');
         leftBtn.classList.remove('disabled');
         rightBtn.classList.add('disabled');
     }

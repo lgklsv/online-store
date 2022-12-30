@@ -54,7 +54,6 @@ export const renderCartCheckout = (): HTMLElement => {
     // проверка на данные о купонах
     if (promocodeStorage.promo.length !== 0) {
         let total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
-        console.log(total);
         total = total.replace(' ', '');
         (checkoutSum.lastChild as HTMLElement).classList.add('old-price');
         checkoutTotal = renderCartCheckoutReceipt('Итого', calcDiscount(total, promocodeStorage.discount), true);
