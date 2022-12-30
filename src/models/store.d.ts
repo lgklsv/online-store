@@ -8,7 +8,7 @@ interface CartData {
     product: ExtendedProduct;
     size: string;
     quantity: number;
-    remainder?: number;
+    remainder: number;
 }
 
 interface Cart {

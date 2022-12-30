@@ -7,10 +7,10 @@ import { newNameProduct } from '../../../utils/edit-name-products';
 import { setLocalStorage } from '../../../utils/local-storage';
 import { LOCAL_STORAGE_KEYS } from '../../../const/local-storage';
 import { findProduct } from '../../../utils/find-products';
-import { calcAmountCart } from '../../../utils/calculate-amount-cart';
-import { updateHeader } from '../../../utils/update-cart';
+import { calcAmountCart, calcDiscount } from '../../../utils/calculate-amount-cart';
+import { updateHeader, updateTotalSumm, updateСartItemsContainer } from '../../../utils/update-cart';
 import { updateComponent } from '../../../utils/update-component';
-import { renderCartCheckoutReceipt } from '../CartCheckout/components/CartCheckoutReceipt/CartCheckoutReceipt';
+import { promocodeStorage } from '../../../const/promocodes';
 
 export const renderCartItems = (): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
@@ -39,14 +39,23 @@ export const renderCartItems = (): HTMLElement => {
 
         // Название товара
         const itemTitleContainer: HTMLElement = createElem('div', 'cart-item__heading');
+
         const itemBrand: HTMLElement = createElem('h2', 'cart-item__brand');
         itemBrand.innerHTML = `${PRODUCTS.product.brand}`;
         const itemTitle: HTMLElement = createElem('p', 'cart-item__title');
         itemTitle.innerHTML = `${newNameProduct(PRODUCTS.product.brand, PRODUCTS.product.title)}`;
+
+        // Размер товара
+        const info: HTMLElement = createElem('div', 'cart-item__info-container');
+
         const itemSize: HTMLElement = createElem('p', 'cart-item__size');
         itemSize.innerHTML = `Размер: ${PRODUCTS.size}`;
 
-        itemTitleContainer.append(itemBrand, itemTitle, itemSize);
+        const productRating = createElem('div', 'cart-item__raiting');
+        productRating.innerHTML = 'Рейтинг:' + String(PRODUCTS.product.rating);
+
+        info.append(itemSize, productRating);
+        itemTitleContainer.append(itemBrand, itemTitle, info);
 
         itemLink.append(itemNumber, itemImage, itemTitleContainer);
 
@@ -54,7 +63,7 @@ export const renderCartItems = (): HTMLElement => {
         const itemQuaintityContainer: HTMLElement = createElem('div', 'cart-item__quaintity-container');
 
         const itemQuaintity: HTMLElement = createElem('p', 'cart-item__quaintity');
-        itemQuaintity.innerHTML = `На складе: ${PRODUCTS.remainder}`;
+        itemQuaintity.innerHTML = `На складе: ${Number(PRODUCTS.remainder) - PRODUCTS.quantity}`;
 
         const itemCounter: HTMLElement = createElem('div', 'cart-item__counter');
 
@@ -71,39 +80,40 @@ export const renderCartItems = (): HTMLElement => {
 
         itemQuaintityContainer.append(itemQuaintity, itemCounter);
 
-        //цена товара
+        //Цена товара
         const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', PRODUCTS.quantity);
 
         plusBtn.onclick = () => {
             const findedProduct = findProduct(PRODUCTS.product.id, PRODUCTS.size) as CartData;
 
             if (findedProduct.quantity >= (findedProduct.remainder as number)) {
-                plusBtn.setAttribute('disabled', 'true');
-
-                itemQuaintity.classList.add('quaintity-remainder');
-                // TODO - изменять кол-во в строке на складе!!!
+                plusBtn.setAttribute('disabled', 'true'); // делаем кнопку неактивной
+                itemQuaintity.classList.add('quaintity-remainder'); // добавляем стиль
                 return;
             }
 
             findedProduct.quantity++;
-
-            itemCounterQty.innerHTML = String(findedProduct.quantity);
-
             productsCartData.count++;
+            itemCounterQty.innerHTML = String(findedProduct.quantity);
+            itemQuaintity.innerHTML = `На складе: ${Number(PRODUCTS.remainder) - findedProduct.quantity}`;
+
+            const updatedItem = [
+                itemLink,
+                itemQuaintityContainer,
+                renderProductPrice(PRODUCTS.product, 'cart', findedProduct.quantity),
+            ];
 
             setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
+
+            updateComponent(item, ...updatedItem);
             updateHeader(productsCartData.count, productsCartData.productsInCart);
 
-            // обновить цену товара
-            item.innerHTML = '';
-            const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', findedProduct.quantity);
-            //TODO - здесь же можно обновить данные о кол-ве товара
-            item.append(itemLink, itemQuaintityContainer, itemPrice);
-
-            updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
+            const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+            updateTotalSumm(`${total} ₽`, calcDiscount(total, promocodeStorage.discount));
         };
 
         minusBtn.onclick = () => {
+            productsCartData.count--;
             let index = 0;
 
             const findedProduct = productsCartData.productsInCart.find((data, i) => {
@@ -113,7 +123,9 @@ export const renderCartItems = (): HTMLElement => {
 
             findedProduct.quantity--;
             itemCounterQty.innerHTML = String(findedProduct.quantity);
-            plusBtn.removeAttribute('disabled');
+            itemQuaintity.innerHTML = `На складе: ${Number(PRODUCTS.remainder) - findedProduct.quantity}`;
+
+            plusBtn.removeAttribute('disabled'); //делаем кнопку увеличения активной
             itemQuaintity.classList.remove('quaintity-remainder');
 
             if (findedProduct.quantity === 0) {
@@ -121,16 +133,19 @@ export const renderCartItems = (): HTMLElement => {
                 updateСartItemsContainer();
             }
 
-            productsCartData.count--;
-
-            item.innerHTML = '';
-            const itemPrice: HTMLElement = renderProductPrice(PRODUCTS.product, 'cart', findedProduct.quantity);
-            // здесь же можно обновить данные о кол-ве товара
-            item.append(itemLink, itemQuaintityContainer, itemPrice);
+            const updatedItem = [
+                itemLink,
+                itemQuaintityContainer,
+                renderProductPrice(PRODUCTS.product, 'cart', findedProduct.quantity),
+            ];
 
             setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
+
+            updateComponent(item, ...updatedItem);
             updateHeader(productsCartData.count, productsCartData.productsInCart);
-            updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
+
+            const total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
+            updateTotalSumm(`${total} ₽`, calcDiscount(total, promocodeStorage.discount));
         };
 
         item.append(itemLink, itemQuaintityContainer, itemPrice);
@@ -138,34 +153,4 @@ export const renderCartItems = (): HTMLElement => {
     });
 
     return cartItems;
-};
-
-export const updateСartItemsContainer = (): void => {
-    const parent = document.querySelector('.cart__items-container') as HTMLElement;
-
-    const cartItems: HTMLElement = renderCartItems();
-
-    const updatedCheckout = [parent.firstChild as ChildNode, cartItems];
-
-    updateComponent(parent, ...(updatedCheckout as HTMLElement[]));
-};
-
-export const updateTotalSumm = (sum: string, total?: string): void => {
-    const parent = document.querySelector('.cart__checkout') as HTMLElement;
-
-    const checkoutQty: HTMLElement = renderCartCheckoutReceipt('Количество', `${productsCartData.count}`, false);
-
-    const checkoutSum: HTMLElement = renderCartCheckoutReceipt('Сумма', sum, false); // Данные будут приходить из обекта товаров корзины
-
-    const checkoutTotal: HTMLElement = renderCartCheckoutReceipt('Итого', total ?? sum, true); // Данные будут рассчитываться с учетом промокода
-
-    const updatedCheckout = [
-        parent.firstChild as ChildNode,
-        checkoutQty,
-        checkoutSum,
-        checkoutTotal,
-        parent.lastChild as ChildNode,
-    ];
-
-    updateComponent(parent, ...(updatedCheckout as HTMLElement[]));
 };

@@ -45,14 +45,6 @@ export const renderOrderButton = (): HTMLElement => {
     return productCartLink;
 };
 
-interface RenderProductQuantity {
-    countProduct: number;
-    activeSize?: string;
-    product: ExtendedProduct;
-    onEmptyCount: () => void;
-    page: string;
-}
-
 export const renderProductQuantity = ({
     countProduct = 1,
     activeSize = helperForSize.sizeForData,
@@ -71,9 +63,21 @@ export const renderProductQuantity = ({
     productCartDescriptions.innerHTML = String(countProduct) + `${space}` + 'в корзине';
 
     productCartIconPlus.onclick = () => {
-        productsCartData.count++;
-
         const findedProduct = findProduct(product.id, activeSize) as CartData;
+        if (findedProduct.quantity >= (findedProduct.remainder as number)) {
+            productCartIconPlus.setAttribute('disabled', 'true'); // делаем кнопку неактивной
+            productCartDescriptions.innerHTML = 'Этот размер закончился'; //выводим сообщение
+            productCartDescriptions.classList.add('product-page__stop-order');
+
+            setInterval(() => {
+                productCartDescriptions.innerHTML = String(findedProduct.quantity) + `${space}` + 'в корзине';
+                productCartDescriptions.classList.remove('product-page__stop-order');
+            }, 3000); //возвращаем исходное значение кнопки
+
+            return;
+        }
+
+        productsCartData.count++;
 
         findedProduct.quantity++;
 
@@ -83,6 +87,8 @@ export const renderProductQuantity = ({
     };
 
     productCartIconMinus.onclick = () => {
+        productCartIconPlus.removeAttribute('disabled'); //делаем кнопку увеличения активной
+
         let index = 0;
         const findedProduct = productsCartData.productsInCart.find((data, i) => {
             index = i; // получаем индекс найденного товара в массиве
@@ -93,11 +99,7 @@ export const renderProductQuantity = ({
 
         if (findedProduct.quantity === 0) {
             productsCartData.productsInCart.splice(index, 1); // удаляем товар из массива
-
-            // кол-во равно нулю, возващаем кнопку добавить в корзину
-            // updateProductCatd(parentNode, childNodes);
-            onEmptyCount();
-            // updateInfoProd(product, false, findedProduct.quantity);
+            onEmptyCount(); // кол-во равно нулю, возващаем кнопку добавить в корзину
         }
 
         productsCartData.count--;
@@ -109,4 +111,11 @@ export const renderProductQuantity = ({
 
     productCardMore.append(productCartIconMinus, productCartDescriptions, productCartIconPlus);
     return productCardMore;
+};
+
+export const renderStopOrder = (): HTMLElement => {
+    const productStopOrder: HTMLElement = createElem('div', styles['product-page__stop-order']);
+    productStopOrder.innerHTML = 'Это максимальное количество доступное для заказа';
+
+    return productStopOrder;
 };

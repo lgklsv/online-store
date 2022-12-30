@@ -39,6 +39,8 @@ export const renderProduct = (product: ExtendedProduct) => {
     const productImg: HTMLElement = createElem('div', 'product-card__image');
     const img: HTMLElement = createElem('img', 'image-product');
     img.setAttribute('src', product.thumbnail);
+    img.setAttribute('alt', product.title);
+
     productImg.append(img);
 
     // описание товара
@@ -94,7 +96,6 @@ export const renderProduct = (product: ExtendedProduct) => {
         sizeWrapper.style.display = 'flex';
 
         if (helperForSize.sizeForData === '') {
-            console.log(sizeWrapper.childNodes[0]);
             helperForSize.sizeForData = String(sizeWrapper.childNodes[0].textContent);
         } //обновляем глобальную переменную, на случай, если не будет выбран размер и сразу нажмут кнопку 'добавить в корзину'
     };

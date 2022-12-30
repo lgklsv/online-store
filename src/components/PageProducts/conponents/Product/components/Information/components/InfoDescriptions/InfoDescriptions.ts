@@ -8,7 +8,7 @@ export const renderInformationAboutProducts = (product: ExtendedProduct): HTMLEl
     const productData: HTMLElement = createElem('div', styles['product-page__data']);
     const productDataStock: HTMLElement = createElem('div', styles['product-page__data-item']);
     const dataStockTitle: HTMLElement = createElem('div', styles['product-page__data-item-title']);
-    dataStockTitle.innerHTML = 'В наличие';
+    dataStockTitle.innerHTML = 'В наличии';
     const dataStockValue: HTMLElement = createElem('div', styles['product-page__data-item-value']);
     dataStockValue.innerHTML = String(product.stock);
 
