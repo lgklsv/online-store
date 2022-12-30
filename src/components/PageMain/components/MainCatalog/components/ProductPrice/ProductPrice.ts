@@ -1,15 +1,16 @@
 import { createElem } from '../../../../../../utils/create-element';
 import styles from './ProductPrice.module.scss';
 import { newPrice } from '../../../../../../utils/edit-price';
+import { formatPriceNum } from '../../../../../../utils/format-price';
 
 export const renderProductPrice = (product: Product, page: string, quantity?: number): HTMLElement => {
     const itemPrice: HTMLElement = createElem('div', styles['product-card__price']);
     const productPriceFull: HTMLElement = createElem('span', 'product-card__price-full');
     if (page === 'cart') {
         itemPrice.classList.add('product-card__price_cart');
-        quantity && (productPriceFull.innerHTML = String(product.price * quantity) + ' ₽');
+        quantity && (productPriceFull.innerHTML = formatPriceNum(product.price * quantity) + ' ₽');
     } else {
-        productPriceFull.innerHTML = String(product.price) + ' ₽';
+        productPriceFull.innerHTML = formatPriceNum(product.price) + ' ₽';
     }
 
     // проверка есть ли скидка
@@ -24,9 +25,9 @@ export const renderProductPrice = (product: Product, page: string, quantity?: nu
             productPriceNew.classList.add('product-card__price-new_cart');
             quantity &&
                 (productPriceNew.innerHTML =
-                    String(Number(newPrice(product.price, product.discountPercentage)) * quantity) + ' ₽');
+                    formatPriceNum(Number(newPrice(product.price, product.discountPercentage)) * quantity) + ' ₽');
         } else {
-            productPriceNew.innerHTML = newPrice(product.price, product.discountPercentage) + ' ₽';
+            productPriceNew.innerHTML = formatPriceNum(newPrice(product.price, product.discountPercentage)) + ' ₽';
         }
 
         itemPrice.append(productPriceFull, productPriceDiscount, productPriceNew); //
