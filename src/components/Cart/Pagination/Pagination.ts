@@ -9,7 +9,6 @@ export const renderPagination = (curPage: number, numPages: number): HTMLElement
     curPageIndicator.innerHTML = curPage.toString();
     const rightBtn: HTMLElement = renderPaginationBnt(curPage + 1, '>');
 
-    console.log(curPage, numPages);
     // first page
     if (curPage === 1 && numPages > 1) {
         leftBtn.classList.add('disabled');

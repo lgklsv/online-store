@@ -3,7 +3,7 @@ import { productsCartData } from '../../../../../../const/store';
 import { pagination } from '../../../../../../const/store';
 import { updateCartItems } from './update-rendered-items';
 
-export const updatedPaginationBtns = (): void => {
+export const updatePaginationBtns = (): void => {
     const paginationContainer = document.querySelector('.cart__pagination') as HTMLElement;
     const numPages = Math.ceil(productsCartData.productsInCart.length / pagination.limit);
     paginationContainer.innerHTML = '';

@@ -13,7 +13,7 @@ import { updateComponent } from '../../../utils/update-component';
 import { renderCartCheckoutReceipt } from '../CartCheckout/components/CartCheckoutReceipt/CartCheckoutReceipt';
 import { getCartPage } from '../../../utils/get-cart-page';
 import { pagination } from '../../../const/store';
-import { updatedPaginationBtns } from '../Pagination/components/PaginationBtns/components/update-paginaiton-btns';
+import { updatePaginationBtns } from '../Pagination/components/PaginationBtns/components/update-paginaiton-btns';
 
 export const renderCartItems = (curPageItems: CartData[]): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
@@ -135,7 +135,7 @@ export const renderCartItems = (curPageItems: CartData[]): HTMLElement => {
             setLocalStorage(productsCartData, LOCAL_STORAGE_KEYS.PRODUCT);
             updateHeader(productsCartData.count, productsCartData.productsInCart);
             updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
-            updatedPaginationBtns();
+            updatePaginationBtns();
         };
 
         item.append(itemLink, itemQuaintityContainer, itemPrice);

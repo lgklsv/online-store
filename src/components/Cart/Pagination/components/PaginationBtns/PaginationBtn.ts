@@ -1,7 +1,7 @@
 import styles from './PaginationBtn.module.scss';
 import { createElem } from '../../../../../utils/create-element';
 import { pagination } from '../../../../../const/store';
-import { updatedPaginationBtns } from './components/update-paginaiton-btns';
+import { updatePaginationBtns } from './components/update-paginaiton-btns';
 import { updateCartItems } from './components/update-rendered-items';
 
 export const renderPaginationBnt = (goTo: number, icon: string): HTMLElement => {
@@ -15,7 +15,7 @@ export const renderPaginationBnt = (goTo: number, icon: string): HTMLElement => 
             pagination.page = +target.dataset.goto;
 
             updateCartItems();
-            updatedPaginationBtns();
+            updatePaginationBtns();
         }
     };
     return button;

@@ -3,7 +3,7 @@ import { createElem } from '../../../../../utils/create-element';
 import { createInput } from '../../../../../utils/create-input-element';
 import { pagination } from '../../../../../const/store';
 import { updateCartItems } from '../PaginationBtns/components/update-rendered-items';
-import { updatedPaginationBtns } from '../PaginationBtns/components/update-paginaiton-btns';
+import { updatePaginationBtns } from '../PaginationBtns/components/update-paginaiton-btns';
 
 export const renderLimits = (limit: number): HTMLElement => {
     const limitContainer: HTMLElement = createElem('div', styles['cart__limit']);
@@ -19,7 +19,7 @@ export const renderLimits = (limit: number): HTMLElement => {
 
         pagination.limit = +target.value;
 
-        updatedPaginationBtns();
+        updatePaginationBtns();
         updateCartItems();
     };
 
