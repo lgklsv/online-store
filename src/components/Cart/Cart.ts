@@ -1,8 +1,10 @@
 import { LOCAL_STORAGE_KEYS } from '../../const/local-storage';
+import { promocodeStorage } from '../../const/promocodes';
 import { productsCartData } from '../../const/store';
 import { calcAmountCart } from '../../utils/calculate-amount-cart';
 import { createElem } from '../../utils/create-element';
 import { updateHeader, updateTotalSumm } from '../../utils/update-cart';
+import { updateComponent } from '../../utils/update-component';
 import styles from './Cart.module.scss';
 import { renderCartCheckout } from './CartCheckout/CartCheckout';
 import { renderCartItems } from './CartItems/CartItems';
@@ -24,18 +26,6 @@ export const renderCartPage = (): HTMLElement => {
 
     const cartDeleteAllBtn: HTMLElement = createElem('p', 'cart__delete-all-btn');
     cartDeleteAllBtn.innerHTML = 'Удалить все';
-
-    cartDeleteAllBtn.onclick = () => {
-        const cartItems = document.querySelector('.cart__items') as HTMLElement;
-        cartItems.innerHTML = '';
-        cartItems.append(renderEmptyCart());
-
-        localStorage.removeItem(LOCAL_STORAGE_KEYS.PRODUCT); //очищаем Local storage
-        productsCartData.productsInCart = [];
-        productsCartData.count = 0;
-        updateHeader(productsCartData.count, productsCartData.productsInCart);
-        updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
-    };
 
     cartHeadingContainer.append(cartHeading, cartDeleteAllBtn);
 
@@ -63,6 +53,25 @@ export const renderCartPage = (): HTMLElement => {
     mainContent.append(cartItemsContainer, cartCheckoutContainer);
     mainContainer.append(mainContent);
     main.append(mainContainer, modalContainer);
+
+    cartDeleteAllBtn.onclick = () => {
+        const cartItems = document.querySelector('.cart__items') as HTMLElement;
+        cartItems.innerHTML = '';
+        cartItems.append(renderEmptyCart());
+
+        localStorage.removeItem(LOCAL_STORAGE_KEYS.PRODUCT); //очищаем Local storage
+        productsCartData.productsInCart = [];
+        productsCartData.count = 0;
+        updateHeader(productsCartData.count, productsCartData.productsInCart);
+        updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
+
+        promocodeStorage.discount = 0;
+        promocodeStorage.promo = [];
+        localStorage.removeItem(LOCAL_STORAGE_KEYS.PROMOCODES); //очищаем Local storage
+
+        const updatedCartCheckout = [cartCheckoutContainer.firstChild as ChildNode, renderCartCheckout()];
+        updateComponent(cartCheckoutContainer, ...(updatedCartCheckout as HTMLElement[]));
+    };
 
     return main;
 };
