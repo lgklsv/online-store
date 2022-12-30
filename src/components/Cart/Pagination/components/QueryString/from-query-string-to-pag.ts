@@ -7,9 +7,10 @@ export const fromQueryStringToPag = (querystring: string): void => {
     const filters = querystring.split('&');
 
     filters.forEach((filter) => {
-        const [filterType, param] = filter.split('=');
+        let [filterType, param] = filter.split('=');
 
         if (filterType === 'limit' || filterType === 'page') {
+            if (+param <= 0 || isNaN(+param) ) param = '1';
             pagination[filterType] = +param;
         }
     });
