@@ -49,7 +49,7 @@ export const renderCartCheckout = (): HTMLElement => {
         'Итого',
         `${calcAmountCart(productsCartData.productsInCart)} ₽`,
         true
-    ); // Данные будут рассчитываться с учетом промокода
+    );
 
     // проверка на данные о купонах
     if (promocodeStorage.promo.length !== 0) {

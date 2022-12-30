@@ -78,7 +78,7 @@ export const renderProductQuantity = ({
             productCartDescriptions.classList.add('product-page__stop-order');
 
             setInterval(() => {
-                productCartDescriptions.innerHTML = String(countProduct) + `${space}` + 'в корзине';
+                productCartDescriptions.innerHTML = String(findedProduct.quantity) + `${space}` + 'в корзине';
                 productCartDescriptions.classList.remove('product-page__stop-order');
             }, 3000); //возвращаем исходное значение кнопки
 
