@@ -51,7 +51,7 @@ export const onSubmitCheckout = (e: Event): void => {
         validateExpDate(expNum) &&
         validateCvc(paymentSystem, cardCvc)
     ) {
-        // TODO clean cart
+        // clean cart
         localStorage.clear();
         productsCartData.productsInCart = [];
         productsCartData.count = 0;
@@ -63,6 +63,8 @@ export const onSubmitCheckout = (e: Event): void => {
         heading.style.marginTop = '2rem';
         heading.innerHTML = 'Спасибо за заказ ヽ(•‿•)ノ На главную страницу через 3 сек';
         modal.append(heading);
+        const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
+        overlay.style.pointerEvents = 'none';
 
         let time = 3;
         setInterval((): void => {
