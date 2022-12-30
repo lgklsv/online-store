@@ -24,7 +24,6 @@ export const updateCopyFiltersBtn = (): void => {
 
             copyFiltersBtn.onclick = (): void => {
                 copyText.innerHTML = 'Скопированно!';
-                console.log(window.location.href);
                 navigator.clipboard.writeText(window.location.href);
                 setTimeout(() => {
                     copyText.innerHTML = 'Скопировать фильтры';

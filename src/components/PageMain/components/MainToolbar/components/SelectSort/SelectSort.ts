@@ -1,16 +1,7 @@
-import {
-    // SORT_FUNCTIONS,
-    SORT_OPTIONS,
-} from '../../../../../../const/select-sort';
-// import { sortId, sortOptions } from '../../../../../../const/select-sort';
-import {
-    appliedFilters,
-    // store
-} from '../../../../../../const/store';
-// import { addProducts } from '../../../../../../utils/add-product';
+import { SORT_OPTIONS } from '../../../../../../const/select-sort';
+import { appliedFilters } from '../../../../../../const/store';
 import { createElem } from '../../../../../../utils/create-element';
 import { renderFiltered } from '../../../Filter/filter';
-// import { quickSort } from '../../../../../../utils/quick-sort';
 import styles from './SelectSort.module.scss';
 
 export const renderSelectSort = (node: NodeListOf<ChildNode>): HTMLElement => {

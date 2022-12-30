@@ -60,6 +60,7 @@
 
 .product-page__cart-descriptions {
     flex: 1 0 auto;
+    transition: color 0.2s;
 }
 
 .product-page__cart-icon,
@@ -93,6 +94,7 @@
 }
 .product-main__cart-descriptions {
     flex: 1 0 auto;
+    transition: color 0.5s;
 }
 
 .product-main__cart-icon {
@@ -102,4 +104,13 @@
     &:hover {
         background-color: $primaty-5;
     }
+}
+
+.product-page__stop-order,
+.product-main__stop-order {
+    // font-size: 12px;
+    // font-weight: 400;
+    // margin-top: 0.8rem;
+    color: $orange;
+    transition: color 0.5s;
 }

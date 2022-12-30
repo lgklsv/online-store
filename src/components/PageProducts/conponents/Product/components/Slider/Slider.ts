@@ -12,6 +12,7 @@ export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
     const zoomRegion: HTMLElement = createElem('div', styles['zoom_region']);
     const productImage: HTMLElement = createElem('img', styles['product-image']);
     productImage.setAttribute('src', product.thumbnail);
+    productImage.setAttribute('alt', product.title);
 
     zoomRegion.append(productImage);
 

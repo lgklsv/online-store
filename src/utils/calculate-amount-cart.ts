@@ -9,3 +9,9 @@ export const calcAmountCart = (array: CartData[]): string => {
 
     return formatPriceNum(summ);
 };
+
+export const calcDiscount = (total: string | number, discount: string | number): string => {
+    const percent = Math.floor(Number(total) / 100) * Number(discount);
+
+    return formatPriceNum(Number(total) - percent) + '₽';
+};

@@ -45,7 +45,6 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
     const priceGap = 1;
 
     slideFilterNumbers.onchange = (e: Event): void => {
-        console.log(e.target);
         const targetInput = e.target as HTMLInputElement;
         const filterType =
             targetInput.classList.contains('num-input-left_price') ||
@@ -57,12 +56,10 @@ export const renderSlideFilter = (title: string, rangeIcon: string, data: number
 
         const rangeInputsParent = document.querySelector(`.slide-filter__ranges_${filterType}`) as HTMLElement;
         const progress = document.querySelector(`.progress_${filterType}`) as HTMLElement;
-        console.log(progress); 
         const rangeInputs = rangeInputsParent.children;
 
         const rangeLeft = rangeInputs[0] as HTMLInputElement;
         const rangeRight = rangeInputs[1] as HTMLInputElement;
-        console.log(rangeLeft, rangeRight);
 
         let minVal = side === 'left' ? +targetInput.value : +rangeLeft.value;
         let maxVal = side === 'right' ? +targetInput.value : +rangeRight.value;
