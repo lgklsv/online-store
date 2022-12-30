@@ -31,9 +31,11 @@ export const renderCartItems = (curPageItems: CartData[]): HTMLElement => {
         itemLink.setAttribute('href', `/product/${PRODUCTS.product.id}`);
         itemLink.setAttribute('target', '_blank');
 
+        const itemIndex = i + 1 + (pagination.page - 1) * pagination.limit;
+
         // Номер товара в корзине
         const itemNumber: HTMLElement = createElem('div', 'cart-item__number');
-        itemNumber.innerHTML = (i + 1).toString();
+        itemNumber.innerHTML = itemIndex.toString();
 
         // Картинка товара
         const itemImage: HTMLElement = createElem('img', 'cart-item__image');
