@@ -4,7 +4,7 @@ export const PRODUCTS: Product[] = [
         id: 1,
         title: 'New Balance 574v2',
         sex: 'female',
-        color: ['black', 'grey'],
+        color: ['Черный'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - замша, текстиль; Подкладка - текстиль; Низ - резина',
@@ -34,7 +34,7 @@ export const PRODUCTS: Product[] = [
         id: 2,
         title: 'Dr. Martens 1460 Wintergrip',
         sex: 'any',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['39', '40', '41', '42', '43'],
         description: ['Материал: Верх - кожа; Подкладка - текстиль; Низ - резина', 'Страна-производитель: Вьетнам'],
         price: 27690,
@@ -57,7 +57,7 @@ export const PRODUCTS: Product[] = [
         id: 3,
         title: 'Converse x Come Tees Chuck Taylor All Star 70 High',
         sex: 'any',
-        color: ['beige'],
+        color: ['Бежевый'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - текстиль; Подкладка - текстиль; Низ - резина',
@@ -91,7 +91,7 @@ export const PRODUCTS: Product[] = [
         id: 4,
         title: 'adidas Originals Trefoil Linear',
         sex: 'male',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -119,7 +119,7 @@ export const PRODUCTS: Product[] = [
         id: 5,
         title: 'adidas Originals Ozrah',
         sex: 'any',
-        color: ['beige'],
+        color: ['Бежевый'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - резина, текстиль; Подкладка - текстиль; Низ - резина',
@@ -150,7 +150,7 @@ export const PRODUCTS: Product[] = [
         id: 6,
         title: 'Y-3 Classic Chest Logo Button-Down',
         sex: 'male',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             ' Материал: 59% хлопок, 33% полиамид, 8% эластан',
@@ -183,7 +183,7 @@ export const PRODUCTS: Product[] = [
         id: 7,
         title: 'Vans Old Skool True',
         sex: 'any',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - текстиль; Подкладка - текстиль, искусственная кожа; Низ - резина',
@@ -211,7 +211,7 @@ export const PRODUCTS: Product[] = [
         id: 8,
         title: 'adidas Originals x Jeremy Scott Forum Hi Wings 4.0',
         sex: 'any',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - кожа; Подкладка - искусственная кожа, текстиль; Низ - резина',
@@ -243,7 +243,7 @@ export const PRODUCTS: Product[] = [
         id: 9,
         title: 'Timberland Outdoor Archive Puffer',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: Верх - 100% нейлон; Подкладка - 100% нейлон; Наполнитель - 100% полиэстер',
@@ -270,7 +270,7 @@ export const PRODUCTS: Product[] = [
         id: 10,
         title: 'Timberland x Tommy Hilfiger Chore',
         sex: 'male',
-        color: ['beige, blue'],
+        color: ['Бежевый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: Верх - 100% хлопок; Подкладка - 54% хлопок, 35% полиамид, 7% полиэстер, 4% эластан',
@@ -305,7 +305,7 @@ export const PRODUCTS: Product[] = [
         id: 11,
         title: 'New Balance Athletics Utility Down',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: Верх - 100% полиэстер; Подкладка - 100% полиэстер; Наполнитель - 70% пух, 30% перо',
@@ -340,7 +340,7 @@ export const PRODUCTS: Product[] = [
         id: 12,
         title: 'Y-3 Classic Dry Stretch Nylon',
         sex: 'female',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 94% полиамид, 6% эластан',
@@ -368,7 +368,7 @@ export const PRODUCTS: Product[] = [
         id: 13,
         title: 'MSGM Multicolor Logo',
         sex: 'female',
-        color: ['pink'],
+        color: ['Розовый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -397,7 +397,7 @@ export const PRODUCTS: Product[] = [
         id: 14,
         title: 'Helly Hansen Long Belfast 3/4 Length',
         sex: 'female',
-        color: ['blue'],
+        color: ['Голубой'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% полиэстер',
@@ -430,7 +430,7 @@ export const PRODUCTS: Product[] = [
         id: 15,
         title: 'Dr. Martens 1461 Yellow Stitch Smooth',
         sex: 'any',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - кожа; Подкладка - кожа, текстиль; Низ - резина',
@@ -460,7 +460,7 @@ export const PRODUCTS: Product[] = [
         id: 16,
         title: 'Maison Kitsune Tricolor Fox Patch',
         sex: 'female',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -492,7 +492,7 @@ export const PRODUCTS: Product[] = [
         id: 17,
         title: 'Polo Ralph Lauren Slim Fit Piece Dye Linen',
         sex: 'male',
-        color: ['red'],
+        color: ['Красный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% лён',
@@ -520,7 +520,7 @@ export const PRODUCTS: Product[] = [
         id: 18,
         title: 'Lacoste Regular Fit Check Print',
         sex: 'male',
-        color: ['red'],
+        color: ['Красный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -552,7 +552,7 @@ export const PRODUCTS: Product[] = [
         id: 19,
         title: 'Lacoste Big Check',
         sex: 'male',
-        color: ['blue'],
+        color: ['Голубой'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -585,7 +585,7 @@ export const PRODUCTS: Product[] = [
         id: 20,
         title: 'Edwin Tyrell Pembroke Black Denim 13.56 Oz',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: ['Материал: 100% хлопок', 'Страна-производитель: Тунис'],
         price: 7990,
@@ -606,7 +606,7 @@ export const PRODUCTS: Product[] = [
         id: 21,
         title: 'RIPNDIP Dance Party Denim',
         sex: 'any',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -634,7 +634,7 @@ export const PRODUCTS: Product[] = [
         id: 22,
         title: 'Edwin Loose Straight Nihon Menpu Natural Red Selvage 12.5 Oz',
         sex: 'any',
-        color: ['beige'],
+        color: ['Бежевый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -670,7 +670,7 @@ export const PRODUCTS: Product[] = [
         id: 23,
         title: 'Edwin Loose Straight Yoshiko Left Hand Denim 12.5 Oz',
         sex: 'any',
-        color: ['blue'],
+        color: ['Голубой'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -705,7 +705,7 @@ export const PRODUCTS: Product[] = [
         id: 24,
         title: 'Edwin Tyrell Nicola Blue Denim 11.6 Oz',
         sex: 'any',
-        color: ['blue'],
+        color: ['Голубой'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: ['Материал: 100% хлопок', 'Страна-производитель: Тунис'],
         price: 7990,
@@ -728,7 +728,7 @@ export const PRODUCTS: Product[] = [
         id: 25,
         title: 'Polo Ralph Lauren Polo Sport',
         sex: 'male',
-        color: ['blue'],
+        color: ['Голубой'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -753,7 +753,7 @@ export const PRODUCTS: Product[] = [
         id: 26,
         title: 'Y-3 Classic Logo',
         sex: 'female',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -782,7 +782,7 @@ export const PRODUCTS: Product[] = [
         id: 27,
         title: 'adidas Originals Adicolor Essential Trefoil',
         sex: 'any',
-        color: ['green, white'],
+        color: ['Зеленый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: ['Материал: 100% хлопок', 'Страна-производитель: Вьетнам'],
         price: 4490,
@@ -802,7 +802,7 @@ export const PRODUCTS: Product[] = [
         id: 28,
         title: 'MSGM Multicolor Micrologo',
         sex: 'female',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -831,7 +831,7 @@ export const PRODUCTS: Product[] = [
         id: 29,
         title: 'Alpha Industries NASA Original Logo',
         sex: 'any',
-        color: ['beige'],
+        color: ['Бежевый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -860,7 +860,7 @@ export const PRODUCTS: Product[] = [
         id: 30,
         title: 'Y-3 Chapter 1 Center Front Stripes',
         sex: 'any',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -886,7 +886,7 @@ export const PRODUCTS: Product[] = [
         id: 31,
         title: 'Napapijri A-Suomi 3',
         sex: 'any',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: Верх - 100% полиамид; Подкладка - 100% полиэстер; Наполнитель - 100% полиэстер',
@@ -911,7 +911,7 @@ export const PRODUCTS: Product[] = [
         id: 32,
         title: 'Alpha Industries парка N-3B Slim Fit',
         sex: 'any',
-        color: ['green'],
+        color: ['Зеленый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: Верх - 100% нейлон; Подкладка - 100% нейлон; Наполнитель - 100% полиэстер',
@@ -949,7 +949,7 @@ export const PRODUCTS: Product[] = [
         id: 33,
         title: 'Timberland Outdoor Archive Puffe',
         sex: 'male',
-        color: ['black', 'green'],
+        color: ['Черный'],
         sizes: ['M', 'L', 'XL'],
         description: [
             'Материал: Верх - 100% полиамид; Подкладка - 100% полиэстер; Нополнитель - 100% полиэстер',
@@ -974,7 +974,7 @@ export const PRODUCTS: Product[] = [
         id: 34,
         title: 'Edwin Nakkia Puffa',
         sex: 'any',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: Верх - 100% полиамид; Подкладка - 100% полиэстер; Наполнитель - 100% полиэстер',
@@ -998,7 +998,7 @@ export const PRODUCTS: Product[] = [
         id: 35,
         title: 'Helly Hansen Move Hooded Rain',
         sex: 'any',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% полиэстер',
@@ -1035,7 +1035,7 @@ export const PRODUCTS: Product[] = [
         id: 36,
         title: 'Alpha Industries MA-1 Flight',
         sex: 'any',
-        color: ['green'],
+        color: ['Зеленый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: Верх - 100% нейлон; Подкладка - 100% нейлон; Наполнитель - 100% полиэстер',
@@ -1063,7 +1063,7 @@ export const PRODUCTS: Product[] = [
         id: 37,
         title: 'adidas Originals Falcon',
         sex: 'female',
-        color: ['pink'],
+        color: ['Розовый'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - кожа, искусственная кожа; Подкладка - текстиль; Низ - резина',
@@ -1093,7 +1093,7 @@ export const PRODUCTS: Product[] = [
         id: 38,
         title: 'Nike Free Run Trail',
         sex: 'any',
-        color: ['grey'],
+        color: ['Серый'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - замша, текстиль; Подкладка - текстиль; Низ - резина',
@@ -1124,7 +1124,7 @@ export const PRODUCTS: Product[] = [
         id: 39,
         title: 'adidas Originals YEEZY QNTM',
         sex: 'any',
-        color: ['black, beige'],
+        color: ['Черный'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - текстиль, замша; Подкладка - текстиль; Низ - резина',
@@ -1157,7 +1157,7 @@ export const PRODUCTS: Product[] = [
         id: 40,
         title: 'Nike Daybreak',
         sex: 'any',
-        color: ['black, white'],
+        color: ['Черный'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - текстиль, замша, искусственная кожа; Подкладка - текстиль; Низ - резина',
@@ -1186,7 +1186,7 @@ export const PRODUCTS: Product[] = [
         id: 41,
         title: 'adidas Originals Stan Smith',
         sex: 'any',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - искусственная кожа; Подкладка - искусственная кожа, текстиль; Низ - резина',
@@ -1215,7 +1215,7 @@ export const PRODUCTS: Product[] = [
         id: 42,
         title: 'Raf Simons (RUNNER) Antei',
         sex: 'any',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - синтетическая кожа, текстиль; Подкладка - текстиль, синтетическая кожа; Низ - резина',
@@ -1247,7 +1247,7 @@ export const PRODUCTS: Product[] = [
         id: 43,
         title: 'adidas Originals Samba Boot',
         sex: 'any',
-        color: ['beige'],
+        color: ['Бежевый'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - кожа, резина; Подкладка - текстиль; Низ - резина',
@@ -1278,7 +1278,7 @@ export const PRODUCTS: Product[] = [
         id: 44,
         title: 'Nike Force 1 Leather PS',
         sex: 'any',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - кожа; Подкладка - текстиль; Низ - резина',
@@ -1308,7 +1308,7 @@ export const PRODUCTS: Product[] = [
         id: 45,
         title: 'Nike Therma-Fit City Series',
         sex: 'female',
-        color: ['pink'],
+        color: ['Розовый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: Верх - 100% полиэстер; Подкладка - 100% полиэстер; Наполнитель - 75% пух, 25% перо',
@@ -1343,7 +1343,7 @@ export const PRODUCTS: Product[] = [
         id: 46,
         title: 'Edwin Labour',
         sex: 'male',
-        color: ['green'],
+        color: ['Зеленый'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: ['Материал: 100% хлопок', 'Страна-производитель: Португалия'],
         price: 8490,
@@ -1363,7 +1363,7 @@ export const PRODUCTS: Product[] = [
         id: 47,
         title: 'Dr. Martens 2976 Bex Chelsea',
         sex: 'any',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - кожа, текстиль; Подкладка - кожа, текстиль; Низ - резина',
@@ -1388,7 +1388,7 @@ export const PRODUCTS: Product[] = [
         id: 48,
         title: 'Dr. Martens 1460 Pascal Virginia Mono',
         sex: 'any',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - кожа; Подкладка - кожа, текстиль; Низ - резина',
@@ -1419,7 +1419,7 @@ export const PRODUCTS: Product[] = [
         id: 49,
         title: 'Timberland 6 Inch Premium Waterproof',
         sex: 'any',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['39', '40', '41', '42', '43'],
         description: [
             'Материал: Верх - кожа; Подкладка - кожа, текстиль; Низ - резина',
@@ -1452,7 +1452,7 @@ export const PRODUCTS: Product[] = [
         id: 50,
         title: 'Etudes x Air Full',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'L', 'XL'],
         description: [
             'Материал: Верх - 100% полиэстер; Подкладка - 100% полиэстер',
@@ -1489,7 +1489,7 @@ export const PRODUCTS: Product[] = [
         id: 51,
         title: 'Puma x June Ambrose Madison Fur',
         sex: 'female',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XS'],
         description: [
             'Материал: Верх - 100% полиэстер; Подкладка - 100% полиэстер',
@@ -1523,7 +1523,7 @@ export const PRODUCTS: Product[] = [
         id: 52,
         title: 'SOPHNET. x Oversized Chesterfield',
         sex: 'male',
-        color: ['black', 'brown'],
+        color: ['Черный'],
         sizes: ['M', 'L'],
         description: [
             'Материал: Верх - 100% хлопок; Подкладка - 100% вискоза',
@@ -1550,7 +1550,7 @@ export const PRODUCTS: Product[] = [
         id: 53,
         title: 'Helly Hansen x Aspire Rain',
         sex: 'female',
-        color: ['pink'],
+        color: ['Розовый'],
         sizes: ['XS'],
         description: [
             'Материал: Верх - 100% полиэстер; Подкладка - 100% полиамид; Наполнитель - 100% полиэстер',
@@ -1585,7 +1585,7 @@ export const PRODUCTS: Product[] = [
         id: 54,
         title: 'MA.Strum x Mac Regular Fit',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L'],
         description: [
             'Материал: Верх - 45% полиэстер, 37% хлопок, 18% нейлон; Подкладка - 100% нейлон; Наполнитель - 100% полиэстер',
@@ -1613,7 +1613,7 @@ export const PRODUCTS: Product[] = [
         id: 55,
         title: 'Etudes x Archeology Wool',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L'],
         description: [
             'Материал: 100% шерсть',
@@ -1646,7 +1646,7 @@ export const PRODUCTS: Product[] = [
         id: 56,
         title: 'Helly Hansen x Celebration Hoodie',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL'],
         description: [
             'Материал: 80% хлопок 20% полиэстер',
@@ -1678,7 +1678,7 @@ export const PRODUCTS: Product[] = [
         id: 57,
         title: 'Helly Hansen x F2F Organic Cotton Hoodie',
         sex: 'female',
-        color: ['blue'],
+        color: ['Голубой'],
         sizes: ['XS'],
         description: [
             'Материал: 80% хлопок, 20% полиэстер',
@@ -1711,7 +1711,7 @@ export const PRODUCTS: Product[] = [
         id: 58,
         title: 'Adidas x Always Original Graphic Hoodie',
         sex: 'female',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XS', 'S', 'L'],
         description: [
             'Материал: 80% хлопок, 20% полиэстер',
@@ -1744,7 +1744,7 @@ export const PRODUCTS: Product[] = [
         id: 59,
         title: 'Adidas x Adicolor Classics High Shine Crew Hoodie',
         sex: 'female',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['L'],
         description: [
             'Материал: 100% хлопок',
@@ -1776,7 +1776,7 @@ export const PRODUCTS: Product[] = [
         id: 60,
         title: 'Adidas x Graphics Valentine Day',
         sex: 'female',
-        color: ['purple'],
+        color: ['Фиолетовый'],
         sizes: ['XS', 'S', 'M', 'L'],
         description: [
             'Материал: 100% хлопок',
@@ -1804,7 +1804,7 @@ export const PRODUCTS: Product[] = [
         id: 61,
         title: 'Polo Ralph x Embroidered Pony Fleece Hoodie',
         sex: 'male',
-        color: ['orange', 'yellow'],
+        color: ['Оранжевый'],
         sizes: ['XS', 'S', 'M', 'L'],
         description: [
             'Материал: 60% хлопок, 40% полиэстер',
@@ -1831,7 +1831,7 @@ export const PRODUCTS: Product[] = [
         id: 62,
         title: 'Polo Ralph x Polo Sport Madras Print Hoodie',
         sex: 'male',
-        color: ['pink'],
+        color: ['Розовый'],
         sizes: ['S', 'L', 'XL'],
         description: [
             'Материал: 80% хлопок, 20% полиэстер',
@@ -1859,7 +1859,7 @@ export const PRODUCTS: Product[] = [
         id: 63,
         title: 'Polo Ralph x Tie-Dye Fleece',
         sex: 'male',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['S'],
         description: [
             'Материал: 84% хлопок, 16% полиэстер',
@@ -1885,7 +1885,7 @@ export const PRODUCTS: Product[] = [
         id: 64,
         title: 'Converse x Joshua Vides Utility Fleece Full Zip Hoodie',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -1917,7 +1917,7 @@ export const PRODUCTS: Product[] = [
         id: 65,
         title: 'Puma x Liberty All Over Print Crew',
         sex: 'female',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XS'],
         description: [
             'Материал: 100% хлопок',
@@ -1946,7 +1946,7 @@ export const PRODUCTS: Product[] = [
         id: 66,
         title: 'Puma x Pivot Cropped Basketball Hoodie',
         sex: 'female',
-        color: ['blue', 'grey'],
+        color: ['Голубой'],
         sizes: ['XS', 'S', 'M', 'L'],
         description: [
             'Материал: 81% хлопок, 19% полиэстер',
@@ -1978,7 +1978,7 @@ export const PRODUCTS: Product[] = [
         id: 67,
         title: 'New Balance x Artist Pack Velvet Spectrum Hoodie',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L'],
         description: [
             'Материал: 81% хлопок, 19% полиэстер',
@@ -2010,7 +2010,7 @@ export const PRODUCTS: Product[] = [
         id: 68,
         title: 'Puma x Combine Hoodie',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M'],
         description: [
             'Материал: 66% хлопок, 34% полиэстер',
@@ -2044,7 +2044,7 @@ export const PRODUCTS: Product[] = [
         id: 69,
         title: 'Adidas x Trefoil Crew',
         sex: 'male',
-        color: ['green'],
+        color: ['Зеленый'],
         sizes: ['L', 'XL'],
         description: [
             'Материал: 95% хлопок, 5% эластан',
@@ -2075,7 +2075,7 @@ export const PRODUCTS: Product[] = [
         id: 70,
         title: 'F.C. Real Bristol x Logo Applique Adjustable',
         sex: 'male',
-        color: ['green'],
+        color: ['Зеленый'],
         sizes: ['M', 'XL'],
         description: [
             'Материал: 100% полиэстер',
@@ -2109,7 +2109,7 @@ export const PRODUCTS: Product[] = [
         id: 71,
         title: 'Edwin x Jungle Ripstop',
         sex: 'male',
-        color: ['brown'],
+        color: ['Коричневый'],
         sizes: ['M', 'L', 'XL'],
         description: [
             'Материал: 100% хлопок',
@@ -2146,7 +2146,7 @@ export const PRODUCTS: Product[] = [
         id: 72,
         title: 'Edwin x Odoru Hana',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XL'],
         description: [
             'Материал: 100% хлопок',
@@ -2178,7 +2178,7 @@ export const PRODUCTS: Product[] = [
         id: 73,
         title: 'Helly Hansen x Quick Dry 11-Inch',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XL'],
         description: [
             'Материал: 92% полиамид, 8% эластан',
@@ -2215,7 +2215,7 @@ export const PRODUCTS: Product[] = [
         id: 74,
         title: 'Edwin x Paradise Inn',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XL'],
         description: [
             'Материал: 100% хлопок',
@@ -2247,7 +2247,7 @@ export const PRODUCTS: Product[] = [
         id: 75,
         title: 'Edwin x Gangis Roma Denim',
         sex: 'male',
-        color: ['blue'],
+        color: ['Голубой'],
         sizes: ['S'],
         description: [
             'Материал: 78% хлопок, 11% модал, 11% полиэстер',
@@ -2283,7 +2283,7 @@ export const PRODUCTS: Product[] = [
         id: 76,
         title: 'maharishi x U.S. Cargo Loose Fit',
         sex: 'male',
-        color: ['green'],
+        color: ['Зеленый'],
         sizes: ['M', 'XL'],
         description: [
             'Материал: 60% полиэстер, 40% хлопок',
@@ -2312,7 +2312,7 @@ export const PRODUCTS: Product[] = [
         id: 77,
         title: 'MA.Strum x All Over Print',
         sex: 'male',
-        color: ['blue'],
+        color: ['Голубой'],
         sizes: ['M', 'L', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -2344,7 +2344,7 @@ export const PRODUCTS: Product[] = [
         id: 78,
         title: 'Alltimers x Draino Swim',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['M'],
         description: [
             'Материал: 100% нейлон',
@@ -2377,7 +2377,7 @@ export const PRODUCTS: Product[] = [
         id: 79,
         title: 'MARKET x Meet Me Offline',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['M'],
         description: [
             'Материал: 100% хлопок',
@@ -2405,7 +2405,7 @@ export const PRODUCTS: Product[] = [
         id: 80,
         title: 'Y-3 x Chapter 1 Long',
         sex: 'female',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M'],
         description: [
             'Материал: 100% полиэстер',
@@ -2432,7 +2432,7 @@ export const PRODUCTS: Product[] = [
         id: 81,
         title: 'Helly Hansen x HH Logo Cotton',
         sex: 'female',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XS', 'S', 'M'],
         description: [
             'Материал: 100% хлопок',
@@ -2461,7 +2461,7 @@ export const PRODUCTS: Product[] = [
         id: 82,
         title: 'Adidas x Rib Cuffed',
         sex: 'female',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XS', 'S', 'M', 'L'],
         description: [
             'Материал: 67% хлопок, 27% полиэстер, 6% эластан',
@@ -2493,7 +2493,7 @@ export const PRODUCTS: Product[] = [
         id: 83,
         title: 'Adidas x Adicolor Classics High-Shine',
         sex: 'female',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['XS', 'S', 'M', 'L'],
         description: [
             'Материал: 67% хлопок, 27% полиэстер, 6% эластан',
@@ -2525,7 +2525,7 @@ export const PRODUCTS: Product[] = [
         id: 84,
         title: 'Y-3 x Classic Tech Silk Cargo',
         sex: 'female',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XS', 'S', 'M', 'L'],
         description: [
             'Материал: 80% триацетат, 20% полиэстер',
@@ -2560,7 +2560,7 @@ export const PRODUCTS: Product[] = [
         id: 85,
         title: 'Y-3 x Classic Sport Uniform Stretch Formal',
         sex: 'female',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XXS', 'S', 'M', 'L'],
         description: [
             'Материал: 100% полиэстер',
@@ -2592,7 +2592,7 @@ export const PRODUCTS: Product[] = [
         id: 86,
         title: 'Polo Ralph x Polo Pony Mini Logo Ankle Featherweight Fleece',
         sex: 'female',
-        color: ['pink'],
+        color: ['Розовый'],
         sizes: ['L'],
         description: [
             'Материал: 70% хлопок, 30% полиэстер',
@@ -2620,7 +2620,7 @@ export const PRODUCTS: Product[] = [
         id: 87,
         title: 'Evisu x Degrade Oversize Jacquard Denim',
         sex: 'female',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['L', 'XXL'],
         description: [
             'Материал: 70% хлопок, 30% полиэстер',
@@ -2649,7 +2649,7 @@ export const PRODUCTS: Product[] = [
         id: 88,
         title: "maharishi x Camo Advisor's",
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S'],
         description: ['Материал: 100% хлопок', 'Страна-производитель: Индия'],
         price: 21190,
@@ -2670,7 +2670,7 @@ export const PRODUCTS: Product[] = [
         id: 89,
         title: 'maharishi x Cargo Organic Cotton Twill',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL'],
         description: [
             'Материал: 100% хлопок',
@@ -2707,7 +2707,7 @@ export const PRODUCTS: Product[] = [
         id: 90,
         title: 'maharishi x MA23 Embroidered Sweat',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: ['Материал: 100% хлопок', 'Страна-производитель: Португалия'],
         price: 17990,
@@ -2728,7 +2728,7 @@ export const PRODUCTS: Product[] = [
         id: 91,
         title: 'Edwin x Sentinel Ripstop',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         description: ['Материал: 100% хлопок', 'Страна-производитель: Португалия'],
         price: 8990,
@@ -2749,7 +2749,7 @@ export const PRODUCTS: Product[] = [
         id: 92,
         title: 'Edwin x Labour Dart Back Sateen',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'L', 'XXL'],
         description: ['Материал: 100% хлопок', 'Страна-производитель: Тунис'],
         price: 8490,
@@ -2770,7 +2770,7 @@ export const PRODUCTS: Product[] = [
         id: 93,
         title: 'Adidas x Pharrell Williams Human Race Basics',
         sex: 'male',
-        color: ['red'],
+        color: ['Красный'],
         sizes: ['M'],
         description: ['Материал: 100% хлопок', 'Страна-производитель: Тунис'],
         price: 8490,
@@ -2793,7 +2793,7 @@ export const PRODUCTS: Product[] = [
         id: 94,
         title: 'Adidas x Shmoofoil',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M'],
         description: [
             'Материал: 100% хлопок',
@@ -2828,7 +2828,7 @@ export const PRODUCTS: Product[] = [
         id: 95,
         title: 'Converse x Joshua Vides Utility',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XL'],
         description: [
             'Материал: 100% хлопок',
@@ -2862,7 +2862,7 @@ export const PRODUCTS: Product[] = [
         id: 96,
         title: 'thisisneverthat x Arch-Logo Hoodie',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -2889,7 +2889,7 @@ export const PRODUCTS: Product[] = [
         id: 97,
         title: 'thisisneverthat x Arch-Logo Crew Neck',
         sex: 'male',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['S', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -2919,7 +2919,7 @@ export const PRODUCTS: Product[] = [
         id: 98,
         title: 'thisisneverthat x T.N.T. Classic HDP Crew Neck',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S', 'M', 'XL', 'XXL'],
         description: [
             'Материал: 100% хлопок',
@@ -2946,7 +2946,7 @@ export const PRODUCTS: Product[] = [
         id: 99,
         title: 'Adidas x Pharrell Williams Basics Crew Human Race Logo',
         sex: 'male',
-        color: ['white'],
+        color: ['Белый'],
         sizes: ['M'],
         description: [
             'Материал: 100% хлопок',
@@ -2978,7 +2978,7 @@ export const PRODUCTS: Product[] = [
         id: 100,
         title: 'Adidas x Midwest Kids Hoodie',
         sex: 'male',
-        color: ['black'],
+        color: ['Черный'],
         sizes: ['S'],
         description: [
             'Материал: 100% хлопок',
