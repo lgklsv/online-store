@@ -2,7 +2,6 @@ import { createElem } from '../../../utils/create-element';
 import styles from './CartItems.module.scss';
 import { renderProductPrice } from '../../PageMain/components/MainCatalog/components/ProductPrice/ProductPrice';
 import { productsCartData } from '../../../const/store';
-import { renderEmptyCart } from './components/CartEmpty/CartEmpty';
 import { newNameProduct } from '../../../utils/edit-name-products';
 import { setLocalStorage } from '../../../utils/local-storage';
 import { LOCAL_STORAGE_KEYS } from '../../../const/local-storage';
@@ -14,14 +13,10 @@ import { pagination } from '../../../const/store';
 import { updatePaginationBtns } from '../Pagination/components/PaginationBtns/components/update-paginaiton-btns';
 import { promocodeStorage } from '../../../const/promocodes';
 import { formatPriceNum } from '../../../utils/format-price';
+import { renderEmptyCart } from './components/CartEmpty/CartEmpty';
 
 export const renderCartItems = (curPageItems: CartData[]): HTMLElement => {
     const cartItems: HTMLElement = createElem('div', styles['cart__items']);
-
-    if (productsCartData.count === 0) {
-        cartItems.append(renderEmptyCart());
-        return cartItems;
-    }
 
     curPageItems.forEach((PRODUCTS, i) => {
         const item: HTMLElement = createElem('div', 'cart-item');
@@ -161,6 +156,13 @@ export const renderCartItems = (curPageItems: CartData[]): HTMLElement => {
             total = total.replace(' ', '');
             updateTotalSumm(`${formatPriceNum(total)} ₽`, calcDiscount(total, promocodeStorage.discount));
             updatePaginationBtns();
+
+            const mainContainer = document.querySelector('.main__container') as HTMLElement;
+            if (productsCartData.count === 0) {
+                mainContainer.innerHTML = '';
+                mainContainer.append(renderEmptyCart());
+                return;
+            }
         };
 
         item.append(itemLink, itemQuaintityContainer, itemPrice);

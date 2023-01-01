@@ -19,6 +19,14 @@ import { pagination } from '../../const/store';
 export const renderCartPage = (): HTMLElement => {
     const main: HTMLElement = createElem('main', 'main');
     const mainContainer: HTMLElement = createElem('div', 'main__container');
+
+    if (productsCartData.count === 0) {
+        mainContainer.innerHTML = '';
+        mainContainer.append(renderEmptyCart());
+        main.append(mainContainer);
+        return main;
+    }
+
     const modalContainer: HTMLElement = createElem('div', 'main__modal-container');
     const mainContent: HTMLElement = createElem('div', styles['cart']);
 
@@ -40,18 +48,6 @@ export const renderCartPage = (): HTMLElement => {
 
     const cartDeleteAllBtn: HTMLElement = createElem('p', 'cart__delete-all-btn');
     cartDeleteAllBtn.innerHTML = 'Удалить все';
-
-    cartDeleteAllBtn.onclick = () => {
-        const cartItems = document.querySelector('.cart__items') as HTMLElement;
-        cartItems.innerHTML = '';
-        cartItems.append(renderEmptyCart());
-
-        localStorage.removeItem(LOCAL_STORAGE_KEYS.PRODUCT); //очищаем Local storage
-        productsCartData.productsInCart = [];
-        productsCartData.count = 0;
-        updateHeader(productsCartData.count, productsCartData.productsInCart);
-        updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
-    };
 
     cartTools.append(limitContainer, paginationEl, cartDeleteAllBtn);
 
@@ -85,7 +81,7 @@ export const renderCartPage = (): HTMLElement => {
     main.append(mainContainer, modalContainer);
 
     cartDeleteAllBtn.onclick = () => {
-        const cartItems = document.querySelector('.cart__items') as HTMLElement;
+        const cartItems = document.querySelector('.main__container') as HTMLElement;
         cartItems.innerHTML = '';
         cartItems.append(renderEmptyCart());
 
