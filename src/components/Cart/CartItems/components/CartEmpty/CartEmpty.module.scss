@@ -1,7 +1,7 @@
 @import '/src/theme/variable';
 
 .empty-cart {
-    height: 390px;
+    height: calc(100vh - 80px - 70px);
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -9,6 +9,7 @@ import { fromQueryStringToPag } from '../components/Cart/Pagination/components/Q
 import { updateCartItems } from '../components/Cart/Pagination/components/PaginationBtns/components/update-rendered-items';
 import { updatePaginationBtns } from '../components/Cart/Pagination/components/PaginationBtns/components/update-paginaiton-btns';
 import { updateLimits } from '../components/Cart/Pagination/components/PaginationBtns/components/update-limit-ui';
+import { productsCartData } from '../const/store';
 
 /** Рендер темплейтов страниц */
 export const pathResolver = (pathname: string): void => {
@@ -34,7 +35,7 @@ export const pathResolver = (pathname: string): void => {
             renderFiltered(appliedFilters);
         }
 
-        if (pathname === '/cart') {
+        if (pathname === '/cart' && productsCartData.count !== 0) {
             fromQueryStringToPag(window.location.search);
             updateCartItems();
             updatePaginationBtns();
