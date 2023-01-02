@@ -1,5 +1,5 @@
 /** Функция парсит объект pagination, создает из него query string и добавляет в URL */
-export const toQueryStringPag = (paginaiton: Pagination): string => {
+export const toQueryStringPag = (paginaiton: Pagination, order?: string): string => {
     const allFiltersArr = Object.entries(paginaiton);
     let querystring = '';
 

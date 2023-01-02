@@ -37,7 +37,7 @@ export const renderOrderAddCart = (product: ExtendedProduct, size: string): Retu
 
 export const renderOrderButton = (): HTMLElement => {
     const productCartLink: HTMLElement = createLink(
-        '/cart',
+        '/cart?order=true',
         styles['product-order__checkout'],
         false,
         'Оформить заказ'

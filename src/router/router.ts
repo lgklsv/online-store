@@ -10,6 +10,7 @@ import { updateCartItems } from '../components/Cart/Pagination/components/Pagina
 import { updatePaginationBtns } from '../components/Cart/Pagination/components/PaginationBtns/components/update-paginaiton-btns';
 import { updateLimits } from '../components/Cart/Pagination/components/PaginationBtns/components/update-limit-ui';
 import { productsCartData } from '../const/store';
+import { showModal } from '../components/Cart/CartCheckout/CartCheckout';
 
 /** Рендер темплейтов страниц */
 export const pathResolver = (pathname: string): void => {
@@ -36,10 +37,15 @@ export const pathResolver = (pathname: string): void => {
         }
 
         if (pathname === '/cart' && productsCartData.count !== 0) {
+            const shouldOpenOrderModal = window.location.search.includes('order');
+            // проверяем есть ли в query строке это значение
+
             fromQueryStringToPag(window.location.search);
-            updateCartItems();
+            updateCartItems(); // передеаем в эту функцию параметр
             updatePaginationBtns();
             updateLimits();
+
+            shouldOpenOrderModal && showModal();
         }
     }
 };

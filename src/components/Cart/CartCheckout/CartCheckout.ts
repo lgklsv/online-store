@@ -63,12 +63,16 @@ export const renderCartCheckout = (): HTMLElement => {
     checkoutBtn.innerHTML = 'Оформить заказ';
 
     checkoutBtn.onclick = (): void => {
-        const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
-        const modal = document.querySelector('.checkout-modal') as HTMLElement;
-        toggleModal(modal, overlay);
+        showModal();
     };
 
     cartCheckout.append(checkoutCoupon, promoWrap, checkoutQty, checkoutSum, checkoutTotal, checkoutBtn);
 
     return cartCheckout;
+};
+
+export const showModal = () => {
+    const overlay = document.querySelector('.checkout-modal__overlay') as HTMLElement;
+    const modal = document.querySelector('.checkout-modal') as HTMLElement;
+    toggleModal(modal, overlay);
 };
