@@ -46,6 +46,7 @@ export const pathResolver = (pathname: string): void => {
             updateLimits();
 
             shouldOpenOrderModal && showModal();
+            // если есть order - открывает модалку
         }
     }
 };
