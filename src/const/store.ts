@@ -14,20 +14,11 @@ export const store: Store = {
             ' ' +
             product.color +
             ' ' +
-            product.category,
-    })),
-
-    sort: PRODUCTS.map((product: Product) => ({
-        ...product,
-        discountPrice: Number(newPrice(product.price, product.discountPercentage)),
-        search:
-            product.title +
+            product.category +
             ' ' +
-            newPrice(product.price, product.discountPercentage) +
+            product.rating +
             ' ' +
-            product.color +
-            ' ' +
-            product.category,
+            product.discountPercentage,
     })),
 
     sorted: [],
