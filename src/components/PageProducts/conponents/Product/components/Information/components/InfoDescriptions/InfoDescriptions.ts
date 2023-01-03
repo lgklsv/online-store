@@ -1,3 +1,4 @@
+import { newNameCategory } from '../../../../../../../../utils/change-name-category';
 import { createElem } from '../../../../../../../../utils/create-element';
 import { newNameProduct } from '../../../../../../../../utils/edit-name-products';
 import { newPrice } from '../../../../../../../../utils/edit-price';
@@ -88,7 +89,10 @@ export const renderTitle = (product: ExtendedProduct): HTMLElement => {
     const headerProduct: HTMLElement = createElem('h1', styles['product-page__header']);
     headerProduct.innerHTML = product.brand;
     const descrProduct: HTMLElement = createElem('h3', styles['product-page__header-descrip']);
-    descrProduct.innerHTML = `${product.sex}  ${product.category} ${newNameProduct(product.brand, product.title)}`;
+    descrProduct.innerHTML = ` ${newNameCategory(product.sex, product.category)} ${newNameProduct(
+        product.brand,
+        product.title
+    )}`;
 
     headerWrapper.append(headerProduct, descrProduct);
 

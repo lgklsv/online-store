@@ -9,5 +9,6 @@ export const updateCartItems = (): void => {
     cartItems.innerHTML = '';
     toQueryStringPag(pagination);
     const newItems = renderCartItems(getCartPage(productsCartData.productsInCart, pagination.page, pagination.limit));
+
     cartItems.append(newItems);
 };
