@@ -22,6 +22,8 @@ export const newNameCategory = (sex: string, type: string): string => {
 
 export const newNameSex = (sex: string, category: string): string => {
     const type = ['Ботинки', 'Джинсы', 'Шорты', 'Штаны'];
+    // const types = ['Футболка', 'Рубашка', 'Юбка', 'Майка', 'Толстовка', 'Куртка'];
+
     let result = '';
 
     if (category === 'Пальто') {
@@ -42,18 +44,14 @@ export const newNameSex = (sex: string, category: string): string => {
 
         switch (sex) {
             case 'male':
-                if (!find) {
-                    return (result = 'Мужская');
-                } else {
-                    result = 'Мужские';
-                }
+                if (!find) result = 'Мужская';
+                else result = 'Мужские';
+                return result;
 
             case 'female':
-                if (!find) {
-                    return (result = 'Женская');
-                } else {
-                    result = 'Женские';
-                }
+                if (!find) result = 'Женская';
+                else result = 'Женские';
+                return result;
 
             case 'any':
                 return result;
