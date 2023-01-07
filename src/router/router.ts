@@ -16,7 +16,6 @@ import { showModal } from '../components/Cart/CartCheckout/CartCheckout';
 export const pathResolver = (pathname: string): void => {
     let route = ROUTER_PATHS[pathname] || ROUTER_PATHS[PATH_NAMES.notFound];
     if (pathname.startsWith(PATH_NAMES.product)) {
-        console.log(pathname);
         const product = findProductById(extractPathId(pathname));
         if (product !== -1) {
             route = ROUTER_PATHS[PATH_NAMES.product];
