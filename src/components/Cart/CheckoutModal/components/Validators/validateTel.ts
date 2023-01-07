@@ -1,5 +1,6 @@
 export const validatePhone = (phone: string, messageEl: HTMLElement): boolean => {
     const cleanPhone = phone.replace(/\D+/g, '');
+    if (phone[0] !== '+') phone = '+' + phone;
 
     if (cleanPhone.length >= 9 && /^(\+|00)[7-8][0-9 \-\(\)\.]{8,18}$/.test(phone)) {
         messageEl.innerHTML = '✓';
