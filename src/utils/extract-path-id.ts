@@ -1,9 +1,8 @@
-export const extractPathId = function (path: string): number | -1{
+export const extractPathId = function (path: string): number | -1 {
     const splittedPath = path.split('/');
-    let id;
     if (splittedPath.length > 0) {
-        id = splittedPath.pop();
-        if (id) return +id;
+        let id = splittedPath[splittedPath.length - 1];
+        return id && !isNaN(+id) && splittedPath.length === 3 ? +id : -1;
     }
-    return id ? +id : -1;
+    return -1;
 };
