@@ -1,6 +1,6 @@
 {
     "exclude": ["node_modules"],
-    "include": ["src", "webpack.config.ts"],
+    "include": ["src", "webpack.config.ts", "jest-setup.ts"],
     "compilerOptions": {
         "strict": true,
         "noImplicitAny": true,

@@ -11,7 +11,7 @@ import styles from './CartCheckoutPromo.module.scss';
 export const renderCartCheckoutPromo = (
     input: HTMLInputElement,
     title: HTMLElement,
-    buttom: HTMLElement
+    button: HTMLElement
 ): HTMLElement => {
     const promoWrap: HTMLElement = createElem('div', styles['checkout-coupon__wrapper']);
 
@@ -27,18 +27,18 @@ export const renderCartCheckoutPromo = (
         Object.entries(PROMOCODES_NAMES).forEach(([key, value]) => {
             if (valueInput === value.toLocaleLowerCase()) {
                 title.innerHTML = `${key}  –${PROMOCODES_DISCOUNT[value]}%`;
-                buttom.removeAttribute('disabled');
+                button.removeAttribute('disabled');
                 promoData = value;
                 return;
             }
             if (valueInput === '') {
                 title.innerHTML = ``;
-                buttom.setAttribute('disabled', 'true');
+                button.setAttribute('disabled', 'true');
             }
         });
     };
 
-    buttom.onclick = () => {
+    button.onclick = () => {
         // проверяем есть ли данный промокод в глобальнои объекте
         const findedPromocode = promocodeStorage.promo.find((promocode: string) => {
             return promoData === promocode;
@@ -56,7 +56,7 @@ export const renderCartCheckoutPromo = (
             // изменяем общую сумму корзины
             let total = calcAmountCart(productsCartData.productsInCart); //общая сумма товаров в корзине
             total = total.replace(' ', '');
-            
+
             updateTotalSumm(`${formatPriceNum(total)} ₽`, calcDiscount(total, promocodeStorage.discount), promoWrap);
 
             return;
