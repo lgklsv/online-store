@@ -1,5 +1,6 @@
+/* eslint-disable no-param-reassign */
 export const updateComponent = (parent: HTMLElement, ...сhild: (HTMLElement | undefined)[]): void => {
-    parent.innerHTML = '';
+  parent.innerHTML = '';
 
-    parent.append(...(сhild.filter(Boolean) as HTMLElement[]));
+  parent.append(...(сhild.filter(Boolean) as HTMLElement[]));
 };

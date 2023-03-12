@@ -1,34 +1,34 @@
 @import '/src/theme/variable';
 
 .header {
-    background-color: $white;
-    max-width: 100%;
-    height: $header-height;
+  background-color: $white;
+  max-width: 100%;
+  height: $header-height;
 }
 
 .header__container {
-    padding-right: 15px;
-    padding-left: 15px;
-    max-width: $desktop;
-    margin-right: auto;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: $desktop;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .store-name__link {
-    display: block;
-    background-image: url('/src/assets/images/Logo.png');
-    width: 7rem;
-    height: 5rem;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+  display: block;
+  background-image: url('/src/assets/images/Logo.png');
+  width: 7rem;
+  height: 5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .header__total-summ {
-    display: flex;
-    gap: 1rem;
-    font-weight: 800;
+  display: flex;
+  gap: 1rem;
+  font-weight: 800;
 }

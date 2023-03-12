@@ -1,58 +1,57 @@
 @import '/src/theme/variable';
 
 .toolbar__select-view {
-    display: flex;
+  display: flex;
 }
 
 .select-view__card-size {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .card-size__label {
-    position: relative;
-    background-position: 6px 1px;
-    background-repeat: no-repeat;
-    z-index: 2;
-    display: inline-block;
-    user-select: none;
-    text-align: center;
-    outline: 0;
-    touch-action: manipulation;
-    cursor: pointer;
+  position: relative;
+  background-position: 6px 1px;
+  background-repeat: no-repeat;
+  z-index: 2;
+  display: inline-block;
+  user-select: none;
+  text-align: center;
+  outline: 0;
+  touch-action: manipulation;
+  cursor: pointer;
 }
 
 .active-view {
-    opacity: 1;
+  opacity: 1;
 }
 
 .card-size__input {
-    position: absolute;
-    cursor: pointer;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
 }
 
 .card-size__span {
-    background-image: url('/src/assets/images/square-9.svg');
-    position: relative;
-    // background-position: 6px 1px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 1;
-    padding: 0 0.7em;
-    pointer-events: none;
-    width: 100%;
-    height: 100%;
+  background-image: url('/src/assets/images/square-9.svg');
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
+  padding: 0 0.7em;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
 }
 
 .span-four {
-    background-image: url('/src/assets/images/square-4.svg');
+  background-image: url('/src/assets/images/square-4.svg');
 }
 
 .catalog_products {
-    .products-card__overlay {
-        height: 680px;
-    }
+  .products-card__overlay {
+    height: 680px;
+  }
 }

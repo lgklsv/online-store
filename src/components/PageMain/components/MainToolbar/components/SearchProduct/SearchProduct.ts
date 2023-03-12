@@ -4,27 +4,27 @@ import { createInput } from '../../../../../../utils/create-input-element';
 import { appliedFilters } from '../../../../../../const/store';
 import { renderFiltered } from '../../../Filter/filter';
 
-export const renderSearchProduct = (node: NodeListOf<ChildNode>): HTMLElement => {
-    // const catalogProduct: HTMLElement = node[0].childNodes[0] as HTMLElement;
-    const searchProduct: HTMLElement = createElem('div', styles['toolbar__search-product']);
-    const searchProductInput: HTMLInputElement = createInput('input', styles['search-product__input']);
-    searchProductInput.setAttribute('type', 'text');
-    searchProductInput.setAttribute('placeholder', 'Найти товар ...');
-    const filterType = 'input';
+export const renderSearchProduct = (): HTMLElement => {
+  // const catalogProduct: HTMLElement = node[0].childNodes[0] as HTMLElement;
+  const searchProduct: HTMLElement = createElem('div', styles['toolbar__search-product']);
+  const searchProductInput: HTMLInputElement = createInput('input', styles['search-product__input']);
+  searchProductInput.setAttribute('type', 'text');
+  searchProductInput.setAttribute('placeholder', 'Найти товар ...');
+  const filterType = 'input';
 
-    searchProductInput.oninput = () => {
-        let valueInput: string = searchProductInput.value.toLocaleLowerCase().trim();
+  searchProductInput.oninput = () => {
+    const valueInput: string = searchProductInput.value.toLocaleLowerCase().trim();
 
-        if (!valueInput) {
-            delete appliedFilters[filterType];
-        } else {
-            if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
-            appliedFilters[filterType][0] = valueInput;
-        }
-        renderFiltered(appliedFilters);
-    };
+    if (!valueInput) {
+      delete appliedFilters[filterType];
+    } else {
+      if (!appliedFilters[filterType]) appliedFilters[filterType] = [];
+      appliedFilters[filterType][0] = valueInput;
+    }
+    renderFiltered(appliedFilters);
+  };
 
-    searchProduct.append(searchProductInput);
+  searchProduct.append(searchProductInput);
 
-    return searchProduct;
+  return searchProduct;
 };

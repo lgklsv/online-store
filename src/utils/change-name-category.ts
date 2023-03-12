@@ -1,51 +1,53 @@
-export const newNameCategory = (sex: string, type: string): string => {
-    const types = ['Ботинки', 'Джинсы', 'Пальто', 'Шорты', 'Штаны'];
-    let newSex = newNameSex(sex, type);
-    let newtype = type;
+/* eslint-disable default-case */
+/* eslint-disable no-return-assign */
+export const newNameSex = (sex: string, category: string): string => {
+  const type = ['Ботинки', 'Джинсы', 'Шорты', 'Штаны'];
+  // const types = ['Футболка', 'Рубашка', 'Юбка', 'Майка', 'Толстовка', 'Куртка'];
 
-    const findedType = types.find((item) => item == newtype);
+  let result = '';
 
-    if (!findedType) newtype = type.slice(0, -1) + 'а';
+  if (category === 'Пальто') {
+    switch (sex) {
+      case 'male':
+        return (result = 'Мужское');
 
-    let result = newtype;
+      case 'female':
+        return (result = 'Женское');
 
-    if (newSex !== '') result = `${newSex} ${newtype.toLocaleLowerCase()}`;
+      case 'any':
+        return result;
+    }
+  } else {
+    const find = type.find((item) => item === category);
 
-    return result;
+    switch (sex) {
+      case 'male':
+        !find ? (result = 'Мужская') : (result = 'Мужские');
+        return result;
+
+      case 'female':
+        !find ? (result = 'Женская') : (result = 'Женские');
+        return result;
+
+      case 'any':
+        return result;
+    }
+  }
+  return result;
 };
 
-export const newNameSex = (sex: string, category: string): string => {
-    const type = ['Ботинки', 'Джинсы', 'Шорты', 'Штаны'];
-    // const types = ['Футболка', 'Рубашка', 'Юбка', 'Майка', 'Толстовка', 'Куртка'];
+export const newNameCategory = (sex: string, type: string): string => {
+  const types = ['Ботинки', 'Джинсы', 'Пальто', 'Шорты', 'Штаны'];
+  const newSex = newNameSex(sex, type);
+  let newtype = type;
 
-    let result = '';
+  const findedType = types.find((item) => item === newtype);
 
-    if (category === 'Пальто') {
-        switch (sex) {
-            case 'male':
-                return (result = 'Мужское');
+  if (!findedType) newtype = `${type.slice(0, -1)}а`;
 
-            case 'female':
-                return (result = 'Женское');
+  let result = newtype;
 
-            case 'any':
-                return result;
-        }
-    } else {
-        const find = type.find((item) => item == category);
+  if (newSex !== '') result = `${newSex} ${newtype.toLocaleLowerCase()}`;
 
-        switch (sex) {
-            case 'male':
-                !find ? (result = 'Мужская') : (result = 'Мужские');
-                return result;
-
-            case 'female':
-                !find ? (result = 'Женская') : (result = 'Женские');
-                return result;
-
-            case 'any':
-                return result;
-        }
-    }
-    return result;
+  return result;
 };

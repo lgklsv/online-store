@@ -1,54 +1,54 @@
 @import '/src/theme/variable';
 
 .checkout-coupon__wrapper {
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .checkout-coupon__promo {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 0rem;
-    justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0rem;
+  justify-content: flex-start;
 }
 
 .checkout-coupon__promo-discount,
 .checkout-coupon__promo-name,
 .checkout-coupon__promo-delete {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 4.1rem;
-    @include btn($black, $light-grey, $grey);
-    font-size: 0.8rem;
-    padding: 0.4rem;
-    margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.1rem;
+  @include btn($black, $light-grey, $grey);
+  font-size: 0.8rem;
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .checkout-coupon__promo-name {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    background-color: $primaty-5;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: $primaty-5;
 }
 
 .checkout-coupon__promo-discount {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    align-items: flex-end;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  align-items: flex-end;
 }
 
 .checkout-coupon__promo-delete {
-    margin-left: 0.4rem;
-    color: $white;
-    background-color: transparent;
+  margin-left: 0.4rem;
+  color: $white;
+  background-color: transparent;
 
-    &:hover {
-        @include btn($black, $light-grey, $primaty-5);
-        font-size: 0.8rem;
-        padding: 0.4rem;
-        margin-bottom: 0.5rem;
-        color: $red;
-    }
+  &:hover {
+    @include btn($black, $light-grey, $primaty-5);
+    font-size: 0.8rem;
+    padding: 0.4rem;
+    margin-bottom: 0.5rem;
+    color: $red;
+  }
 }

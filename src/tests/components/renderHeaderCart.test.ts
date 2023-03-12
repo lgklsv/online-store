@@ -1,32 +1,31 @@
+import { queryByText, fireEvent } from '@testing-library/dom';
 import { renderHeaderCart } from '../../components/Header/components/HeaderCart/HeaderCart';
 import { router } from '../../utils/router';
 
-import { queryByText, fireEvent } from '@testing-library/dom';
-
 jest.mock('../../utils/router', () => ({
-    router: jest.fn(),
+  router: jest.fn(),
 }));
 jest.mock('../../const/store', () => ({
-    productsCartData: {
-        count: 2,
-    },
+  productsCartData: {
+    count: 2,
+  },
 }));
 
 describe('Component renderHeaderCart', () => {
-    it('should render Header Cart component', () => {
-        const container = renderHeaderCart();
+  it('should render Header Cart component', () => {
+    const container = renderHeaderCart();
 
-        expect(queryByText(container, '2')).toBeDefined();
-    });
+    expect(queryByText(container, '2')).toBeDefined();
+  });
 
-    it('should open cart page', () => {
-        const handleOpenCart = jest.fn();
-        (router as jest.Mock).mockImplementation(handleOpenCart);
+  it('should open cart page', () => {
+    const handleOpenCart = jest.fn();
+    (router as jest.Mock).mockImplementation(handleOpenCart);
 
-        const container = renderHeaderCart();
-        fireEvent.click(container);
+    const container = renderHeaderCart();
+    fireEvent.click(container);
 
-        expect(handleOpenCart).toBeCalledTimes(1);
-        expect(handleOpenCart).toBeCalledWith('/cart');
-    });
+    expect(handleOpenCart).toBeCalledTimes(1);
+    expect(handleOpenCart).toBeCalledWith('/cart');
+  });
 });

@@ -1,39 +1,39 @@
 @import '/src/theme/variable';
 
 .catalog {
-    padding-bottom: 4.5rem;
-    display: flex;
+  padding-bottom: 4.5rem;
+  display: flex;
 }
 
 .catalog_wrapper {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 1 86.4rem;
-    flex: 0 1 86.4rem;
-    opacity: 1;
-    -webkit-transition: opacity 0.3s ease;
-    -o-transition: opacity 0.3s ease;
-    transition: opacity 0.3s ease;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 86.4rem;
+  flex: 0 1 86.4rem;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .catalog_products {
-    display: grid;
-    justify-items: center;
-    grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 25%));
+  display: grid;
+  justify-items: center;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 25%));
 }
 
 .view-3 {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 33%));
-    .products-card {
-        height: 639px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 33%));
+  .products-card {
+    height: 639px;
 
-        &:hover {
-            .products-card__overlay {
-                height: 639px;
-            }
-        }
+    &:hover {
+      .products-card__overlay {
+        height: 639px;
+      }
     }
+  }
 }

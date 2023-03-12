@@ -1,20 +1,20 @@
 @import '/src/theme/variable';
 
 .empty-cart {
-    height: calc(100vh - 80px - 70px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: auto 0;
+  height: calc(100vh - 80px - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: auto 0;
 }
 
 .empty-cart__message {
-    margin-bottom: 2.4rem;
-    text-align: center;
-    font-size: 1.8rem;
+  margin-bottom: 2.4rem;
+  text-align: center;
+  font-size: 1.8rem;
 }
 
 .empty-cart__btn {
-    @include btn($black, $light-grey, $grey);
+  @include btn($black, $light-grey, $grey);
 }

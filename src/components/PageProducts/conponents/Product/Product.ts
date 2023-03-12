@@ -4,12 +4,12 @@ import { rendreSliderProduct } from './components/Slider/Slider';
 import styles from './Product.module.scss';
 
 export const renderProduct = (product: ExtendedProduct): HTMLElement => {
-    const toolbarProdPage: HTMLElement = createElem('div', styles['product-page__prod-container']);
+  const toolbarProdPage: HTMLElement = createElem('div', styles['product-page__prod-container']);
 
-    const slider: HTMLElement = rendreSliderProduct(product);
-    const information: HTMLElement = renderInformationProduct(product);
+  const slider: HTMLElement = rendreSliderProduct(product);
+  const information: HTMLElement = renderInformationProduct(product);
 
-    toolbarProdPage.append(slider, information);
+  toolbarProdPage.append(slider, information);
 
-    return toolbarProdPage;
+  return toolbarProdPage;
 };

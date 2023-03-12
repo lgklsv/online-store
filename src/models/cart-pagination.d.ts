@@ -1,4 +1,4 @@
 interface Pagination {
-    limit: number;
-    page: number;
+  limit: number;
+  page: number;
 }

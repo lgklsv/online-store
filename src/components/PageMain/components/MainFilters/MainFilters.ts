@@ -9,27 +9,27 @@ import { getPriceValues } from '../../../../utils/products-data-helpers/get-pric
 import { getStockValues } from '../../../../utils/products-data-helpers/get-stock-values';
 
 export const renderMainFilters = (): HTMLElement => {
-    const filters: HTMLElement = createElem('div', styles['filters']);
-    const filtersContainer: HTMLElement = createElem('div', 'filters__container');
-    const heading: HTMLElement = createElem('h2', 'filters__heading');
-    heading.textContent = 'Фильтры';
+  const filters: HTMLElement = createElem('div', styles['filters']);
+  const filtersContainer: HTMLElement = createElem('div', 'filters__container');
+  const heading: HTMLElement = createElem('h2', 'filters__heading');
+  heading.textContent = 'Фильтры';
 
-    const priceFilter: HTMLElement = renderSlideFilter('Цена', 'cash', getPriceValues(PRODUCTS), 'price');
-    const stockFilter: HTMLElement = renderSlideFilter('Количество', 'stock', getStockValues(PRODUCTS), 'stock');
+  const priceFilter: HTMLElement = renderSlideFilter('Цена', 'cash', getPriceValues(PRODUCTS), 'price');
+  const stockFilter: HTMLElement = renderSlideFilter('Количество', 'stock', getStockValues(PRODUCTS), 'stock');
 
-    const categoryFilter: HTMLElement = renderCheckboxFilter(
-        'Категория',
-        getAmountOfProps(PRODUCTS, getCategoties(PRODUCTS), 'category'),
-        'category'
-    );
+  const categoryFilter: HTMLElement = renderCheckboxFilter(
+    'Категория',
+    getAmountOfProps(PRODUCTS, getCategoties(PRODUCTS), 'category'),
+    'category'
+  );
 
-    const brandFilter: HTMLElement = renderCheckboxFilter(
-        'Бренд',
-        getAmountOfProps(PRODUCTS, getBrands(PRODUCTS), 'brand'),
-        'brand'
-    );
+  const brandFilter: HTMLElement = renderCheckboxFilter(
+    'Бренд',
+    getAmountOfProps(PRODUCTS, getBrands(PRODUCTS), 'brand'),
+    'brand'
+  );
 
-    filtersContainer.append(heading, priceFilter, stockFilter, categoryFilter, brandFilter);
-    filters.append(filtersContainer);
-    return filters;
+  filtersContainer.append(heading, priceFilter, stockFilter, categoryFilter, brandFilter);
+  filters.append(filtersContainer);
+  return filters;
 };

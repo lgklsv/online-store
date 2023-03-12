@@ -6,16 +6,16 @@ import { renderSelectView } from './components/SelectView/SelectView';
 import styles from './MainToolbar.module.scss';
 
 export const renderMainToolbar = (node: NodeListOf<ChildNode>): HTMLElement => {
-    const mainToolbar: HTMLElement = createElem('div', styles['main__toolbar']);
+  const mainToolbar: HTMLElement = createElem('div', styles['main__toolbar']);
 
-    const selectSort: HTMLElement = renderSelectSort(node);
-    const productQuantity: HTMLElement = createElem('div', styles['toolbar__quantity']);
-    productQuantity.innerHTML = `Всего: ${String(PRODUCTS.length)}`;
+  const selectSort: HTMLElement = renderSelectSort(node);
+  const productQuantity: HTMLElement = createElem('div', styles['toolbar__quantity']);
+  productQuantity.innerHTML = `Всего: ${String(PRODUCTS.length)}`;
 
-    const searchProduct: HTMLElement = renderSearchProduct(node);
-    const selectView: HTMLElement = renderSelectView(node);
+  const searchProduct: HTMLElement = renderSearchProduct();
+  const selectView: HTMLElement = renderSelectView(node);
 
-    mainToolbar.append(searchProduct, productQuantity, selectSort, selectView);
+  mainToolbar.append(searchProduct, productQuantity, selectSort, selectView);
 
-    return mainToolbar;
+  return mainToolbar;
 };
