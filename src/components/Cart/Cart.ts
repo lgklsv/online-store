@@ -1,12 +1,7 @@
-import { LOCAL_STORAGE_KEYS } from '../../const/local-storage';
-import { promocodeStorage } from '../../const/promocodes';
+import styles from './Cart.module.scss';
 import { productsCartData, pagination } from '../../const/store';
-import { calcAmountCart } from '../../utils/calculate-amount-cart';
 import { createElem } from '../../utils/create-element';
 import { getCartPage } from '../../utils/get-cart-page';
-import { updateHeader, updateTotalSumm } from './handlers/update-cart';
-import { updateComponent } from '../../utils/update-component';
-import styles from './Cart.module.scss';
 import { renderCartCheckout } from './CartCheckout/CartCheckout';
 import { renderCartItems } from './CartItems/CartItems';
 import { renderEmptyCart } from './CartItems/components/CartEmpty/CartEmpty';
@@ -14,6 +9,7 @@ import { renderCheckoutModal } from './CheckoutModal/CheckoutModal';
 import { toggleModal } from './CheckoutModal/components/ToggleModal';
 import { renderLimits } from './Pagination/components/Limits/Limits';
 import { renderPagination } from './Pagination/Pagination';
+import { onClearCart } from './handlers/onClearCart';
 
 export const renderCartPage = (): HTMLElement => {
   const main: HTMLElement = createElem('main', 'main');
@@ -79,24 +75,7 @@ export const renderCartPage = (): HTMLElement => {
   mainContainer.append(mainContent);
   main.append(mainContainer, modalContainer);
 
-  cartDeleteAllBtn.onclick = () => {
-    const cartItems = document.querySelector('.main__container') as HTMLElement;
-    cartItems.innerHTML = '';
-    cartItems.append(renderEmptyCart());
-
-    localStorage.removeItem(LOCAL_STORAGE_KEYS.PRODUCT); // очищаем Local storage
-    productsCartData.productsInCart = [];
-    productsCartData.count = 0;
-    updateHeader(productsCartData.count, productsCartData.productsInCart);
-    updateTotalSumm(`${calcAmountCart(productsCartData.productsInCart)} ₽`);
-
-    promocodeStorage.discount = 0;
-    promocodeStorage.promo = [];
-    localStorage.removeItem(LOCAL_STORAGE_KEYS.PROMOCODES); // очищаем Local storage
-
-    const updatedCartCheckout = [cartCheckoutContainer.firstChild as ChildNode, renderCartCheckout()];
-    updateComponent(cartCheckoutContainer, ...(updatedCartCheckout as HTMLElement[]));
-  };
+  cartDeleteAllBtn.onclick = onClearCart;
 
   return main;
 };
