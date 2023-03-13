@@ -5,7 +5,7 @@ import { createElem } from '../../../../../../../../utils/create-element';
 import { createLink } from '../../../../../../../../utils/create-link-element';
 import { findProduct } from '../../../../../../../../utils/find-products';
 import { setLocalStorage } from '../../../../../../../../utils/local-storage';
-import { updateHeader } from '../../../../../../../../utils/update-cart';
+import { updateHeader } from '../../../../../../../Cart/handlers/update-cart';
 import { updateInfoProd } from '../../Information';
 import { helperForSize } from '../InfoSize/InfoSize';
 import styles from './InfoOrderProducts.module.scss';

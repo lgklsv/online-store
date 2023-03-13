@@ -1,10 +1,10 @@
-import { renderCartCheckoutReceipt } from '../components/Cart/CartCheckout/components/CartCheckoutReceipt/CartCheckoutReceipt';
-import { renderCartItems } from '../components/Cart/CartItems/CartItems';
-import { promocodeStorage } from '../const/promocodes';
-import { productsCartData, pagination } from '../const/store';
-import { calcAmountCart } from './calculate-amount-cart';
-import { updateComponent } from './update-component';
-import { getCartPage } from './get-cart-page';
+import { renderCartCheckoutReceipt } from '../CartCheckout/components/CartCheckoutReceipt/CartCheckoutReceipt';
+import { renderCartItems } from '../CartItems/CartItems';
+import { promocodeStorage } from '../../../const/promocodes';
+import { productsCartData, pagination } from '../../../const/store';
+import { calcAmountCart } from '../../../utils/calculate-amount-cart';
+import { updateComponent } from '../../../utils/update-component';
+import { getCartPage } from '../../../utils/get-cart-page';
 
 export const updateHeader = (newCount: number | string, array: CartData[]): void => {
   const counterProduct: HTMLElement = document.querySelector('.cart-counter') as HTMLElement;

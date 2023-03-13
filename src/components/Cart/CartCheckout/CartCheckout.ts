@@ -18,6 +18,7 @@ export const renderCartCheckout = (): HTMLElement => {
   couponTitle.innerHTML = 'Промокод';
 
   const couponPromo: HTMLElement = createElem('p', 'checkout-coupon__title');
+  couponPromo.id = 'coupon-badge';
   couponPromo.innerHTML = ''; // блок для вывода сообщения о найденном промокоде при совпадении значений
 
   couponTitleWrap.append(couponTitle, couponPromo);
@@ -25,14 +26,16 @@ export const renderCartCheckout = (): HTMLElement => {
   const couponBody: HTMLElement = createElem('div', 'checkout-coupon__body');
 
   const couponInput: HTMLInputElement = createInput('text', 'checkout-coupon__input');
+  couponInput.id = 'coupon-input';
   couponInput.setAttribute('placeholder', 'Введите промокод');
 
   const couponBtn: HTMLElement = createElem('button', 'checkout-coupon__btn');
   couponBtn.innerHTML = 'Применить';
+  couponBtn.id = 'coupon-btn';
   couponBtn.setAttribute('disabled', 'true'); // делаем кнопку неактивной
 
   // облочка для блока с промокодами
-  const promoWrap = renderCartCheckoutPromo(couponInput, couponPromo, couponBtn);
+  const promoWrap = renderCartCheckoutPromo(couponInput, couponBtn);
 
   couponBody.append(couponInput, couponBtn);
   checkoutCoupon.append(couponTitleWrap, couponBody);

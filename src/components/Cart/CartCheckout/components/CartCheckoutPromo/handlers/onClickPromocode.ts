@@ -5,13 +5,17 @@ import { productsCartData } from '../../../../../../const/store';
 import { calcAmountCart, calcDiscount } from '../../../../../../utils/calculate-amount-cart';
 import { formatPriceNum } from '../../../../../../utils/format-price';
 import { setLocalStorage } from '../../../../../../utils/local-storage';
-import { updateTotalSumm } from '../../../../../../utils/update-cart';
-import { addPromocodes } from './add-promocodes';
+import { updateTotalSumm } from '../../../../handlers/update-cart';
+import { addPromocodes } from './addPromocodesHandler';
+import { resetCouponInputs } from './resetInputsHandler';
 
-export const onClickPromocode = (promoWrap: HTMLElement, title: HTMLElement) => {
-  const promoDataInput = document.querySelector('.checkout-coupon__input') as HTMLInputElement;
-  const promoData = promoDataInput.value;
-  promoDataInput.value = '';
+export const onClickPromocode = (promoWrap: HTMLElement) => {
+  const promoDataInput = document.getElementById('coupon-input') as HTMLInputElement;
+  const couponBadge = document.getElementById('coupon-badge') as HTMLElement;
+
+  const promoData = promoDataInput.value.toUpperCase();
+  resetCouponInputs();
+
   // проверяем есть ли данный промокод в глобальнои объекте
   const findedPromocode = promocodeStorage.promo.find((promocode: string) => {
     return promoData === promocode;
@@ -36,9 +40,9 @@ export const onClickPromocode = (promoWrap: HTMLElement, title: HTMLElement) => 
   }
 
   if (findedPromocode) {
-    title.innerHTML = 'Промокод уже активирован';
+    couponBadge.innerHTML = 'Промокод уже активирован';
     setTimeout(() => {
-      title.innerHTML = '';
+      couponBadge.innerHTML = '';
     }, 2000);
   }
 };

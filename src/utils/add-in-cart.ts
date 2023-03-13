@@ -1,7 +1,7 @@
 import { LOCAL_STORAGE_KEYS } from '../const/local-storage';
 import { productsCartData } from '../const/store';
 import { setLocalStorage } from './local-storage';
-import { updateHeader } from './update-cart';
+import { updateHeader } from '../components/Cart/handlers/update-cart';
 
 export const addInCart = (product: ExtendedProduct, helper: HelperSize): void => {
   productsCartData.count++;

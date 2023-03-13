@@ -4,7 +4,7 @@ import { productsCartData, pagination } from '../../const/store';
 import { calcAmountCart } from '../../utils/calculate-amount-cart';
 import { createElem } from '../../utils/create-element';
 import { getCartPage } from '../../utils/get-cart-page';
-import { updateHeader, updateTotalSumm } from '../../utils/update-cart';
+import { updateHeader, updateTotalSumm } from './handlers/update-cart';
 import { updateComponent } from '../../utils/update-component';
 import styles from './Cart.module.scss';
 import { renderCartCheckout } from './CartCheckout/CartCheckout';

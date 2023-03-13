@@ -7,7 +7,7 @@ import { setLocalStorage } from '../../../utils/local-storage';
 import { LOCAL_STORAGE_KEYS } from '../../../const/local-storage';
 import { findProduct } from '../../../utils/find-products';
 import { calcAmountCart, calcDiscount } from '../../../utils/calculate-amount-cart';
-import { updateHeader, updateTotalSumm, updateСartItemsContainer } from '../../../utils/update-cart';
+import { updateHeader, updateTotalSumm, updateСartItemsContainer } from '../handlers/update-cart';
 import { updateComponent } from '../../../utils/update-component';
 import { updatePaginationBtns } from '../Pagination/components/PaginationBtns/components/update-paginaiton-btns';
 import { promocodeStorage } from '../../../const/promocodes';
