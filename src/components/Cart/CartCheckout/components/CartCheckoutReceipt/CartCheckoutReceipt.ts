@@ -1,5 +1,5 @@
-import { createElem } from '../../../../../utils/create-element';
 import styles from './CartCheckoutReceipt.module.scss';
+import { createElem } from '../../../../../utils/create-element';
 
 export const renderCartCheckoutReceipt = (title: string, sum: string, bold: boolean): HTMLElement => {
   const checkoutReceipt: HTMLElement = createElem('div', styles['cart__checkout-receipt']);
