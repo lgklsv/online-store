@@ -2,8 +2,8 @@ import { queryByText, fireEvent } from '@testing-library/dom';
 import { renderHeaderCart } from '../../components/Header/components/HeaderCart/HeaderCart';
 import { route } from '../../router/route';
 
-jest.mock('../../utils/router', () => ({
-  router: jest.fn(),
+jest.mock('../../router/route', () => ({
+  route: jest.fn(),
 }));
 jest.mock('../../const/store', () => ({
   productsCartData: {
