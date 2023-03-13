@@ -1,6 +1,8 @@
-import { productsCartData } from '../../const/store';
+import { appliedFilters, productsCartData } from '../../const/store';
+import { route } from '../../router/route';
 import { calcAmountCart } from '../../utils/calculate-amount-cart';
 import { createElem } from '../../utils/create-element';
+import { resetFilters } from '../PageMain/components/FilterFunctions/resetFilters';
 import { renderHeaderCart } from './components/HeaderCart/HeaderCart';
 import styles from './Header.module.scss';
 
@@ -12,6 +14,12 @@ export const renderHeader = (): HTMLElement => {
   const storeName: HTMLElement = createElem('div', 'header__store-name');
   const storeLogoLink: HTMLElement = createElem('a', styles['store-name__link']);
   storeLogoLink.setAttribute('href', '/');
+
+  storeLogoLink.onclick = (e: Event) => {
+    e.preventDefault();
+    resetFilters(appliedFilters);
+    route('/');
+  };
 
   storeName.append(storeLogoLink);
 

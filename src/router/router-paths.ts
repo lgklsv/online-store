@@ -1,9 +1,9 @@
-import { storeName } from './store-name';
+import { storeName } from '../const/store-name';
 import { notFound } from '../pages/404';
 import { app } from '../pages/main';
 import { cart } from '../pages/cart';
 import { product } from '../pages/product-page';
-import { PATH_NAMES } from './path-names';
+import { PATH_NAMES } from '../const/path-names';
 
 /** Пути роутера(страницы) */
 export const ROUTER_PATHS: Paths = {

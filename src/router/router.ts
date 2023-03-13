@@ -1,4 +1,4 @@
-import { ROUTER_PATHS } from '../const/router-paths';
+import { ROUTER_PATHS } from './router-paths';
 import { extractPathId } from '../utils/extract-path-id';
 import { findProductById } from '../utils/find-product-by-id';
 import { PATH_NAMES } from '../const/path-names';

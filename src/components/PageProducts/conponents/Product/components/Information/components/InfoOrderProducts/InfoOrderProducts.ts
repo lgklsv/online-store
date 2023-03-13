@@ -1,5 +1,6 @@
 import { LOCAL_STORAGE_KEYS } from '../../../../../../../../const/local-storage';
 import { productsCartData } from '../../../../../../../../const/store';
+import { route } from '../../../../../../../../router/route';
 import { addInCart } from '../../../../../../../../utils/add-in-cart';
 import { createElem } from '../../../../../../../../utils/create-element';
 import { createLink } from '../../../../../../../../utils/create-link-element';
@@ -9,7 +10,6 @@ import { updateHeader } from '../../../../../../../Cart/handlers/update-cart';
 import { updateInfoProd } from '../../Information';
 import { helperForSize } from '../InfoSize/InfoSize';
 import styles from './InfoOrderProducts.module.scss';
-import { router } from '../../../../../../../../utils/router';
 
 export const renderOrderAddCart = (product: ExtendedProduct, size: string): ReturnElements => {
   const productActions: HTMLElement = createElem('div', styles['product-page__actions']);
@@ -60,7 +60,7 @@ export const renderProductQuantity = ({
   const productCartDescriptions: HTMLElement = createElem('span', styles[`product-${page}__cart-descriptions`]);
   productCartDescriptions.innerHTML = `${String(countProduct)} в корзине`;
 
-  productCartDescriptions.onclick = (): void => router('/cart');
+  productCartDescriptions.onclick = (): void => route('/cart');
 
   productCartIconPlus.onclick = () => {
     const findedProduct = findProduct(product.id, activeSize) as CartData;

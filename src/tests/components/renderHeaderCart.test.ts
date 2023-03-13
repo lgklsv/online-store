@@ -1,6 +1,6 @@
 import { queryByText, fireEvent } from '@testing-library/dom';
 import { renderHeaderCart } from '../../components/Header/components/HeaderCart/HeaderCart';
-import { router } from '../../utils/router';
+import { route } from '../../router/route';
 
 jest.mock('../../utils/router', () => ({
   router: jest.fn(),
@@ -20,7 +20,7 @@ describe('Component renderHeaderCart', () => {
 
   it('should open cart page', () => {
     const handleOpenCart = jest.fn();
-    (router as jest.Mock).mockImplementation(handleOpenCart);
+    (route as jest.Mock).mockImplementation(handleOpenCart);
 
     const container = renderHeaderCart();
     fireEvent.click(container);

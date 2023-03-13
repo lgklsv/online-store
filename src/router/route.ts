@@ -1,6 +1,6 @@
-import { pathResolver } from '../router/router';
+import { pathResolver } from './router';
 
-export const router = (pathname: string): void => {
+export const route = (pathname: string): void => {
   window.history.pushState({}, '', window.location.origin + pathname);
   pathResolver(pathname);
 };
