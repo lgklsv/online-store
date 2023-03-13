@@ -27,3 +27,5 @@ export const pagination: Pagination = {
   limit: 3,
   page: 1,
 };
+
+export const priceGap = 1;

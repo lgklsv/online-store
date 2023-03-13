@@ -5,7 +5,6 @@ import { appliedFilters } from '../../../../../../const/store';
 import { renderFiltered } from '../../../Filter/filter';
 
 export const renderSearchProduct = (): HTMLElement => {
-  // const catalogProduct: HTMLElement = node[0].childNodes[0] as HTMLElement;
   const searchProduct: HTMLElement = createElem('div', styles['toolbar__search-product']);
   const searchProductInput: HTMLInputElement = createInput('input', styles['search-product__input']);
   searchProductInput.setAttribute('type', 'text');

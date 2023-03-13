@@ -30,7 +30,6 @@ export const renderSelectSort = (node: NodeListOf<ChildNode>): HTMLElement => {
       itemli.forEach((el) => el.classList.remove('select'));
       selectItemLi.classList.add('select');
       itemSpan.innerHTML = selectItemLi.textContent as string;
-      // убираем соддержимое блока
       catalogProduct.innerHTML = '';
 
       if (!appliedFilters[filterType]) appliedFilters[filterType] = [];

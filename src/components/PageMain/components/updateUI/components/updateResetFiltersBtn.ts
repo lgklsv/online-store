@@ -8,6 +8,7 @@ export const updateResetFiltersBtn = (): void => {
   if (Object.entries(appliedFilters).length === 0) {
     const resetBtn = document.querySelector('.filters__reset') as HTMLElement;
     const heading: HTMLElement = createElem('h2', 'filters__heading');
+
     heading.textContent = 'Фильтры';
     filtersContainer.replaceChild(heading, resetBtn);
   } else {
@@ -15,6 +16,7 @@ export const updateResetFiltersBtn = (): void => {
     const resetBtnContainer: HTMLElement = createElem('div', 'filters__reset');
     const resetBtn: HTMLElement = createElem('div', 'filters__reset-btn');
     const resetIcon: HTMLElement = createElem('p', 'filters__reset-icon');
+
     resetIcon.innerHTML = '╳';
     resetBtn.append(resetIcon);
     const resetTitle: HTMLElement = createElem('span', 'filters__reset-title');

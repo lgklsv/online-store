@@ -17,7 +17,6 @@ export const renderSelectView = (node: NodeListOf<ChildNode>): HTMLElement => {
   cardSizeNine.append(nineLabel);
   cardSizeNine.classList.add('active-view');
 
-  // TODO -оптимизировать и убрать повторение - вынести в функцию
   const cardSizeFour: HTMLElement = createElem('div', 'select-view__card-size');
   const fourLabel: HTMLElement = createElem('label', styles['card-size__label']);
   fourLabel.setAttribute('id', 'card-size-four');

@@ -1,11 +1,8 @@
 import { createElem } from '../../../../../../utils/create-element';
 import { onLoadPage } from '../../../../../../utils/onload-data-product';
 import { updateComponent } from '../../../../../../utils/update-component';
-import {
-  renderInformationAboutProducts,
-  renderPriceProducts,
-  renderTitle,
-} from './components/InfoDescriptions/InfoDescriptions';
+import { renderInformationAboutProducts } from './components/InfoAboutProducts/InfoAboutProducts';
+import { renderTitle } from './components/InfoTitle/InfoTitle';
 import {
   renderOrderAddCart,
   renderOrderButton,
@@ -13,6 +10,7 @@ import {
 } from './components/InfoOrderProducts/InfoOrderProducts';
 import { helperForSize, renderSize } from './components/InfoSize/InfoSize';
 import styles from './Information.module.scss';
+import { renderPriceProducts } from './components/InfoPriceProduct/InfoPriceProduct';
 
 export const renderInformationProduct = (product: ExtendedProduct): HTMLElement => {
   const informationContainer: HTMLElement = createElem('div', styles['product-page__info-container']);

@@ -14,7 +14,7 @@ const config: Configuration = {
   entry: entryPath,
   output: {
     filename: '[name].bundle.js',
-    // publicPath: '/',
+    publicPath: '/',
     path: bundlePath,
     clean: true,
   },

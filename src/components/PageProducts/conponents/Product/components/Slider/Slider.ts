@@ -30,7 +30,8 @@ export const rendreSliderProduct = (product: ExtendedProduct): HTMLElement => {
 
     zoomRegion.onmousemove = (event) => {
       if (!zoomRegion.classList.contains('cursor')) {
-        return (productImage.style.transform = `translate(-50%, -50%) scale(1)`);
+        productImage.style.transform = `translate(-50%, -50%) scale(1)`;
+        return;
       }
       let clientX: number = event.clientX - zoomRegion.offsetLeft;
       let clientY: number = event.clientY - zoomRegion.offsetTop;
