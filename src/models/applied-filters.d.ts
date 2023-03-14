@@ -1,3 +1,3 @@
 interface AppliedFilters {
-    [key: string]: (string | number | SortTypes)[];
+  [key: string]: (string | number | SortTypes)[];
 }

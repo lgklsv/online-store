@@ -1,31 +1,39 @@
-import { productsCartData } from '../../const/store';
+import { appliedFilters, productsCartData } from '../../const/store';
+import { route } from '../../router/route';
 import { calcAmountCart } from '../../utils/calculate-amount-cart';
 import { createElem } from '../../utils/create-element';
+import { resetFilters } from '../PageMain/components/FilterFunctions/resetFilters';
 import { renderHeaderCart } from './components/HeaderCart/HeaderCart';
 import styles from './Header.module.scss';
 
 export const renderHeader = (): HTMLElement => {
-    const header: HTMLElement = createElem('header', 'header');
+  const header: HTMLElement = createElem('header', 'header');
 
-    const headerContainer: HTMLElement = createElem('div', 'header__container');
+  const headerContainer: HTMLElement = createElem('div', 'header__container');
 
-    const storeName: HTMLElement = createElem('div', 'header__store-name');
-    const storeLogoLink: HTMLElement = createElem('a', styles['store-name__link']);
-    storeLogoLink.setAttribute('href', '/');
+  const storeName: HTMLElement = createElem('div', 'header__store-name');
+  const storeLogoLink: HTMLElement = createElem('a', styles['store-name__link']);
+  storeLogoLink.setAttribute('href', '/');
 
-    storeName.append(storeLogoLink);
+  storeLogoLink.onclick = (e: Event) => {
+    e.preventDefault();
+    resetFilters(appliedFilters);
+    route('/');
+  };
 
-    const totalSumm: HTMLElement = createElem('div', 'header__total-summ');
-    const summHeader: HTMLElement = createElem('div', 'total-summ__header');
-    summHeader.innerHTML = 'Сумма корзины';
+  storeName.append(storeLogoLink);
 
-    const summ: HTMLElement = createElem('div', 'total-summ__num');
-    summ.innerHTML = calcAmountCart(productsCartData.productsInCart) + ' ₽';
-    totalSumm.append(summHeader, summ);
+  const totalSumm: HTMLElement = createElem('div', 'header__total-summ');
+  const summHeader: HTMLElement = createElem('div', 'total-summ__header');
+  summHeader.innerHTML = 'Сумма корзины';
 
-    const cart = renderHeaderCart();
-    headerContainer.append(storeName, totalSumm, cart);
-    header.append(headerContainer);
+  const summ: HTMLElement = createElem('div', 'total-summ__num');
+  summ.innerHTML = `${calcAmountCart(productsCartData.productsInCart)} ₽`;
+  totalSumm.append(summHeader, summ);
 
-    return header;
+  const cart = renderHeaderCart();
+  headerContainer.append(storeName, totalSumm, cart);
+  header.append(headerContainer);
+
+  return header;
 };

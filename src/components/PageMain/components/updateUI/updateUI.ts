@@ -13,38 +13,38 @@ import { updateViewUI } from './components/updateViewUI';
 
 /** Функция которая принимает объект с данными после филтраци и обновляет UI по всей сранице */
 export const updateUI = (data: ExtendedProduct[]) => {
-    // Обновляем индикатор количества товаров
-    const itemsAmountEl = document.querySelector('.toolbar__quantity') as HTMLElement;
-    itemsAmountEl.innerHTML = `Всего: ${data.length}`;
+  // Обновляем индикатор количества товаров
+  const itemsAmountEl = document.querySelector('.toolbar__quantity') as HTMLElement;
+  itemsAmountEl.innerHTML = `Всего: ${data.length}`;
 
-    // Обновляем кнопку сбросить фильтры
-    updateResetFiltersBtn();
+  // Обновляем кнопку сбросить фильтры
+  updateResetFiltersBtn();
 
-    // Обновляем кнопу копирования ссылки
-    updateCopyFiltersBtn();
+  // Обновляем кнопу копирования ссылки
+  updateCopyFiltersBtn();
 
-    // Обновляем range фильтры
-    // Price
-    updateRangeFiltersUI(getPriceValues(data), 'price');
-    // Stock
-    updateRangeFiltersUI(getStockValues(data), 'stock');
+  // Обновляем range фильтры
+  // Price
+  updateRangeFiltersUI(getPriceValues(data), 'price');
+  // Stock
+  updateRangeFiltersUI(getStockValues(data), 'stock');
 
-    // Обновляем checkbox фильтры
-    // Category
-    const categoryAmountOfProps = getAmountOfProps(store.sorted, getCategoties(store.sorted), 'category');
-    updateCheckboxFiltersUI(categoryAmountOfProps, data, 'category');
-    // Brand
-    const brandAmountOfProps = getAmountOfProps(store.sorted, getBrands(store.sorted), 'brand');
-    updateCheckboxFiltersUI(brandAmountOfProps, data, 'brand');
+  // Обновляем checkbox фильтры
+  // Category
+  const categoryAmountOfProps = getAmountOfProps(store.sorted, getCategoties(store.sorted), 'category');
+  updateCheckboxFiltersUI(categoryAmountOfProps, data, 'category');
+  // Brand
+  const brandAmountOfProps = getAmountOfProps(store.sorted, getBrands(store.sorted), 'brand');
+  updateCheckboxFiltersUI(brandAmountOfProps, data, 'brand');
 
-    // Обновляем строку поиска
-    const searchBar = document.querySelector('.search-product__input') as HTMLInputElement;
-    const searchValue = getPropValue('input');
-    if (Array.isArray(searchValue)) searchBar.value = searchValue[0].toString();
+  // Обновляем строку поиска
+  const searchBar = document.querySelector('.search-product__input') as HTMLInputElement;
+  const searchValue = getPropValue('input');
+  if (Array.isArray(searchValue)) searchBar.value = searchValue[0].toString();
 
-    // Обновляем элемент сортировки
-    updateSortFilterUI();
+  // Обновляем элемент сортировки
+  updateSortFilterUI();
 
-    // Обновляем выбор вида
-    updateViewUI();
+  // Обновляем выбор вида
+  updateViewUI();
 };

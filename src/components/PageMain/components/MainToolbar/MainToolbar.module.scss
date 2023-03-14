@@ -1,20 +1,19 @@
 @import '/src/theme/variable';
 
 .main__toolbar {
-    display: flex;
-    align-items: center;
-    gap: 1rem; //TODO - изменить размер отступа
-    padding-top: 1.5rem;
-    justify-content: flex-end;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 1rem; //TODO - изменить размер отступа
+  padding-top: 1.5rem;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .toolbar__quantity {
-    width: 6rem;
-    display: flex;
-    align-items: center;
-    // width: auto;
-    padding-right: 0.8rem;
-    @extend %border-for-toolbar;
+  width: 6rem;
+  display: flex;
+  align-items: center;
+  padding-right: 0.8rem;
+  @extend %border-for-toolbar;
 }

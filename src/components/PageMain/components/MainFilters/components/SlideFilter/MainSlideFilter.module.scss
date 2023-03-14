@@ -1,104 +1,104 @@
 @import '/src/theme/variable';
 
 .slide-filter {
-    padding: 0 1.3rem 0 0.5rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding-bottom: 1.5rem;
+  padding: 0 1.3rem 0 0.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-bottom: 1.5rem;
 }
 
 .slide-filter__numbers {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .slide-filter-num {
-    position: relative;
+  position: relative;
 }
 
 .slide-filter-num__title {
-    color: $light-text;
-    font-size: 0.8rem;
+  color: $light-text;
+  font-size: 0.8rem;
 }
 
 .slide-filter-num__input-wrap_cash::after {
-    content: '₽';
-    position: absolute;
-    left: 0px;
-    top: 21px;
-    color: $light-text;
-    font-size: 1.1rem;
+  content: '₽';
+  position: absolute;
+  left: 0px;
+  top: 21px;
+  color: $light-text;
+  font-size: 1.1rem;
 }
 
 .slide-filter-num__input-wrap_stock::after {
-    content: '📦';
-    position: absolute;
-    left: 0px;
-    top: 25px;
-    font-size: 0.65rem;
+  content: '📦';
+  position: absolute;
+  left: 0px;
+  top: 25px;
+  font-size: 0.65rem;
 }
 
 .slide-filter-num__input {
-    -webkit-appearance: none;
-    outline: none;
-    border: none;
-    color: $light-text;
-    font-size: 0.8rem;
-    background: none;
-    margin-left: 1rem;
-    width: 80px;
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
+  color: $light-text;
+  font-size: 0.8rem;
+  background: none;
+  margin-left: 1rem;
+  width: 80px;
 }
 
 .slide-filter-num__input::-webkit-outer-spin-button,
 .slide-filter-num__input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .slide-filter__slider {
-    height: 5px;
-    border-radius: 5px;
-    background-color: $grey;
-    width: 100%;
-    margin-top: 1rem;
-    position: relative;
+  height: 5px;
+  border-radius: 5px;
+  background-color: $grey;
+  width: 100%;
+  margin-top: 1rem;
+  position: relative;
 }
 
 .slide-filter__slider .progress {
-    height: 5px;
-    border-radius: 5px;
-    background-color: $black;
-    position: absolute;
-    left: 0;
-    right: 0;
+  height: 5px;
+  border-radius: 5px;
+  background-color: $black;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .slide-filter__ranges {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .slide-filter__range-input {
-    position: absolute;
-    top: -5px;
-    height: 5px;
-    width: 100%;
-    pointer-events: none;
-    -webkit-appearance: none;
-    background: none;
+  position: absolute;
+  top: -5px;
+  height: 5px;
+  width: 100%;
+  pointer-events: none;
+  -webkit-appearance: none;
+  background: none;
 }
 
 .slide-filter__range-input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 14px;
-    width: 14px;
-    background: $black;
-    pointer-events: auto;
-    border-radius: 35%;
-    cursor: pointer;
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  background: $black;
+  pointer-events: auto;
+  border-radius: 35%;
+  cursor: pointer;
 }

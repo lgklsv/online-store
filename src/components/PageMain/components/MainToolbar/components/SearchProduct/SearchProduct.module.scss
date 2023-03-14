@@ -1,19 +1,19 @@
 @import '/src/theme/variable';
 
 .toolbar__search-product {
-    width: 20rem; //TODO - исправить размер
-    display: flex;
-    align-items: center;
-    padding-right: 0.8rem;
-    @extend %border-for-toolbar;
+  width: 20rem; //TODO - исправить размер
+  display: flex;
+  align-items: center;
+  padding-right: 0.8rem;
+  @extend %border-for-toolbar;
 }
 
 .search-product__input {
-    height: 100%;
-    width: 100%;
-    margin: 0px auto;
-    color: $primary-80;
-    outline: none;
-    border: none;
-    background-color: inherit;
+  height: 100%;
+  width: 100%;
+  margin: 0px auto;
+  color: $primary-80;
+  outline: none;
+  border: none;
+  background-color: inherit;
 }

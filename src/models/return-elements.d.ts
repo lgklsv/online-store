@@ -1,3 +1,3 @@
 interface ReturnElements {
-    [key: string]: HTMLElement;
+  [key: string]: HTMLElement;
 }

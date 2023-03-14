@@ -1,2 +1,1 @@
-export const storeName: string = 'markett';
-export const space = '&nbsp;';
+export const storeName = 'markett';

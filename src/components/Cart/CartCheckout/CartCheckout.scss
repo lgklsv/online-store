@@ -1,65 +1,66 @@
 @import '/src/theme/variable';
 
 .cart__checkout {
-    background-color: $white;
-    border-radius: 5px;
-    padding: 1.6rem 1rem;
+  background-color: $white;
+  border-radius: 5px;
+  padding: 1.6rem 1rem;
 }
 
 .checkout-coupon {
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .checkout-coupon__title {
-    font-size: 0.9rem;
-    padding-bottom: 0.5rem;
+  font-size: 0.9rem;
+  padding-bottom: 0.5rem;
 
-    &:last-child {
-        color: $orange;
-    }
+  &:last-child {
+    color: $orange;
+  }
 }
 
 .checkout-coupon__title-wrapper {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .checkout-coupon__body {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .checkout-coupon__input {
-    width: 215px;
-    height: 48px;
-    padding: 1rem;
-    outline: none;
-    border: 1px solid $light-grey;
-    border-radius: 5px;
+  width: 215px;
+  height: 48px;
+  padding: 1rem;
+  outline: none;
+  border: 1px solid $light-grey;
+  border-radius: 5px;
 
-    &:focus {
-        border: 1px solid transparent;
-        box-shadow: 0 0 0 1px $black;
-    }
+  &:focus {
+    border: 1px solid transparent;
+    box-shadow: 0 0 0 1px $black;
+  }
 }
 
 .checkout-coupon__btn {
-    @include btn($black, $light-grey, $grey); //btn-grey
-    height: 48px;
-    padding: 0.5rem;
-    flex-grow: 1;
+  @include btn($black, $light-grey, $grey); //btn-grey
+  height: 48px;
+  padding: 0.5rem;
+  flex-grow: 1;
 
-    &:disabled {
-        background-color: $light-grey;
-        color: $light-text;
-    }
+  &:disabled {
+    background-color: $light-grey;
+    color: $light-text;
+    cursor: auto;
+  }
 }
 
 .cart__checkout-btn {
-    @include btn($white, $black, $primary-80);
-    width: 100%;
-    margin-top: 1rem;
+  @include btn($white, $black, $primary-80);
+  width: 100%;
+  margin-top: 1rem;
 }

@@ -6,24 +6,24 @@ import { updateCartItems } from '../PaginationBtns/components/update-rendered-it
 import { updatePaginationBtns } from '../PaginationBtns/components/update-paginaiton-btns';
 
 export const renderLimits = (limit: number): HTMLElement => {
-    const limitContainer: HTMLElement = createElem('div', styles['cart__limit']);
-    const limitHeader: HTMLElement = createElem('p', 'cart__limit-heading');
-    limitHeader.innerHTML = 'Показывать на странице';
-    const limitInput: HTMLElement = createInput('number', 'cart__limit-input', limit.toString());
-    limitInput.setAttribute('min', '1');
+  const limitContainer: HTMLElement = createElem('div', styles['cart__limit']);
+  const limitHeader: HTMLElement = createElem('p', 'cart__limit-heading');
+  limitHeader.innerHTML = 'Показывать на странице';
+  const limitInput: HTMLElement = createInput('number', 'cart__limit-input', limit.toString());
+  limitInput.setAttribute('min', '1');
 
-    limitInput.onchange = (e: Event): void => {
-        const target = e.target as HTMLInputElement;
+  limitInput.onchange = (e: Event): void => {
+    const target = e.target as HTMLInputElement;
 
-        if (!/^[1-9]+[0-9]*$/.test(target.value)) target.value = '1';
+    if (!/^[1-9]+[0-9]*$/.test(target.value)) target.value = '1';
 
-        pagination.limit = +target.value;
+    pagination.limit = +target.value;
 
-        updatePaginationBtns();
-        updateCartItems();
-    };
+    updatePaginationBtns();
+    updateCartItems();
+  };
 
-    limitContainer.append(limitHeader, limitInput);
+  limitContainer.append(limitHeader, limitInput);
 
-    return limitContainer;
+  return limitContainer;
 };

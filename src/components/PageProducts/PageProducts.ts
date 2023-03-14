@@ -4,16 +4,16 @@ import { renderProductPageToolbar } from './conponents/Toolbar/Toolbar';
 import styles from './PageProducts.module.scss';
 
 export const renderProductPage = (product: ExtendedProduct): HTMLElement => {
-    const main: HTMLElement = createElem('main', styles['main']);
-    main.classList.add(styles['main__page-products']);
-    const pageProdContainer: HTMLElement = createElem('div', styles['page-main__container']);
+  const main: HTMLElement = createElem('main', styles['main']);
+  main.classList.add(styles['main__page-products']);
+  const pageProdContainer: HTMLElement = createElem('div', styles['page-main__container']);
 
-    const toolbar: HTMLElement = renderProductPageToolbar(product);
-    const productData: HTMLElement = renderProduct(product);
+  const toolbar: HTMLElement = renderProductPageToolbar(product);
+  const productData: HTMLElement = renderProduct(product);
 
-    pageProdContainer.append(toolbar, productData);
+  pageProdContainer.append(toolbar, productData);
 
-    main.append(pageProdContainer);
+  main.append(pageProdContainer);
 
-    return main;
+  return main;
 };
