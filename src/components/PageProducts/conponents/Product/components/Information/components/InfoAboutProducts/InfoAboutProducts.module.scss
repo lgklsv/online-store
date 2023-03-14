@@ -1,0 +1,112 @@
+@import '/src/theme/variable';
+
+.product-page__data {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.product-page__data-item {
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0 1.6rem;
+  border-bottom: 1px solid $primaty-5;
+  font-size: 1rem;
+  line-height: 1.7rem;
+  font-weight: 400;
+}
+
+.product-page__data-item-title,
+.product-page__data-item-value {
+  margin-bottom: 0.1rem;
+  padding: 0.5rem 0;
+}
+
+.product-page__data-item-title {
+  color: $light-text;
+  position: relative;
+}
+
+.item-descriprions {
+  display: block;
+  position: relative;
+}
+
+.show-descriptions {
+  &::after {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    width: 13px;
+    height: 1px;
+    background-color: #c4c4c4;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transition: transform 0.5s ease;
+  }
+
+  &::before {
+    width: 13px;
+    height: 1px;
+    background-color: #c4c4c4;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transition: transform 0.5s ease;
+  }
+}
+
+.active-desc {
+  &::after {
+    transform: rotate(0deg);
+  }
+}
+.product-page__data-item-body {
+  overflow: hidden;
+  height: 0px;
+  transition-property: height, margin, padding;
+  transition-duration: 500ms;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  transition: height 0.5s;
+}
+
+.product-menu__content {
+  padding-top: 1.6rem;
+  cursor: default;
+}
+
+.content__data-item {
+  color: inherit;
+  padding-bottom: 2.4rem;
+}
+
+.content-item {
+  font-size: 14px;
+  list-style: none;
+  position: relative;
+  padding-left: 1.2rem;
+  padding-bottom: 0.2rem;
+
+  &::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.1rem;
+    position: absolute;
+    top: 0.78rem;
+    left: 0;
+    background-color: $primary-70;
+  }
+}
+
+.show_content {
+  overflow: hidden;
+  height: 332px;
+}

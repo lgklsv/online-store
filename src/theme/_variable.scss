@@ -1,0 +1,73 @@
+@import '/src/theme/colors';
+
+$desktop: 1200px;
+$footer-height: 70px;
+$header-height: 80px;
+
+%border-for-toolbar {
+  border: 1px solid $primary10;
+  padding-left: 0.8rem;
+  height: 2.2rem;
+  font-size: 12px;
+  border-radius: 0.4rem;
+}
+
+%heading-m {
+  font-size: 1.1rem;
+  margin: 0 1.3rem 1rem 0.5rem;
+  color: $black;
+  font-weight: 400;
+}
+
+%input {
+  width: 215px;
+  height: 48px;
+  padding: 1rem;
+  outline: none;
+  border: 1px solid $light-grey;
+  border-radius: 5px;
+
+  &:focus {
+    border: 1px solid transparent;
+    box-shadow: 0 0 0 1px $black;
+  }
+}
+
+@mixin btn($color, $background-color, $hover-background-color) {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  color: $color;
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: $background-color;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $hover-background-color;
+  }
+}
+
+@mixin show-size($margin, $gap) {
+  margin-top: $margin;
+  display: flex;
+  gap: $gap;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin size($padding, $heigth) {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  @extend %border-for-toolbar;
+  padding-left: $padding;
+  padding-right: $padding;
+  height: $heigth;
+  background-color: $primaty-5;
+
+  &:active {
+    background-color: $white;
+  }
+}

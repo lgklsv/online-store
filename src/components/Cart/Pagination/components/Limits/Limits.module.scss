@@ -1,0 +1,30 @@
+@import '/src/theme/variable';
+
+.cart__limit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0.5rem 1rem 0;
+}
+
+.cart__limit-heading {
+  font-size: 0.9rem;
+}
+
+.cart__limit-input {
+  -webkit-appearance: none;
+  border: none;
+  background-color: $background;
+  width: 2.6rem;
+  text-align: center;
+  margin-left: 1rem;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.102);
+  border-radius: 5px;
+  padding: 0.1rem;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    opacity: 1;
+  }
+}

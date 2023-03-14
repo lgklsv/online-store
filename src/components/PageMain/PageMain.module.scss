@@ -1,0 +1,18 @@
+@import '/src/theme/variable';
+
+.main {
+  background-color: $background;
+}
+
+.main__container {
+  max-width: $desktop;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 0.75fr 3fr;
+}
